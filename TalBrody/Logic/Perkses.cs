@@ -12,7 +12,14 @@ namespace TalBrody.Logic
 		public static List<Perks> GetAllPerksByProjectId(int ProjectId)
 		{
 			PerksDal dal = new PerksDal();
-			return dal.GetAllPerksByProjectId(ProjectId);
+			List<Perks> PeksList = dal.GetAllPerksByProjectId(ProjectId);
+			int Counter = 1;
+			foreach (Perks item in PeksList)
+			{
+				item.CounterId = Counter;
+				Counter++;
+			}
+			return PeksList;
 		}
 	}
 }

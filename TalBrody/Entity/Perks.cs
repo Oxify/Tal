@@ -13,5 +13,6 @@ namespace TalBrody.Entity
 		public int Cost { get; set; }
 		public int ShowOrder { get; set; }
 		public int ProjectId { get; set; }
+		public int CounterId { get; set; }
 	}
 }

@@ -63,44 +63,10 @@
 									<br />
 									<br />
 								</div>
+								<br />
 							</ItemTemplate>
 							<FooterTemplate></FooterTemplate>
 						</asp:Repeater>
-						<div style="background-color: white; padding: 15px">
-							<br />
-							<br />
-							<h2>Perk #1: Get early access</h2>
-							<h4>Reach 10 credits to get this perk!</h4>
-							<br />
-							<br />
-						</div>
-						<br />
-						<div style="background-color: white; padding: 15px">
-							<br />
-							<br />
-							<h2>Perk #2: Thank you email</h2>
-							<h4>Reach 25 credits to get this perk!</h4>
-							<br />
-							<br />
-						</div>
-						<br />
-						<div style="background-color: white; padding: 15px">
-							<br />
-							<br />
-							<h2>Perk #3: Personal autograph on the book</h2>
-							<h4>Reach 50 credits to get this perk!</h4>
-							<br />
-							<br />
-						</div>
-						<br />
-						<div style="background-color: white; padding: 15px">
-							<br />
-							<br />
-							<h2>Perk #4: Invitation to party</h2>
-							<h4>Reach 150 credits to get this perk!</h4>
-							<br />
-							<br />
-						</div>
 					</div>
 				</div>
 			</div>
