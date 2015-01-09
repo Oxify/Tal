@@ -31,5 +31,10 @@ namespace fblogin
 			}
 
 		}
+
+		protected void rpt_perks_ItemDataBound(object sender, RepeaterItemEventArgs e)
+		{
+
+		}
 	}
 }
