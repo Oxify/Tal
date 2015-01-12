@@ -60,6 +60,7 @@
   <ItemGroup>
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
+    <Content Include="Css\Brody.css" />
     <Content Include="MainPage.aspx" />
     <Content Include="ConseptData.aspx" />
     <Content Include="Defaulte.aspx" />

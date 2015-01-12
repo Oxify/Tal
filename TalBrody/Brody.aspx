@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+	<link href="Css/Brody.css" rel="stylesheet" />
 	<div style="margin: 0px auto; min-height: 1000px; width: 1002px; max-width: 1002px; padding-left: 12px; padding-right: 12px;">
 		<div style="text-align: center;">
 			<h1 style="font-weight: bold; font-family: Arial, Helvetica, sans-serif">Tal Brody - The Ambassador
