@@ -1,2 +1,20 @@
 ﻿body {
 }
+
+#wrapper {
+     width: 1105px;
+     margin: 0 auto;
+    background-color: #E2E2E2;
+}
+#leftcolumn, #rightcolumn {
+    float: left;
+    min-height: 450px;
+}
+#leftcolumn {
+     width: 700px;
+}
+
+#rightcolumn {
+     width: 300px;
+
+}

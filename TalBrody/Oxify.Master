@@ -30,10 +30,13 @@
     <br />
     <br />
     <br />
-    <hr />
+    <div style="margin: 0px auto">
+        <hr />
+    </div>
     <div style="text-align: center; width: 1008px; margin: 0px auto">
         This is the footer<br />
-        We will have here important links and stuff <br/>
+        We will have here important links and stuff
+        <br />
         Things like how kaka is ziv
     </div>
 </footer>

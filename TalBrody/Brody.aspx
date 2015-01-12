@@ -9,13 +9,15 @@
 			</h1>
 			<br />
 		</div>
-		<div>
-			<div style="width: 750px">
+		<div id="wrapper">
+			<div id="leftcolumn" style="width: 700px">
 				<iframe width="620" height="413" src="//www.youtube.com/embed/VEm1rDbwp9Y" frameborder="0" allowfullscreen></iframe>
 
 				<br />
 			</div>
-			<div style="float: right; margin-top: -417px; margin-right: -120px; background-color: #E2E2E2">
+			<div id="rightcolumn" >
+<!--                style="float: right; margin-top: -417px; margin-right: -120px; -->
+                
 				<div style="margin: 0px auto; padding: 15px">
 					<div style="background-color: white; padding: 15px">
 						<br />
