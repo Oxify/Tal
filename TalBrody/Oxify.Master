@@ -4,40 +4,38 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-
+	<title></title>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-    <div>
-        <div style="text-align: center; width: 1008px; margin: 0px auto">
-            This is the header<br />
-            We will have here the logo and stuff 
+	<div>
+		<div style="text-align: center; width: 1008px; margin: 0px auto">
+			This is the header<br />
+			We will have here the logo and stuff 
     
-        </div>
-        <hr />
+		</div>
+		<hr />
 
-    </div>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
-<footer>
-    <br />
-    <br />
-    <br />
-    <div style="margin: 0px auto">
-        <hr />
-    </div>
-    <div style="text-align: center; width: 1008px; margin: 0px auto">
-        This is the footer<br />
-        We will have here important links and stuff
+	</div>
+	<form id="form1" runat="server">
+		<div>
+			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+			</asp:ContentPlaceHolder>
+		</div>
+		<footer>
+
+			<div style="margin: 0px auto">
+				<hr />
+			</div>
+			<div style="text-align: center; width: 1008px; margin: 0px auto">
+				This is the footer<br />
+				We will have here important links and stuff
         <br />
-        Things like how kaka is ziv
-    </div>
-</footer>
+				Things like how kaka is ziv
+			</div>
+		</footer>
+	</form>
 </body>
 </html>

@@ -9,14 +9,13 @@
 			</h1>
 			<br />
 		</div>
-		<div id="wrapper">
-			<div id="leftcolumn" style="width: 700px">
+		<div>
+			<div style="width: 750px">
 				<iframe width="620" height="413" src="//www.youtube.com/embed/VEm1rDbwp9Y" frameborder="0" allowfullscreen></iframe>
 
 				<br />
 			</div>
-			<div id="rightcolumn" >
-                
+			<div style="width: 300px; margin-top: -417px; margin-left: 700px; background-color: #E2E2E2">
 				<div style="margin: 0px auto; padding: 15px">
 					<div style="background-color: white; padding: 15px">
 						<br />
@@ -65,5 +64,6 @@
 	</div>
 
 </asp:Content>
+
 
 
