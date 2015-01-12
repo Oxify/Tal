@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="Oxify.Master.cs">
       <DependentUpon>Oxify.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Oxify.Master.designer.cs">
       <DependentUpon>Oxify.Master</DependentUpon>
