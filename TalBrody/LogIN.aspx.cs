@@ -34,5 +34,15 @@ namespace fblogin
 				throw ex;
 			}
 		}
+
+	    protected void loginButton_Click(object sender, EventArgs e)
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    protected void openidValidator_ServerValidate(object source, ServerValidateEventArgs args)
+	    {
+	        throw new NotImplementedException();
+	    }
 	}
 }
