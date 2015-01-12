@@ -16,7 +16,6 @@
 				<br />
 			</div>
 			<div id="rightcolumn" >
-<!--                style="float: right; margin-top: -417px; margin-right: -120px; -->
                 
 				<div style="margin: 0px auto; padding: 15px">
 					<div style="background-color: white; padding: 15px">

@@ -8,6 +8,8 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
+</head>
+<body>
     <div>
         <div style="text-align: center; width: 1008px; margin: 0px auto">
             This is the header<br />
@@ -17,15 +19,12 @@
         <hr />
 
     </div>
-</head>
-<body>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
-</body>
 <footer>
     <br />
     <br />
@@ -40,4 +39,5 @@
         Things like how kaka is ziv
     </div>
 </footer>
+</body>
 </html>

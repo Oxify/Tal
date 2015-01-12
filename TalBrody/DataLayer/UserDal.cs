@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.OleDb;
@@ -13,6 +14,11 @@ namespace fblogin.DataLayer
 	{
 		public int Get_NmberOf_Follwers_By_Project(int ProjectId)
 		{
+            if (ConfigurationManager.AppSettings["OnAppHarbor"].ToLower() == "true")
+            {
+                return 100;
+            }
+
 			int Result = 0;
 			try
 			{

@@ -1,4 +1,5 @@
-﻿using fblogin.DataLayer;
+﻿using System.Configuration;
+using fblogin.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,6 +14,10 @@ namespace TalBrody.DataLayer
 	{
 		public List<Perks> GetAllPerksByProjectId(int ProjectId)
 		{
+		    if (ConfigurationManager.AppSettings["OnAppHarbor"].ToLower() == "true")
+		    {
+		        return null;
+		    }
 			List<Perks> Result = new List<Perks>();
 			try
 			{
