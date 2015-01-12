@@ -116,9 +116,16 @@
     <Compile Include="LogIN.aspx.designer.cs">
       <DependentUpon>LogIN.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Oxify.Master.cs">
+      <DependentUpon>Oxify.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Oxify.Master.designer.cs">
+      <DependentUpon>Oxify.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Oxify.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
