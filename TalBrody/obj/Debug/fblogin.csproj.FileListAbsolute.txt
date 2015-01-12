@@ -1,5 +1,0 @@
-D:\Workspace\Ziv\fblogin\fblogin\bin\fblogin.dll
-D:\Workspace\Ziv\fblogin\fblogin\bin\fblogin.pdb
-D:\Workspace\Ziv\fblogin\fblogin\obj\Debug\fblogin.csprojResolveAssemblyReference.cache
-D:\Workspace\Ziv\fblogin\fblogin\obj\Debug\fblogin.dll
-D:\Workspace\Ziv\fblogin\fblogin\obj\Debug\fblogin.pdb
