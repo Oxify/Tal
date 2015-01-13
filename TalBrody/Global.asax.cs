@@ -21,8 +21,11 @@ namespace TalBrody
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
 //            BasicConfigurator.Configure();
-            log.Info("Application started, log4net configured");
-            
+            log.Debug("Tetsing DEBUG LOG");
+            log.Info("Testing INFO Log");
+            log.Warn("Testing WARN Log");
+            log.Error("Testing ERROR Log");
+            Console.WriteLine("Testing Console.WriteLine");
         }
 
         protected void Session_Start(object sender, EventArgs e)
