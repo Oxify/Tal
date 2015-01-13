@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Data.SqlServerCe;
@@ -14,6 +15,7 @@ namespace fblogin.DataLayer
 	{
 		public int Get_NmberOf_Follwers_By_Project(int ProjectId)
 		{
+            Trace.TraceError("Number of followers, OnAppHarbor = " + ConfigurationManager.AppSettings["OnAppHarbor"]);
             if (ConfigurationManager.AppSettings["OnAppHarbor"].ToLower() == "true")
             {
                 return 100;
