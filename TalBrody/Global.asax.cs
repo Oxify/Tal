@@ -22,16 +22,8 @@ namespace TalBrody
             // Set up a simple configuration that logs on the console.
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
-//            BasicConfigurator.Configure();
-            log.Debug("Tetsing DEBUG LOG");
-            log.Info("Testing INFO Log");
-            log.Warn("Testing WARN Log");
-            log.Error("Testing ERROR Log");
-            Console.WriteLine("Testing Console.WriteLine");
-            log.Info("Application started, log4net configured");
-            
             string OnAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
-            Trace.TraceError("TraceError: application started, OnAppHarbor = " + OnAppHarbor);
+            log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
         }
 
         protected void Session_Start(object sender, EventArgs e)
