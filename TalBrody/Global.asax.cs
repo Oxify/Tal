@@ -23,7 +23,9 @@ namespace TalBrody
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
             string onAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
+            log.Info("--------------------------------------");
             log.Info("------- STARTED APP, OnAppHarbor = " + onAppHarbor);
+            log.Info("--------------------------------------");
         }
 
         protected void Session_Start(object sender, EventArgs e)
