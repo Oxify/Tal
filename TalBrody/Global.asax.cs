@@ -8,6 +8,8 @@ using System.Web.SessionState;
 using log4net;
 using log4net.Config;
 using log4net.Repository.Hierarchy;
+using System.Diagnostics;
+using System.Configuration;
 
 namespace TalBrody
 {
@@ -26,6 +28,10 @@ namespace TalBrody
             log.Warn("Testing WARN Log");
             log.Error("Testing ERROR Log");
             Console.WriteLine("Testing Console.WriteLine");
+            log.Info("Application started, log4net configured");
+            
+            string OnAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
+            Trace.TraceError("TraceError: application started, OnAppHarbor = " + OnAppHarbor);
         }
 
         protected void Session_Start(object sender, EventArgs e)
