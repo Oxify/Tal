@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Data.SqlServerCe;
+using System.Web.UI.HtmlControls;
 using fblogin.Entity;
 using log4net;
 
@@ -31,14 +32,14 @@ namespace fblogin.DataLayer
 			int Result = 0;
 			try
 			{
-				using (var myConnection = GetPortalConnection())
+				using (var conn = GetPortalConnection())
 				{
                     // TODO Fix SQL Injection
-					var myCommand = new SqlCeCommand("select count(*) from Follwers where ProjectId = " + ProjectId, myConnection);
+					var cmd = new SqlCeCommand("select count(*) from Follwers where ProjectId = " + ProjectId, conn);
 					//myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
-					myCommand.CommandType = CommandType.Text;
-					myConnection.Open();
-					Result = int.Parse(myCommand.ExecuteScalar().ToString());					
+					cmd.CommandType = CommandType.Text;
+					conn.Open();
+					Result = int.Parse(cmd.ExecuteScalar().ToString());					
 				//	Result = int.Parse(myCommand.Parameters["@ProjectId"].ToString());
 
 				}
@@ -52,17 +53,14 @@ namespace fblogin.DataLayer
 
 	    public User FindUserByEmail(string email)
 	    {
-            using (var myConnection = GetPortalConnection())
+            using (var conn = GetPortalConnection())
             {
-                // TODO Fix SQL Injection
-//                var myCommand = new SqlCeCommand("select Id, Email from Users where Email = " + email, myConnection);
-                var myCommand = new SqlCeCommand("select Id, Email from Users where Email = @Email", myConnection);
-                myCommand.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
-
-                myCommand.CommandType = CommandType.Text;
-
-                myConnection.Open();
-                var reader = myCommand.ExecuteReader();
+                var cmd = new SqlCeCommand("select Id, Email from Users where Email = @Email", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Email", email);
+                
+                conn.Open();
+                var reader = cmd.ExecuteReader();
                 if (!reader.Read())
                 {
                     return null;
@@ -76,5 +74,22 @@ namespace fblogin.DataLayer
                 return user;
             }
 	    }
-	}
+
+	    public void CreateUser(string email, string displayName)
+	    {
+	        using (var conn = GetPortalConnection())
+	        {
+                var cmd = new SqlCeCommand("insert into Users (Email, DisplayName) values (@Email, @DisplayName)", conn);
+                cmd.CommandType = CommandType.Text;
+	            cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@DisplayName", displayName);
+                conn.Open();
+	            var result = cmd.ExecuteNonQuery();
+	            if (result != 1)
+	            {
+	                throw new Exception("Expected result 1, got " + result);
+	            }
+	        }
+	    }
+    }
 }
