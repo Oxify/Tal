@@ -14,6 +14,7 @@ namespace fblogin.DataLayer
 	{
 		public int Get_NmberOf_Follwers_By_Project(int ProjectId)
 		{
+            Console.WriteLine("Number of followers, OnAppHarbor = " + ConfigurationManager.AppSettings["OnAppHarbor"]);
             if (ConfigurationManager.AppSettings["OnAppHarbor"].ToLower() == "true")
             {
                 return 100;
