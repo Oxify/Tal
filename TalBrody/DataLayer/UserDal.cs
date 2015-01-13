@@ -8,14 +8,19 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Data.SqlServerCe;
+using log4net;
 
 namespace fblogin.DataLayer
 {
 	public class UserDal : BaseDal
-	{
+    {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
 		public int Get_NmberOf_Follwers_By_Project(int ProjectId)
 		{
-            Trace.TraceError("Number of followers, OnAppHarbor = " + ConfigurationManager.AppSettings["OnAppHarbor"]);
+		    string OnAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
+            log.Info("Log4Net: Number of followers, OnAppHarbor = "+  OnAppHarbor);
+            Trace.TraceError("TraceError: Number of followers, OnAppHarbor = "+  OnAppHarbor);
             if (ConfigurationManager.AppSettings["OnAppHarbor"].ToLower() == "true")
             {
                 return 100;
