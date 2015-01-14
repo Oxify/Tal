@@ -35,5 +35,17 @@ namespace fblogin.DataLayer
 			Perks.Title = dr.GetValue<string>("Title");
 			return Perks;
 		}
+
+		internal static Project Populate_Project(SqlCeDataReader dr)
+		{
+			Project Project = new Project();
+			Project.Description = dr.GetValue<string>("Description");
+			Project.DisplayName = dr.GetValue<string>("DisplayName");
+			Project.id = dr.GetValue<int>("id");
+			Project.LinkUrl = dr.GetValue<string>("LinkUrl");
+			Project.MovieUrl = dr.GetValue<string>("MovieUrl");
+			Project.ShortName = dr.GetValue<string>("ShortName");
+			return Project;
+		}
 	}
 }

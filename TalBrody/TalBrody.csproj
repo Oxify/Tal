@@ -136,6 +136,7 @@
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
     <Content Include="Css\Brody.css" />
+    <Content Include="Index.aspx" />
     <Content Include="MainPage.aspx" />
     <Content Include="ConseptData.aspx" />
     <Content Include="Defaulte.aspx" />
@@ -155,10 +156,20 @@
     <Compile Include="DataLayer\Extensions.cs" />
     <Compile Include="DataLayer\PerksDal.cs" />
     <Compile Include="DataLayer\Populators.cs" />
+    <Compile Include="DataLayer\ProjectDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
     <Compile Include="Entity\Perks.cs" />
+    <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logic\Perkses.cs" />
+    <Compile Include="Logic\Projects.cs" />
     <Compile Include="Logic\Users.cs" />
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
