@@ -1,14 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogIN.aspx.cs" Inherits="fblogin.LogIN" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogIN.aspx.cs" Inherits="fblogin.LogIN" MasterPageFile="Oxify.Master" %>
 <%@ Register TagPrefix="rp" Namespace="DotNetOpenAuth.OpenId.RelyingParty" Assembly="DotNetOpenAuth.OpenId.RelyingParty.UI, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
     <div style="margin-left:500px;margin-top:150px">
         
@@ -46,5 +39,4 @@
         <br />
     </div>
     </form>
-</body>
-</html>
+</asp:Content>
