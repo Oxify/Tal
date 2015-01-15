@@ -149,12 +149,24 @@
     <Content Include="Defaulte.aspx" />
     <Content Include="LogIN.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="sqlceca40.dll" />
-    <Content Include="sqlcecompact40.dll" />
-    <Content Include="sqlceer40EN.dll" />
-    <Content Include="sqlceme40.dll" />
-    <Content Include="sqlceqp40.dll" />
-    <Content Include="sqlcese40.dll" />
+    <Content Include="sqlceca40.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlcecompact40.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlceer40EN.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlceme40.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlceqp40.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlcese40.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
