@@ -47,5 +47,13 @@ namespace fblogin.DataLayer
 			Project.ShortName = dr.GetValue<string>("ShortName");
 			return Project;
 		}
+
+		internal static OxifyParam Populate_OxifyParam(SqlCeDataReader dr)
+		{
+			OxifyParam OxifyParam = new OxifyParam();
+			OxifyParam.DbVersion = dr.GetValue<int>("DbVersion");
+
+			return OxifyParam;
+		}
 	}
 }

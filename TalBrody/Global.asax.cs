@@ -10,12 +10,15 @@ using log4net.Config;
 using log4net.Repository.Hierarchy;
 using System.Diagnostics;
 using System.Configuration;
+using TalBrody.Logic;
+using TalBrody.Entity;
 
 namespace TalBrody
 {
     public class Global : System.Web.HttpApplication
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+		private const int DbVestion = 1;
 
         protected void Application_Start(object sender, EventArgs e)
         {
@@ -26,6 +29,12 @@ namespace TalBrody
             log.Info("--------------------------------------");
             log.Info("------- STARTED APP, OnAppHarbor = " + onAppHarbor);
             log.Info("--------------------------------------");
+			// cheking the db version and upgrade if needed
+			OxifyParam oParm = OxifyParams.GetOxifyParam();
+			if (oParm.DbVersion != DbVestion)
+			{
+
+			}
         }
 
         protected void Session_Start(object sender, EventArgs e)

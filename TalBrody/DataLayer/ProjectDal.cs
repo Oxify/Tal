@@ -38,7 +38,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-
+				log.Error("GetProjectByProjectId Threw: " + ex.ToString());
 				throw ex;
 			}
 			return Pro;
@@ -70,7 +70,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-
+				log.Error("GetAllProject Threw: " + ex.ToString());
 				throw ex;
 			}
 			return ProList;

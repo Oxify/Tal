@@ -6,18 +6,17 @@ using System.Data;
 using System.Data.SqlServerCe;
 using System.Linq;
 using System.Web;
+using log4net;
 using TalBrody.Entity;
 
 namespace TalBrody.DataLayer
 {
 	public class PerksDal: BaseDal
 	{
+       
+
 		public List<Perks> GetAllPerksByProjectId(int ProjectId)
 		{
-		    if (ConfigurationManager.AppSettings["OnAppHarbor"].ToLower() == "true")
-		    {
-		        return null;
-		    }
 			List<Perks> Result = new List<Perks>();
 			try
 			{
@@ -42,7 +41,8 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-				
+                log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
+
 				throw ex;
 			}
 			return Result;
