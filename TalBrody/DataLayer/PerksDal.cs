@@ -12,6 +12,8 @@ namespace TalBrody.DataLayer
 {
 	public class PerksDal: BaseDal
 	{
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
 		public List<Perks> GetAllPerksByProjectId(int ProjectId)
 		{
 			List<Perks> Result = new List<Perks>();
@@ -38,7 +40,8 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-				
+                log.Erorr("GetAllPerksByProjectId Threw: " + ex.ToString());
+
 				throw ex;
 			}
 			return Result;
