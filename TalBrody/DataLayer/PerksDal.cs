@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlServerCe;
 using System.Linq;
 using System.Web;
+using log4net;
 using TalBrody.Entity;
 
 namespace TalBrody.DataLayer
@@ -40,7 +41,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-                log.Erorr("GetAllPerksByProjectId Threw: " + ex.ToString());
+                log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
 
 				throw ex;
 			}
