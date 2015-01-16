@@ -171,6 +171,7 @@
     <Compile Include="Brody.aspx.designer.cs">
       <DependentUpon>Brody.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataLayer\BdHandlinkDal.cs" />
     <Compile Include="DataLayer\Extensions.cs" />
     <Compile Include="DataLayer\OxifyParamDal.cs" />
     <Compile Include="DataLayer\PerksDal.cs" />

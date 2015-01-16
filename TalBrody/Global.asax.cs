@@ -30,11 +30,11 @@ namespace TalBrody
             log.Info("------- STARTED APP, OnAppHarbor = " + onAppHarbor);
             log.Info("--------------------------------------");
 			// cheking the db version and upgrade if needed
-			//OxifyParam oParm = OxifyParams.GetOxifyParam();
-		//	if (oParm.DbVersion != DbVestion)
-		//	{
+			OxifyParam oParm = OxifyParams.GetOxifyParam();
+			if (oParm.DbVersion < DbVestion)
+			{
 
-		//	}
+			}
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Data.SqlServerCe;
+using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using fblogin.Entity;
 using log4net;
