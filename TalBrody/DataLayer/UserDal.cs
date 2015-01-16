@@ -31,8 +31,8 @@ namespace fblogin.DataLayer
 				using (var conn = GetPortalConnection())
 				{
                     // TODO Fix SQL Injection
-					var cmd = new SqlCeCommand("select count(*) from Follwers where ProjectId = " + ProjectId, conn);
-					//myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
+					var cmd = GetCommand("select count(*) from Follwers where ProjectId = @ProjectId", conn);
+					cmd.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
 					cmd.CommandType = CommandType.Text;
 					conn.Open();
 					Result = int.Parse(cmd.ExecuteScalar().ToString());					
@@ -51,7 +51,7 @@ namespace fblogin.DataLayer
 	    {
             using (var conn = GetPortalConnection())
             {
-                var cmd = new SqlCeCommand("select Id, Email from Users where Email = @Email", conn);
+				var cmd = GetCommand("select Id, Email from Users where Email = @Email", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
                 
@@ -75,7 +75,7 @@ namespace fblogin.DataLayer
 	    {
 	        using (var conn = GetPortalConnection())
 	        {
-                var cmd = new SqlCeCommand("insert into Users (Email, DisplayName) values (@Email, @DisplayName)", conn);
+				var cmd = GetCommand("insert into Users (Email, DisplayName) values (@Email, @DisplayName)", conn);
                 cmd.CommandType = CommandType.Text;
 	            cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@DisplayName", displayName);

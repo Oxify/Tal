@@ -12,12 +12,30 @@ namespace fblogin.DataLayer
 {
 	public class BaseDal
 	{
-		public  static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-		public static SqlCeConnection GetPortalConnection()
+		public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+		public static dynamic GetPortalConnection()
 		{
+			string sqlType = ConfigurationManager.AppSettings["Sqlce"];
 			string connectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
-			SqlCeConnection conn = new SqlCeConnection(connectionString);
+			dynamic conn = new SqlCeConnection(connectionString);
+			if (sqlType == "True")
+				conn = new SqlCeConnection(connectionString);
+			else
+				conn = new SqlConnection(connectionString);
 			return conn;
+		}
+
+
+		public static dynamic GetCommand(string Command, dynamic conection)
+		{
+			string sqlType = ConfigurationManager.AppSettings["Sqlce"];
+			dynamic Result = new SqlCeCommand(Command, conection);
+			if (sqlType == "True")
+				Result = new SqlCeCommand(Command, conection);
+			else
+				Result = new SqlCommand(Command, conection);
+
+			return Result;
 		}
 	}
 }

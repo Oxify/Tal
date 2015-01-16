@@ -20,15 +20,16 @@ namespace TalBrody.DataLayer
 			List<Perks> Result = new List<Perks>();
 			try
 			{
-				using (SqlCeConnection myConnection = GetPortalConnection())
+				var myConnection = GetPortalConnection();
+				using (myConnection)
 				{
-					SqlCeCommand myCommand = new SqlCeCommand("select Cost,Description,PerkId,ProjectId,ShowOrder,Title from Perks where ProjectId = " + ProjectId + "order by ShowOrder", myConnection);
-					//myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
+					var myCommand = GetCommand("select Cost,Description,PerkId,ProjectId,ShowOrder,Title from Perks where ProjectId = @ProjectId order by ShowOrder", myConnection);
+					myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
 					myCommand.CommandType = CommandType.Text;
-					SqlCeDataReader dr =null;
+					
 					myConnection.Open();					
 					
-					dr = myCommand.ExecuteReader();
+					var dr = myCommand.ExecuteReader();
 					while (dr.Read())
 					{
 						Result.Add(Populators.Populate_Perks(dr));

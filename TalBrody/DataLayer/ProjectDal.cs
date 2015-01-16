@@ -17,15 +17,18 @@ namespace TalBrody.DataLayer
 			Project Pro = null;
 			try
 			{
-				using (SqlCeConnection myConnection = GetPortalConnection())
+				var myConnection = GetPortalConnection();
+				using (myConnection)
 				{
-					SqlCeCommand myCommand = new SqlCeCommand("SELECT id, DisplayName, ShortName, Description, LinkUrl, MovieUrl FROM Projects where id = " + ProjectId, myConnection);
-					//myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
+					var myCommand = GetCommand("SELECT id, DisplayName, ShortName, Description, LinkUrl, MovieUrl FROM Projects where id = @ProjectId" , myConnection);
+					
+					myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
 					myCommand.CommandType = CommandType.Text;
-					SqlCeDataReader dr = null;
+					//SqlCeDataReader drs = null;
+					//var dr = drs;
 					myConnection.Open();
 
-					dr = myCommand.ExecuteReader();
+					var dr = myCommand.ExecuteReader();
 					while (dr.Read())
 					{
 						Pro = Populators.Populate_Project(dr);
@@ -49,15 +52,14 @@ namespace TalBrody.DataLayer
 			List<Project> ProList = new List<Project>();
 			try
 			{
-				using (SqlCeConnection myConnection = GetPortalConnection())
+				var myConnection = GetPortalConnection();
+				using (myConnection)
 				{
-					SqlCeCommand myCommand = new SqlCeCommand("SELECT id, DisplayName, ShortName, Description, LinkUrl, MovieUrl FROM Projects ", myConnection);
+					var myCommand = GetCommand("SELECT id, DisplayName, ShortName, Description, LinkUrl, MovieUrl FROM Projects ", myConnection);
 					//myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
-					myCommand.CommandType = CommandType.Text;
-					SqlCeDataReader dr = null;
+					myCommand.CommandType = CommandType.Text;					
 					myConnection.Open();
-
-					dr = myCommand.ExecuteReader();
+					var dr = myCommand.ExecuteReader();
 					while (dr.Read())
 					{
 						ProList.Add(Populators.Populate_Project(dr));
