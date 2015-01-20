@@ -19,17 +19,18 @@ namespace TalBrody.DataLayer
 				var myConnection = GetPortalConnection();
 				using (myConnection)
 				{
-					var myCommand = GetCommand(ExcuteCommand, myConnection);					
+					var myCommand = GetCommand(ExcuteCommand, myConnection);
 					myCommand.CommandType = CommandType.Text;
 					myConnection.Open();
-					myCommand.ExecuteNonQuery();								
+					myCommand.ExecuteNonQuery();
+					myConnection.Close();
 				}
 			}
 			catch (Exception ex)
 			{
 				log.Error("GetAllProject Threw: " + ex.ToString());
 				throw ex;
-			}			
+			}
 		}
 	}
 }

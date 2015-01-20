@@ -14,5 +14,11 @@ namespace TalBrody.Logic
 			OxifyParamDal dal = new OxifyParamDal();
 			return dal.GetOxifyParam();
 		}
+
+		public static void UpdateOxifyParam(OxifyParam Param)
+		{
+			OxifyParamDal dal = new OxifyParamDal();
+			dal.UpdateOxifyParam(Param);
+		}
 	}
 }

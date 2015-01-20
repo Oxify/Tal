@@ -17,7 +17,7 @@ namespace fblogin.DataLayer
 		{
 			string sqlType = ConfigurationManager.AppSettings["Sqlce"];
 			string connectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
-			dynamic conn = new SqlCeConnection(connectionString);
+			dynamic conn = null;
 			if (sqlType == "True")
 				conn = new SqlCeConnection(connectionString);
 			else
@@ -29,7 +29,7 @@ namespace fblogin.DataLayer
 		public static dynamic GetCommand(string Command, dynamic conection)
 		{
 			string sqlType = ConfigurationManager.AppSettings["Sqlce"];
-			dynamic Result = new SqlCeCommand(Command, conection);
+			dynamic Result = null;
 			if (sqlType == "True")
 				Result = new SqlCeCommand(Command, conection);
 			else

@@ -20,7 +20,7 @@ namespace TalBrody.DataLayer
 			{
 				using (var myConnection = GetPortalConnection())
 				{
-					var myCommand = GetCommand("select Id,DBVersion from OxifyParam", myConnection);
+					var myCommand = GetCommand("select Id,DbVersion from OxifyParam", myConnection);
 					//myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
 					myCommand.CommandType = CommandType.Text;					
 					myConnection.Open();
@@ -39,6 +39,27 @@ namespace TalBrody.DataLayer
 				throw ex;
 			}
 			return Result;
+		}
+
+		public void UpdateOxifyParam(OxifyParam Param)
+		{			
+			try
+			{
+				using (var myConnection = GetPortalConnection())
+				{
+					var myCommand = GetCommand("update [OxifyParam] set [DbVersion] = @Dbversion", myConnection);
+					myCommand.Parameters.Add("@Dbversion", SqlDbType.Int).Value = Param.DbVersion;
+					myCommand.CommandType = CommandType.Text;
+					myConnection.Open();
+					myCommand.ExecuteNonQuery();
+					myConnection.Close();
+				}
+			}
+			catch (Exception ex)
+			{
+				log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
+				throw ex;
+			}			
 		}
 	}
 }

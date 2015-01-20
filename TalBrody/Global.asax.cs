@@ -18,10 +18,11 @@ namespace TalBrody
     public class Global : System.Web.HttpApplication
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-		private const int DbVestion = 1;
+		private int DbVerstion = 1;
 
         protected void Application_Start(object sender, EventArgs e)
         {
+			
             // Set up a simple configuration that logs on the console.
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
@@ -31,9 +32,10 @@ namespace TalBrody
             log.Info("--------------------------------------");
 			// cheking the db version and upgrade if needed
 			OxifyParam oParm = OxifyParams.GetOxifyParam();
-			if (oParm.DbVersion < DbVestion)
+			if (oParm.DbVersion < DbVerstion)
 			{
-
+				DbHandling dbhandling = new DbHandling();
+				dbhandling.UpgradeDbVerstion(oParm, DbVerstion);
 			}
         }
 

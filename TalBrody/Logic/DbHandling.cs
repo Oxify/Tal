@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TalBrody.DataLayer;
+using TalBrody.Entity;
 using TalBrody.Util;
 
 
@@ -9,10 +11,10 @@ namespace TalBrody.Logic
 {
 	public class DbHandling
 	{
-		public bool UpgradeDbVerstion(int CurrentDbVersion, int DestanationDbVersion)
+		public bool UpgradeDbVerstion(OxifyParam OParam, int DestanationDbVersion)
 		{
 			bool Result = false;
-			int CurrentStatus = CurrentDbVersion;
+			int CurrentStatus = OParam.DbVersion;
 
 			try
 			{
@@ -32,6 +34,9 @@ namespace TalBrody.Logic
 						default:
 							break;
 					}
+					CurrentStatus++;
+					OParam.DbVersion = CurrentStatus;
+					OxifyParams.UpdateOxifyParam(OParam);
 				}
 			}
 			catch (Exception ex)
@@ -54,7 +59,46 @@ namespace TalBrody.Logic
 
 		private void DBHandling0()
 		{
-			
+			try
+			{
+				CreatePerks();
+				CreateProjects();
+				CreateUsers();
+			}
+			catch (Exception ex)
+			{
+				Loging.InsertLog("DbHandling", "DBHandling0 Threw: " + ex.ToString());
+				throw ex;
+			}
+		}
+
+		private void CreateUsers()
+		{
+			string Qwery = "CREATE TABLE [dbo].[Users](	[Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,[Email] [nvarchar](100) NULL,";
+			Qwery = Qwery + "[FacebookId] [nvarchar](100) NULL,	[TwitterId] [nvarchar](100) NULL,[Password] [nvarchar](100) NULL,[ReferencedBy] [int] NULL, CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ";
+			Qwery = Qwery + "([Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]) ON [PRIMARY]";
+			BdHandlinkDal dal = new BdHandlinkDal();
+			dal.ExcuteDbCommand(Qwery);
+		}
+
+		private void CreateProjects()
+		{
+			string Qwery = "CREATE TABLE [dbo].[Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
+			Qwery = Qwery + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[nvarchar] [nvarchar](100) NULL, CONSTRAINT [PK_Projects] PRIMARY KEY CLUSTERED (";
+			Qwery = Qwery + "[id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
+			Qwery = Qwery + ") ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]";
+			BdHandlinkDal dal = new BdHandlinkDal();
+			dal.ExcuteDbCommand(Qwery);
+		}
+
+		private void CreatePerks()
+		{
+			string Qwery = "CREATE TABLE [dbo].[Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
+			Qwery = Qwery + "[ProjectId] [int] NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY CLUSTERED ([PerkId] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
+			Qwery = Qwery + ") ON [PRIMARY]";
+
+			BdHandlinkDal dal = new BdHandlinkDal();
+			dal.ExcuteDbCommand(Qwery);
 		}
 	}
 }
