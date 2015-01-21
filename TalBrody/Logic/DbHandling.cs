@@ -64,12 +64,22 @@ namespace TalBrody.Logic
 				CreatePerks();
 				CreateProjects();
 				CreateUsers();
+				CreateFollwers();
 			}
 			catch (Exception ex)
 			{
 				Loging.InsertLog("DbHandling", "DBHandling0 Threw: " + ex.ToString());
 				throw ex;
 			}
+		}
+
+		private void CreateFollwers()
+		{
+			string Qwery = "CREATE TABLE [dbo].[Follwers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NULL,	[UserId] [int] NULL,";
+			Qwery = Qwery +"CONSTRAINT [PK_Follwers] PRIMARY KEY CLUSTERED (	[Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = ";
+			Qwery = Qwery + "OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]) ON [PRIMARY]";
+			BdHandlinkDal dal = new BdHandlinkDal();
+			dal.ExcuteDbCommand(Qwery);
 		}
 
 		private void CreateUsers()
