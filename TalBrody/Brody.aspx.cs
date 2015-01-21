@@ -24,7 +24,7 @@ namespace fblogin
 		{
 			try
 			{
-				LblSupporters.Text = Users.Get_NmberOf_Follwers_By_Project(1).ToString();
+				LblSupporters.Text = Followers.Get_NmberOf_Follwers_By_Project(1).ToString();
 				PopulatePerks(1);
 			}
 			catch (Exception)

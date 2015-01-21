@@ -15,10 +15,10 @@ namespace fblogin.DataLayer
 		public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public static dynamic GetPortalConnection()
 		{
-			string sqlType = ConfigurationManager.AppSettings["Sqlce"];
+			string sqlType = ConfigurationManager.AppSettings["OnAppHarbor"];
 			string connectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
 			dynamic conn = null;
-			if (sqlType == "True")
+			if (sqlType != "True")
 				conn = new SqlCeConnection(connectionString);
 			else
 				conn = new SqlConnection(connectionString);
@@ -28,9 +28,9 @@ namespace fblogin.DataLayer
 
 		public static dynamic GetCommand(string Command, dynamic conection)
 		{
-			string sqlType = ConfigurationManager.AppSettings["Sqlce"];
+			string sqlType = ConfigurationManager.AppSettings["OnAppHarbor"];
 			dynamic Result = null;
-			if (sqlType == "True")
+			if (sqlType != "True")
 				Result = new SqlCeCommand(Command, conection);
 			else
 				Result = new SqlCommand(Command, conection);

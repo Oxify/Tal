@@ -9,7 +9,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Data.SqlServerCe;
-using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using fblogin.Entity;
 using log4net;
@@ -18,36 +17,6 @@ namespace fblogin.DataLayer
 {
 	public class UserDal : BaseDal
     {
-        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-		public int Get_NmberOf_Follwers_By_Project(int ProjectId)
-		{
-		    string OnAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
-            log.Info("Log4Net: Number of followers, OnAppHarbor = "+  OnAppHarbor);
-            Trace.TraceError("TraceError: Number of followers, OnAppHarbor = "+  OnAppHarbor);
-
-			int Result = 0;
-			try
-			{
-				using (var conn = GetPortalConnection())
-				{
-                    // TODO Fix SQL Injection
-					var cmd = GetCommand("select count(*) from Follwers where ProjectId = @ProjectId", conn);
-					cmd.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
-					cmd.CommandType = CommandType.Text;
-					conn.Open();
-					Result = int.Parse(cmd.ExecuteScalar().ToString());					
-				//	Result = int.Parse(myCommand.Parameters["@ProjectId"].ToString());
-
-				}
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-			return Result;
-		}
-
 	    public User FindUserByEmail(string email)
 	    {
             using (var conn = GetPortalConnection())

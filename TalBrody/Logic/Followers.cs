@@ -9,6 +9,10 @@ namespace fblogin.Logic
 {
 	public class Followers
 	{
-		
+		public static int Get_NmberOf_Follwers_By_Project(int ProjectId)
+		{
+			FollowerDal dal = new FollowerDal();
+			return dal.Get_NmberOf_Follwers_By_Project(ProjectId);
+		}
 	}
 }
