@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Oxify.master.cs" Inherits="TalBrody.Oxify" %>
 
+<%@ Register Src="~/UserControl/LogInControle.ascx" TagPrefix="uc1" TagName="LogInControle" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,16 +10,41 @@
 	<title></title>
 	<asp:ContentPlaceHolder ID="head" runat="server">
 	</asp:ContentPlaceHolder>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<script src="JavaScript/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#dialog").hide();
+		});
 
-	  ga('create', 'UA-55414092-3', 'auto');
-	  ga('send', 'pageview');
+
+
+		function ShowLogin() {
+			$mydialog = $("#dialog").dialog({
+				height: 600, width: 650, dialogClass: 'Dialog', title: 'Log in Dialog',
+				autoOpen: false,
+				buttons: {
+					
+				}
+			});
+			$mydialog.dialog("open");
+		}
+
+	</script>
+
+
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-55414092-3', 'auto');
+		ga('send', 'pageview');
 
 	</script>
 </head>
@@ -25,7 +53,7 @@
 		<div style="text-align: center; width: 1008px; margin: 0px auto">
 			This is the header<br />
 			We will have here the logo and stuff 
-    
+		<input id="Button1" type="button" value="LogIn" onclick="ShowLogin();" />
 		</div>
 		<hr />
 
@@ -47,6 +75,9 @@
 				Things like how kaka is ziv
 			</div>
 		</footer>
+		<div id="dialog" title="Dialog Title" style="display: none">
+			<uc1:LogInControle runat="server" ID="LogInControle" />
+		</div>
 	</form>
 </body>
 </html>

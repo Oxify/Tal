@@ -145,6 +145,7 @@
     <Content Include="Css\Brody.css" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="JavaScript\jquery-1.8.2.min.js" />
     <Content Include="MainPage.aspx" />
     <Content Include="ConseptData.aspx" />
     <Content Include="Defaulte.aspx" />
@@ -159,6 +160,7 @@
     <Content Include="sqlcese40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UserControl\LogInControle.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -244,6 +246,13 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\LogInControle.ascx.cs">
+      <DependentUpon>LogInControle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LogInControle.ascx.designer.cs">
+      <DependentUpon>LogInControle.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Util\Log.cs" />
     <Compile Include="Util\Loging.cs" />
   </ItemGroup>
@@ -258,6 +267,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
