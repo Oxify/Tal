@@ -152,7 +152,6 @@
     <Content Include="MainPage.aspx" />
     <Content Include="ConseptData.aspx" />
     <Content Include="Defaulte.aspx" />
-    <Content Include="LogIN.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="sqlceme40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -227,13 +226,6 @@
     </Compile>
     <Compile Include="Entity\Follower.cs" />
     <Compile Include="Logic\Followers.cs" />
-    <Compile Include="LogIN.aspx.cs">
-      <DependentUpon>LogIN.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LogIN.aspx.designer.cs">
-      <DependentUpon>LogIN.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Oxify.Master.cs">
       <DependentUpon>Oxify.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
