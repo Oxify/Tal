@@ -199,7 +199,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="JavaScript\brody.js" />
     <Content Include="JavaScript\jquery-1.8.2.min.js" />
+    <Content Include="JavaScript\login.js" />
     <Content Include="MainPage.aspx" />
     <Content Include="ConseptData.aspx" />
     <Content Include="Defaulte.aspx" />
@@ -210,6 +212,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -292,6 +296,7 @@
     </Compile>
     <Compile Include="Entity\Follower.cs" />
     <Compile Include="Logic\Followers.cs" />
+    <Compile Include="Models\CreateAccountModel.cs" />
     <Compile Include="Oxify.Master.cs">
       <DependentUpon>Oxify.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -335,6 +340,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Login\CreateAccount.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -344,8 +351,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,23 +4,7 @@
 <%@ Register Src="~/UserControl/RegisterControl.ascx" TagPrefix="uc1" TagName="RegisterControl" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type="text/javascript">
-        $(function() {
-            $("#ContentPlaceHolder1_registerButton").click(function () {
-                console.log("Clicked");
-                $.post("Login/Register", {
-                    email: $("#ContentPlaceHolder1_email").val()
-                }, function() {
-                    console.log("Success1");
-                }).done(function() {
-                    console.log("Second success (returned from server?)");
-                }).fail(function() {
-                    console.log("Post fail");
-                });
-                return false;
-            });
-        });
-        
+    <script type="text/javascript" src="JavaScript/brody.js">
     </script>
 
 

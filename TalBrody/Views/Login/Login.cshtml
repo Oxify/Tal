@@ -1,0 +1,20 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="/JavaScript/login.js"></script>
+<h2>Login</h2>
+
+<form id="loginForm" action="/Login/TryLogin" method="POST">
+    <label for="email">Email</label>
+    <input id="email" name="email" placeholder="you@email.com" />
+
+    <br />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password"/>
+
+    <button>Login</button>
+</form>

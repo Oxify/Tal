@@ -35,7 +35,7 @@ namespace TalBrody
                 return;
             }
 
-            new UserDal().CreateUser(email.Value);
+            new UserDal().CreateUser(email.Value, "DELME");
         }
     }
 

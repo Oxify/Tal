@@ -1,0 +1,15 @@
+﻿@model TalBrody.Models.CreateAccountModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="choosepassword" action="/Login/Register" method="POST">
+    <h2>Hello @Model.Email</h2>
+    <h3>To create an account, choose a password</h3>
+
+    <input name="email" type='hidden' value="@Model.Email"/>
+    <input name="password" type="password" placeholder="123456" />
+    <button type='submit'>Register</button>
+</form>
