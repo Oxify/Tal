@@ -10,6 +10,9 @@ using log4net.Config;
 using log4net.Repository.Hierarchy;
 using System.Diagnostics;
 using System.Configuration;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 using TalBrody.Logic;
 using TalBrody.Entity;
 
@@ -37,6 +40,12 @@ namespace TalBrody
 				DbHandling dbhandling = new DbHandling();
 				dbhandling.UpgradeDbVerstion(oParm, DbVerstion);
 			}
+
+            // Asp.Net MVC
+            AreaRegistration.RegisterAllAreas();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -41,14 +41,13 @@ namespace fblogin.DataLayer
             }
 	    }
 
-	    public void CreateUser(string email, string displayName)
+	    public void CreateUser(string email)
 	    {
 	        using (var conn = GetPortalConnection())
 	        {
-				var cmd = GetCommand("insert into Users (Email, DisplayName) values (@Email, @DisplayName)", conn);
+				var cmd = GetCommand("insert into Users (Email) values (@Email)", conn);
                 cmd.CommandType = CommandType.Text;
 	            cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@DisplayName", displayName);
                 conn.Open();
 	            var result = cmd.ExecuteNonQuery();
 	            if (result != 1)
