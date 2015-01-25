@@ -27,8 +27,6 @@ namespace TalBrody.UserControl
                     error = "Invalid email"
                 });
             }
-            var users = new UserDal();
-
             var user = new UserDal().FindUserByEmail(email);
             if (user != null)
             {

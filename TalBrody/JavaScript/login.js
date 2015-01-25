@@ -1,11 +1,4 @@
-﻿$(function() {
-    $('#loginForm').ajaxForm(function () {
-        alert("Thank you for your comment!");
-    });
-})
-
-
-$(function () {
+﻿$(function () {
     var options = {
         beforeSubmit: showRequest,  // pre-submit callback 
         success: showResponse  // post-submit callback 
