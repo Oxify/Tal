@@ -35,6 +35,7 @@ namespace TalBrody
             log.Info("--------------------------------------");
 			// cheking the db version and upgrade if needed
 			OxifyParam oParm = OxifyParams.GetOxifyParam();
+            log.Info("DB Version = " + oParm.DbVersion);
 			if (oParm.DbVersion < DbVerstion)
 			{
 				DbHandling dbhandling = new DbHandling();
