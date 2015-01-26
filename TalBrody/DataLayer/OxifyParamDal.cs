@@ -36,8 +36,11 @@ namespace TalBrody.DataLayer
 			catch (Exception ex)
 			{
                 log.Error("GetOxifyParam Threw: " + ex.ToString());
-				throw ex;
+
+				Result = new OxifyParam();
+                Result.DbVersion = 0;
 			}
+
 			return Result;
 		}
 
