@@ -30,6 +30,7 @@ namespace Oxify.DataLayer
             return connectionString;
         }
 
+
 		public static dynamic GetPortalConnection()
 		{
             dynamic conn = null;
