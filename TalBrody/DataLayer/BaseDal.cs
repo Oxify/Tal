@@ -21,14 +21,13 @@ namespace Oxify.DataLayer
             {
                 string connectionString = ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"];
                 log.Info("GetPortalConnection: OnAppHarbor, connection string: " + connectionString);
-                conn = new SqlCeConnection(connectionString);
-
+                conn = new SqlConnection(connectionString);
             }
             else
             {
     			string connectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
                 log.Info("GetPortalConnection: Not OnAppHarbor, connection string: " + connectionString);
-                conn = new SqlConnection(connectionString);
+                conn = new SqlCeConnection(connectionString);
             }
 			return conn;
 		}

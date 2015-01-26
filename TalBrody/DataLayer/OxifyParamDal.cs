@@ -35,7 +35,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-				log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
+                log.Error("GetOxifyParam Threw: " + ex.ToString());
 				throw ex;
 			}
 			return Result;
