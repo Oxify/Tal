@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Oxify.Master" CodeBehind="Brody.aspx.cs" Inherits="fblogin.Brody" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Oxify.Master" CodeBehind="Brody.aspx.cs" Inherits="Oxify.Brody" %>
 
 <%@ Register Src="~/UserControl/LogInControle.ascx" TagPrefix="uc1" TagName="LogInControle" %>
 <%@ Register Src="~/UserControl/RegisterControl.ascx" TagPrefix="uc1" TagName="RegisterControl" %>

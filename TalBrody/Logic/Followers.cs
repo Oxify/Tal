@@ -1,11 +1,11 @@
-﻿using fblogin.DataLayer;
-using fblogin.Entity;
+﻿using Oxify.DataLayer;
+using Oxify.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace fblogin.Logic
+namespace Oxify.Logic
 {
 	public class Followers
 	{

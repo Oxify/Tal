@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace fblogin {
+namespace Oxify {
     
     
     public partial class MainPage {

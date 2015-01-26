@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using fblogin.DataLayer;
-using fblogin.Entity;
+using Oxify.DataLayer;
+using Oxify.Entity;
 using log4net;
 
 namespace TalBrody

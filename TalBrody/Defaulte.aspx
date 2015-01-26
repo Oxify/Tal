@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Defaulte.aspx.cs" Inherits="fblogin.Defaulte" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Defaulte.aspx.cs" Inherits="Oxify.Defaulte" %>
 
 <!DOCTYPE html>
 

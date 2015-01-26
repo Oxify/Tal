@@ -11,10 +11,10 @@ using System.Web;
 using System.Data.SqlServerCe;
 using System.Security.Cryptography;
 using System.Web.UI.HtmlControls;
-using fblogin.Entity;
+using Oxify.Entity;
 using log4net;
 
-namespace fblogin.DataLayer
+namespace Oxify.DataLayer
 {
 	public class UserDal : BaseDal
     {
