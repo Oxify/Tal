@@ -1,5 +1,4 @@
-﻿using log4net;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,18 +11,15 @@ namespace TalBrody.Logic
 {
 	public class DbHandling
 	{
-        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-		public bool UpgradeDbVerstion(OxifyParam OParam, int DestinationDbVersion)
+		public bool UpgradeDbVerstion(OxifyParam OParam, int DestanationDbVersion)
 		{
 			bool Result = false;
 			int CurrentStatus = OParam.DbVersion;
 
 			try
 			{
-				while (CurrentStatus <= DestinationDbVersion)
+				while (CurrentStatus <= DestanationDbVersion)
 				{
-                    log.Info("Upgrading DB from version " + CurrentStatus + " to version " + DestinationDbVersion);
 					switch (CurrentStatus)
 					{
 						case 0:

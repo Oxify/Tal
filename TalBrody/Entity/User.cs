@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Oxify.Entity
+namespace fblogin.Entity
 {
 	public class User
 	{
@@ -14,7 +14,6 @@ namespace Oxify.Entity
 		public string TwittId { get; set; }
 		public string Password { get; set; }
 		public string ReferanceBy { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
+
 	}
 }

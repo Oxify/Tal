@@ -7,60 +7,33 @@ using System.Web;
 using System.Data.OleDb;
 using System.Data.SqlServerCe;
 using log4net;
-using TalBrody;
 
-namespace Oxify.DataLayer
+namespace fblogin.DataLayer
 {
 	public class BaseDal
 	{
-        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-        public static string GetAppHarborConnectionString()
-        {
-            var uriString = ConfigurationManager.AppSettings["SQLSERVER_URI"];
-            var uri = new Uri(uriString);
-            var connectionString = new SqlConnectionStringBuilder
-            {
-                DataSource = uri.Host,
-                InitialCatalog = uri.AbsolutePath.Trim('/'),
-                UserID = uri.UserInfo.Split(':').First(),
-                Password = uri.UserInfo.Split(':').Last(),
-            }.ConnectionString;
-
-            return connectionString;
-        }
-
-
+		public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public static dynamic GetPortalConnection()
 		{
-            dynamic conn = null;
-            if (Global.OnAppHarbor)
-            {
-                string connectionString = GetAppHarborConnectionString();
-                log.Info("GetPortalConnection: OnAppHarbor, connection string: " + connectionString);
-                conn = new SqlConnection(connectionString);
-            }
-            else
-            {
-    			string connectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
-                log.Info("GetPortalConnection: Not OnAppHarbor, connection string: " + connectionString);
-                conn = new SqlCeConnection(connectionString);
-            }
+			string sqlType = ConfigurationManager.AppSettings["OnAppHarbor"];
+			string connectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
+			dynamic conn = null;
+			if (sqlType != "True")
+				conn = new SqlCeConnection(connectionString);
+			else
+				conn = new SqlConnection(connectionString);
 			return conn;
 		}
 
 
 		public static dynamic GetCommand(string Command, dynamic conection)
 		{
+			string sqlType = ConfigurationManager.AppSettings["OnAppHarbor"];
 			dynamic Result = null;
-			if (Global.OnAppHarbor)
-            {
-				Result = new SqlCommand(Command, conection);
-            }
-            else
-            {
+			if (sqlType != "True")
 				Result = new SqlCeCommand(Command, conection);
-            }
+			else
+				Result = new SqlCommand(Command, conection);
 
 			return Result;
 		}

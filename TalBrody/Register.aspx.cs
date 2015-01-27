@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Oxify.DataLayer;
-using Oxify.Entity;
+using fblogin.DataLayer;
+using fblogin.Entity;
 using log4net;
 
 namespace TalBrody
@@ -35,7 +35,7 @@ namespace TalBrody
                 return;
             }
 
-            new UserDal().CreateUser(email.Value, "DELME");
+            new UserDal().CreateUser(email.Value, displayName.Value);
         }
     }
 

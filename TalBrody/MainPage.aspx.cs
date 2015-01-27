@@ -1,4 +1,4 @@
-﻿using Oxify.Logic;
+﻿using fblogin.Logic;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +10,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Oxify
+namespace fblogin
 {
 	public partial class MainPage : System.Web.UI.Page
 	{

@@ -1,4 +1,4 @@
-﻿using Oxify.Logic;
+﻿using fblogin.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using TalBrody.Entity;
 using TalBrody.Logic;
 
-namespace Oxify
+namespace fblogin
 {
 	public partial class Brody : System.Web.UI.Page
 	{

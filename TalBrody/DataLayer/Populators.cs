@@ -1,4 +1,4 @@
-﻿using Oxify.Entity;
+﻿using fblogin.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using TalBrody.Entity;
 
-namespace Oxify.DataLayer
+namespace fblogin.DataLayer
 {
 	public class Populators
 	{

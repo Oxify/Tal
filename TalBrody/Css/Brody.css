@@ -16,14 +16,5 @@
 
 #rightcolumn {
      width: 300px;
-}
 
-#realleftcolumn {
-    width: 200px;
-    margin-bottom: 20px
-}
-
-#realleftcolumn input {
-    padding: 10px;
-    margin-bottom: 10px;
 }

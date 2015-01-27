@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Oxify {
+namespace fblogin {
     
     
     public partial class ConseptData {

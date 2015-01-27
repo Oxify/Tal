@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Oxify.Entity
+namespace fblogin.Entity
 {
 	public class Follower
 	{

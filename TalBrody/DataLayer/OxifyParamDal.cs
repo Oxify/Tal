@@ -1,4 +1,4 @@
-﻿using Oxify.DataLayer;
+﻿using fblogin.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -35,12 +35,9 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-                log.Error("GetOxifyParam Threw: " + ex.ToString());
-
-				Result = new OxifyParam();
-                Result.DbVersion = 0;
+				log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
+				throw ex;
 			}
-
 			return Result;
 		}
 

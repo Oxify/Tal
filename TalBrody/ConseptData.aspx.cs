@@ -1,5 +1,5 @@
-﻿using Oxify.Entity;
-using Oxify.Logic;
+﻿using fblogin.Entity;
+using fblogin.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Oxify
+namespace fblogin
 {
 	public partial class ConseptData : System.Web.UI.Page
 	{
