@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using fblogin.DataLayer;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,103 @@ namespace TalBrody.UserControl
 		protected void openidValidator_ServerValidate(object source, ServerValidateEventArgs args)
 		{
 			throw new NotImplementedException();
+		}
+
+		bool IsValidEmail(string email)
+		{
+			// TODO - replace with System.ComponentModel.DataAnnotations.EmailAddressAttribute
+			try
+			{
+				var addr = new System.Net.Mail.MailAddress(email);
+				return addr.Address == email;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		public bool RegisterOrLogin(string email)
+		{
+			if (!IsValidEmail(email))
+			{
+				return false;
+				//	success = false,
+				//	error = "Invalid email"
+				
+			}
+			var user = new UserDal().FindUserByEmail(email);
+			if (user != null)
+			{
+				log.Info(String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email));
+				return  true;
+				//	redirectTo = "Login/Login"
+				
+			}
+
+			//users.CreateUser(email);
+			return true;
+				//redirectTo = "Login/CreateAccount?email=" + email // TODO - fill this in from the user's registration state
+			
+		}
+
+		public bool Register(string email, string password)
+		{
+			if (!IsValidEmail(email))
+			{
+				return false;
+			}
+
+			if (!IsValidPassword(password))
+			{
+				return false;
+			}
+
+			var users = new UserDal();
+			if (users.FindUserByEmail(email) != null)
+			{
+				return false;
+			}
+
+			users.CreateUser(email, password);
+			return true;
+		}
+
+		public string CreateAccount(string email)
+		{
+			if (string.IsNullOrEmpty(email))
+			{
+				return "Missing email parameter";
+			}
+
+			
+
+			return "ToDo1";
+
+		
+		}
+
+		public bool TryLogin(string email, string password)
+		{
+			return !new UserDal().CheckUser(email, password);
+			//{
+			//	return Json(new { success = false, error = "Wrong email or password" });
+			//}			
+		}
+
+		bool IsValidPassword(string password)
+		{
+			if (string.IsNullOrEmpty(password))
+			{
+				return false;
+			}
+
+			if (password.Length < 4)
+			{
+				return false;
+			}
+
+			return true;
 		}
 	}
 }
