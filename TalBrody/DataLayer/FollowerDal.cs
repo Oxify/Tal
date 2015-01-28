@@ -1,4 +1,4 @@
-﻿using fblogin.Entity;
+﻿using TalBrody.Entity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,8 +8,9 @@ using System.Data.SqlServerCe;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using TalBrody.DataLayer;
 
-namespace fblogin.DataLayer
+namespace TalBrody.DataLayer
 {
 	public class FollowerDal : BaseDal
 	{

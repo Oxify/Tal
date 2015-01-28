@@ -1,5 +1,4 @@
-﻿using fblogin.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +7,7 @@ using System.Web.UI.WebControls;
 using TalBrody.Entity;
 using TalBrody.Logic;
 
-namespace fblogin
+namespace TalBrody
 {
 	public partial class Brody : System.Web.UI.Page
 	{

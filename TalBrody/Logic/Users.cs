@@ -1,10 +1,10 @@
-﻿using fblogin.DataLayer;
+﻿using TalBrody.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace fblogin.Logic
+namespace TalBrody.Logic
 {
 	public class Users
 	{

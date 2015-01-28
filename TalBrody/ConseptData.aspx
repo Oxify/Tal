@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConseptData.aspx.cs" Inherits="fblogin.ConseptData" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConseptData.aspx.cs" Inherits="TalBrody.ConseptData" %>
 
 <!DOCTYPE html>
 

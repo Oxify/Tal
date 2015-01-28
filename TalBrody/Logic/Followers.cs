@@ -1,11 +1,11 @@
-﻿using fblogin.DataLayer;
-using fblogin.Entity;
+﻿using TalBrody.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TalBrody.DataLayer;
 
-namespace fblogin.Logic
+namespace TalBrody.Logic
 {
 	public class Followers
 	{

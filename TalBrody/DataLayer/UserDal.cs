@@ -11,10 +11,11 @@ using System.Web;
 using System.Data.SqlServerCe;
 using System.Security.Cryptography;
 using System.Web.UI.HtmlControls;
-using fblogin.Entity;
 using log4net;
+using TalBrody.DataLayer;
+using TalBrody.Entity;
 
-namespace fblogin.DataLayer
+namespace TalBrody.DataLayer
 {
 	public class UserDal : BaseDal
     {

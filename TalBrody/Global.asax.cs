@@ -20,6 +20,8 @@ namespace TalBrody
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		private int DbVerstion = 1;
 
+        public static bool OnAppHarbor { get; private set; }
+
         protected void Application_Start(object sender, EventArgs e)
         {
 			
@@ -27,11 +29,14 @@ namespace TalBrody
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
             string onAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
+            OnAppHarbor = onAppHarbor.ToLower().Equals("true");
+
             log.Info("--------------------------------------");
-            log.Info("------- STARTED APP, OnAppHarbor = " + onAppHarbor);
+            log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
             log.Info("--------------------------------------");
 			// cheking the db version and upgrade if needed
 			OxifyParam oParm = OxifyParams.GetOxifyParam();
+            log.Info("DB Version = " + oParm.DbVersion);
 			if (oParm.DbVersion < DbVerstion)
 			{
 				DbHandling dbhandling = new DbHandling();

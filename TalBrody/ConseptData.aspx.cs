@@ -1,5 +1,5 @@
-﻿using fblogin.Entity;
-using fblogin.Logic;
+﻿using TalBrody.Entity;
+using TalBrody.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace fblogin
+namespace TalBrody
 {
 	public partial class ConseptData : System.Web.UI.Page
 	{

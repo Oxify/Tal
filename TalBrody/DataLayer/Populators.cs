@@ -1,5 +1,4 @@
-﻿using fblogin.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data.SqlServerCe;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Web;
 using TalBrody.Entity;
 
-namespace fblogin.DataLayer
+namespace TalBrody.DataLayer
 {
 	public class Populators
 	{
