@@ -97,5 +97,17 @@ namespace TalBrody.DataLayer
             return param;
         }
 
+		internal static ProjectDetails Populate_projectDetails(SqlDataReader dr)
+		{
+			ProjectDetails ProjectDetails = new ProjectDetails();
+			ProjectDetails.FieldId = dr.GetValue<int>("FieldId");
+			ProjectDetails.FontSize = dr.GetValue<int>("FontSize");
+			ProjectDetails.Id = dr.GetValue<int>("Id");
+			ProjectDetails.LangId = dr.GetValue<int>("LangId");
+			ProjectDetails.ProjectId = dr.GetValue<int>("ProjectId");
+			ProjectDetails.Text = dr.GetValue<string>("Text");
+			return ProjectDetails;
+		}
+
 	}
 }

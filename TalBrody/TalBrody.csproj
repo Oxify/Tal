@@ -194,10 +194,12 @@
     <Compile Include="DataLayer\PerksDal.cs" />
     <Compile Include="DataLayer\Populators.cs" />
     <Compile Include="DataLayer\ProjectDal.cs" />
+    <Compile Include="DataLayer\ProjectDetailsDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
     <Compile Include="Entity\Param.cs" />
     <Compile Include="Entity\Perks.cs" />
     <Compile Include="Entity\Project.cs" />
+    <Compile Include="Entity\ProjectDetails.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

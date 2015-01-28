@@ -71,12 +71,22 @@ namespace TalBrody.Logic
 				CreateProjects();
 				CreateUsers();
 				CreateFollowers();
+				CreateProjectDetails();
 			}
 			catch (Exception ex)
 			{
 				Loging.InsertLog("DbHandling", "DBHandling0 Threw: " + ex.ToString());
 				throw ex;
 			}
+		}
+
+		private void CreateProjectDetails()
+		{
+			string Query = "CREATE TABLE [dbo].[ProjectDetails]([Id] [int] IDENTITY(1,1) NOT NULL,[ProjectId] [int] NOT NULL,[FieldId] [int] NOT NULL,";
+			Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](max) NULL,[FontSize] [int] NOT NULL) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]";
+			
+			BdHandlinkDal dal = new BdHandlinkDal();
+			dal.ExcuteDbCommand(Query);
 		}
 
 		private void CreateFollowers()
