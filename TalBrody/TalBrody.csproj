@@ -190,12 +190,12 @@
     </Compile>
     <Compile Include="DataLayer\BdHandlinkDal.cs" />
     <Compile Include="DataLayer\Extensions.cs" />
-    <Compile Include="DataLayer\OxifyParamDal.cs" />
+    <Compile Include="DataLayer\ParamDal.cs" />
     <Compile Include="DataLayer\PerksDal.cs" />
     <Compile Include="DataLayer\Populators.cs" />
     <Compile Include="DataLayer\ProjectDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
-    <Compile Include="Entity\OxifyParam.cs" />
+    <Compile Include="Entity\Param.cs" />
     <Compile Include="Entity\Perks.cs" />
     <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\User.cs" />
@@ -210,7 +210,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logic\DbHandling.cs" />
-    <Compile Include="Logic\OxifyParams.cs" />
+    <Compile Include="Logic\Params.cs" />
     <Compile Include="Logic\Perkses.cs" />
     <Compile Include="Logic\Projects.cs" />
     <Compile Include="Logic\Users.cs" />

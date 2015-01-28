@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data.SqlServerCe;
-using System.Linq;
-using System.Web;
-using NUnit.Framework;
 using TalBrody.Entity;
 
 namespace TalBrody.DataLayer
@@ -12,7 +8,6 @@ namespace TalBrody.DataLayer
 	public class Populators
 	{
 		
-
 		internal static Follower Populate_Follower(SqlDataReader dr)
 		{
 			Follower Consept = new Follower();
@@ -81,22 +76,6 @@ namespace TalBrody.DataLayer
 			Project.MovieUrl = dr.GetValue<string>("MovieUrl");
 			Project.ShortName = dr.GetValue<string>("ShortName");
 			return Project;
-		}
-
-		internal static OxifyParam Populate_OxifyParam(SqlCeDataReader dr)
-		{
-			OxifyParam OxifyParam = new OxifyParam();
-			OxifyParam.DbVersion = dr.GetValue<int>("DbVersion");
-
-			return OxifyParam;
-		}
-
-		internal static OxifyParam Populate_OxifyParam(SqlDataReader dr)
-		{
-			OxifyParam OxifyParam = new OxifyParam();
-			OxifyParam.DbVersion = dr.GetValue<int>("DbVersion");
-
-			return OxifyParam;
 		}
 
 	    internal static Param Populate_Params(SqlDataReader dr)

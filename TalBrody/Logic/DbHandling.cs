@@ -53,13 +53,13 @@ namespace TalBrody.Logic
 		private void DBHandling2()
 		{
 			throw new NotImplementedException();
-            //OxifyParams.UpdateParam(OxifyParams.PARAM_DB_VERSION, "2", "2");
+            //Params.UpdateParam(Params.PARAM_DB_VERSION, "2", "2");
         }
 
 		private void DBHandling1()
 		{
 			throw new NotImplementedException();
-            //OxifyParams.UpdateParam(OxifyParams.PARAM_DB_VERSION, "1", 1);
+            //Params.UpdateParam(Params.PARAM_DB_VERSION, "1", 1);
         }
 
 		private void DBHandling0()
@@ -123,7 +123,7 @@ namespace TalBrody.Logic
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
     
-            OxifyParams.InsertParam(OxifyParams.PARAM_DB_VERSION, "1", 1);
+            Params.InsertParam(Params.PARAM_DB_VERSION, "1", 1);
 	    }
 	}
 }

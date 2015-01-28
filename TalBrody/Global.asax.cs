@@ -35,7 +35,8 @@ namespace TalBrody
             log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
             log.Info("--------------------------------------");
 			// cheking the db version and upgrade if needed
-            int DbVersion = OxifyParams.GetDbVersion();
+            int DbVersion = Params.GetParam(Params.PARAM_DB_VERSION).ValueInt ?? 0;
+
             log.Info("DB Version = " + DbVersion);
             if (DbVersion < CurrentDbVersion)
 			{

@@ -12,7 +12,7 @@ using log4net;
 
 namespace TalBrody.DataLayer
 {
-    public class OxifyParamDal : BaseDal
+    public class ParamDal : BaseDal
     {
 
         public Param GetParam(string Name)
