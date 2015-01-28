@@ -82,9 +82,11 @@ namespace TalBrody.Logic
 
 		private void CreateProjectDetails()
 		{
-			string Query = "CREATE TABLE [dbo].[ProjectDetails]([Id] [int] IDENTITY(1,1) NOT NULL,[ProjectId] [int] NOT NULL,[FieldId] [int] NOT NULL,";
-			Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](max) NULL,[FontSize] [int] NOT NULL) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]";
-			
+			string Query = "CREATE TABLE [dbo].[ProjectDetails](	[Id] [int] IDENTITY(1,1) NOT NULL,[ProjectId] [int] NOT NULL,[FieldId] [int] NOT NULL,";
+			Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](max) NULL,[FontSize] [int] NOT NULL, CONSTRAINT [PK_ProjectDetails] PRIMARY KEY CLUSTERED (";
+			Query = Query + "[Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
+			Query = Query + ") ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]";
+
 			BdHandlinkDal dal = new BdHandlinkDal();
 			dal.ExcuteDbCommand(Query);
 		}

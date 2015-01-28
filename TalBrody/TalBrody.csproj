@@ -155,6 +155,7 @@
   <ItemGroup>
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
+    <Content Include="Cover.aspx" />
     <Content Include="Css\Brody.css" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
@@ -187,6 +188,14 @@
     </Compile>
     <Compile Include="Brody.aspx.designer.cs">
       <DependentUpon>Brody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Enums\language.cs" />
+    <Compile Include="Cover.aspx.cs">
+      <DependentUpon>Cover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cover.aspx.designer.cs">
+      <DependentUpon>Cover.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\BdHandlinkDal.cs" />
     <Compile Include="DataLayer\Extensions.cs" />
