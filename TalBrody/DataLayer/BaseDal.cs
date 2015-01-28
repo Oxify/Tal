@@ -64,5 +64,20 @@ namespace TalBrody.DataLayer
 
 			return Result;
 		}
+
+		public static dynamic getSqdataReder(dynamic dr)
+		{
+			dynamic Result = null;
+			if (Global.OnAppHarbor)
+			{
+				Result = (SqlDataReader)dr;
+			}
+			else
+			{
+				Result = (SqlCeDataReader)dr;
+			}
+
+			return Result;
+		}
 	}
 }
