@@ -32,6 +32,12 @@
 			$mydialog.dialog("open");
 		}
 
+		function ChanghFormSizeOnresize() {
+
+			var body = document.getElementById("myBody");
+			body.style.minHeight = window.innerHeight;
+		}
+
 	</script>
 
 
@@ -48,7 +54,7 @@
 
 	</script>
 </head>
-<body>
+<body id="myBody" onresize="ChanghFormSizeOnresize" >
 	<div>
 		<div style="text-align: center; width: 1008px; margin: 0px auto">
 			This is the header<br />

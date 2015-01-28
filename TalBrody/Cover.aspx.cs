@@ -11,7 +11,15 @@ namespace TalBrody
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!IsPostBack)
+			{
+				InitParam();
+			}
+		}
 
+		private void InitParam()
+		{
+			LblTitle.Style.Add("font-size", "30px");
 		}
 	}
 }
