@@ -1,7 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Oxify.Master" CodeBehind="Brody.aspx.cs" Inherits="TalBrody.Brody" %>
 
+<%@ Register Src="~/UserControl/LogInControle.ascx" TagPrefix="uc1" TagName="LogInControle" %>
+<%@ Register Src="~/UserControl/RegisterControl.ascx" TagPrefix="uc1" TagName="RegisterControl" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript" src="JavaScript/brody.js">
+    </script>
+
+
 	<link href="Css/Brody.css" rel="stylesheet" />
 	<div style="margin: 0px auto; min-height: 1000px; width: 1002px; max-width: 1002px; padding-left: 12px; padding-right: 12px;">
 		<div style="text-align: center;">
@@ -10,6 +16,12 @@
 			<br />
 		</div>
 		<div>
+		    <div id="realleftcolumn">
+		        <label for="email">Enter your email to join</label>
+	            <input placeholder="you@email.com" id="email" runat="server" />
+                <button id="registerButton" runat="server" text="Register">Submit</button>
+<%--                <uc1:RegisterControl runat="server" ID="LogInControle" />--%>
+            </div>
 			<div style="width: 750px">
 				<iframe width="620" height="413" src="//www.youtube.com/embed/VEm1rDbwp9Y" frameborder="0" allowfullscreen></iframe>
 
