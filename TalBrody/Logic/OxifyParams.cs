@@ -12,7 +12,11 @@ namespace TalBrody.Logic
 		public static OxifyParam GetOxifyParam()
 		{
 			OxifyParamDal dal = new OxifyParamDal();
-			return dal.GetOxifyParam();
+			OxifyParam parm = new OxifyParam();
+			parm.DbVersion = 0;
+			if (dal.CheckOxifyParamExists())
+				parm = dal.GetOxifyParam();
+			return parm;
 		}
 
 		public static void UpdateOxifyParam(OxifyParam Param)

@@ -61,5 +61,32 @@ namespace TalBrody.DataLayer
 				throw ex;
 			}			
 		}
+
+		public bool CheckOxifyParamExists()
+		{
+			bool exists = false;
+			try
+			{
+				using (var myConnection = GetPortalConnection())
+				{
+					var myCommand = GetCommand("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'OxifyParam'and TABLE_SCHEMA = 'dbo'", myConnection);					
+					myCommand.CommandType = CommandType.Text;
+					myConnection.Open();
+					var dr = myCommand.ExecuteReader();
+					while (dr.Read())
+					{
+						exists = true;
+					}
+					myConnection.Close();
+					dr.Close();
+				}
+			}
+			catch (Exception ex)
+			{
+				log.Error("CheckOxifyParamExists Threw: " + ex.ToString());
+				throw ex;
+			}
+			return exists;
+		}	
 	}
 }
