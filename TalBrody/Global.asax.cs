@@ -24,7 +24,7 @@ namespace TalBrody
 
         protected void Application_Start(object sender, EventArgs e)
         {
-			
+
             // Set up a simple configuration that logs on the console.
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
@@ -34,8 +34,12 @@ namespace TalBrody
             log.Info("--------------------------------------");
             log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
             log.Info("--------------------------------------");
-			// cheking the db version and upgrade if needed
-            int DbVersion = Params.GetParam(Params.PARAM_DB_VERSION).ValueInt ?? 0;
+            // cheking the db version and upgrade if needed
+            int DbVersion = 0; 
+            if (Params.CheckParamExists())
+            {
+                DbVersion = Params.GetParam(Params.PARAM_DB_VERSION).ValueInt ?? 0;
+            }
 
             log.Info("DB Version = " + DbVersion);
             if (DbVersion < CurrentDbVersion)

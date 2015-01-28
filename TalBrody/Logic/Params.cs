@@ -14,6 +14,12 @@ namespace TalBrody.Logic
         public const string PARAM_DB_VERSION = "DBVersion";
 
 
+        public static bool CheckParamExists()
+        {
+            ParamDal dal = new ParamDal();
+            return dal.CheckParamExists();
+
+        }
         public static Param GetParam(string Name)
         {
             ParamDal dal = new ParamDal();
@@ -38,6 +44,7 @@ namespace TalBrody.Logic
             param.ValueInt = ValueInt;
             dal.UpdateParam(param);
         }
+
 
     }
 }
