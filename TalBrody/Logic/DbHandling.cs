@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,16 @@ namespace TalBrody.Logic
 	{
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-		public bool UpgradeDbVerstion(OxifyParam OParam, int DestinationDbVersion)
+		public bool UpgradeDbVerstion(int CurrentVersion, int DestinationDbVersion)
 		{
 			bool Result = false;
-			int CurrentStatus = OParam.DbVersion;
 
 			try
 			{
-				while (CurrentStatus <= DestinationDbVersion)
+                while (CurrentVersion <= DestinationDbVersion)
 				{
-                    log.Info("Upgrading DB from version " + CurrentStatus + " to version " + DestinationDbVersion);
-					switch (CurrentStatus)
+                    log.Info("Upgrading DB from version " + CurrentVersion + " to version " + DestinationDbVersion);
+                    switch (CurrentVersion)
 					{
 						case 0:
 							DBHandling0();
@@ -38,9 +38,8 @@ namespace TalBrody.Logic
 						default:
 							break;
 					}
-					CurrentStatus++;
-					OParam.DbVersion = CurrentStatus;
-					OxifyParams.UpdateOxifyParam(OParam);
+                    CurrentVersion++;
+
 				}
 			}
 			catch (Exception ex)
@@ -54,21 +53,24 @@ namespace TalBrody.Logic
 		private void DBHandling2()
 		{
 			throw new NotImplementedException();
-		}
+            //OxifyParams.UpdateParam(OxifyParams.PARAM_DB_VERSION, "2", "2");
+        }
 
 		private void DBHandling1()
 		{
 			throw new NotImplementedException();
-		}
+            //OxifyParams.UpdateParam(OxifyParams.PARAM_DB_VERSION, "1", 1);
+        }
 
 		private void DBHandling0()
 		{
 			try
 			{
+                CreateParams();
 				CreatePerks();
 				CreateProjects();
 				CreateUsers();
-				CreateFollwers();
+				CreateFollowers();
 			}
 			catch (Exception ex)
 			{
@@ -77,42 +79,51 @@ namespace TalBrody.Logic
 			}
 		}
 
-		private void CreateFollwers()
+		private void CreateFollowers()
 		{
-			string Qwery = "CREATE TABLE [dbo].[Follwers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NULL,	[UserId] [int] NULL,";
-			Qwery = Qwery +"CONSTRAINT [PK_Follwers] PRIMARY KEY CLUSTERED (	[Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = ";
-			Qwery = Qwery + "OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]) ON [PRIMARY]";
-			BdHandlinkDal dal = new BdHandlinkDal();
-			dal.ExcuteDbCommand(Qwery);
+            string Query = "CREATE TABLE [dbo].[Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL,";
+            Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] ASC)) ";
+    		BdHandlinkDal dal = new BdHandlinkDal();
+            dal.ExcuteDbCommand(Query);
 		}
 
 		private void CreateUsers()
 		{
-			string Qwery = "CREATE TABLE [dbo].[Users](	[Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,[Email] [nvarchar](100) NULL,";
-			Qwery = Qwery + "[FacebookId] [nvarchar](100) NULL,	[TwitterId] [nvarchar](100) NULL,[Password] [nvarchar](100) NULL,[ReferencedBy] [int] NULL, CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ";
-			Qwery = Qwery + "([Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]) ON [PRIMARY]";
+            string Query = "CREATE TABLE [dbo].[Users](	[Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,[Email] [nvarchar](100) NULL,";
+            Query = Query + "[FacebookId] [nvarchar](100) NULL,	[TwitterId] [nvarchar](100) NULL,[Password] [nvarchar](100) NULL,[ReferencedBy] [int] NULL, CONSTRAINT [PK_Users] PRIMARY KEY ";
+            Query = Query + "([Id] ASC))";
 			BdHandlinkDal dal = new BdHandlinkDal();
-			dal.ExcuteDbCommand(Qwery);
+            dal.ExcuteDbCommand(Query);
 		}
 
 		private void CreateProjects()
 		{
-			string Qwery = "CREATE TABLE [dbo].[Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
-			Qwery = Qwery + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[nvarchar] [nvarchar](100) NULL, CONSTRAINT [PK_Projects] PRIMARY KEY CLUSTERED (";
-			Qwery = Qwery + "[id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
-			Qwery = Qwery + ") ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]";
+            string Query = "CREATE TABLE [dbo].[Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
+            Query = Query + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[MovieUrl] [nvarchar](100) NULL, CONSTRAINT [PK_Projects] PRIMARY KEY (";
+            Query = Query + "[id] ASC))";
 			BdHandlinkDal dal = new BdHandlinkDal();
-			dal.ExcuteDbCommand(Qwery);
+            dal.ExcuteDbCommand(Query);
 		}
 
 		private void CreatePerks()
 		{
-			string Qwery = "CREATE TABLE [dbo].[Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
-			Qwery = Qwery + "[ProjectId] [int] NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY CLUSTERED ([PerkId] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
-			Qwery = Qwery + ") ON [PRIMARY]";
+            string Query = "CREATE TABLE [dbo].[Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
+            Query = Query + "[ProjectId] [int] NOT NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY ([PerkId] ASC))";
 
 			BdHandlinkDal dal = new BdHandlinkDal();
-			dal.ExcuteDbCommand(Qwery);
+            dal.ExcuteDbCommand(Query);
 		}
+
+	    private void CreateParams()
+	    {
+	        string Query = "CREATE TABLE [Params] (";
+	        Query += "[Id] int IDENTITY (1,1) NOT NULL, ";
+	        Query += "[Name] nvarchar(50) NOT NULL, [Value] nvarchar(50) NOT NULL, [ValueInt] int NULL, CONSTRAINT [PK_Params] PRIMARY KEY ([Id])";
+
+            BdHandlinkDal dal = new BdHandlinkDal();
+            dal.ExcuteDbCommand(Query);
+    
+            OxifyParams.InsertParam(OxifyParams.PARAM_DB_VERSION, "1", 1);
+	    }
 	}
 }

@@ -15,7 +15,7 @@ namespace TalBrody.DataLayer
 	public class FollowerDal : BaseDal
 	{
 
-		public int Get_NmberOf_Follwers_By_Project(int ProjectId)
+		public int Get_NmberOf_Followers_By_Project(int ProjectId)
 		{
 			string OnAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
 			log.Info("Log4Net: Number of followers, OnAppHarbor = " + OnAppHarbor);
@@ -27,7 +27,7 @@ namespace TalBrody.DataLayer
 				using (var conn = GetPortalConnection())
 				{
 					// TODO Fix SQL Injection
-					var cmd = GetCommand("select count(*) from Follwers where ProjectId = @ProjectId", conn);
+					var cmd = GetCommand("select count(*) from Followers where ProjectId = @ProjectId", conn);
 					cmd.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
 					cmd.CommandType = CommandType.Text;
 					conn.Open();

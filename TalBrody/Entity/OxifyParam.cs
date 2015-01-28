@@ -9,4 +9,12 @@ namespace TalBrody.Entity
 	{
 		public int DbVersion { get; set; }
 	}
+
+    public class Param
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+        public int? ValueInt { get; set; }
+
+    }
 }

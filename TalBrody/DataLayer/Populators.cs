@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Linq;
 using System.Web;
+using NUnit.Framework;
 using TalBrody.Entity;
 
 namespace TalBrody.DataLayer
@@ -97,5 +98,25 @@ namespace TalBrody.DataLayer
 
 			return OxifyParam;
 		}
+
+	    internal static Param Populate_Params(SqlDataReader dr)
+	    {
+            Param param = new Param();
+	        param.Name = dr.GetValue<string>("Name");
+	        param.Value = dr.GetValue<string>("Value");
+	        param.ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"));
+	        
+            return param;
+	    }
+        internal static Param Populate_Params(SqlCeDataReader dr)
+        {
+            Param param = new Param();
+            param.Name = dr.GetValue<string>("Name");
+            param.Value = dr.GetValue<string>("Value");
+            param.ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"));
+
+            return param;
+        }
+
 	}
 }

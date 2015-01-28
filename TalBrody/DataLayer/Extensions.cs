@@ -24,5 +24,6 @@ namespace TalBrody.DataLayer
 				return (T)Convert.ChangeType(obj, typeof(T));
 			return default(T);
 		}
+
 	}
 }

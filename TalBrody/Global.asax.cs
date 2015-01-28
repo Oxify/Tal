@@ -18,7 +18,7 @@ namespace TalBrody
     public class Global : System.Web.HttpApplication
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-		private int DbVerstion = 1;
+		private int CurrentDbVersion = 1;
 
         public static bool OnAppHarbor { get; private set; }
 
@@ -35,12 +35,12 @@ namespace TalBrody
             log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
             log.Info("--------------------------------------");
 			// cheking the db version and upgrade if needed
-			OxifyParam oParm = OxifyParams.GetOxifyParam();
-            log.Info("DB Version = " + oParm.DbVersion);
-			if (oParm.DbVersion < DbVerstion)
+            int DbVersion = OxifyParams.GetDbVersion();
+            log.Info("DB Version = " + DbVersion);
+            if (DbVersion < CurrentDbVersion)
 			{
 				DbHandling dbhandling = new DbHandling();
-				dbhandling.UpgradeDbVerstion(oParm, DbVerstion);
+                dbhandling.UpgradeDbVerstion(DbVersion, CurrentDbVersion);
 			}
         }
 
