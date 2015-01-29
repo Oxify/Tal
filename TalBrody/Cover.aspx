@@ -1,18 +1,35 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Oxify.Master" CodeBehind="Cover.aspx.cs" Inherits="TalBrody.Cover" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript" src="JavaScript/brody.js"> </script>
 
-	<div>
-		<div>
+    <link href="Css/Cover.css" rel="stylesheet" />
+    <div class="page-wrapper" id="firstpage">
+        <div class="page-content">
+            <div class="first-page">
+                <asp:Label ID="LblTitle" runat="server" Text='"השגריר"' Font-Size="60px" Font-Bold="True"></asp:Label>
+                <br />
+                <asp:Label ID="Subtitle" runat="server" Text="ספרו האוטוביוגרפי של טל ברודי" Font-Size="50px"></asp:Label><br />
+                <asp:Button CssClass="flat-button" ID="BtnSignup" runat="server" Text="להרשמה" /><br />
+                <asp:Label ID="Description" runat="server" Font-Size="30px" Text="בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת ספרו האוטוביוגרפי של טל ברודי <br/> <b>  הירשמו, הפיצו את הקישור כבר עכשיו ותזכו להנחות והטבות  <b/>
+                     "></asp:Label><br />
 
-			<asp:Label ID="LblTitle" runat="server" Text="Title"></asp:Label> <br />
-			<asp:Label ID="Subtitle" runat="server" Text="SubTitle"></asp:Label><br />
-			<asp:Button ID="BtnSignup" runat="server" Text="Signup" /><br />
-			<asp:Label ID="Description" runat="server" Text="Description"></asp:Label><br />
-			
+            </div>
+        </div>
 
-		</div>
+        <div class="scroll-button-wrapper">
+            <asp:Button ID="BtnScroll" runat="server" Text="V" /><br />
+            <a href="#secondpage">V</a>
+        </div>
 
-
-	</div>
+    </div>
+    <div class="page-wrapper" id="secondpage">
+        <div class="page-content">
+            <div class="additional-page">
+                עוד המון תוכן על טל ברודי
+                </br>
+                גם תמונות וכו'
+            </div>
+        </div>
+    </div>
 </asp:Content>

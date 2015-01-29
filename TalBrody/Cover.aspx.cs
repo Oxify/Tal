@@ -19,7 +19,7 @@ namespace TalBrody
 
 		private void InitParam()
 		{
-			LblTitle.Style.Add("font-size", "30px");
+//			LblTitle.Style.Add("font-size", "30px");
 		}
 	}
 }

@@ -157,9 +157,12 @@
     <Content Include="Brody.aspx" />
     <Content Include="Cover.aspx" />
     <Content Include="Css\Brody.css" />
+    <Content Include="Css\Cover.css" />
+    <Content Include="Css\Temp.css" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JavaScript\brody.js" />
+    <Content Include="JavaScript\Cover.js" />
     <Content Include="JavaScript\jquery-1.8.2.min.js" />
     <Content Include="JavaScript\login.js" />
     <Content Include="MainPage.aspx" />
