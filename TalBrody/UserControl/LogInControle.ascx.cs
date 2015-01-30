@@ -27,7 +27,7 @@ namespace TalBrody.UserControl
 				if (Login1.UserName == "Magic" && Login1.Password == "Card")
 				{
 					Session.Add("Authenticated", true);
-					Response.Redirect("ConseptData.aspx");
+					Response.Redirect("ProjectData.aspx");
 				}
 				else
 				{
@@ -52,7 +52,7 @@ namespace TalBrody.UserControl
 			throw new NotImplementedException();
 		}
 
-		bool IsValidEmail(string email)
+		private bool IsValidEmail(string email)
 		{
 			// TODO - replace with System.ComponentModel.DataAnnotations.EmailAddressAttribute
 			try
@@ -73,21 +73,21 @@ namespace TalBrody.UserControl
 				return false;
 				//	success = false,
 				//	error = "Invalid email"
-				
+
 			}
 			var user = new UserDal().FindUserByEmail(email);
 			if (user != null)
 			{
 				log.Info(String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email));
-				return  true;
+				return true;
 				//	redirectTo = "Login/Login"
-				
+
 			}
 
 			//users.CreateUser(email);
 			return true;
-				//redirectTo = "Login/CreateAccount?email=" + email // TODO - fill this in from the user's registration state
-			
+			//redirectTo = "Login/CreateAccount?email=" + email // TODO - fill this in from the user's registration state
+
 		}
 
 		public bool Register(string email, string password)
@@ -119,11 +119,11 @@ namespace TalBrody.UserControl
 				return "Missing email parameter";
 			}
 
-			
+
 
 			return "ToDo1";
 
-		
+
 		}
 
 		public bool TryLogin(string email, string password)

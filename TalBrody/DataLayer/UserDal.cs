@@ -18,79 +18,75 @@ using TalBrody.Entity;
 namespace TalBrody.DataLayer
 {
 	public class UserDal : BaseDal
-    {
-	    public User FindUserByEmail(string email)
-	    {
-            using (var conn = GetPortalConnection())
-            {
+	{
+		public User FindUserByEmail(string email)
+		{
+			User user = null;
+			using (var conn = GetPortalConnection())
+			{
 				var cmd = GetCommand("select Id, Email, PasswordHash, PasswordSalt from Users where Email = @Email", conn);
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Email", email);
-                
-                conn.Open();
-                var reader = cmd.ExecuteReader();
-                if (!reader.Read())
-                {
-                    return null;
-                }
+				cmd.CommandType = CommandType.Text;
+				cmd.Parameters.AddWithValue("@Email", email);
 
-                var user = new User
-                {
-                    Id = (int) reader[0], 
-                    Email = (string) reader[1],
-                    PasswordHash = (byte[]) reader[2],
-                    PasswordSalt = (byte[]) reader[3]
-                };
-                return user;
-            }
-	    }
+				conn.Open();
+				var reader = cmd.ExecuteReader();
+				if (reader.Read())
+				{
+					user = Populators.Populate_User(reader);
+				}
+				return user;
+			}
+		}
 
-	    public void CreateUser(string email, string password)
-	    {
-            // http://stackoverflow.com/a/10402129/11236
-	        var salt = CreateSalt();
-	        var hashed = Hash(password, salt);
+		public int CreateUser(string email, string password)
+		{
+			// http://stackoverflow.com/a/10402129/11236
+			var salt = CreateSalt();
+			var hashed = Hash(password, salt);
+			int UsersID = 0;
+			using (var conn = GetPortalConnection())
+			{
+				var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt) 	select @UsersID =  IDENT_CURRENT('Users')", conn);
+				cmd.CommandType = CommandType.Text;
+				cmd.Parameters.AddWithValue("@Email", email);
+				cmd.Parameters.AddWithValue("@Hash", hashed);
+				cmd.Parameters.AddWithValue("@Salt", salt);
+				cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
+				conn.Open();
+				var result = cmd.ExecuteNonQuery();
+				if (result != 1)
+				{
+					throw new Exception("Expected result 1, got " + result);
+				}
+				UsersID = (int)cmd.Parameters["@UsersID"].Value;
+			}
+			return UsersID;
+		}
 
-	        using (var conn = GetPortalConnection())
-	        {
-				var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt)", conn);
-                cmd.CommandType = CommandType.Text;
-	            cmd.Parameters.AddWithValue("@Email", email);
-	            cmd.Parameters.AddWithValue("@Hash", hashed);
-	            cmd.Parameters.AddWithValue("@Salt", salt);
-                conn.Open();
-	            var result = cmd.ExecuteNonQuery();
-	            if (result != 1)
-	            {
-	                throw new Exception("Expected result 1, got " + result);
-	            }
-	        }
-	    }
+		public bool CheckUser(string email, string password)
+		{
+			var user = FindUserByEmail(email);
+			if (user == null)
+			{
+				//log.Debug("Didn't find user with email = " + email);
+				return false;
+			}
+			var hash = Hash(password, user.PasswordSalt);
+			return hash.SequenceEqual(user.PasswordHash);
+		}
 
-	    public bool CheckUser(string email, string password)
-	    {
-	        var user = FindUserByEmail(email);
-	        if (user == null)
-	        {
-                log.Debug("Didn't find user with email = " + email);
-	            return false;
-	        }
-	        var hash = Hash(password, user.PasswordSalt);
-	        return hash.SequenceEqual(user.PasswordHash);
-	    }
+		private static byte[] CreateSalt()
+		{
+			byte[] salt;
+			new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
 
-	    private static byte[] CreateSalt()
-	    {
-	        byte[] salt;
-	        new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+			return salt;
+		}
 
-	        return salt;
-	    }
-
-	    public byte[] Hash(string password, byte[] salt)
-	    {
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
-            return pbkdf2.GetBytes(20);
-	    }
-    }
+		public byte[] Hash(string password, byte[] salt)
+		{
+			var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+			return pbkdf2.GetBytes(20);
+		}
+	}
 }

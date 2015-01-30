@@ -10,7 +10,7 @@
 namespace TalBrody {
     
     
-    public partial class ConseptData {
+    public partial class ProjectData {
         
         /// <summary>
         /// form1 control.

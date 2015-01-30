@@ -27,7 +27,7 @@
         <div class="page-content">
             <div class="additional-page">
                 עוד המון תוכן על טל ברודי
-                </br>
+                <br/>
                 גם תמונות וכו'
             </div>
         </div>

@@ -9,7 +9,7 @@ namespace TalBrody.DataLayer
 	{
 		internal static Follower Populate_Follower(SqlCeDataReader dr)
 		{
-			
+
 			Follower Consept = new Follower();
 			Consept.ContactEmail = dr.GetValue<string>("ContactEmail");
 			Consept.DateCreated = dr.GetValue<DateTime>("DateCreated");
@@ -29,10 +29,10 @@ namespace TalBrody.DataLayer
 			Consept.ContactId = dr.GetValue<int>("ContactId");
 			return Consept;
 		}
-		
+
 		internal static Perks Populate_Perks(SqlCeDataReader dr)
 		{
-			
+
 			Perks Perks = new Perks();
 			Perks.Cost = dr.GetValue<int>("Cost");
 			Perks.Description = dr.GetValue<string>("Description");
@@ -45,7 +45,7 @@ namespace TalBrody.DataLayer
 
 		internal static Perks Populate_Perks(SqlDataReader dr)
 		{
-			
+
 			Perks Perks = new Perks();
 			Perks.Cost = dr.GetValue<int>("Cost");
 			Perks.Description = dr.GetValue<string>("Description");
@@ -58,7 +58,7 @@ namespace TalBrody.DataLayer
 
 		internal static Project Populate_Project(SqlCeDataReader dr)
 		{
-			
+
 			Project Project = new Project();
 			Project.Description = dr.GetValue<string>("Description");
 			Project.DisplayName = dr.GetValue<string>("DisplayName");
@@ -71,7 +71,7 @@ namespace TalBrody.DataLayer
 
 		internal static Project Populate_Project(SqlDataReader dr)
 		{
-			
+
 			Project Project = new Project();
 			Project.Description = dr.GetValue<string>("Description");
 			Project.DisplayName = dr.GetValue<string>("DisplayName");
@@ -81,21 +81,21 @@ namespace TalBrody.DataLayer
 			Project.ShortName = dr.GetValue<string>("ShortName");
 			return Project;
 		}
-			   
-        internal static Param Populate_Params(SqlDataReader dr)
-        {
-			
-            Param param = new Param();
-            param.Name = dr.GetValue<string>("Name");
-            param.Value = dr.GetValue<string>("Value");
-            param.ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"));
 
-            return param;
-        }
+		internal static Param Populate_Params(SqlDataReader dr)
+		{
+
+			Param param = new Param();
+			param.Name = dr.GetValue<string>("Name");
+			param.Value = dr.GetValue<string>("Value");
+			param.ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"));
+
+			return param;
+		}
 
 		internal static Param Populate_Params(SqlCeDataReader dr)
 		{
-			
+
 			Param param = new Param();
 			param.Name = dr.GetValue<string>("Name");
 			param.Value = dr.GetValue<string>("Value");
@@ -117,7 +117,7 @@ namespace TalBrody.DataLayer
 		}
 
 		internal static ProjectDetails Populate_projectDetails(SqlCeDataReader dr)
-		{			
+		{
 			ProjectDetails ProjectDetails = new ProjectDetails();
 			ProjectDetails.FieldId = dr.GetValue<int>("FieldId");
 			ProjectDetails.FontSize = dr.GetValue<int>("FontSize");
@@ -126,6 +126,36 @@ namespace TalBrody.DataLayer
 			ProjectDetails.ProjectId = dr.GetValue<int>("ProjectId");
 			ProjectDetails.Text = dr.GetValue<string>("Text");
 			return ProjectDetails;
+		}
+
+		internal static User Populate_User(SqlDataReader dr)
+		{
+			User User = new User();
+			User.DisplayName = dr.GetValue<string>("DisplayName");
+			User.Email = dr.GetValue<string>("Email");
+			User.FaceBookId = dr.GetValue<string>("FaceBookId");
+			User.Id = dr.GetValue<int>("Id");
+			User.Password = dr.GetValue<string>("Password");
+			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
+			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
+			User.ReferanceBy = dr.GetValue<string>("ReferanceBy");
+			User.TwittId = dr.GetValue<string>("TwittId");
+			return User;
+		}
+
+		internal static User Populate_User(SqlCeDataReader dr)
+		{
+			User User = new User();
+			User.DisplayName = dr.GetValue<string>("DisplayName");
+			User.Email = dr.GetValue<string>("Email");
+			User.FaceBookId = dr.GetValue<string>("FaceBookId");
+			User.Id = dr.GetValue<int>("Id");
+			User.Password = dr.GetValue<string>("Password");
+			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
+			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
+			User.ReferanceBy = dr.GetValue<string>("ReferanceBy");
+			User.TwittId = dr.GetValue<string>("TwittId");
+			return User;
 		}
 
 	}
