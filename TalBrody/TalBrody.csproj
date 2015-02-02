@@ -158,7 +158,11 @@
     <Content Include="Cover.aspx" />
     <Content Include="Css\Brody.css" />
     <Content Include="Css\Cover.css" />
+    <Content Include="Css\OgenFont.css" />
     <Content Include="Css\Temp.css" />
+    <Content Include="Fonts\ogenblack.svg" />
+    <Content Include="Fonts\ogenbold.svg" />
+    <Content Include="Fonts\ogenregular.svg" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JavaScript\brody.js" />
@@ -288,6 +292,18 @@
     <Content Include="Oxify.Master" />
     <Content Include="packages.config" />
     <Content Include="Css\Register.less" />
+    <Content Include="Fonts\ogenblack.eot" />
+    <Content Include="Fonts\ogenblack.ttf" />
+    <Content Include="Fonts\ogenblack.woff" />
+    <Content Include="Fonts\ogenblack.woff2" />
+    <Content Include="Fonts\ogenbold.eot" />
+    <Content Include="Fonts\ogenbold.ttf" />
+    <Content Include="Fonts\ogenbold.woff" />
+    <Content Include="Fonts\ogenbold.woff2" />
+    <Content Include="Fonts\ogenregular.eot" />
+    <Content Include="Fonts\ogenregular.ttf" />
+    <Content Include="Fonts\ogenregular.woff" />
+    <Content Include="Fonts\ogenregular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
