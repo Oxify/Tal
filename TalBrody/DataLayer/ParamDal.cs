@@ -19,7 +19,7 @@ namespace TalBrody.DataLayer
             bool exists = false;
             try
             {
-                using (var myConnection = GetPortalConnection())
+                using (var myConnection = PortalConection)
                 {
                     var myCommand = GetCommand("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'Params'", myConnection);
                     myCommand.CommandType = CommandType.Text;
@@ -35,7 +35,7 @@ namespace TalBrody.DataLayer
             }
             catch (Exception ex)
             {
-                log.Error("CheckParamExists Threw: " + ex.ToString());
+                Log.Error("CheckParamExists Threw: " + ex.ToString());
                 throw ex;
             }
             return exists;
@@ -46,7 +46,7 @@ namespace TalBrody.DataLayer
             Param Result = null;
             try
             {
-                using (var myConnection = GetPortalConnection())
+                using (var myConnection = PortalConection)
                 {
                     var myCommand = GetCommand("select * from Params where Name = @Name", myConnection);
                     myCommand.Parameters.Add("@Name", SqlDbType.NVarChar).Value = Name;
@@ -63,7 +63,7 @@ namespace TalBrody.DataLayer
             }
             catch (Exception ex)
             {
-                log.Error("GetParam Threw: " + ex.ToString());
+                Log.Error("GetParam Threw: " + ex.ToString());
             }
 
             return Result;
@@ -76,7 +76,7 @@ namespace TalBrody.DataLayer
             List<Param> Result = new List<Param>();
             try
             {
-                using (var myConnection = GetPortalConnection())
+                using (var myConnection = PortalConection)
                 {
                     var myCommand = GetCommand("select * from Params", myConnection);
                     myCommand.CommandType = CommandType.Text;
@@ -93,7 +93,7 @@ namespace TalBrody.DataLayer
             }
             catch (Exception ex)
             {
-                log.Error("GetParams Threw: " + ex.ToString());
+                Log.Error("GetParams Threw: " + ex.ToString());
             }
             return Result;
         }
@@ -102,7 +102,7 @@ namespace TalBrody.DataLayer
         {
             try
             {
-                using (var myConnection = GetPortalConnection())
+                using (var myConnection = PortalConection)
                 {
                     var myCommand = GetCommand("update [Params] set [Name] = @Name, [Value] = @Value, [ValueInt] = @ValueInt ", myConnection);
                     myCommand.CommandType = CommandType.Text;
@@ -120,7 +120,7 @@ namespace TalBrody.DataLayer
             }
             catch (Exception ex)
             {
-                log.Error("UpdateParam Threw: " + ex);
+                Log.Error("UpdateParam Threw: " + ex);
                 throw ex;
             }
         }
@@ -129,7 +129,7 @@ namespace TalBrody.DataLayer
         {
             try
             {
-                using (var myConnection = GetPortalConnection())
+                using (var myConnection = PortalConection)
                 {
                     var myCommand = GetCommand("insert into [Params] ([Name], [Value], [ValueInt]) values (@Name, @Value, @ValueInt", myConnection);
                     myCommand.CommandType = CommandType.Text;
@@ -147,7 +147,7 @@ namespace TalBrody.DataLayer
             }
             catch (Exception ex)
             {
-                log.Error("InsertParam Threw: " + ex);
+                Log.Error("InsertParam Threw: " + ex);
                 throw ex;
             }
         }

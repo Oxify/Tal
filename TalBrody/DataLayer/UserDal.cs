@@ -22,7 +22,7 @@ namespace TalBrody.DataLayer
 		public User FindUserByEmail(string email)
 		{
 			User user = null;
-			using (var conn = GetPortalConnection())
+            using (var conn = PortalConection)
 			{
 				var cmd = GetCommand("select Id, Email, PasswordHash, PasswordSalt from Users where Email = @Email", conn);
 				cmd.CommandType = CommandType.Text;
@@ -44,7 +44,7 @@ namespace TalBrody.DataLayer
 			var salt = CreateSalt();
 			var hashed = Hash(password, salt);
 			int UsersID = 0;
-			using (var conn = GetPortalConnection())
+            using (var conn = PortalConection)
 			{
 				var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt) 	select @UsersID =  IDENT_CURRENT('Users')", conn);
 				cmd.CommandType = CommandType.Text;

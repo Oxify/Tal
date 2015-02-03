@@ -16,7 +16,7 @@ namespace TalBrody.DataLayer
 		{
 			try
 			{
-				var myConnection = GetPortalConnection();
+                var myConnection = PortalConection;
 				using (myConnection)
 				{
 					var myCommand = GetCommand(ExcuteCommand, myConnection);
@@ -28,7 +28,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-				log.Error("GetAllProject Threw: " + ex.ToString());
+				Log.Error("GetAllProject Threw: " + ex.ToString());
 				throw ex;
 			}
 		}

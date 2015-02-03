@@ -18,7 +18,7 @@ namespace TalBrody.DataLayer
 			Project Pro = null;
 			try
 			{
-				var myConnection = GetPortalConnection();
+                var myConnection = PortalConection;
 				using (myConnection)
 				{
 					var myCommand = GetCommand("SELECT id, DisplayName, ShortName, Description, LinkUrl, MovieUrl FROM Projects where id = @ProjectId" , myConnection);
@@ -42,7 +42,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-				log.Error("GetProjectByProjectId Threw: " + ex.ToString());
+				Log.Error("GetProjectByProjectId Threw: " + ex.ToString());
 				throw ex;
 			}
 			return Pro;
@@ -53,7 +53,7 @@ namespace TalBrody.DataLayer
 			List<Project> ProList = new List<Project>();
 			try
 			{
-				var myConnection = GetPortalConnection();
+                var myConnection = PortalConection;
 				using (myConnection)
 				{
 					var myCommand = GetCommand("SELECT id, DisplayName, ShortName, Description, LinkUrl, MovieUrl FROM Projects ", myConnection);
@@ -73,7 +73,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-				log.Error("GetAllProject Threw: " + ex.ToString());
+				Log.Error("GetAllProject Threw: " + ex.ToString());
 				throw ex;
 			}
 			return ProList;

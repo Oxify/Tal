@@ -21,7 +21,7 @@ namespace TalBrody.DataLayer
 			List<Perks> Result = new List<Perks>();
 			try
 			{
-				var myConnection = GetPortalConnection();
+                var myConnection = PortalConection;
 				using (myConnection)
 				{
 					var myCommand = GetCommand("select Cost,Description,PerkId,ProjectId,ShowOrder,Title from Perks where ProjectId = @ProjectId order by ShowOrder", myConnection);
@@ -43,7 +43,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-                log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
+                Log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
 
 				throw ex;
 			}

@@ -18,13 +18,13 @@ namespace TalBrody.DataLayer
 		public int Get_NmberOf_Followers_By_Project(int ProjectId)
 		{
 			string OnAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
-			log.Info("Log4Net: Number of followers, OnAppHarbor = " + OnAppHarbor);
+			Log.Info("Log4Net: Number of followers, OnAppHarbor = " + OnAppHarbor);
 			Trace.TraceError("TraceError: Number of followers, OnAppHarbor = " + OnAppHarbor);
 
 			int Result = 0;
 			try
 			{
-				using (var conn = GetPortalConnection())
+                using (var conn = PortalConection)
 				{
 					// TODO Fix SQL Injection
 					var cmd = GetCommand("select count(*) from Followers where ProjectId = @ProjectId", conn);

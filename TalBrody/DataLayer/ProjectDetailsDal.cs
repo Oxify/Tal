@@ -14,7 +14,7 @@ namespace TalBrody.DataLayer
 			List<ProjectDetails> Result = new List<ProjectDetails>();
 			try
 			{
-				using (var myConnection = GetPortalConnection())
+                using (var myConnection = PortalConection())
 				{
 					var myCommand = GetCommand("SELECT Id ,ProjectId,FieldId ,LangId ,Text  ,FontSize FROM dbo.ProjectDetails where ProjectId = @ProjectId and LangId = @LangId", myConnection);
 					myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = ProjectId;
@@ -32,7 +32,7 @@ namespace TalBrody.DataLayer
 			}
 			catch (Exception ex)
 			{
-				log.Error("GetProjectDetails Threw: " + ex.ToString());
+				Log.Error("GetProjectDetails Threw: " + ex.ToString());
 				throw ex;
 			}
 			return Result;
