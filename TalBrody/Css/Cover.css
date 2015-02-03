@@ -8,7 +8,7 @@
 }
 
 .page-content {
-  /*background-color: lightgray; */
+    /*background-color: lightgray; */
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -18,13 +18,15 @@
     align-items: center;
     text-align: center;
     font-family: Ogen, Arial;
-
 }
 
 .first-page {
 }
 
 .scroll-button-wrapper {
+    position: relative;
+
+
 }
 
 .flat-button {
@@ -38,7 +40,24 @@
     border: 0;
 }
 
-.flat-button:hover {
+    .flat-button:hover {
         background: #3cb0fd;
         text-decoration: none;
     }
+
+.ScrollButton {
+    background-position: center;
+    content: '';
+    display: inline-block;
+    background: url(../images/DownButton.png) no-repeat;
+    border: none;
+    width: 0px;
+    padding: 27px;
+    margin: 0px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.ScrollButton:hover {
+    background: url(../images/DownButton.hover.png) no-repeat;    
+}

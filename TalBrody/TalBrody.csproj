@@ -163,6 +163,8 @@
     <Content Include="Fonts\ogenblack.svg" />
     <Content Include="Fonts\ogenbold.svg" />
     <Content Include="Fonts\ogenregular.svg" />
+    <Content Include="Images\DownButton.hover.png" />
+    <Content Include="Images\DownButton.png" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JavaScript\brody.js" />

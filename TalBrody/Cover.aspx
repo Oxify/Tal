@@ -11,15 +11,19 @@
                 <br />
                 <asp:Label ID="Subtitle" runat="server" Text="ספרו האוטוביוגרפי של טל ברודי" Font-Size="50px"></asp:Label><br />
                 <asp:Button CssClass="flat-button" ID="BtnSignup" runat="server" Text="להרשמה" /><br />
-                <asp:Label ID="Description" runat="server" Font-Size="30px" Text="בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת ספרו האוטוביוגרפי של טל ברודי <br/> <b>  הירשמו, הפיצו את הקישור כבר עכשיו ותזכו להנחות והטבות  <b/>
+                <asp:Label ID="Description" runat="server" Font-Size="30px" Text="בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת ספרו האוטוביוגרפי של טל ברודי <br/> <b>  הירשמו, הפיצו את הקישור כבר עכשיו ותזכו להנחות והטבות  </b>
                      "></asp:Label><br />
 
             </div>
-        </div>
 
-        <div class="scroll-button-wrapper">
-            <asp:Button ID="BtnScroll" runat="server" Text="V" /><br />
-            <a href="#secondpage">V</a>
+            <div class="scroll-button-wrapper">
+                <br />
+                <br />
+                <br />
+
+                <a href="#" class='ScrollButton' id="ScrollDown" data-goto="secondpage"></a>
+            <br />
+            </div>
         </div>
 
     </div>
@@ -27,7 +31,7 @@
         <div class="page-content" id="secondpage">
             <div class="additional-page">
                 עוד המון תוכן על טל ברודי
-                <br/>
+                <br />
                 גם תמונות וכו'
             </div>
         </div>

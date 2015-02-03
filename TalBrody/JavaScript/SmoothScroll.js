@@ -1,4 +1,10 @@
-﻿
+﻿/*
+function SmoothScroll(element) {
+    var offset = $element.offset().top;
+
+}
+*/
+//<script type="text/javascript" src="JavaScript/SmoothScroll.js"></script>
 $(document).ready(function () {
     function filterPath(string) {
         return string
