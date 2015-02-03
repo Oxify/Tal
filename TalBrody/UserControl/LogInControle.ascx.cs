@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Logic;
 
 namespace TalBrody.UserControl
 {
@@ -90,26 +91,24 @@ namespace TalBrody.UserControl
 
 		}
 
-		public bool Register(string email, string password)
+		public int Register(string email, string password)
 		{
 			if (!IsValidEmail(email))
 			{
-				return false;
+				return 0;
 			}
 
 			if (!IsValidPassword(password))
 			{
-				return false;
+				return 0;
 			}
 
-			var users = new UserDal();
-			if (users.FindUserByEmail(email) != null)
+            if (Users.FindUserByEmail(email) != null)
 			{
-				return false;
+				return 0;
 			}
 
-			users.CreateUser(email, password);
-			return true;
+            return Users.CreateUser(email, password); 
 		}
 
 		public string CreateAccount(string email)
@@ -128,7 +127,7 @@ namespace TalBrody.UserControl
 
 		public bool TryLogin(string email, string password)
 		{
-			return !new UserDal().CheckUser(email, password);
+			return Users.CheckUser(email, password);
 			//{
 			//	return Json(new { success = false, error = "Wrong email or password" });
 			//}			

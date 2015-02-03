@@ -131,7 +131,7 @@ namespace TalBrody.DataLayer
             {
                 using (var myConnection = PortalConection)
                 {
-                    var myCommand = GetCommand("insert into [Params] ([Name], [Value], [ValueInt]) values (@Name, @Value, @ValueInt", myConnection);
+                    var myCommand = GetCommand("insert into [Params] ([Name], [Value], [ValueInt]) values (@Name, @Value, @ValueInt)", myConnection);
                     myCommand.CommandType = CommandType.Text;
                     myCommand.Parameters.Add("@Name", SqlDbType.NVarChar).Value = param.Name;
                     myCommand.Parameters.Add("@Value", SqlDbType.NVarChar).Value = param.Name;

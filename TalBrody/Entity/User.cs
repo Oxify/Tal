@@ -12,7 +12,6 @@ namespace TalBrody.Entity
 		public string Email { get; set; }
 		public string FaceBookId { get; set; }
 		public string TwittId { get; set; }
-		public string Password { get; set; }
 		public string ReferanceBy { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }

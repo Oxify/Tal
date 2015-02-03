@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using log4net;
+using TalBrody.Logic;
 
 namespace TalBrody
 {
@@ -35,7 +36,7 @@ namespace TalBrody
                 return;
             }
 
-            new UserDal().CreateUser(email.Value, displayName.Value);
+            Users.CreateUser(email.Value, displayName.Value);
         }
     }
 

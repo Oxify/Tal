@@ -87,7 +87,7 @@ namespace TalBrody.DataLayer
                 con.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

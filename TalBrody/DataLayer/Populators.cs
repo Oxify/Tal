@@ -135,11 +135,11 @@ namespace TalBrody.DataLayer
 			User.Email = dr.GetValue<string>("Email");
 			User.FaceBookId = dr.GetValue<string>("FaceBookId");
 			User.Id = dr.GetValue<int>("Id");
-			User.Password = dr.GetValue<string>("Password");
+			
 			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
 			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
-			User.ReferanceBy = dr.GetValue<string>("ReferanceBy");
-			User.TwittId = dr.GetValue<string>("TwittId");
+            User.ReferanceBy = dr.GetValue<string>("ReferencedBy");
+            User.TwittId = dr.GetValue<string>("TwitterId");
 			return User;
 		}
 
@@ -150,11 +150,11 @@ namespace TalBrody.DataLayer
 			User.Email = dr.GetValue<string>("Email");
 			User.FaceBookId = dr.GetValue<string>("FaceBookId");
 			User.Id = dr.GetValue<int>("Id");
-			User.Password = dr.GetValue<string>("Password");
+			
 			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
 			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
-			User.ReferanceBy = dr.GetValue<string>("ReferanceBy");
-			User.TwittId = dr.GetValue<string>("TwittId");
+            User.ReferanceBy = dr.GetValue<string>("ReferencedBy");
+            User.TwittId = dr.GetValue<string>("TwitterId");
 			return User;
 		}
 
