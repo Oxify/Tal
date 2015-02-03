@@ -65,6 +65,7 @@ namespace TalBrody.DataLayer
             }
 
             ConectionString = ConfigurationManager.ConnectionStrings["OxifySqlConection"].ConnectionString;
+            ConectionString += ";Connect Timeout=1";
             Log.Info("GetPortalConnection: Not OnAppHarbor, connection string: " + ConectionString);
             conn = new SqlConnection(ConectionString);
             if (!CheckIfconectionStringValid(conn))
@@ -86,9 +87,9 @@ namespace TalBrody.DataLayer
                 con.Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                return false;
             }
             return result;
         }
