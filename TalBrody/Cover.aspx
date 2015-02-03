@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Oxify.Master" CodeBehind="Cover.aspx.cs" Inherits="TalBrody.Cover" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type="text/javascript" src="JavaScript/brody.js"> </script>
+    <script type="text/javascript" src="JavaScript/Cover.js"> </script>
 
     <link href="Css/Cover.css" rel="stylesheet" />
     <div class="page-wrapper" id="firstpage">
@@ -23,8 +23,8 @@
         </div>
 
     </div>
-    <div class="page-wrapper" id="secondpage">
-        <div class="page-content">
+    <div class="page-wrapper">
+        <div class="page-content" id="secondpage">
             <div class="additional-page">
                 עוד המון תוכן על טל ברודי
                 <br/>

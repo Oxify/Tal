@@ -1,15 +1,15 @@
 @font-face {
     font-family: 'ogen';
-    src: url('Fonts\ogenregular.eot');
-    src: url('Fonts\ogenregular.eot?#iefix') format('embedded-opentype'), url('Fonts\ogenregular.woff2') format('woff2'), url('Fonts\ogenregular.woff') format('woff'), url('Fonts\ogenregular.ttf') format('truetype'), url('Fonts\ogenregular.svg#ogenregular') format('svg');
+    src: url('../Fonts/ogenregular.eot');
+    src: url('../Fonts/ogenregular.eot?#iefix') format('embedded-opentype'), url('../Fonts/ogenregular.woff2') format('woff2'), url('../Fonts/ogenregular.woff') format('woff'), url('../Fonts/ogenregular.ttf') format('truetype'), url('../Fonts/ogenregular.svg#ogenregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ogen';
-    src: url('Fonts\ogenbold-webfont.eot');
-    src: url('Fonts\ogenbold.eot?#iefix') format('embedded-opentype'), url('Fonts\ogenbold.woff2') format('woff2'), url('Fonts\ogenbold.woff') format('woff'), url('Fonts\ogenbold.ttf') format('truetype'), url('Fonts\ogenbold.svg#ogenbold') format('svg');
+    src: url('../Fonts/ogenbold-webfont.eot');
+    src: url('../Fonts/ogenbold.eot?#iefix') format('embedded-opentype'), url('../Fonts/ogenbold.woff2') format('woff2'), url('../Fonts/ogenbold.woff') format('woff'), url('../Fonts/ogenbold.ttf') format('truetype'), url('../Fonts/ogenbold.svg#ogenbold') format('svg');
     font-weight: normal;
     font-style: bold;
 }
@@ -17,8 +17,8 @@
 
 @font-face {
     font-family: 'ogenblack';
-    src: url('Fonts\ogenblack.eot');
-    src: url('Fonts\ogenblack.eot?#iefix') format('embedded-opentype'), url('Fonts\ogenblack.woff2') format('woff2'), url('Fonts\ogenblack.woff') format('woff'), url('Fonts\ogenblack.ttf') format('truetype'), url('Fonts\ogenblack.svg#ogenblackregular') format('svg');
+    src: url('../Fonts/ogenblack.eot');
+    src: url('../Fonts/ogenblack.eot?#iefix') format('embedded-opentype'), url('../Fonts/ogenblack.woff2') format('woff2'), url('../Fonts/ogenblack.woff') format('woff'), url('../Fonts/ogenblack.ttf') format('truetype'), url('../Fonts/ogenblack.svg#ogenblackregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }

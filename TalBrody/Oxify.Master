@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="Css\OgenFont.css" type="text/css" charset="utf-8" />
 	<script src="JavaScript/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="JavaScript/SmoothScroll.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$("#dialog").hide();
