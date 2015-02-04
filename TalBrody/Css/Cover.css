@@ -33,9 +33,11 @@
     font-family: Aharoni;
     font-weight: bold;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 63px;
     background: #3498db;
     padding: 10px 40px 10px 40px;
+    width: 63px;
+    height: 50px;
     text-decoration: none;
     border: 0;
 }
@@ -60,4 +62,22 @@
 
 .ScrollButton:hover {
     background: url(../images/DownButton.hover.png) no-repeat;    
+}
+
+
+.Title {
+    font-size: 53px;
+    font-weight: bold;
+}
+
+.SubTitle {
+    font-size: 53px;
+    font-weight: normal;
+    
+
+}
+
+.Description {
+    font-size: 28px;
+    line-height: 48px;
 }
