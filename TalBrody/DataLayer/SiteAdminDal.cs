@@ -14,17 +14,13 @@ namespace TalBrody.DataLayer
             int SiteAdminId = 0;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("insert into SiteAdmin (UserId) values (@UserId) 	select @SiteAdminId =  IDENT_CURRENT('SiteAdmin')", conn);
+                var cmd = GetCommand("insert into SiteAdmin (UserId) values (@UserId) 	", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@UserId", sadmin.UserId);
-                cmd.Parameters.Add("@SiteAdminId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                //cmd.Parameters.Add("@SiteAdminId", SqlDbType.Int).Direction = ParameterDirection.Output;
                 conn.Open();
-                var result = cmd.ExecuteNonQuery();
-                if (result != 1)
-                {
-                    throw new Exception("Expected result 1, got " + result);
-                }
-                SiteAdminId = (int)cmd.Parameters["@SiteAdminId"].Value;
+                SiteAdminId = (int)cmd.ExecuteScalar();
+               
             }
             return SiteAdminId;
         }

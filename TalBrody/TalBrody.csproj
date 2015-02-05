@@ -158,6 +158,8 @@
     <Content Include="Cover.aspx" />
     <Content Include="Css\Brody.css" />
     <Content Include="Css\Cover.css" />
+    <Content Include="Css\Master.css" />
+    <Content Include="Css\Ogen.svg" />
     <Content Include="Css\OgenFont.css" />
     <Content Include="Css\Temp.css" />
     <Content Include="Fonts\ogenblack.svg" />
@@ -325,6 +327,11 @@
     <Content Include="Fonts\ogenregular.woff2">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Css\OgenBlack.ttf" />
+    <Content Include="Css\OgenBold.ttf" />
+    <Content Include="Css\OgenRegular.ttf" />
+    <Content Include="Css\Ogen.woff" />
+    <Content Include="Css\Ogen.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
