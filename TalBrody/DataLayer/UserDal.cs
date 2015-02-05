@@ -124,19 +124,15 @@ namespace TalBrody.DataLayer
             int UsersID = 0;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt) 	select @UsersID =  IDENT_CURRENT('Users')", conn);
+                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt) 	", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Hash", hash);
                 cmd.Parameters.AddWithValue("@Salt", salt);
-                cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
+               // cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
                 conn.Open();
-                var result = cmd.ExecuteNonQuery();
-                if (result != 1)
-                {
-                    throw new Exception("Expected result 1, got " + result);
-                }
-                UsersID = (int)cmd.Parameters["@UsersID"].Value;
+                UsersID = (int)cmd.ExecuteScalar();
+                
             }
             return UsersID;
         }

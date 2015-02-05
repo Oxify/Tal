@@ -17,23 +17,22 @@
     align-content: center;
     align-items: center;
     text-align: center;
-    font-family: Ogen, Arial;
+    font-family: 'Ogen';
 }
 
 .first-page {
+    padding-bottom: 60px;
 }
 
 .scroll-button-wrapper {
     position: relative;
-
-
 }
 
 .flat-button {
-    font-family: Aharoni;
+    font-family: 'Ogen';
     font-weight: bold;
     color: #ffffff;
-    font-size: 63px;
+    font-size: 29px;
     background: #3498db;
     padding: 10px 40px 10px 40px;
     width: 63px;
@@ -66,18 +65,21 @@
 
 
 .Title {
+    
     font-size: 53px;
     font-weight: bold;
+    padding-bottom: 27px;
 }
 
 .SubTitle {
     font-size: 53px;
     font-weight: normal;
-    
-
+    padding-bottom: 35px;
 }
 
 .Description {
     font-size: 28px;
-    line-height: 48px;
+    line-height: 39px;
+    padding-top: 42px;
+    padding-bottom: 63px;
 }

@@ -72,9 +72,25 @@ namespace TalBrody.DataLayer
             {
                 ConectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
                 Log.Info("GetPortalConnection: Not OnAppHarbor, connection string: " + ConectionString);
+                CheckAndCreate(ConectionString);
                 conn = new SqlCeConnection(ConectionString);
             }
             return conn;
+        }
+
+        private static void CheckAndCreate(string ConnectionString)
+        {
+            try
+            {
+                SqlCeEngine engine = new SqlCeEngine(ConnectionString);
+              
+                engine.CreateDatabase();
+
+            }
+            catch (Exception exception)
+            {
+                return;
+            }
         }
 
         private static bool CheckIfconectionStringValid(SqlConnection con)

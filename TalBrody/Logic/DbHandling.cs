@@ -66,7 +66,6 @@ namespace TalBrody.Logic
         {
             try
             {
-                CreateParams();
                 CreatePerks();
                 CreateProjects();
                 CreateUsers();
@@ -75,6 +74,10 @@ namespace TalBrody.Logic
                 CreateSiteAdmin();
                 InsertSiteAdminAndUser();
                 Permission();
+
+                // create params needs to be last! 
+                CreateParams();
+                // create params is last!
             }
             catch (Exception ex)
             {
@@ -108,17 +111,16 @@ namespace TalBrody.Logic
 
         private void CreateSiteAdmin()
         {
-            string Query = "CREATE TABLE [dbo].[SiteAdmin](Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL) ON [PRIMARY]";
+            string Query = "CREATE TABLE [SiteAdmin]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL) ";
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreateProjectDetails()
         {
-            string Query = "CREATE TABLE [dbo].[ProjectDetails](	[Id] [int] IDENTITY(1,1) NOT NULL,[ProjectId] [int] NOT NULL,[FieldId] [int] NOT NULL,";
-            Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](max) NULL,[FontSize] [int] NOT NULL, CONSTRAINT [PK_ProjectDetails] PRIMARY KEY CLUSTERED (";
-            Query = Query + "[Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
-            Query = Query + ") ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]";
+            string Query = "CREATE TABLE [ProjectDetails](	[Id] [int] IDENTITY(1,1) NOT NULL,[ProjectId] [int] NOT NULL,[FieldId] [int] NOT NULL,";
+            Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](4000) NULL,[FontSize] [int] NOT NULL, CONSTRAINT [PK_ProjectDetails] PRIMARY KEY  (";
+            Query = Query + "[Id]))";
 
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
@@ -126,8 +128,8 @@ namespace TalBrody.Logic
 
         private void CreateFollowers()
         {
-            string Query = "CREATE TABLE [dbo].[Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL,";
-            Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] ASC)) ";
+            string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL,";
+            Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] )) ";
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
         }
@@ -135,11 +137,11 @@ namespace TalBrody.Logic
         private void CreateUsers()
         {
 
-            string Query = " CREATE TABLE [dbo].[Users]([Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,";
+            string Query = " CREATE TABLE [Users]([Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,";
             Query = Query + "[Email] [nvarchar](100) NULL,[FacebookId] [nvarchar](100) NULL,[TwitterId] [nvarchar](100) NULL,[ReferencedBy] [int] NULL,";
-            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailComferm] [bit] NULL,CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED (";
-            Query = Query + "[Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
-            Query = Query + ") ON [PRIMARY] GO ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_EmailComferm]  DEFAULT ((0)) FOR [EmailComferm] GO";
+            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailComferm] [bit] NULL,CONSTRAINT [PK_Users] PRIMARY KEY  (";
+            Query = Query + "[Id]))";
+     
 
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
@@ -147,17 +149,17 @@ namespace TalBrody.Logic
 
         private void CreateProjects()
         {
-            string Query = "CREATE TABLE [dbo].[Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
+            string Query = "CREATE TABLE [Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
             Query = Query + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[MovieUrl] [nvarchar](100) NULL, CONSTRAINT [PK_Projects] PRIMARY KEY (";
-            Query = Query + "[id] ASC))";
+            Query = Query + "[id] ))";
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreatePerks()
         {
-            string Query = "CREATE TABLE [dbo].[Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
-            Query = Query + "[ProjectId] [int] NOT NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY ([PerkId] ASC))";
+            string Query = "CREATE TABLE [Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
+            Query = Query + "[ProjectId] [int] NOT NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY ([PerkId]))";
 
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
