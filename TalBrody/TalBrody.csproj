@@ -202,6 +202,7 @@
     </Compile>
     <Compile Include="Common\CommonFunction.cs" />
     <Compile Include="Common\Enums\language.cs" />
+    <Compile Include="Common\Enums\PermisstionEnum.cs" />
     <Compile Include="Cover.aspx.cs">
       <DependentUpon>Cover.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,14 +214,18 @@
     <Compile Include="DataLayer\Extensions.cs" />
     <Compile Include="DataLayer\ParamDal.cs" />
     <Compile Include="DataLayer\PerksDal.cs" />
+    <Compile Include="DataLayer\PermissionDal.cs" />
     <Compile Include="DataLayer\Populators.cs" />
     <Compile Include="DataLayer\ProjectDal.cs" />
     <Compile Include="DataLayer\ProjectDetailsDal.cs" />
+    <Compile Include="DataLayer\SiteAdminDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
     <Compile Include="Entity\Param.cs" />
     <Compile Include="Entity\Perks.cs" />
+    <Compile Include="Entity\Permission.cs" />
     <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\ProjectDetails.cs" />
+    <Compile Include="Entity\SiteAdmin.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -235,7 +240,9 @@
     <Compile Include="Logic\DbHandling.cs" />
     <Compile Include="Logic\Params.cs" />
     <Compile Include="Logic\Perkses.cs" />
+    <Compile Include="Logic\Permissions.cs" />
     <Compile Include="Logic\Projects.cs" />
+    <Compile Include="Logic\SiteAdmins.cs" />
     <Compile Include="Logic\Users.cs" />
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
@@ -292,6 +299,7 @@
     <Compile Include="Util\Http.cs" />
     <Compile Include="Util\Log.cs" />
     <Compile Include="Util\Loging.cs" />
+    <Compile Include="Util\UserSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Oxify.Master" />

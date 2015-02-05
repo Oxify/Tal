@@ -72,12 +72,45 @@ namespace TalBrody.Logic
                 CreateUsers();
                 CreateFollowers();
                 CreateProjectDetails();
+                CreateSiteAdmin();
+                InsertSiteAdminAndUser();
+                Permission();
             }
             catch (Exception ex)
             {
                 Loging.InsertLog("DbHandling", "DBHandling0 Threw: " + ex.ToString());
                 throw ex;
             }
+        }
+
+        private void Permission()
+        {
+            string Query = "CREATE TABLE [dbo].[Permissions]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL," +
+                           "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL) ON [PRIMARY]";
+            BdHandlinkDal dal = new BdHandlinkDal();
+            dal.ExcuteDbCommand(Query);
+        }
+
+        private void InsertSiteAdminAndUser()
+        {
+            int userId = Users.CreateUser("zivverb@hotmail.com", "1ziv@tzoran");
+            SiteAdmin sadmin = new SiteAdmin {UserId = userId};
+            SiteAdmins.InsertSiteAdmin(sadmin);
+
+            int userId1 = Users.CreateUser("ortalr@gmail.com", "1ortal@raz");
+            SiteAdmin sadmin1 = new SiteAdmin {UserId = userId};
+            SiteAdmins.InsertSiteAdmin(sadmin1);
+
+            int userId2 = Users.CreateUser("ron.gross@gmail.com", "1ron@gross");
+            SiteAdmin sadmin2 = new SiteAdmin {UserId = userId};
+            SiteAdmins.InsertSiteAdmin(sadmin2);
+        }
+
+        private void CreateSiteAdmin()
+        {
+            string Query = "CREATE TABLE [dbo].[SiteAdmin](Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL) ON [PRIMARY]";
+            BdHandlinkDal dal = new BdHandlinkDal();
+            dal.ExcuteDbCommand(Query);
         }
 
         private void CreateProjectDetails()
@@ -104,9 +137,9 @@ namespace TalBrody.Logic
 
             string Query = " CREATE TABLE [dbo].[Users]([Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,";
             Query = Query + "[Email] [nvarchar](100) NULL,[FacebookId] [nvarchar](100) NULL,[TwitterId] [nvarchar](100) NULL,[ReferencedBy] [int] NULL,";
-            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED (";
+            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailComferm] [bit] NULL,CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED (";
             Query = Query + "[Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]";
-            Query = Query + ") ON [PRIMARY]";
+            Query = Query + ") ON [PRIMARY] GO ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_EmailComferm]  DEFAULT ((0)) FOR [EmailComferm] GO";
 
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TalBrody.Logic;
+using TalBrody.Util;
 
 namespace TalBrody.UserControl
 {
@@ -125,9 +126,18 @@ namespace TalBrody.UserControl
 
 		}
 
+	    public void AddUserToSession(int UserId)
+	    {
+	        UserSession Usession = new UserSession();
+	        Usession.UserId = UserId;
+	        Usession.StartSession = DateTime.Now;
+	        Usession.PermissionList = Permissions.Get_All_Permission_By_UserId(UserId);
+            Session.Add("Usession", Usession);
+	    }
+
 		public bool TryLogin(string email, string password)
 		{
-			return Users.CheckUser(email, password);
+			return Users.CheckUserPassword(email, password);
 			//{
 			//	return Json(new { success = false, error = "Wrong email or password" });
 			//}			

@@ -135,7 +135,7 @@ namespace TalBrody.DataLayer
 			User.Email = dr.GetValue<string>("Email");
 			User.FaceBookId = dr.GetValue<string>("FaceBookId");
 			User.Id = dr.GetValue<int>("Id");
-			
+		    User.EmailComferm = dr.GetValue<bool>("EmailComferm");
 			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
 			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
             User.ReferanceBy = dr.GetValue<string>("ReferencedBy");
@@ -150,7 +150,7 @@ namespace TalBrody.DataLayer
 			User.Email = dr.GetValue<string>("Email");
 			User.FaceBookId = dr.GetValue<string>("FaceBookId");
 			User.Id = dr.GetValue<int>("Id");
-			
+            User.EmailComferm = dr.GetValue<bool>("EmailComferm");
 			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
 			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
             User.ReferanceBy = dr.GetValue<string>("ReferencedBy");
@@ -158,5 +158,40 @@ namespace TalBrody.DataLayer
 			return User;
 		}
 
+	    internal static SiteAdmin Populate_SiteAdmin(SqlDataReader dr)
+	    {
+	        SiteAdmin SiteAdmin = new SiteAdmin();
+            SiteAdmin.Id = dr.GetValue<int>("Id");
+            SiteAdmin.UserId = dr.GetValue<int>("UserId");
+	        return SiteAdmin;
+	    }
+
+        internal static SiteAdmin Populate_SiteAdmin(SqlCeDataReader dr)
+        {
+            SiteAdmin SiteAdmin = new SiteAdmin();
+            SiteAdmin.Id = dr.GetValue<int>("Id");
+            SiteAdmin.UserId = dr.GetValue<int>("UserId");
+            return SiteAdmin;
+        }
+
+	    internal static Permission Populate_permission(SqlDataReader dr)
+	    {
+	        Permission Permission = new Permission();
+            Permission.Id = dr.GetValue<int>("Id");
+            Permission.PermisstionName = dr.GetValue<string>("PermisstionName");
+            Permission.ProjectId = dr.GetValue<int>("ProjectId");
+            Permission.UserId = dr.GetValue<int>("UserId");
+	        return Permission;
+	    }
+
+        internal static Permission Populate_permission(SqlCeDataReader dr)
+        {
+            Permission Permission = new Permission();
+            Permission.Id = dr.GetValue<int>("Id");
+            Permission.PermisstionName = dr.GetValue<string>("PermisstionName");
+            Permission.ProjectId = dr.GetValue<int>("ProjectId");
+            Permission.UserId = dr.GetValue<int>("UserId");
+            return Permission;
+        }
 	}
 }

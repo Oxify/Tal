@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using TalBrody.Entity;
+
+namespace TalBrody.DataLayer
+{
+    public class SiteAdminDal : BaseDal
+    {
+        public int InsertSiteAdmin(SiteAdmin sadmin)
+        {
+            int SiteAdminId = 0;
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("insert into SiteAdmin (UserId) values (@UserId) 	select @SiteAdminId =  IDENT_CURRENT('SiteAdmin')", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@UserId", sadmin.UserId);
+                cmd.Parameters.Add("@SiteAdminId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                conn.Open();
+                var result = cmd.ExecuteNonQuery();
+                if (result != 1)
+                {
+                    throw new Exception("Expected result 1, got " + result);
+                }
+                SiteAdminId = (int)cmd.Parameters["@SiteAdminId"].Value;
+            }
+            return SiteAdminId;
+        }
+
+        public SiteAdmin GetSiteAdminByUserId(int UserId)
+        {
+            SiteAdmin sadmin = null;
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("select [Id], [UserId]" +
+                                     " from SiteAdmin where UserId = @UserId", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    sadmin = Populators.Populate_SiteAdmin(reader);
+                }
+                return sadmin;
+            }
+
+        }
+    }
+}

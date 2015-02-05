@@ -16,7 +16,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash" +
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
                                      " from Users where Email = @Email", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
@@ -31,10 +31,96 @@ namespace TalBrody.DataLayer
             }
         }
 
+        public User FindUserByid(int id)
+        {
+            User user = null;
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
+                                     " from Users where Id = @id", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    user = Populators.Populate_User(reader);
+                }
+                return user;
+            }
+
+        }
+
+        public User FindUserByTwitterid(int Twitterid)
+        {
+            User user = null;
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
+                                     " from Users where TwitterId = @Twitterid", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Twitterid", Twitterid);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    user = Populators.Populate_User(reader);
+                }
+                return user;
+            }
+
+        }
+
+        public User FindUserByFacebookd(int Facebookd)
+        {
+            User user = null;
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
+                                     " from Users where FacebookId = @Facebookd", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Facebookd", Facebookd);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    user = Populators.Populate_User(reader);
+                }
+                return user;
+            }
+
+        }
+
+        public void UpdateUser(User user)
+        {
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("update Users set Email = @Email, DisplayName = @DisplayName, FacebookId = @FacebookId" +
+                                     ", TwitterId = @TwitterId, ReferencedBy = @ReferencedBy, PasswordSalt = @PasswordSalt" +
+                                     ", PasswordHash = @PasswordHash , EmailComferm = @EmailComferm where Id = @Id", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@DisplayName", user.DisplayName);
+                cmd.Parameters.AddWithValue("@FacebookId", user.FaceBookId);
+                cmd.Parameters.AddWithValue("@TwitterId", user.TwittId);
+                cmd.Parameters.AddWithValue("@ReferencedBy", user.ReferanceBy);
+                cmd.Parameters.AddWithValue("@PasswordSalt", user.PasswordSalt);
+                cmd.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
+                cmd.Parameters.AddWithValue("@EmailComferm", user.EmailComferm); 
+                cmd.Parameters.AddWithValue("@Id", user.Id);
+                cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public int CreateUser(string email, string password, byte[] hash, byte[] salt)
         {
             // http://stackoverflow.com/a/10402129/11236
-           
+
             int UsersID = 0;
             using (var conn = PortalConection)
             {

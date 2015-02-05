@@ -15,5 +15,6 @@ namespace TalBrody.Entity
 		public string ReferanceBy { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+	    public bool EmailComferm { get; set; }
 	}
 }
