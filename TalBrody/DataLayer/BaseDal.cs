@@ -16,6 +16,7 @@ namespace fblogin.DataLayer
 		public static dynamic GetPortalConnection()
 		{
 			string sqlType = ConfigurationManager.AppSettings["OnAppHarbor"];
+
 			string connectionString = ConfigurationManager.ConnectionStrings["OxifyConection"].ConnectionString;
 			dynamic conn = null;
 			if (sqlType != "True")
