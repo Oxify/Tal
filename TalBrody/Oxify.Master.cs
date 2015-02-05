@@ -37,7 +37,8 @@ namespace TalBrody
                 if (s.IndexOf("Cover.aspx", System.StringComparison.Ordinal) == -1)
                 {
                     const string message = "You do not have authorization to this page !!";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
+                    // TODO - do something secure here
+                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
                 }
             }
         }
