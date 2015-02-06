@@ -14,7 +14,8 @@ namespace TalBrody.DataLayer
             int SiteAdminId = 0;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("insert into SiteAdmin (UserId) values (@UserId) 	", conn);
+                var cmd = GetCommand("insert into SiteAdmin (UserId) values (@UserId) 	" +
+                                     "SELECT Id FROM SiteAdmin WHERE Id = @@IDENTITY;", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@UserId", sadmin.UserId);
                 //cmd.Parameters.Add("@SiteAdminId", SqlDbType.Int).Direction = ParameterDirection.Output;

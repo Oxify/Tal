@@ -124,7 +124,8 @@ namespace TalBrody.DataLayer
             int UsersID = 0;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt) 	", conn);
+                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt) " +
+                                     "SELECT Id FROM Users WHERE Id = @@IDENTITY;	", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Hash", hash);
