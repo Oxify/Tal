@@ -88,8 +88,8 @@ namespace TalBrody.Logic
 
         private void Permission()
         {
-            string Query = "CREATE TABLE [dbo].[Permissions]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL," +
-                           "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL) ON [PRIMARY]";
+            string Query = "CREATE TABLE [Permissions]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL," +
+                           "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL ,CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]))";
             BdHandlinkDal dal = new BdHandlinkDal();
             dal.ExcuteDbCommand(Query);
         }
