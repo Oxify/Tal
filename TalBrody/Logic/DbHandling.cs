@@ -101,11 +101,11 @@ namespace TalBrody.Logic
             SiteAdmins.InsertSiteAdmin(sadmin);
 
             int userId1 = Users.CreateUser("ortalr@gmail.com", "1ortal@raz");
-            SiteAdmin sadmin1 = new SiteAdmin {UserId = userId};
+            SiteAdmin sadmin1 = new SiteAdmin {UserId = userId1};
             SiteAdmins.InsertSiteAdmin(sadmin1);
 
             int userId2 = Users.CreateUser("ron.gross@gmail.com", "1ron@gross");
-            SiteAdmin sadmin2 = new SiteAdmin {UserId = userId};
+            SiteAdmin sadmin2 = new SiteAdmin {UserId = userId2};
             SiteAdmins.InsertSiteAdmin(sadmin2);
         }
 
