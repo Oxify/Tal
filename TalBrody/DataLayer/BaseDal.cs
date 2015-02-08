@@ -87,8 +87,9 @@ namespace TalBrody.DataLayer
                 engine.CreateDatabase();
 
             }
-            catch (Exception exception)
+            catch (Exception )
             {
+                // it's ok if its already created...
                 return;
             }
         }
