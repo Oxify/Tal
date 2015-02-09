@@ -13,4 +13,10 @@
     
     <a href="Facebook.aspx">Sign up with Facebook</a>
 
+    <div id="register-result">
+        <asp:Label ID="registerResultLabel" runat="server" Text="Label">
+            
+        </asp:Label>
+    </div>
+    
 </asp:Content>

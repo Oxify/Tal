@@ -28,14 +28,20 @@ namespace TalBrody
                 throw new Exception("Missing email on registration form");
             }
 
+            string msg;
             var user = new UserDal().FindUserByEmail(email.Value);
             if (user != null)
             {
-                log.Info(String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email));
+                msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
+                log.Info(msg);
+                this.registerResultLabel.Text = msg;
                 return;
             }
 
             Users.CreateUser(email.Value, displayName.Value);
+            msg = string.Format("Created new user (email, name) = ({0}, {1})", email.Value, displayName.Value);
+            this.registerResultLabel.Text = msg;
+            log.Info(msg);
         }
     }
 
