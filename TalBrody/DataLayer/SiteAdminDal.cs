@@ -17,17 +17,19 @@ namespace TalBrody.DataLayer
                 conn.Open();
                 var cmd = GetCommand("insert into SiteAdmin (UserId) values (@UserId); ",conn);
                
-               // var tr = conn.BeginTransaction();
+                var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
-                 cmd.Parameters.AddWithValue("@UserId", sadmin.UserId);
+                cmd.Parameters.AddWithValue("@UserId", sadmin.UserId);
 
-             //   cmd.Transaction = tr;
+                cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
 
                 cmd = GetCommand("SELECT @@IDENTITY AS ID", conn);
-          //      cmd.Transaction = tr;
+                cmd.Transaction = tr;
                 object o = cmd.ExecuteScalar();
-                SiteAdminId = Convert.ToInt32(o);               
+                SiteAdminId = Convert.ToInt32(o);
+
+                tr.Commit();
             }
             return SiteAdminId;
         }

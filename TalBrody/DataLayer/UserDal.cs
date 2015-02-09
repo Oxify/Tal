@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using TalBrody.Entity;
 using TalBrody.Common;
@@ -127,19 +128,21 @@ namespace TalBrody.DataLayer
                 conn.Open();
                 var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt); ",
                         conn);
-          //      var tr = conn.BeginTransaction();
+                var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Hash", hash);
                 cmd.Parameters.AddWithValue("@Salt", salt);
                
-       //         cmd.Transaction = tr;
+                cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
 
                 cmd = GetCommand("SELECT @@IDENTITY AS ID",conn);
-      //          cmd.Transaction = tr;
+                cmd.Transaction = tr;
                 object o = cmd.ExecuteScalar();
                 UsersID = Convert.ToInt32(o);
+               
+                tr.Commit();
             }
             return UsersID;
         }
