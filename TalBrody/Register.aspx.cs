@@ -45,7 +45,7 @@ namespace TalBrody
             this.registerResultLabel.Text = msg;
             log.Info(msg);
 
-            new Email().SendRegistrationEmail(email.Value, displayName.Value);
+            new Email().SendRegistrationEmail(user);
             
         }
     }
