@@ -137,6 +137,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\packages\RazorEngine.3.5.3\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
@@ -163,6 +166,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -229,6 +236,7 @@
       <DependentUpon>Cover.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\BdHandlinkDal.cs" />
+    <Compile Include="DataLayer\EmailConfirmDal.cs" />
     <Compile Include="DataLayer\Extensions.cs" />
     <Compile Include="DataLayer\ParamDal.cs" />
     <Compile Include="DataLayer\PerksDal.cs" />
@@ -238,6 +246,7 @@
     <Compile Include="DataLayer\ProjectDetailsDal.cs" />
     <Compile Include="DataLayer\SiteAdminDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
+    <Compile Include="Entity\EmailConfirmCodes.cs" />
     <Compile Include="Entity\Param.cs" />
     <Compile Include="Entity\Perks.cs" />
     <Compile Include="Entity\Permission.cs" />
@@ -322,6 +331,7 @@
       <DependentUpon>RegisterControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Util\Crypto.cs" />
     <Compile Include="Util\Email.cs" />
     <Compile Include="Util\Http.cs" />
     <Compile Include="Util\Log.cs" />

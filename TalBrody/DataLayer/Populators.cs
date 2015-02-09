@@ -143,7 +143,7 @@ namespace TalBrody.DataLayer
 			return User;
 		}
 
-		internal static User Populate_User(SqlCeDataReader dr)
+        internal static User Populate_User(SqlCeDataReader dr)
 		{
 			User User = new User();
 			User.DisplayName = dr.GetValue<string>("DisplayName");
@@ -157,6 +157,24 @@ namespace TalBrody.DataLayer
             User.TwitterId = dr.GetValue<string>("TwitterId");
 			return User;
 		}
+
+        internal static EmailConfirmCodes Populate_EmailConfirmCodes(SqlDataReader dr)
+        {
+            EmailConfirmCodes confirmCode = new EmailConfirmCodes();
+            confirmCode.Email = dr.GetValue<string>("Email");
+            confirmCode.Code = dr.GetValue<string>("Code");
+            confirmCode.Created = dr.GetValue<DateTime>("Id");
+            return confirmCode;
+        }
+
+        internal static EmailConfirmCodes Populate_EmailConfirmCodes(SqlCeDataReader dr)
+        {
+            EmailConfirmCodes confirmCode = new EmailConfirmCodes();
+            confirmCode.Email = dr.GetValue<string>("Email");
+            confirmCode.Code = dr.GetValue<string>("Code");
+            confirmCode.Created = dr.GetValue<DateTime>("CreatedDate");
+            return confirmCode;
+        }
 
 	    internal static SiteAdmin Populate_SiteAdmin(SqlDataReader dr)
 	    {

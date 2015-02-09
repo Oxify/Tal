@@ -36,16 +36,17 @@ namespace TalBrody
             {
                 msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
                 log.Info(msg);
-                this.registerResultLabel.Text = msg;
+                registerResultLabel.Text = msg;
                 return;
             }
 
             Users.CreateUser(email.Value, displayName.Value);
             msg = string.Format("Created new user (email, name) = ({0}, {1})", email.Value, displayName.Value);
-            this.registerResultLabel.Text = msg;
+            registerResultLabel.Text = msg;
             log.Info(msg);
 
-            new Email().SendRegistrationEmail(email.Value, displayName.Value);
+            user = new User {Email = email.Value, DisplayName = displayName.Value};
+            new Email().SendRegistrationEmail(user);
             
         }
     }
