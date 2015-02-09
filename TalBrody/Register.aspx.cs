@@ -18,7 +18,6 @@ namespace TalBrody
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             log.Info("Page_Load for Register.aspx.cs");
         }
 

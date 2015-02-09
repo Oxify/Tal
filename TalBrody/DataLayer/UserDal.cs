@@ -109,7 +109,7 @@ namespace TalBrody.DataLayer
                 cmd.Parameters.AddWithValue("@ReferencedBy", user.ReferanceBy);
                 cmd.Parameters.AddWithValue("@PasswordSalt", user.PasswordSalt);
                 cmd.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
-                cmd.Parameters.AddWithValue("@EmailComferm", user.EmailComferm); 
+                cmd.Parameters.AddWithValue("@EmailComferm", user.EmailComferm);
                 cmd.Parameters.AddWithValue("@Id", user.Id);
                 cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
                 conn.Open();
@@ -124,15 +124,22 @@ namespace TalBrody.DataLayer
             int UsersID = 0;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt) 	", conn);
+                conn.Open();
+                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt); ",
+                        conn);
+          //      var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Hash", hash);
                 cmd.Parameters.AddWithValue("@Salt", salt);
-               // cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
-                conn.Open();
-                UsersID = (int)cmd.ExecuteScalar();
-                
+               
+       //         cmd.Transaction = tr;
+                cmd.ExecuteNonQuery();
+
+                cmd = GetCommand("SELECT @@IDENTITY AS ID",conn);
+      //          cmd.Transaction = tr;
+                object o = cmd.ExecuteScalar();
+                UsersID = Convert.ToInt32(o);
             }
             return UsersID;
         }

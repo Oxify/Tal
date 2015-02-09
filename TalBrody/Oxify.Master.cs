@@ -21,7 +21,10 @@ namespace TalBrody
 
         private void CheckPermissions()
         {
-             string s = Request.FilePath;
+            // TODO make this relevant. right now it only kicks everyone out unless it's the cover page
+            return;
+
+            string s = Request.FilePath;
             if (Session["Usession"] != null)
             {
                 var usession = (UserSession) Session["Usession"];
