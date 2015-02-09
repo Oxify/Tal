@@ -7,6 +7,7 @@ using Mandrill;
 using RazorEngine;
 using RazorEngine.Templating;
 using TalBrody.Entity;
+using TalBrody.Logic;
 
 namespace TalBrody.Util
 {
@@ -20,12 +21,19 @@ namespace TalBrody.Util
 <p>
 <b>Hello @Model.DisplayName!</b>
 </p>
-<p>Please click on <a href='#'>this link</a> to complete your registration.</p>
+@{
+    var url = ViewBag.BaseUrl + ""ConfirmEmail?email="" + Model.Email + @Raw(""&code="") + ViewBag.Code;
+}
+
+<p>Please click on <a href='@url'>this link</a> to complete your registration.</p>
 </body>
 </html>
 ";
-            Engine.Razor.AddTemplate("registrationEmail", template);
-            string html = Engine.Razor.Run("registrationEmail", typeof(User), user);
+            var viewBag = new DynamicViewBag();
+            viewBag.AddValue("BaseUrl", GetBaseUrl());
+            var code = Users.GenerateUserRegistrationCode(user);
+            viewBag.AddValue("Code", code);
+            string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
  
             var emailMessage = new EmailMessage
             {
@@ -37,6 +45,13 @@ namespace TalBrody.Util
             };
 
             mandril.SendMessage(emailMessage);
+        }
+
+        private static string GetBaseUrl()
+        {
+            return HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
+                   HttpContext.Current.Request.ApplicationPath;
+            // return "http://localhost:61400/";
         }
 
         public static MandrillApi GetMandrill()
