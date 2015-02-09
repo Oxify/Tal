@@ -98,7 +98,7 @@
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y ..\..\..\TalBrody\App_Data\Oxify.sdf .
+    <PostBuildEvent>copy /Y $(SolutionDir)\TalBrody\App_Data\Oxify.sdf .
 rem del /q Oxify.sdf</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
