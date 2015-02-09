@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Security;
 using DotNetOpenAuth.ApplicationBlock.Facebook;
+using TalBrody.Entity;
 
 namespace TalBrody.Logic
 {
@@ -20,13 +22,39 @@ namespace TalBrody.Logic
         }
 
 
-        public static int RegisterUser(string AccessToken)
+        public static Entity.User RegisterUser(string AccessToken)
         {
+            var data = GetUserData(AccessToken);
+            Entity.User id = Users.FindUserByEmail(data.Graph.EMail);
 
+            if (id == null)
+            {
+                // no id, new user!
+                id = new User();
+                PopulateUser(data, ref id);
+                id.Id = Users.CreateUserWithoutPassword(id);
+            }
+            else
+            {
+                // user already registered somehow, let's update the DB
+                PopulateUser(data, ref id);
+                Users.UpdateUser(id);
+            }
 
-            return -1;
+            return id;
         }
 
+        private static void PopulateUser(FacebookDetails details, ref Entity.User user)
+        {
+            user.FaceBookId = details.Graph.Id;
+            user.Email = details.Graph.EMail;
+            user.DisplayName = details.Graph.Name;
+            // TODO add referece by support by cookies here
+            // user.ReferancedBy = 
+            //TODO fix birthday
+            //user.Birthday = details.Graph.Birthday;
+
+        }
         public static FacebookDetails GetUserData(string AccessToken)
         {
             FacebookDetails Result = new FacebookDetails();
