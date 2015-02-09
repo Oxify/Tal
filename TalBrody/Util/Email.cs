@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Razor;
 using Mandrill;
 using RazorEngine;
+using RazorEngine.Templating;
 using TalBrody.Entity;
 
 namespace TalBrody.Util
@@ -23,8 +24,9 @@ namespace TalBrody.Util
 </body>
 </html>
 ";
-            string html = Razor.Parse(template, user);
-
+            Engine.Razor.AddTemplate("registrationEmail", template);
+            string html = Engine.Razor.Run("registrationEmail", typeof(User), user);
+ 
             var emailMessage = new EmailMessage
             {
                 to = new List<EmailAddress> { new EmailAddress(user.Email, user.DisplayName) },

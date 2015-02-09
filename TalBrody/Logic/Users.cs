@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Common;
@@ -70,5 +71,26 @@ namespace TalBrody.Logic
             var hash = CommonFunction.Hash(password, user.PasswordSalt);
             return hash.SequenceEqual(user.PasswordHash);
         }
+
+        /// <summary>
+        /// Gets a unique code for this user, used to verify his email account
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+	    public static string GenerateUserRegistrationCode(User user)
+        {
+            var guid = Guid.NewGuid().ToString().Substring(0, 8);
+            var dal = new EmailConfirmDal();
+
+            dal.StoreConfirmCode(guid, user.Email);
+            return guid;
+        }
+
+	    public static bool IsValidRegistrationCode(string code, string email)
+	    {
+	        var dal = new EmailConfirmDal();
+	        var storedCode = dal.FindConfirmCode(code, email);
+            return storedCode != null;
+	    }
 	}
 }
