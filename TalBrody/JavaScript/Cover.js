@@ -5,15 +5,12 @@ $(document).ready(function () {
         elements[i].onclick = ScrollToTarget;
     }
 
-//    var el = document.getElementById('ScrollDown');
-//    el.onclick = ScrollToTarget;
-
 });
 
 function ScrollToTarget() {
     var el = document.getElementById(this.attributes['data-goto'].value);
     try {
-        jQuery.scrollTo(el, 1000, { easing: 'easeInOutBack' });
+        jQuery.scrollTo(el, 1000, { easing: 'easeOutQuad' });
 
     } catch (e) {
   
