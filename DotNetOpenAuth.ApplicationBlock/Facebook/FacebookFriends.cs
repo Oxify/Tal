@@ -4,54 +4,78 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace DotNetOpenAuth.ApplicationBlock.Facebook {
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Linq;
-	using System.Runtime.Serialization;
-	using System.Runtime.Serialization.Json;
-	using System.Text;
+using System.Security.Cryptography.X509Certificates;
 
-	[DataContract]
-	public class FacebookGraph {
-		private static DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(FacebookGraph));
+namespace DotNetOpenAuth.ApplicationBlock.Facebook
+{
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Runtime.Serialization;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
 
-		[DataMember(Name = "id")]
-		public long Id { get; set; }
 
-		[DataMember(Name = "name")]
-		public string Name { get; set; }
+    [DataContract]
+    public class FacebookFriendsData
+    {
+        [DataMember(Name = "name")]
+        public string Name { get; set; }
+        [DataMember(Name = "id")]
+        public long Id { get; set; }
 
-		[DataMember(Name = "first_name")]
-		public string FirstName { get; set; }
+    }
 
-		[DataMember(Name = "last_name")]
-		public string LastName { get; set; }
+    [DataContract]
+    public class FacebookFriendsPaging
+    {
+        [DataMember(Name="next")]
+        public string Next { get; set; }
+        [DataMember(Name="previous")]
+        public string Previous { get; set; }
+    }
 
-		[DataMember(Name = "link")]
-		public Uri Link { get; set; }
+    [DataContract]
+    public class FacebookFriendsSummary
+    {
+        [DataMember(Name = "total_count")]
+        public long TotalCount { get; set; }
 
-		[DataMember(Name = "birthday")]
-		public string Birthday { get; set; }
+    }
 
-        [DataMember(Name = "email")]
-        public string EMail { get; set; }
+    [DataContract]
+    public class FacebookFriends
+    {
+        private static DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(FacebookFriends));
 
-		public static FacebookGraph Deserialize(string json) {
-			if (string.IsNullOrEmpty(json)) {
-				throw new ArgumentNullException("json");
-			}
+        [DataMember(Name = "data")]
+        public List<FacebookFriendsData> Data { get; set; }
 
-			return Deserialize(new MemoryStream(Encoding.UTF8.GetBytes(json)));
-		}
+        [DataMember(Name = "paging")]
+        public FacebookFriendsPaging Paging { get; set; }
 
-		public static FacebookGraph Deserialize(Stream jsonStream) {
-			if (jsonStream == null) {
-				throw new ArgumentNullException("jsonStream");
-			}
+        [DataMember(Name = "summary")]
+        public FacebookFriendsSummary Summary { get; set; }
 
-			return (FacebookGraph)jsonSerializer.ReadObject(jsonStream);
-		}
-	}
+        public static FacebookFriends Deserialize(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+            {
+                throw new ArgumentNullException("json");
+            }
+
+            return Deserialize(new MemoryStream(Encoding.UTF8.GetBytes(json)));
+        }
+
+        public static FacebookFriends Deserialize(Stream jsonStream)
+        {
+            if (jsonStream == null)
+            {
+                throw new ArgumentNullException("jsonStream");
+            }
+
+            return (FacebookFriends)jsonSerializer.ReadObject(jsonStream);
+        }
+    }
 }
