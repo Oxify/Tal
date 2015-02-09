@@ -326,6 +326,7 @@
       <DependentUpon>RegisterControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Util\Email.cs" />
     <Compile Include="Util\Http.cs" />
     <Compile Include="Util\Log.cs" />
     <Compile Include="Util\Loging.cs" />

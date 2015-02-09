@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Mandrill;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using log4net;
 using TalBrody.Logic;
+using TalBrody.Util;
 
 namespace TalBrody
 {
@@ -42,6 +44,9 @@ namespace TalBrody
             msg = string.Format("Created new user (email, name) = ({0}, {1})", email.Value, displayName.Value);
             this.registerResultLabel.Text = msg;
             log.Info(msg);
+
+            new Email().SendRegistrationEmail(email.Value, displayName.Value);
+            
         }
     }
 
