@@ -139,7 +139,7 @@ namespace TalBrody.Logic
 
             string Query = " CREATE TABLE [Users]([Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,";
             Query = Query + "[Email] [nvarchar](100) NULL,[FacebookId] [nvarchar](100) NULL,[TwitterId] [nvarchar](100) NULL,[ReferencedBy] [int] NULL,";
-            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailComferm] [bit] NULL,CONSTRAINT [PK_Users] PRIMARY KEY  (";
+            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailConfirmed] [bit] NULL,CONSTRAINT [PK_Users] PRIMARY KEY  (";
             Query = Query + "[Id]))";
      
 

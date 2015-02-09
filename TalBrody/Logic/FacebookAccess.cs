@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Security;
+using DotNetOpenAuth.ApplicationBlock.Facebook;
+using TalBrody.Entity;
+
+namespace TalBrody.Logic
+{
+    public class FacebookAccess
+    {
+
+
+
+        public class FacebookDetails
+        {
+            public FacebookGraph Graph { get; set; }
+            public List<FacebookFriendsData> Friends { get; set; }
+
+        }
+
+
+        public static Entity.User RegisterUser(string AccessToken)
+        {
+            var data = GetUserData(AccessToken);
+            Entity.User id = Users.FindUserByEmail(data.Graph.EMail);
+
+            if (id == null)
+            {
+                // no id, new user!
+                id = new User();
+                PopulateUser(data, ref id);
+                id.Id = Users.CreateUserWithoutPassword(id);
+            }
+            else
+            {
+                // user already registered somehow, let's update the DB
+                PopulateUser(data, ref id);
+                Users.UpdateUser(id);
+            }
+
+            return id;
+        }
+
+        private static void PopulateUser(FacebookDetails details, ref Entity.User user)
+        {
+            user.FaceBookId = details.Graph.Id;
+            user.Email = details.Graph.EMail;
+            user.DisplayName = details.Graph.Name;
+            // TODO add referece by support by cookies here
+            // user.ReferancedBy = 
+            //TODO fix birthday
+            //user.Birthday = details.Graph.Birthday;
+
+        }
+        public static FacebookDetails GetUserData(string AccessToken)
+        {
+            FacebookDetails Result = new FacebookDetails();
+            Result.Graph = ReadGraph(AccessToken);
+            Result.Friends = ReadFriends(AccessToken);
+
+            return Result;
+
+        }
+
+        public static FacebookGraph ReadGraph(string AccessToken)
+        {
+            FacebookGraph Result = null;
+
+            var request = WebRequest.Create("https://graph.facebook.com/me?access_token=" + Uri.EscapeDataString(AccessToken));
+            using (var response = request.GetResponse())
+            {
+                using (var responseStream = response.GetResponseStream())
+                {
+                    Result = FacebookGraph.Deserialize(responseStream);
+                }
+            }
+
+            return Result;
+        }
+
+        public static List<FacebookFriendsData> ReadFriends(string AccessToken)
+        {
+            List<FacebookFriendsData> Result = new List<FacebookFriendsData>();
+
+            string Next = "https://graph.facebook.com/me/friends?access_token=" + Uri.EscapeDataString(AccessToken);
+            while (Next != null)
+            {
+                var request = WebRequest.Create(Next);
+                using (var response = request.GetResponse())
+                {
+                    using (var responseStream = response.GetResponseStream())
+                    {
+                        System.IO.StreamReader streamReader = new System.IO.StreamReader(responseStream, true);
+                        string MyStr = streamReader.ReadToEnd();
+                        var friends = FacebookFriends.Deserialize(MyStr);
+
+                        foreach (var friend in friends.Data)
+                        {
+                            Result.Add(friend);
+                        }
+                        Next = friends.Paging.Next;
+                    }
+                }
+            }
+            return Result;
+        }
+
+    }
+}

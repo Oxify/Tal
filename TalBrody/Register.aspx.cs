@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Mandrill;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using log4net;
 using TalBrody.Logic;
+using TalBrody.Util;
 
 namespace TalBrody
 {
@@ -18,7 +20,6 @@ namespace TalBrody
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             log.Info("Page_Load for Register.aspx.cs");
         }
 
@@ -29,14 +30,23 @@ namespace TalBrody
                 throw new Exception("Missing email on registration form");
             }
 
+            string msg;
             var user = new UserDal().FindUserByEmail(email.Value);
             if (user != null)
             {
-                log.Info(String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email));
+                msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
+                log.Info(msg);
+                this.registerResultLabel.Text = msg;
                 return;
             }
 
             Users.CreateUser(email.Value, displayName.Value);
+            msg = string.Format("Created new user (email, name) = ({0}, {1})", email.Value, displayName.Value);
+            this.registerResultLabel.Text = msg;
+            log.Info(msg);
+
+            new Email().SendRegistrationEmail(email.Value, displayName.Value);
+            
         }
     }
 

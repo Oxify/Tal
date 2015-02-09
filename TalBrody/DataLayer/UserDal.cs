@@ -17,7 +17,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
                                      " from Users where Email = @Email", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
@@ -37,7 +37,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
                                      " from Users where Id = @id", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@id", id);
@@ -58,7 +58,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
                                      " from Users where TwitterId = @Twitterid", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Twitterid", Twitterid);
@@ -79,7 +79,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailComferm" +
+                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
                                      " from Users where FacebookId = @Facebookd", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Facebookd", Facebookd);
@@ -101,16 +101,16 @@ namespace TalBrody.DataLayer
             {
                 var cmd = GetCommand("update Users set Email = @Email, DisplayName = @DisplayName, FacebookId = @FacebookId" +
                                      ", TwitterId = @TwitterId, ReferencedBy = @ReferencedBy, PasswordSalt = @PasswordSalt" +
-                                     ", PasswordHash = @PasswordHash , EmailComferm = @EmailComferm where Id = @Id", conn);
+                                     ", PasswordHash = @PasswordHash , EmailConfirmed = @EmailConfirmed where Id = @Id", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", user.Email);
                 cmd.Parameters.AddWithValue("@DisplayName", user.DisplayName);
                 cmd.Parameters.AddWithValue("@FacebookId", user.FaceBookId);
-                cmd.Parameters.AddWithValue("@TwitterId", user.TwittId);
-                cmd.Parameters.AddWithValue("@ReferencedBy", user.ReferanceBy);
+                cmd.Parameters.AddWithValue("@TwitterId", user.TwitterId);
+                cmd.Parameters.AddWithValue("@ReferencedBy", user.ReferancedBy);
                 cmd.Parameters.AddWithValue("@PasswordSalt", user.PasswordSalt);
                 cmd.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
-                cmd.Parameters.AddWithValue("@EmailComferm", user.EmailComferm);
+                cmd.Parameters.AddWithValue("@EmailConfirmed", user.EmailConfirmed);
                 cmd.Parameters.AddWithValue("@Id", user.Id);
                 cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
                 conn.Open();
@@ -143,6 +143,31 @@ namespace TalBrody.DataLayer
                 UsersID = Convert.ToInt32(o);
                
                 tr.Commit();
+            }
+            return UsersID;
+        }
+
+        public int CreateUser(User user)
+        {
+            // http://stackoverflow.com/a/10402129/11236
+
+            int UsersID = 0;
+            using (var conn = PortalConection)
+            {
+                conn.Open();
+                var cmd = GetCommand("insert into Users (Email, ValidPassword) values (@Email, False); ",
+                        conn);
+                //      var tr = conn.BeginTransaction();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+
+                //         cmd.Transaction = tr;
+                cmd.ExecuteNonQuery();
+
+                cmd = GetCommand("SELECT @@IDENTITY AS ID", conn);
+                //          cmd.Transaction = tr;
+                object o = cmd.ExecuteScalar();
+                UsersID = Convert.ToInt32(o);
             }
             return UsersID;
         }

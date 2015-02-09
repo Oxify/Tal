@@ -21,7 +21,10 @@ namespace TalBrody
 
         private void CheckPermissions()
         {
-             string s = Request.FilePath;
+            // TODO make this relevant. right now it only kicks everyone out unless it's the cover page
+            return;
+
+            string s = Request.FilePath;
             if (Session["Usession"] != null)
             {
                 var usession = (UserSession) Session["Usession"];
@@ -37,7 +40,8 @@ namespace TalBrody
                 if (s.IndexOf("Cover.aspx", System.StringComparison.Ordinal) == -1)
                 {
                     const string message = "You do not have authorization to this page !!";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
+                    // TODO - do something secure here
+                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
                 }
             }
         }

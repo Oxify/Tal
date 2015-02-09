@@ -7,8 +7,16 @@
         Register an account
     </h1>
     
-    <input placeholder="you@email.com" ID="email" runat="server" />
-    <input placeholder="Your Name" ID="displayName" runat="server" />
+    <input placeholder="you@email.com" id="email" runat="server" />
+    <input placeholder="Your Name" id="displayName" runat="server" />
     <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click"  />
+    
+    <a href="Facebook.aspx">Sign up with Facebook</a>
+
+    <div id="register-result">
+        <asp:Label ID="registerResultLabel" runat="server" Text="Label">
+            
+        </asp:Label>
+    </div>
     
 </asp:Content>
