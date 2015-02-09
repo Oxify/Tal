@@ -17,7 +17,7 @@
     align-content: center;
     align-items: center;
     text-align: center;
-    font-family: 'Ogen';
+    font-family: 'Simple CLM', serif;
 }
 
 .first-page {
@@ -29,7 +29,7 @@
 }
 
 .flat-button {
-    font-family: 'Ogen';
+    font-family: 'Simple CLM', serif;
     font-weight: bold;
     color: #ffffff;
     font-size: 29px;

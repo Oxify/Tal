@@ -40,16 +40,14 @@ namespace TalBrody
                 if (authorization.AccessToken == null)
                 {
                     this.nameLabel.Text = HttpUtility.HtmlEncode("User did not authorize!");
-
+                    
                 }
                 else
                 {
+                    FacebookAccess.RegisterUser(authorization.AccessToken);
                     var details = FacebookAccess.GetUserData(authorization.AccessToken);
 
                     this.nameLabel.Text = HttpUtility.HtmlEncode(details.Graph.Name + ", your email is: " + details.Graph.EMail);
-
-
-
 
                 }
             }

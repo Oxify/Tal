@@ -43,7 +43,17 @@ namespace TalBrody.Logic
 	        return UserId;
 	    }
 
-	    public static void UpdateUser(User user)
+        public static int CreateUserWithoutPassword(User user)
+        {
+            int UserId = 0;
+            UserDal dal = new UserDal();
+            UserId = dal.CreateUser(user);
+
+            // TODO Ziv  emil sending for comfermation email address 
+            return UserId;
+        }
+        
+        public static void UpdateUser(User user)
 	    {
 	        UserDal dal = new UserDal();
             dal.UpdateUser(user);

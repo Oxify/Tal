@@ -191,8 +191,8 @@
     <Compile Include="CustomExtensions\AcmeRequest.cs" />
     <Compile Include="CustomExtensions\AcmeResponse.cs" />
     <Compile Include="Facebook\FacebookClient.cs" />
-    <Compile Include="Facebook\FacebookFriends.cs" />
     <Compile Include="Facebook\FacebookGraph.cs" />
+    <Compile Include="Facebook\FacebookFriends.cs" />
     <Compile Include="CustomExtensions\UIRequestAtRelyingPartyFactory.cs" />
     <Compile Include="GoogleConsumer.cs">
       <SubType>Code</SubType>
