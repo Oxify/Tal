@@ -18,11 +18,6 @@ function ScrollToTarget() {
     return false;
 }
 
-function ShowRegister() {
-//    debugger;
-//    var el = document.getElementById('overlay');
-//    el.style.opacity = 0.3;
-//    el.show().css({ "opacity": "0.3" });
 
 
-}
+
