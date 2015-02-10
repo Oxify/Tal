@@ -221,6 +221,7 @@
     <Content Include="fancybox\jquery.fancybox.pack.js" />
     <Content Include="Images\DownButton.hover.png" />
     <Content Include="Images\DownButton.png" />
+    <Content Include="Images\Social.png" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JavaScript\brody.js" />
@@ -238,6 +239,7 @@
     <Content Include="ProjectData.aspx" />
     <Content Include="Defaulte.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Share.aspx" />
     <Content Include="sqlceme40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -362,6 +364,13 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Share.aspx.cs">
+      <DependentUpon>Share.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Share.aspx.designer.cs">
+      <DependentUpon>Share.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\LoginController.cs" />
     <Compile Include="UserControl\LogInControle.ascx.cs">
       <DependentUpon>LogInControle.ascx</DependentUpon>
@@ -392,6 +401,7 @@
     <Content Include="Fonts\SimpleCLM400.woff" />
     <Content Include="Fonts\SimpleCLM700.woff" />
     <Content Include="Emails\RegistrationEmail.email" />
+    <Content Include="Css\Share.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
