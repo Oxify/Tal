@@ -205,6 +205,8 @@ namespace TalBrody.Logic
 
         private void DropIfExists(string table)
         {
+            log.Warn("Dropping table " + table);
+
             // TODO - do this in a cross-platform way
             // http://stackoverflow.com/a/14290099/11236
 

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Razor;
+using log4net;
 using Mandrill;
 using RazorEngine;
 using RazorEngine.Templating;
@@ -13,6 +15,8 @@ namespace TalBrody.Util
 {
     public class Email
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public void SendRegistrationEmail(User user, string code)
         {
             var mandril = GetMandrill();
@@ -33,14 +37,27 @@ namespace TalBrody.Util
                 html = html
             };
 
+            sendEmail(mandril, emailMessage);
+        }
+
+        private static void sendEmail(MandrillApi mandril, EmailMessage emailMessage)
+        {
+            log.Info("Sending email to " + emailMessage.to);
             mandril.SendMessage(emailMessage);
         }
 
         private static string GetBaseUrl()
         {
-            return HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
+            var result = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
                    HttpContext.Current.Request.ApplicationPath;
-            // return "http://localhost:61400/";
+
+            if (Global.OnAppHarbor)
+            {
+                // Remove any ports on appharbor (we're behind a proxy)
+                result = Regex.Replace(result, ":\\d+", "");
+            }
+            
+            return result;
         }
 
         public static MandrillApi GetMandrill()
