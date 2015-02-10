@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using TalBrody.Entity;
 
 namespace TalBrody.DataLayer
 {
@@ -21,7 +22,7 @@ namespace TalBrody.DataLayer
             }
         }
 
-        public dynamic FindConfirmCode(string code, string email)
+        public EmailConfirmCodes FindConfirmCode(string code, string email)
         {
             using (var conn = PortalConection)
             {

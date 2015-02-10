@@ -72,6 +72,7 @@ namespace TalBrody.Logic
                 CreateFollowers();
                 CreateProjectDetails();
                 CreateSiteAdmin();
+                CreateEmailConfirmCodes();
                 InsertSiteAdminAndUser();
                 Permission();
 
@@ -86,11 +87,19 @@ namespace TalBrody.Logic
             }
         }
 
+        private void CreateEmailConfirmCodes()
+        {
+            string Query = "CREATE TABLE [EmailConfirmCodes]([Code] [nvarchar](50) NOT NULL, [Email] [nvarchar](100) NOT NULL," +
+                           "[CreatedDate] [DateTime] default GETDATE())";
+            BdHandlingDal dal = new BdHandlingDal();
+            dal.ExcuteDbCommand(Query);
+        }
+
         private void Permission()
         {
             string Query = "CREATE TABLE [Permissions]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL," +
                            "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL ,CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]))";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -112,7 +121,7 @@ namespace TalBrody.Logic
         private void CreateSiteAdmin()
         {
             string Query = "CREATE TABLE [SiteAdmin]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL) ";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -122,7 +131,7 @@ namespace TalBrody.Logic
             Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](4000) NULL,[FontSize] [int] NOT NULL, CONSTRAINT [PK_ProjectDetails] PRIMARY KEY  (";
             Query = Query + "[Id]))";
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -130,7 +139,7 @@ namespace TalBrody.Logic
         {
             string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL,";
             Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] )) ";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -143,7 +152,7 @@ namespace TalBrody.Logic
             Query = Query + "[Id]))";
      
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -152,7 +161,7 @@ namespace TalBrody.Logic
             string Query = "CREATE TABLE [Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
             Query = Query + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[MovieUrl] [nvarchar](100) NULL, CONSTRAINT [PK_Projects] PRIMARY KEY (";
             Query = Query + "[id] ))";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -161,7 +170,7 @@ namespace TalBrody.Logic
             string Query = "CREATE TABLE [Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
             Query = Query + "[ProjectId] [int] NOT NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY ([PerkId]))";
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -171,7 +180,7 @@ namespace TalBrody.Logic
             Query += "[Id] int IDENTITY (1,1) NOT NULL, ";
             Query += "[Name] nvarchar(50) NOT NULL, [Value] nvarchar(50) NOT NULL, [ValueInt] int NULL, CONSTRAINT [PK_Params] PRIMARY KEY ([Id]))";
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
 
             Params.InsertParam(Params.PARAM_DB_VERSION, "1", 1);

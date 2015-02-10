@@ -13,7 +13,7 @@ namespace TalBrody.Util
 {
     public class Email
     {
-        public void SendRegistrationEmail(User user)
+        public void SendRegistrationEmail(User user, string code)
         {
             var mandril = GetMandrill();
             string template = @"<html>
@@ -22,7 +22,7 @@ namespace TalBrody.Util
 <b>Hello @Model.DisplayName!</b>
 </p>
 @{
-    var url = ViewBag.BaseUrl + ""ConfirmEmail?email="" + Model.Email + @Raw(""&code="") + ViewBag.Code;
+    var url = ViewBag.BaseUrl + ""ConfirmEmail.aspx?email="" + System.Web.HttpUtility.UrlEncode(Model.Email) + @Raw(""&code="") + ViewBag.Code;
 }
 
 <p>Please click on <a href='@url'>this link</a> to complete your registration.</p>
@@ -31,7 +31,6 @@ namespace TalBrody.Util
 ";
             var viewBag = new DynamicViewBag();
             viewBag.AddValue("BaseUrl", GetBaseUrl());
-            var code = Users.GenerateUserRegistrationCode(user);
             viewBag.AddValue("Code", code);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
  
