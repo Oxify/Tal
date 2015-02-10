@@ -1,22 +1,39 @@
-﻿<%@ Page Title="Register" Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="TalBrody.Register" MasterPageFile="Oxify.Master"%>
+﻿<%@ Page Title="Register" Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="TalBrody.Register" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="Css/Register.less" rel="stylesheet" />
-    
-    <h1>
-        Register an account
-    </h1>
-    
-    <input placeholder="you@email.com" id="email" runat="server" />
-    <input placeholder="Your Name" id="displayName" runat="server" />
-    <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click"  />
-    
-    <a href="Facebook.aspx">Sign up with Facebook</a>
+<!DOCTYPE html>
 
-    <div id="register-result">
-        <asp:Label ID="registerResultLabel" runat="server" Text="Label">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+
+
+
+
+    <form id="form1" runat="server">
+        <div>
+            <link href="Css/Register.less" rel="stylesheet" />
+
+            <h1>Register an account
+            </h1>
+
+            <input placeholder="you@email.com" id="email" runat="server" />
+            <input placeholder="Your Name" id="displayName" runat="server" />
+            <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
+
+            <a href="Facebook.aspx">Sign up with Facebook</a>
+
+            <div id="register-result">
+                <asp:Label ID="registerResultLabel" runat="server" Text="Label">
             
-        </asp:Label>
-    </div>
-    
-</asp:Content>
+                </asp:Label>
+            </div>
+            <div>
+
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

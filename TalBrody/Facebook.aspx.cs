@@ -30,7 +30,7 @@ namespace TalBrody
             if (authorization == null)
             {
                 // Kick off authorization request
-                var scopes = new List<string> { "user_friends", "email" };
+                var scopes = new List<string> { "user_friends", "email", "user_birthday", "user_location" };
                 client.RequestUserAuthorization(scopes);
 
             }

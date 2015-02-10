@@ -46,11 +46,11 @@ namespace TalBrody.Logic
 
         private static void PopulateUser(FacebookDetails details, ref Entity.User user)
         {
-            user.FaceBookId = details.Graph.Id;
+            user.FacebookId = details.Graph.Id;
             user.Email = details.Graph.EMail;
             user.DisplayName = details.Graph.Name;
             // TODO add referece by support by cookies here
-            // user.ReferancedBy = 
+            // user.ReferredBy = 
             //TODO fix birthday
             //user.Birthday = details.Graph.Birthday;
 
