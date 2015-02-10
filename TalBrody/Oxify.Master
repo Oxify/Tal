@@ -23,9 +23,24 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dialog").hide();
+            CheckCookie();
+
         });
 
+        function CheckCookie() {
+            var cooke = getCookie("OxifyId");
+            var LogInFlag = <%= LogInFlag%>;
+            var oxifyId = <% = OxifyId%>;
+            if (!LogInFlag && cooke != null) {
+               // log in false and cooke is true do login 
+                //  <%DoLogIN(%>cooke<%);%>
+                // TODO ziv call ajack function for dologin
+            } else if (LogInFlag && cooke == null) {
+                //log in is true and no cooke make cooke
+                createCookie("OxifyId", oxifyId, 30);
+            }
 
+        }
 
         function ShowLogin() {
             $mydialog = $("#dialog").dialog({
@@ -36,6 +51,13 @@
                 }
             });
             $mydialog.dialog("open");
+        }
+        
+        function LogOut() {
+            deleteCookie("OxifyId"); // delete cooke
+            <%DoLOgOut();%> // delete session
+            window.location.reload(); // refrash page
+
         }
 
         function ChanghFormSizeOnresize() {
@@ -64,6 +86,7 @@
     <div class="master-header">
         <div class="header-buttons">
             <input id="Button1" type="button" value="LogIn" onclick="ShowLogin();" />
+              <input id="btnLogOut" type="button" value="LogOut" onclick="LogOut();" />
         </div>
     </div>
 

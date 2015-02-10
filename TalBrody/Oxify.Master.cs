@@ -2,21 +2,69 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ClientServices;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Common;
 using TalBrody.Common.Enums;
 using TalBrody.Util;
 
 namespace TalBrody
 {
+   
     public partial class Oxify : System.Web.UI.MasterPage
     {
+        public bool LogInFlag = false;
+        public string OxifyId = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            LogInFlag = CheckLogIn();
             if (!IsPostBack)
             {
                 CheckPermissions();
             }
+        }
+
+        public void DoLogIN(string id)
+        {
+
+            try
+            {
+                Crypto crp = new Crypto();
+                int UserId = int.Parse(crp.SignSymmetric(id));
+                CommonFunction.AddUserToSession(UserId);
+            }
+            catch (Exception ex)
+            {
+                    
+                throw ex;
+            }
+        }
+
+        public void DoLOgOut()
+        {
+            Session.Remove("Usession");
+        }
+
+        private bool CheckLogIn()
+        {
+            bool result = false;
+            try
+            {
+                if (Session["Usession"] != null)
+                {
+                    Crypto crp = new Crypto();
+                    UserSession us = (UserSession) Session["Usession"];
+                    result = true;
+                    OxifyId = crp.SignSymmetric(us.UserId.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                    
+                throw ex;
+            }
+            return result;
         }
 
         private void CheckPermissions()

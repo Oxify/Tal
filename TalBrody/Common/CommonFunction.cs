@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
+using TalBrody.Logic;
+using TalBrody.Util;
 
 namespace TalBrody.Common
 {
     public class CommonFunction
     {
+        public static void AddUserToSession(int UserId)
+        {
+            UserSession Usession = new UserSession();
+            Usession.UserId = UserId;
+            Usession.StartSession = DateTime.Now;
+            Usession.PermissionList = Permissions.Get_All_Permission_By_UserId(UserId);
+            HttpContext.Current.Session.Add("Usession", Usession);
+        }
         public static byte[] CreateSalt()
         {
             byte[] salt;

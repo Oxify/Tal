@@ -126,14 +126,7 @@ namespace TalBrody.UserControl
 
 		}
 
-	    public void AddUserToSession(int UserId)
-	    {
-	        UserSession Usession = new UserSession();
-	        Usession.UserId = UserId;
-	        Usession.StartSession = DateTime.Now;
-	        Usession.PermissionList = Permissions.Get_All_Permission_By_UserId(UserId);
-            Session.Add("Usession", Usession);
-	    }
+	   
 
 		public bool TryLogin(string email, string password)
 		{
