@@ -205,8 +205,11 @@ namespace TalBrody.Logic
 
         private void DropIfExists(string table)
         {
+            // TODO - do this in a cross-platform way
+            // http://stackoverflow.com/a/14290099/11236
+
             var query = string.Format(
-                "if exists (select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = '{0}') drop table {0}", table);
+                "IF OBJECT_ID('{0}', 'U') IS NOT NULL drop table {0}", table);
 
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(query);
