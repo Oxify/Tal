@@ -29,12 +29,15 @@ namespace TalBrody.Logic
                         case 0:
                             DBHandling0();
                             break;
+
                         case 1:
                             DBHandling1();
                             break;
+
                         case 2:
                             DBHandling2();
                             break;
+
                         default:
                             break;
                     }
@@ -44,8 +47,8 @@ namespace TalBrody.Logic
             }
             catch (Exception ex)
             {
-                Loging.InsertLog("DbHandling", "UpgradeDbVerstion Threw: " + ex.ToString());
-                throw ex;
+                Loging.InsertLog("DbHandling", "UpgradeDbVerstion Threw: " + ex);
+                throw;
             }
             return Result;
         }

@@ -135,7 +135,7 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 conn.Open();
-                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt, ValidPassword, ReferralCode) values (@Email, @Hash, @Salt, False, @ReferralCode); ",
+                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt, ValidPassword, ReferralCode) values (@Email, @Hash, @Salt, @ValidPassword, @ReferralCode); ",
                         conn);
                 var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
@@ -143,6 +143,7 @@ namespace TalBrody.DataLayer
                 cmd.Parameters.AddWithValue("@Hash", hash);
                 cmd.Parameters.AddWithValue("@Salt", salt);
                 cmd.Parameters.AddWithValue("@ReferralCode", referralCode);
+                cmd.Parameters.AddWithValue("@ValidPassword", false);
 
                 cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
