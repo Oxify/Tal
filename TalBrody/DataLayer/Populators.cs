@@ -163,7 +163,7 @@ namespace TalBrody.DataLayer
             EmailConfirmCodes confirmCode = new EmailConfirmCodes();
             confirmCode.Email = dr.GetValue<string>("Email");
             confirmCode.Code = dr.GetValue<string>("Code");
-            confirmCode.Created = dr.GetValue<DateTime>("Id");
+            confirmCode.Created = dr.GetValue<DateTime>("CreatedDate");
             return confirmCode;
         }
 
