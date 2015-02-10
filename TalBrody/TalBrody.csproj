@@ -389,6 +389,7 @@
     <Compile Include="Util\Log.cs" />
     <Compile Include="Util\Loging.cs" />
     <Compile Include="Util\UserSession.cs" />
+    <Compile Include="Util\UUIDCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Oxify.Master" />

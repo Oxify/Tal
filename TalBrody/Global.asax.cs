@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
@@ -21,6 +22,26 @@ namespace TalBrody
 		private int CurrentDbVersion = 1;
 
         public static bool OnAppHarbor { get; private set; }
+
+        /// <summary>
+        /// Returns http://tal.apphb.com/ in production.
+        /// </summary>
+        public static string BaseUrl
+        {
+            get
+            {
+                var result = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
+                   HttpContext.Current.Request.ApplicationPath;
+
+                if (Global.OnAppHarbor)
+                {
+                    // Remove any ports on appharbor (we're behind a proxy)
+                    result = Regex.Replace(result, ":\\d+", "");
+                }
+
+                return result;
+            }
+        }
 
         protected void Application_Start(object sender, EventArgs e)
         {

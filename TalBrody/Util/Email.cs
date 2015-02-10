@@ -24,7 +24,7 @@ namespace TalBrody.Util
             string template = System.IO.File.ReadAllText(templateLocation);
 
             var viewBag = new DynamicViewBag();
-            viewBag.AddValue("BaseUrl", GetBaseUrl());
+            viewBag.AddValue("BaseUrl", Global.BaseUrl);
             viewBag.AddValue("Code", code);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
  
@@ -44,20 +44,6 @@ namespace TalBrody.Util
         {
             log.Info("Sending email to " + emailMessage.to);
             mandril.SendMessage(emailMessage);
-        }
-
-        private static string GetBaseUrl()
-        {
-            var result = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
-                   HttpContext.Current.Request.ApplicationPath;
-
-            if (Global.OnAppHarbor)
-            {
-                // Remove any ports on appharbor (we're behind a proxy)
-                result = Regex.Replace(result, ":\\d+", "");
-            }
-            
-            return result;
         }
 
         public static MandrillApi GetMandrill()

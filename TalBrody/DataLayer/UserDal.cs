@@ -127,7 +127,7 @@ namespace TalBrody.DataLayer
             }
         }
 
-        public int CreateUser(string email, string password, byte[] hash, byte[] salt)
+        public int CreateUser(string email, string password, byte[] hash, byte[] salt, string referralCode)
         {
             // http://stackoverflow.com/a/10402129/11236
 
@@ -135,14 +135,15 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 conn.Open();
-                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt, PasswordValid) values (@Email, @Hash, @Salt, False); ",
+                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt, PasswordValid, ReferralCode) values (@Email, @Hash, @Salt, False, @ReferralCode); ",
                         conn);
                 var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Hash", hash);
                 cmd.Parameters.AddWithValue("@Salt", salt);
-               
+                cmd.Parameters.AddWithValue("@ReferralCode", referralCode);
+
                 cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
 

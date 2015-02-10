@@ -24,5 +24,6 @@ namespace TalBrody.Entity
         public bool ValidPassword { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime LastLogin { get; set; }
+        public string ReferralCode { get; set; }
 	}
 }

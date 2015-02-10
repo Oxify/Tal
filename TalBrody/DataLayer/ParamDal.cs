@@ -14,33 +14,6 @@ namespace TalBrody.DataLayer
 {
     public class ParamDal : BaseDal
     {
-        public bool CheckParamExists()
-        {
-            bool exists = false;
-            try
-            {
-                using (var myConnection = PortalConection)
-                {
-                    var myCommand = GetCommand("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'Params'", myConnection);
-                    myCommand.CommandType = CommandType.Text;
-                    myConnection.Open();
-                    var dr = myCommand.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        exists = true;
-                    }
-                    myConnection.Close();
-                    dr.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error("CheckParamExists Threw: " + ex.ToString());
-                throw ex;
-            }
-            return exists;
-        }
-
         public Param GetParam(string Name)
         {
             Param Result = null;

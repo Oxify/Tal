@@ -3,6 +3,7 @@ using System.Linq;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Common;
+using TalBrody.Util;
 
 namespace TalBrody.Logic
 {
@@ -38,7 +39,8 @@ namespace TalBrody.Logic
             var salt = CommonFunction.CreateSalt();
             var hashed = CommonFunction.Hash(password, salt);
 	        UserDal dal = new UserDal();
-	        UserId =  dal.CreateUser(email, password,hashed,salt);
+	        string referralCode = UUIDCreator.Create(8);
+            UserId = dal.CreateUser(email, password, hashed, salt, referralCode);
 
             // TODO Ziv  emil sending for comfermation email address 
 	        return UserId;
@@ -79,11 +81,11 @@ namespace TalBrody.Logic
         /// <returns></returns>
 	    public static string GenerateUserRegistrationCode(User user)
         {
-            var guid = Guid.NewGuid().ToString().Substring(0, 8);
+            var code = UUIDCreator.Create(8);
             var dal = new EmailConfirmDal();
 
-            dal.StoreConfirmCode(guid, user.Email);
-            return guid;
+            dal.StoreConfirmCode(code, user.Email);
+            return code;
         }
 
 	    public static bool IsValidRegistrationCode(string code, string email)

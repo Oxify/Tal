@@ -162,7 +162,8 @@ namespace TalBrody.Logic
             Query = Query + "[TwitterId] [nvarchar](100) NULL,[TwitterToken] [nvarchar](1000) NULL,";
             Query = Query + "[TwitterSecret] [nvarchar](1000) NULL, [TwitterAccessToken] [nvarchar](1000) NULL, [ReferredBy] [int] NULL,";
             Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailConfirmed] [bit] NULL," +
-                    "[Birthday] [DateTime], [ValidPassword] [BOOLEAN], [DateCreated] [DateTIme] default GETDATE()" +
+                    "[Birthday] [DateTime], [ValidPassword] [bit], [DateCreated] [DateTime] default GETDATE()," +
+                    "[ReferralCode] [nvarchar](100)," +
                     "CONSTRAINT [PK_Users] PRIMARY KEY  ([Id]))";
 
             BdHandlingDal dal = new BdHandlingDal();
@@ -207,17 +208,17 @@ namespace TalBrody.Logic
 
         private void DropIfExists(string table)
         {
-            log.Warn("Dropping table " + table);
-
-            // TODO - do this in a cross-platform way
+            // This doesn't not work on SQL CE
             // http://stackoverflow.com/a/14290099/11236
 
-            var query = string.Format(
-                "IF OBJECT_ID('{0}', 'U') IS NOT NULL drop table {0}", table);
+            var dal = new BdHandlingDal();
+            if (dal.CheckTableExists(table))
+            {
+                log.Warn("Dropping table " + table);
 
-            BdHandlingDal dal = new BdHandlingDal();
-            dal.ExcuteDbCommand(query);
-
+                var cmd = string.Format("drop table {0};", table);
+                dal.ExcuteDbCommand(cmd);
+            }
         }
     }
 }
