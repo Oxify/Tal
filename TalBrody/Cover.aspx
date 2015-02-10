@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <script type="text/javascript">
 	function ShowRegister() {
-		debugger;
 
 		var ProjectId = 1;
 
