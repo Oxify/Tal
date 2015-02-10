@@ -1,0 +1,12 @@
+﻿<html>
+<body>
+    <p>
+        <b>Hello @Model.DisplayName!</b>
+    </p>
+    @{
+    var url = ViewBag.BaseUrl + "ConfirmEmail.aspx?email=" + System.Web.HttpUtility.UrlEncode(Model.Email) + @Raw("&code=") + ViewBag.Code;
+    }
+
+    <p>Please click on <a href='@url'>this link</a> to complete your registration.</p>
+</body>
+</html>

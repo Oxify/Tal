@@ -16,19 +16,9 @@ namespace TalBrody.Util
         public void SendRegistrationEmail(User user, string code)
         {
             var mandril = GetMandrill();
-            string template = @"<html>
-<body>
-<p>
-<b>Hello @Model.DisplayName!</b>
-</p>
-@{
-    var url = ViewBag.BaseUrl + ""ConfirmEmail.aspx?email="" + System.Web.HttpUtility.UrlEncode(Model.Email) + @Raw(""&code="") + ViewBag.Code;
-}
+            var templateLocation = HttpContext.Current.Server.MapPath("~/Emails/RegistrationEmail.cshtml");
+            string template = System.IO.File.ReadAllText(templateLocation);
 
-<p>Please click on <a href='@url'>this link</a> to complete your registration.</p>
-</body>
-</html>
-";
             var viewBag = new DynamicViewBag();
             viewBag.AddValue("BaseUrl", GetBaseUrl());
             viewBag.AddValue("Code", code);
