@@ -10,206 +10,222 @@ namespace TalBrody.DataLayer
 		internal static Follower Populate_Follower(SqlCeDataReader dr)
 		{
 
-			Follower Consept = new Follower();
-			Consept.ContactEmail = dr.GetValue<string>("ContactEmail");
-			Consept.DateCreated = dr.GetValue<DateTime>("DateCreated");
-			Consept.ConseptId = dr.GetValue<int>("ConseptId");
-			Consept.count = dr.GetValue<int>("count");
-			Consept.ContactId = dr.GetValue<int>("ContactId");
-			return Consept;
+			return new Follower
+			{
+			    ContactEmail = dr.GetValue<string>("ContactEmail"),
+			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
+			    ConseptId = dr.GetValue<int>("ConseptId"),
+			    count = dr.GetValue<int>("count"),
+			    ContactId = dr.GetValue<int>("ContactId")
+			};
 		}
 
 		internal static Follower Populate_Follower(SqlDataReader dr)
 		{
-			Follower Consept = new Follower();
-			Consept.ContactEmail = dr.GetValue<string>("ContactEmail");
-			Consept.DateCreated = dr.GetValue<DateTime>("DateCreated");
-			Consept.ConseptId = dr.GetValue<int>("ConseptId");
-			Consept.count = dr.GetValue<int>("count");
-			Consept.ContactId = dr.GetValue<int>("ContactId");
-			return Consept;
+			return new Follower
+			{
+			    ContactEmail = dr.GetValue<string>("ContactEmail"),
+			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
+			    ConseptId = dr.GetValue<int>("ConseptId"),
+			    count = dr.GetValue<int>("count"),
+			    ContactId = dr.GetValue<int>("ContactId")
+			};
 		}
 
 		internal static Perks Populate_Perks(SqlCeDataReader dr)
 		{
 
-			Perks Perks = new Perks();
-			Perks.Cost = dr.GetValue<int>("Cost");
-			Perks.Description = dr.GetValue<string>("Description");
-			Perks.PerkId = dr.GetValue<int>("PerkId");
-			Perks.ProjectId = dr.GetValue<int>("ProjectId");
-			Perks.ShowOrder = dr.GetValue<int>("ShowOrder");
-			Perks.Title = dr.GetValue<string>("Title");
-			return Perks;
+			return new Perks
+			{
+			    Cost = dr.GetValue<int>("Cost"),
+			    Description = dr.GetValue<string>("Description"),
+			    PerkId = dr.GetValue<int>("PerkId"),
+			    ProjectId = dr.GetValue<int>("ProjectId"),
+			    ShowOrder = dr.GetValue<int>("ShowOrder"),
+			    Title = dr.GetValue<string>("Title")
+			};
 		}
 
 		internal static Perks Populate_Perks(SqlDataReader dr)
 		{
 
-			Perks Perks = new Perks();
-			Perks.Cost = dr.GetValue<int>("Cost");
-			Perks.Description = dr.GetValue<string>("Description");
-			Perks.PerkId = dr.GetValue<int>("PerkId");
-			Perks.ProjectId = dr.GetValue<int>("ProjectId");
-			Perks.ShowOrder = dr.GetValue<int>("ShowOrder");
-			Perks.Title = dr.GetValue<string>("Title");
-			return Perks;
+			return new Perks
+			{
+			    Cost = dr.GetValue<int>("Cost"),
+			    Description = dr.GetValue<string>("Description"),
+			    PerkId = dr.GetValue<int>("PerkId"),
+			    ProjectId = dr.GetValue<int>("ProjectId"),
+			    ShowOrder = dr.GetValue<int>("ShowOrder"),
+			    Title = dr.GetValue<string>("Title")
+			};
 		}
 
 		internal static Project Populate_Project(SqlCeDataReader dr)
 		{
 
-			Project Project = new Project();
-			Project.Description = dr.GetValue<string>("Description");
-			Project.DisplayName = dr.GetValue<string>("DisplayName");
-			Project.id = dr.GetValue<int>("id");
-			Project.LinkUrl = dr.GetValue<string>("LinkUrl");
-			Project.MovieUrl = dr.GetValue<string>("MovieUrl");
-			Project.ShortName = dr.GetValue<string>("ShortName");
-			return Project;
+			return new Project
+			{
+			    Description = dr.GetValue<string>("Description"),
+			    DisplayName = dr.GetValue<string>("DisplayName"),
+			    id = dr.GetValue<int>("id"),
+			    LinkUrl = dr.GetValue<string>("LinkUrl"),
+			    MovieUrl = dr.GetValue<string>("MovieUrl"),
+			    ShortName = dr.GetValue<string>("ShortName")
+			};
 		}
 
 		internal static Project Populate_Project(SqlDataReader dr)
 		{
 
-			Project Project = new Project();
-			Project.Description = dr.GetValue<string>("Description");
-			Project.DisplayName = dr.GetValue<string>("DisplayName");
-			Project.id = dr.GetValue<int>("id");
-			Project.LinkUrl = dr.GetValue<string>("LinkUrl");
-			Project.MovieUrl = dr.GetValue<string>("MovieUrl");
-			Project.ShortName = dr.GetValue<string>("ShortName");
-			return Project;
+			return new Project
+			{
+			    Description = dr.GetValue<string>("Description"),
+			    DisplayName = dr.GetValue<string>("DisplayName"),
+			    id = dr.GetValue<int>("id"),
+			    LinkUrl = dr.GetValue<string>("LinkUrl"),
+			    MovieUrl = dr.GetValue<string>("MovieUrl"),
+			    ShortName = dr.GetValue<string>("ShortName")
+			};
 		}
 
 		internal static Param Populate_Params(SqlDataReader dr)
 		{
-
-			Param param = new Param();
-			param.Name = dr.GetValue<string>("Name");
-			param.Value = dr.GetValue<string>("Value");
-			param.ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"));
-
-			return param;
+			return new Param
+			{
+			    Name = dr.GetValue<string>("Name"),
+			    Value = dr.GetValue<string>("Value"),
+			    ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"))
+			};
 		}
 
 		internal static Param Populate_Params(SqlCeDataReader dr)
 		{
 
-			Param param = new Param();
-			param.Name = dr.GetValue<string>("Name");
-			param.Value = dr.GetValue<string>("Value");
-			param.ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"));
-
-			return param;
+			return new Param
+			{
+			    Name = dr.GetValue<string>("Name"),
+			    Value = dr.GetValue<string>("Value"),
+			    ValueInt = dr.GetInt32(dr.GetOrdinal("ValueInt"))
+			};
 		}
 
 		internal static ProjectDetails Populate_projectDetails(SqlDataReader dr)
 		{
-			ProjectDetails ProjectDetails = new ProjectDetails();
-			ProjectDetails.FieldId = dr.GetValue<int>("FieldId");
-			ProjectDetails.FontSize = dr.GetValue<int>("FontSize");
-			ProjectDetails.Id = dr.GetValue<int>("Id");
-			ProjectDetails.LangId = dr.GetValue<int>("LangId");
-			ProjectDetails.ProjectId = dr.GetValue<int>("ProjectId");
-			ProjectDetails.Text = dr.GetValue<string>("Text");
-			return ProjectDetails;
+			return new ProjectDetails
+			{
+			    FieldId = dr.GetValue<int>("FieldId"),
+			    FontSize = dr.GetValue<int>("FontSize"),
+			    Id = dr.GetValue<int>("Id"),
+			    LangId = dr.GetValue<int>("LangId"),
+			    ProjectId = dr.GetValue<int>("ProjectId"),
+			    Text = dr.GetValue<string>("Text")
+			};
 		}
 
 		internal static ProjectDetails Populate_projectDetails(SqlCeDataReader dr)
 		{
-			ProjectDetails ProjectDetails = new ProjectDetails();
-			ProjectDetails.FieldId = dr.GetValue<int>("FieldId");
-			ProjectDetails.FontSize = dr.GetValue<int>("FontSize");
-			ProjectDetails.Id = dr.GetValue<int>("Id");
-			ProjectDetails.LangId = dr.GetValue<int>("LangId");
-			ProjectDetails.ProjectId = dr.GetValue<int>("ProjectId");
-			ProjectDetails.Text = dr.GetValue<string>("Text");
-			return ProjectDetails;
+			return new ProjectDetails
+			{
+			    FieldId = dr.GetValue<int>("FieldId"),
+			    FontSize = dr.GetValue<int>("FontSize"),
+			    Id = dr.GetValue<int>("Id"),
+			    LangId = dr.GetValue<int>("LangId"),
+			    ProjectId = dr.GetValue<int>("ProjectId"),
+			    Text = dr.GetValue<string>("Text")
+			};
 		}
 
 		internal static User Populate_User(SqlDataReader dr)
 		{
-			User User = new User();
-			User.DisplayName = dr.GetValue<string>("DisplayName");
-			User.Email = dr.GetValue<string>("Email");
-			User.FacebookId = dr.GetValue<long>("FacebookId");
-			User.Id = dr.GetValue<int>("Id");
-		    User.EmailConfirmed = dr.GetValue<bool>("EmailConfirmed");
-			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
-			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
-            User.ReferredBy = dr.GetValue<string>("ReferredBy");
-            User.TwitterId = dr.GetValue<string>("TwitterId");
-			return User;
+			return new User
+			{
+			    DisplayName = dr.GetValue<string>("DisplayName"),
+			    Email = dr.GetValue<string>("Email"),
+			    FacebookId = dr.GetValue<long>("FacebookId"),
+			    Id = dr.GetValue<int>("Id"),
+			    EmailConfirmed = dr.GetValue<bool>("EmailConfirmed"),
+			    PasswordHash = dr.GetValue<byte[]>("PasswordHash"),
+			    PasswordSalt = dr.GetValue<byte[]>("PasswordSalt"),
+			    ReferredBy = dr.GetValue<string>("ReferredBy"),
+			    TwitterId = dr.GetValue<string>("TwitterId"),
+			    ReferralCode = dr.GetValue<string>("ReferralCode")
+			};
 		}
 
         internal static User Populate_User(SqlCeDataReader dr)
 		{
-			User User = new User();
-			User.DisplayName = dr.GetValue<string>("DisplayName");
-			User.Email = dr.GetValue<string>("Email");
-			User.FacebookId = dr.GetValue<long>("FacebookId");
-			User.Id = dr.GetValue<int>("Id");
-            User.EmailConfirmed = dr.GetValue<bool>("EmailConfirmed");
-			User.PasswordHash = dr.GetValue<byte[]>("PasswordHash");
-			User.PasswordSalt = dr.GetValue<byte[]>("PasswordSalt");
-            User.ReferredBy = dr.GetValue<string>("ReferredBy");
-            User.TwitterId = dr.GetValue<string>("TwitterId");
-			return User;
+			return new User
+			{
+			    DisplayName = dr.GetValue<string>("DisplayName"),
+			    Email = dr.GetValue<string>("Email"),
+			    FacebookId = dr.GetValue<long>("FacebookId"),
+			    Id = dr.GetValue<int>("Id"),
+			    EmailConfirmed = dr.GetValue<bool>("EmailConfirmed"),
+			    PasswordHash = dr.GetValue<byte[]>("PasswordHash"),
+			    PasswordSalt = dr.GetValue<byte[]>("PasswordSalt"),
+			    ReferredBy = dr.GetValue<string>("ReferredBy"),
+			    TwitterId = dr.GetValue<string>("TwitterId"),
+			    ReferralCode = dr.GetValue<string>("ReferralCode")
+			};
 		}
 
         internal static EmailConfirmCodes Populate_EmailConfirmCodes(SqlDataReader dr)
         {
-            EmailConfirmCodes confirmCode = new EmailConfirmCodes();
-            confirmCode.Email = dr.GetValue<string>("Email");
-            confirmCode.Code = dr.GetValue<string>("Code");
-            confirmCode.Created = dr.GetValue<DateTime>("CreatedDate");
-            return confirmCode;
+            return new EmailConfirmCodes
+            {
+                Email = dr.GetValue<string>("Email"),
+                Code = dr.GetValue<string>("Code"),
+                Created = dr.GetValue<DateTime>("CreatedDate")
+            };
         }
 
         internal static EmailConfirmCodes Populate_EmailConfirmCodes(SqlCeDataReader dr)
         {
-            EmailConfirmCodes confirmCode = new EmailConfirmCodes();
-            confirmCode.Email = dr.GetValue<string>("Email");
-            confirmCode.Code = dr.GetValue<string>("Code");
-            confirmCode.Created = dr.GetValue<DateTime>("CreatedDate");
-            return confirmCode;
+            return new EmailConfirmCodes
+            {
+                Email = dr.GetValue<string>("Email"),
+                Code = dr.GetValue<string>("Code"),
+                Created = dr.GetValue<DateTime>("CreatedDate")
+            };
         }
 
 	    internal static SiteAdmin Populate_SiteAdmin(SqlDataReader dr)
 	    {
-	        SiteAdmin SiteAdmin = new SiteAdmin();
-            SiteAdmin.Id = dr.GetValue<int>("Id");
-            SiteAdmin.UserId = dr.GetValue<int>("UserId");
-	        return SiteAdmin;
+	        return new SiteAdmin
+	        {
+	            Id = dr.GetValue<int>("Id"),
+                UserId = dr.GetValue<int>("UserId")
+	        };
 	    }
 
         internal static SiteAdmin Populate_SiteAdmin(SqlCeDataReader dr)
         {
-            SiteAdmin SiteAdmin = new SiteAdmin();
-            SiteAdmin.Id = dr.GetValue<int>("Id");
-            SiteAdmin.UserId = dr.GetValue<int>("UserId");
-            return SiteAdmin;
+            return new SiteAdmin {
+                Id = dr.GetValue<int>("Id"), 
+                UserId = dr.GetValue<int>("UserId")
+            };
         }
 
 	    internal static Permission Populate_permission(SqlDataReader dr)
 	    {
-	        Permission Permission = new Permission();
-            Permission.Id = dr.GetValue<int>("Id");
-            Permission.PermisstionName = dr.GetValue<string>("PermisstionName");
-            Permission.ProjectId = dr.GetValue<int>("ProjectId");
-            Permission.UserId = dr.GetValue<int>("UserId");
-	        return Permission;
+	        return new Permission
+	        {
+	            Id = dr.GetValue<int>("Id"),
+	            PermisstionName = dr.GetValue<string>("PermisstionName"),
+	            ProjectId = dr.GetValue<int>("ProjectId"),
+	            UserId = dr.GetValue<int>("UserId")
+	        };
 	    }
 
         internal static Permission Populate_permission(SqlCeDataReader dr)
         {
-            Permission Permission = new Permission();
-            Permission.Id = dr.GetValue<int>("Id");
-            Permission.PermisstionName = dr.GetValue<string>("PermisstionName");
-            Permission.ProjectId = dr.GetValue<int>("ProjectId");
-            Permission.UserId = dr.GetValue<int>("UserId");
-            return Permission;
+            return new Permission
+            {
+                Id = dr.GetValue<int>("Id"),
+                PermisstionName = dr.GetValue<string>("PermisstionName"),
+                ProjectId = dr.GetValue<int>("ProjectId"),
+                UserId = dr.GetValue<int>("UserId")
+            };
         }
 	}
 }
