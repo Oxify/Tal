@@ -391,7 +391,7 @@
     <Content Include="Fonts\SimpleCLM-MediumOblique.ttf" />
     <Content Include="Fonts\SimpleCLM400.woff" />
     <Content Include="Fonts\SimpleCLM700.woff" />
-    <Content Include="Emails\RegistrationEmail.cshtml" />
+    <Content Include="Emails\RegistrationEmail.email" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
