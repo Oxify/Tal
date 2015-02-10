@@ -16,7 +16,7 @@ namespace TalBrody.Util
         public void SendRegistrationEmail(User user, string code)
         {
             var mandril = GetMandrill();
-            var templateLocation = HttpContext.Current.Server.MapPath("~/Emails/RegistrationEmail.cshtml");
+            var templateLocation = HttpContext.Current.Server.MapPath("~/Emails/RegistrationEmail.email");
             string template = System.IO.File.ReadAllText(templateLocation);
 
             var viewBag = new DynamicViewBag();
