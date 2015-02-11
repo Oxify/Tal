@@ -29,12 +29,15 @@ namespace TalBrody.Logic
                         case 0:
                             DBHandling0();
                             break;
+
                         case 1:
                             DBHandling1();
                             break;
+
                         case 2:
                             DBHandling2();
                             break;
+
                         default:
                             break;
                     }
@@ -44,8 +47,8 @@ namespace TalBrody.Logic
             }
             catch (Exception ex)
             {
-                Loging.InsertLog("DbHandling", "UpgradeDbVerstion Threw: " + ex.ToString());
-                throw ex;
+                Loging.InsertLog("DbHandling", "UpgradeDbVerstion Threw: " + ex);
+                throw;
             }
             return Result;
         }
@@ -72,8 +75,9 @@ namespace TalBrody.Logic
                 CreateFollowers();
                 CreateProjectDetails();
                 CreateSiteAdmin();
+                CreateEmailConfirmCodes();
                 InsertSiteAdminAndUser();
-                Permission();
+                CreatePermissions();
 
                 // create params needs to be last! 
                 CreateParams();
@@ -86,11 +90,23 @@ namespace TalBrody.Logic
             }
         }
 
-        private void Permission()
+        private void CreateEmailConfirmCodes()
         {
+            DropIfExists("EmailConfirmCodes");
+
+            string Query = "CREATE TABLE [EmailConfirmCodes]([Code] [nvarchar](50) NOT NULL, [Email] [nvarchar](100) NOT NULL," +
+                           "[CreatedDate] [DateTime] default GETDATE())";
+            BdHandlingDal dal = new BdHandlingDal();
+            dal.ExcuteDbCommand(Query);
+        }
+
+        private void CreatePermissions()
+        {
+            DropIfExists("Permissions");
+
             string Query = "CREATE TABLE [Permissions]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL," +
                            "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL ,CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]))";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
@@ -111,70 +127,101 @@ namespace TalBrody.Logic
 
         private void CreateSiteAdmin()
         {
+            DropIfExists("SiteAdmin");
+
             string Query = "CREATE TABLE [SiteAdmin]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL) ";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreateProjectDetails()
         {
+            DropIfExists("ProjectDetails");
+
             string Query = "CREATE TABLE [ProjectDetails](	[Id] [int] IDENTITY(1,1) NOT NULL,[ProjectId] [int] NOT NULL,[FieldId] [int] NOT NULL,";
             Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](4000) NULL,[FontSize] [int] NOT NULL, CONSTRAINT [PK_ProjectDetails] PRIMARY KEY  (";
             Query = Query + "[Id]))";
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreateFollowers()
         {
+            DropIfExists("Followers");
+
             string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL,";
             Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] )) ";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreateUsers()
         {
+            DropIfExists("Users");
 
             string Query = " CREATE TABLE [Users]([Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,";
-            Query = Query + "[Email] [nvarchar](100) NULL,[FacebookId] [nvarchar](100) NULL,[TwitterId] [nvarchar](100) NULL,[ReferencedBy] [int] NULL,";
-            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailConfirmed] [bit] NULL,CONSTRAINT [PK_Users] PRIMARY KEY  (";
-            Query = Query + "[Id]))";
-     
+            Query = Query + "[Email] [nvarchar](100) NULL,[FacebookId] [nvarchar](100) NULL, [FacebookAccessToken] [nvarchar](1000) NULL, ";
+            Query = Query + "[TwitterId] [nvarchar](100) NULL,[TwitterToken] [nvarchar](1000) NULL,";
+            Query = Query + "[TwitterSecret] [nvarchar](1000) NULL, [TwitterAccessToken] [nvarchar](1000) NULL, [ReferredBy] [int] NULL,";
+            Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailConfirmed] [bit] NULL," +
+                    "[Birthday] [DateTime], [ValidPassword] [bit], [DateCreated] [DateTime] default GETDATE()," +
+                    "[ReferralCode] [nvarchar](100)," +
+                    "CONSTRAINT [PK_Users] PRIMARY KEY  ([Id]))";
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreateProjects()
         {
+            DropIfExists("Projects");
+
             string Query = "CREATE TABLE [Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
             Query = Query + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[MovieUrl] [nvarchar](100) NULL, CONSTRAINT [PK_Projects] PRIMARY KEY (";
             Query = Query + "[id] ))";
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreatePerks()
         {
+            DropIfExists("Perks");
+
             string Query = "CREATE TABLE [Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
             Query = Query + "[ProjectId] [int] NOT NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY ([PerkId]))";
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
 
         private void CreateParams()
         {
+            DropIfExists("Params");
+
             string Query = "CREATE TABLE [Params] (";
             Query += "[Id] int IDENTITY (1,1) NOT NULL, ";
             Query += "[Name] nvarchar(50) NOT NULL, [Value] nvarchar(50) NOT NULL, [ValueInt] int NULL, CONSTRAINT [PK_Params] PRIMARY KEY ([Id]))";
 
-            BdHandlinkDal dal = new BdHandlinkDal();
+            BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
 
             Params.InsertParam(Params.PARAM_DB_VERSION, "1", 1);
+        }
+
+        private void DropIfExists(string table)
+        {
+            // This doesn't not work on SQL CE
+            // http://stackoverflow.com/a/14290099/11236
+
+            var dal = new BdHandlingDal();
+            if (dal.CheckTableExists(table))
+            {
+                log.Warn("Dropping table " + table);
+
+                var cmd = string.Format("drop table {0};", table);
+                dal.ExcuteDbCommand(cmd);
+            }
         }
     }
 }

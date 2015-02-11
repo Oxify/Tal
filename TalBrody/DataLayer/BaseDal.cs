@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -137,6 +138,34 @@ namespace TalBrody.DataLayer
         static BaseDal()
         {
             PortalConection = GetPortalConnection();
+        }
+
+        public bool CheckTableExists(string table)
+        {
+            bool exists = false;
+            try
+            {
+                using (var myConnection = PortalConection)
+                {
+                    
+                    var myCommand = GetCommand(string.Format("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = '{0}'", table), myConnection);
+                    myCommand.CommandType = CommandType.Text;
+                    myConnection.Open();
+                    var dr = myCommand.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        exists = true;
+                    }
+                    myConnection.Close();
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("CheckParamExists Threw: " + ex.ToString());
+                throw ex;
+            }
+            return exists;
         }
     }
 }

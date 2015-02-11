@@ -17,7 +17,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
+                var cmd = GetCommand("select *" +
                                      " from Users where Email = @Email", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
@@ -37,7 +37,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
+                var cmd = GetCommand("select *" +
                                      " from Users where Id = @id", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@id", id);
@@ -58,7 +58,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
+                var cmd = GetCommand("select *" +
                                      " from Users where TwitterId = @Twitterid", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Twitterid", Twitterid);
@@ -79,7 +79,7 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, DisplayName, Email, FacebookId, TwitterId, ReferencedBy, PasswordSalt, PasswordHash ,EmailConfirmed" +
+                var cmd = GetCommand("select *" +
                                      " from Users where FacebookId = @Facebookd", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Facebookd", Facebookd);
@@ -100,25 +100,34 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 var cmd = GetCommand("update Users set Email = @Email, DisplayName = @DisplayName, FacebookId = @FacebookId" +
-                                     ", TwitterId = @TwitterId, ReferencedBy = @ReferencedBy, PasswordSalt = @PasswordSalt" +
-                                     ", PasswordHash = @PasswordHash , EmailConfirmed = @EmailConfirmed where Id = @Id", conn);
+                                     ", FacebookAccessToken = @FacebookAccessToken, TwitterId = @TwitterId " +
+                                     ", TwitterToken = @TwitterToken, TwitterSecret = @TwitterSecret, TwitterAccessToken = @TwitterAccessToken" +
+                                     ", ReferredBy = @ReferredBy, PasswordSalt = @PasswordSalt" +
+                                     ", PasswordHash = @PasswordHash , EmailConfirmed = @EmailConfirmed" + 
+                                     ", Birthday = @Birthday, ValidPassword = @ValidPassword" +
+                                     " where Id = @Id", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", user.Email);
                 cmd.Parameters.AddWithValue("@DisplayName", user.DisplayName);
-                cmd.Parameters.AddWithValue("@FacebookId", user.FaceBookId);
+                cmd.Parameters.AddWithValue("@FacebookId", user.FacebookId);
+                cmd.Parameters.AddWithValue("@FacebookAccessToken", user.FacebookAccessToken);
                 cmd.Parameters.AddWithValue("@TwitterId", user.TwitterId);
-                cmd.Parameters.AddWithValue("@ReferencedBy", user.ReferancedBy);
+                cmd.Parameters.AddWithValue("@TwitterToken", user.TwitterToken);
+                cmd.Parameters.AddWithValue("@TwitterSecret", user.TwitterSecret);
+                cmd.Parameters.AddWithValue("@TwitterAccessToken", user.TwitterAccessToken);
+                cmd.Parameters.AddWithValue("@ReferredBy", user.ReferredBy);
                 cmd.Parameters.AddWithValue("@PasswordSalt", user.PasswordSalt);
                 cmd.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
                 cmd.Parameters.AddWithValue("@EmailConfirmed", user.EmailConfirmed);
+                cmd.Parameters.AddWithValue("@Birthday", user.Birthday);
+                cmd.Parameters.AddWithValue("@ValidPassword", user.ValidPassword);
                 cmd.Parameters.AddWithValue("@Id", user.Id);
-                cmd.Parameters.Add("@UsersID", SqlDbType.Int).Direction = ParameterDirection.Output;
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public int CreateUser(string email, string password, byte[] hash, byte[] salt)
+        public int CreateUser(string email, string password, byte[] hash, byte[] salt, string referralCode)
         {
             // http://stackoverflow.com/a/10402129/11236
 
@@ -126,14 +135,16 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 conn.Open();
-                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt) values (@Email, @Hash, @Salt); ",
+                var cmd = GetCommand("insert into Users (Email, PasswordHash, PasswordSalt, ValidPassword, ReferralCode) values (@Email, @Hash, @Salt, @ValidPassword, @ReferralCode); ",
                         conn);
                 var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Hash", hash);
                 cmd.Parameters.AddWithValue("@Salt", salt);
-               
+                cmd.Parameters.AddWithValue("@ReferralCode", referralCode);
+                cmd.Parameters.AddWithValue("@ValidPassword", false);
+
                 cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
 

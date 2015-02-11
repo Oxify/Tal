@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Razor;
+using log4net;
 using Mandrill;
 using RazorEngine;
 using RazorEngine.Templating;
@@ -13,25 +15,16 @@ namespace TalBrody.Util
 {
     public class Email
     {
-        public void SendRegistrationEmail(User user)
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        public void SendRegistrationEmail(User user, string code)
         {
             var mandril = GetMandrill();
-            string template = @"<html>
-<body>
-<p>
-<b>Hello @Model.DisplayName!</b>
-</p>
-@{
-    var url = ViewBag.BaseUrl + ""ConfirmEmail?email="" + Model.Email + @Raw(""&code="") + ViewBag.Code;
-}
+            var templateLocation = HttpContext.Current.Server.MapPath("~/Emails/RegistrationEmail.email");
+            string template = System.IO.File.ReadAllText(templateLocation);
 
-<p>Please click on <a href='@url'>this link</a> to complete your registration.</p>
-</body>
-</html>
-";
             var viewBag = new DynamicViewBag();
-            viewBag.AddValue("BaseUrl", GetBaseUrl());
-            var code = Users.GenerateUserRegistrationCode(user);
+            viewBag.AddValue("BaseUrl", Global.BaseUrl);
             viewBag.AddValue("Code", code);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
  
@@ -44,14 +37,13 @@ namespace TalBrody.Util
                 html = html
             };
 
-            mandril.SendMessage(emailMessage);
+            sendEmail(mandril, emailMessage);
         }
 
-        private static string GetBaseUrl()
+        private static void sendEmail(MandrillApi mandril, EmailMessage emailMessage)
         {
-            return HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
-                   HttpContext.Current.Request.ApplicationPath;
-            // return "http://localhost:61400/";
+            log.Info("Sending email to " + emailMessage.to);
+            mandril.SendMessage(emailMessage);
         }
 
         public static MandrillApi GetMandrill()

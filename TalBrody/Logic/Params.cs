@@ -17,7 +17,7 @@ namespace TalBrody.Logic
         public static bool CheckParamExists()
         {
             ParamDal dal = new ParamDal();
-            return dal.CheckParamExists();
+            return dal.CheckTableExists("Params");
 
         }
         public static Param GetParam(string Name)

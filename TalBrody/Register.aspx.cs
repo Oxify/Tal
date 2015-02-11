@@ -46,9 +46,12 @@ namespace TalBrody
             log.Info(msg);
 
             user = new User {Email = email.Value, DisplayName = displayName.Value};
-            new Email().SendRegistrationEmail(user);
+            var code = Users.GenerateUserRegistrationCode(user);
+            new Email().SendRegistrationEmail(user, code);
             
         }
+
+
     }
 
     public class RegisterEventArgs : EventArgs

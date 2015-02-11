@@ -1,0 +1,66 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.page-wrapper {
+    height: 100vh;
+}
+
+.page-content {
+    /*background-color: lightgray; */
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Simple CLM', serif;
+}
+
+.Title {
+    
+    font-size: 53px;
+    font-weight: bold;
+    padding-bottom: 27px;
+}
+
+.SubTitle {
+    font-size: 53px;
+    font-weight: normal;
+    padding-bottom: 35px;
+}
+
+.Description {
+    font-size: 28px;
+    line-height: 39px;
+    padding-top: 42px;
+    padding-bottom: 63px;
+}
+
+#shareUrlInput {
+    padding: 8px;
+    width: 230px;
+    text-align: center;
+}
+
+#facebookShareButton, #twitterShareButton, #emailShareButton {
+    background-image: url(../Images/Social.png);
+    height: 65px;
+    display: inline-block;
+}
+
+#facebookShareButton {
+    width: 63px;
+    background-position: 0 0;
+}
+#twitterShareButton {
+    width: 65px;
+    background-position: -87px 0;
+}
+#emailShareButton {
+    width: 65px;
+    background-position: -175px 0;
+}
