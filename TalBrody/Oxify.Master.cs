@@ -53,10 +53,14 @@ namespace TalBrody
             {
                 if (Session["Usession"] != null)
                 {
+					//TODO Ziv implemnet login
+					/*
                     Crypto crp = new Crypto();
                     UserSession us = (UserSession) Session["Usession"];
+					 * */
                     result = true;
-                    OxifyId = crp.SignSymmetric(us.UserId.ToString());
+					//int id = us.UserId;
+					OxifyId = "asdffggggh";//crp.SignSymmetric(id.ToString());
                 }
             }
             catch (Exception ex)

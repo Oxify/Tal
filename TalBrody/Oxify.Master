@@ -26,7 +26,7 @@
 	<link href="Css/LightBoxBig.css" rel="stylesheet" />
 	<link href="Css/LightBox.css" rel="stylesheet" />
 	<link href="Css/LightBoxLarge.css" rel="stylesheet" />
-
+	<script src="JavaScript/Common.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dialog").hide();
@@ -35,14 +35,40 @@
         });
 
         function CheckCookie() {
+        	//debugger;
             var cooke = getCookie("OxifyId");
-            var LogInFlag = <%= LogInFlag%>;
-            var oxifyId = <% = OxifyId%>;
-            if (!LogInFlag && cooke != null) {
+            var LogInFlag = '<%= LogInFlag%>';
+            var oxifyId = '<% = OxifyId%>';
+            if (LogInFlag == "False" && cooke != null) {
                // log in false and cooke is true do login 
-                //  <%DoLogIN(%>cooke<%);%>
-                // TODO ziv call ajack function for dologin
-            } else if (LogInFlag && cooke == null) {
+				            	           	
+            	var params = "{'id':'" + cooke + "'}";
+
+            	$.ajax({
+            		type: "POST",
+            		url: "MainPage.aspx/DoLOgIN",
+            		async: false,
+            		data: params,
+            		contentType: "application/json; charset=utf-8",
+            		dataType: "json",
+            		success: function (response) {
+            			if (response.d == 1) {
+            				//debugger;
+							// i close it for not do endless loops
+            				//window.location.reload(); // refreashg
+            			}
+
+            		},
+            		failure: function (msg) {
+            			//debugger;
+            		},
+            		error: function (XMLHttpRequest, textStatus, errorThrown) {
+            		//	debugger;
+            		}
+            	});
+
+
+            } else if (LogInFlag == "True" && cooke == null) {
                 //log in is true and no cooke make cooke
                 createCookie("OxifyId", oxifyId, 30);
             }

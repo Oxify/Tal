@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Util;
+using TalBrody.Common;
 
 namespace TalBrody
 {
@@ -35,7 +37,29 @@ namespace TalBrody
 			
 
 			return "";
-		}		
+		}
+
+		[WebMethod(EnableSession = true)]
+		public static int DoLOgIN(string id)
+		{
+			int result = 0;
+			try
+			{
+				//TODO Ziv implemnet login
+				/*
+				Crypto crp = new Crypto();
+				int UserId = int.Parse(crp.SignSymmetric(id));
+				CommonFunction.AddUserToSession(UserId);
+				*/
+				result = 1;
+			}
+			catch (Exception ex)
+			{
+				
+				throw ex;
+			}
+			return result;
+		}
 
 		protected void BtnConseptIn_Click(object sender, EventArgs e)
 		{
