@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace TalBrody.DataLayer
 {
-	public class BdHandlinkDal : BaseDal
+	public class BdHandlingDal : BaseDal
 	{
 		public void ExcuteDbCommand(string ExcuteCommand)
 		{
