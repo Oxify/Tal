@@ -238,7 +238,6 @@
     <Content Include="JavaScript\login.js" />
     <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />
-    <Content Include="MainPage.aspx" />
     <Content Include="ProjectData.aspx" />
     <Content Include="Defaulte.aspx" />
     <Content Include="Register.aspx" />
@@ -334,13 +333,6 @@
     <Compile Include="Logic\Projects.cs" />
     <Compile Include="Logic\SiteAdmins.cs" />
     <Compile Include="Logic\Users.cs" />
-    <Compile Include="MainPage.aspx.cs">
-      <DependentUpon>MainPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MainPage.aspx.designer.cs">
-      <DependentUpon>MainPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ProjectData.aspx.cs">
       <DependentUpon>ProjectData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

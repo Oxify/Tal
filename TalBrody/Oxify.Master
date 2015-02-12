@@ -46,7 +46,7 @@
 
             	$.ajax({
             		type: "POST",
-            		url: "MainPage.aspx/DoLOgIN",
+            		url: "Ajax.aspx/AutoLogin",
             		async: false,
             		data: params,
             		contentType: "application/json; charset=utf-8",

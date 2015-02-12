@@ -41,5 +41,28 @@ namespace TalBrody
             }
             return result;
         }
+
+        [WebMethod(EnableSession = true)]
+        public static int AutoLogin(string id)
+        {
+            int result = 0;
+            try
+            {
+                //TODO Ziv implemnet login
+                /*
+                Crypto crp = new Crypto();
+                int UserId = int.Parse(crp.SignSymmetric(id));
+                CommonFunction.AddUserToSession(UserId);
+                */
+                result = 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return result;
+        }
+
     }
 }
