@@ -37,6 +37,7 @@ $('document').ready(function () {
 
     FB.init({
         appId: '1423139441310101',
+        cookie: true
     });
     //$('#loginbutton,#feedbutton').removeAttr('disabled');
     FB.getLoginStatus(updateStatusCallback);
