@@ -68,7 +68,7 @@ namespace TalBrody.Logic
         {
             FacebookDetails Result = new FacebookDetails();
             Result.Graph = ReadGraph(AccessToken);
-            GetLongLivedToken(AccessToken);
+            //GetLongLivedToken(AccessToken);
             Result.Friends = ReadFriends(AccessToken);
 
             return Result;
