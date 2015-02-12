@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Common;
 using TalBrody.Logic;
 
 namespace TalBrody
@@ -62,8 +63,10 @@ namespace TalBrody
                 /*
                 Crypto crp = new Crypto();
                 int UserId = int.Parse(crp.SignSymmetric(id));
-                CommonFunction.AddUserToSession(UserId);
+               
                 */
+                int UserId = int.Parse(id);
+                CommonFunction.AddUserToSession(UserId);
                 result = 1;
             }
             catch (Exception ex)
