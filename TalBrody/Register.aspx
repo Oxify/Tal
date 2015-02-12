@@ -19,6 +19,7 @@
             </h1>
 
             <input placeholder="you@email.com" id="email" runat="server" />
+             <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
             <input placeholder="Your Name" id="displayName" runat="server" />
             <div>
                 <button onclick="FaceboookLogin(); return false;">Login with FB here</button>

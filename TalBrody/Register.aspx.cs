@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Mandrill;
+using TalBrody.Common;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using log4net;
@@ -38,17 +39,22 @@ namespace TalBrody
                 log.Info(msg);
                 registerResultLabel.Text = msg;
                 return;
+                //TODO handel Dubale registration 
             }
 
-            Users.CreateUser(email.Value, displayName.Value);
+            Users.CreateUser(email.Value, TxtPassword.Value);
             msg = string.Format("Created new user (email, name) = ({0}, {1})", email.Value, displayName.Value);
             registerResultLabel.Text = msg;
             log.Info(msg);
 
-            user = new User {Email = email.Value, DisplayName = displayName.Value};
+            user = new UserDal().FindUserByEmail(email.Value);
+            user.DisplayName = displayName.Value;
+            Users.UpdateUser(user);
             var code = Users.GenerateUserRegistrationCode(user);
             new Email().SendRegistrationEmail(user, code);
-            
+            CommonFunction.AddUserToSession(user.Id);
+            ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '../Share.aspx'; </script>");
+
         }
 
 

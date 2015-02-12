@@ -14,8 +14,8 @@ namespace TalBrody.DataLayer
                 var cmd = GetCommand("insert into EmailConfirmCodes (Code, Email) values (@Code, @Email); ", conn);
                 //      var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithNullableValue("@Code", code);
-                cmd.Parameters.AddWithNullableValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Code", code);
+                cmd.Parameters.AddWithValue("@Email", email);
 
                 //         cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();

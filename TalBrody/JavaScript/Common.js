@@ -65,10 +65,19 @@ function createCookie(name, value, expires, path, domain) {
     document.cookie = cookie;
 }
 
-function  getCookie(name) {
-    var regexp = new RegExp("(?:^" + name + "|;\s*" + name + ")=(.*?)(?:;|$)", "g");
-    var result = regexp.exec(document.cookie);
-    return (result === null) ? null : result[1];
+function getCookie(cName) {
+    if (document.cookie.length > 0) {
+        var cStart = document.cookie.indexOf(cName + "=");
+        if (cStart != -1) {
+            cStart = cStart + cName.length + 1;
+            var cEnd = document.cookie.indexOf(";", cStart);
+            if (cEnd == -1) {
+                cEnd = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(cStart, cEnd));
+        }
+    }
+    return null;
 }
 
 function deleteCookie(name, path, domain) {
