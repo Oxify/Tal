@@ -20,10 +20,36 @@ namespace TalBrody.Entity
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
 	    public bool EmailConfirmed { get; set; }
-        public DateTime Birthday { get; set; }
+
+        private DateTime birthday = new DateTime(1900, 1, 1);
+        public DateTime Birthday
+        {
+            get { return birthday; }
+            set { birthday = DefaultDateTime(value); }         
+        }
+
         public bool ValidPassword { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime LastLogin { get; set; }
+        private DateTime dateCreated = new DateTime(1900,1,1);
+        public DateTime DateCreated
+        {
+            get { return dateCreated; }
+            set { dateCreated = DefaultDateTime(value); }
+        }
+        private DateTime lastLogin = new DateTime(1900, 1, 1);
+        public DateTime LastLogin
+        {
+            get { return lastLogin; }
+            set { lastLogin = DefaultDateTime(value); }
+        }
         public string ReferralCode { get; set; }
+
+        private DateTime DefaultDateTime(DateTime value)
+        {
+            if (value < new DateTime(1900, 1, 1))
+            {
+                return new DateTime(1900, 1, 1);
+            }
+            return value;
+        }
 	}
 }
