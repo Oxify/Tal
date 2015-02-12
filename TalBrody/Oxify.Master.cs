@@ -7,11 +7,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TalBrody.Common;
 using TalBrody.Common.Enums;
+using TalBrody.Entity;
+using TalBrody.Logic;
 using TalBrody.Util;
 
 namespace TalBrody
 {
-   
+
     public partial class Oxify : System.Web.UI.MasterPage
     {
         public bool LogInFlag = false;
@@ -37,19 +39,15 @@ namespace TalBrody
             {
                 if (Session["Usession"] != null)
                 {
-					//TODO Ziv implemnet login
-					/*
-                    Crypto crp = new Crypto();
-                    UserSession us = (UserSession) Session["Usession"];
-					 * */
+                    UserSession us = (UserSession)Session["Usession"];
                     result = true;
-					//int id = us.UserId;
-					OxifyId = "1";//crp.SignSymmetric(id.ToString());
+                    OxifyId = Users.GetUserContext(us.UserId);
+                    LblUserName.Text = "Hello: " + us.UserName;
                 }
             }
             catch (Exception ex)
             {
-                    
+
                 throw ex;
             }
             return result;
@@ -63,8 +61,8 @@ namespace TalBrody
             string s = Request.FilePath;
             if (Session["Usession"] != null)
             {
-                var usession = (UserSession) Session["Usession"];
-                if(usession.PermissionList.Exists(o=> o.PermisstionName == PermisstionEnum.Admin.ToString()))
+                var usession = (UserSession)Session["Usession"];
+                if (usession.PermissionList.Exists(o => o.PermisstionName == PermisstionEnum.Admin.ToString()))
                     return;
                 else
                 {

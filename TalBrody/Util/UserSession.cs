@@ -11,5 +11,7 @@ namespace TalBrody.Util
         public int UserId { get; set; }
         public DateTime StartSession { get; set; }
         public List<Permission> PermissionList { get; set; }
+
+        public string UserName { get; set; }
     }
 }

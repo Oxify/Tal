@@ -58,13 +58,7 @@ namespace TalBrody
             int result = 0;
             try
             {
-                //TODO Ziv implemnet login
-                /*
-                Crypto crp = new Crypto();
-                int UserId = int.Parse(crp.SignSymmetric(id));
-               
-                */
-                int UserId = int.Parse(id);
+                int UserId = Users.SetUserContext(id);
                 CommonFunction.AddUserToSession(UserId);
                 result = 1;
             }
