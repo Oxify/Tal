@@ -219,8 +219,14 @@
     <Content Include="fancybox\jquery.fancybox.css" />
     <Content Include="fancybox\jquery.fancybox.js" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Images\blank.gif" />
     <Content Include="Images\DownButton.hover.png" />
     <Content Include="Images\DownButton.png" />
+    <Content Include="Images\fancybox_loading%402x.gif" />
+    <Content Include="Images\fancybox_loading.gif" />
+    <Content Include="Images\fancybox_overlay.png" />
+    <Content Include="Images\fancybox_sprite%402x.png" />
+    <Content Include="Images\fancybox_sprite.png" />
     <Content Include="Images\Social.png" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />

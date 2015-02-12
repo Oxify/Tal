@@ -23,7 +23,8 @@ namespace TalBrody
 	    {
 	        if (Session["Usession"] != null)
 	        {
-	            firstpage.Visible = false;
+                
+                firstpage.Visible = false;
 	        }
 	    }
 

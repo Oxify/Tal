@@ -23,6 +23,9 @@
                 <a target="_blank" href='javascript:myPopup("<%= TwitterShareUrl %>");' ><div id="twitterShareButton"></div></a>
                 <a target="_blank" href='mailto:?subject=Look at this cool project&body=Check out this new campaign!%0A<%= ShareUrl %>' ><div id="emailShareButton"></div></a>
             </div>
+            <div>
+                <a href="/" class="flat-button">לדף הפרוייקט</a>
+            </div>
         </div>
     </div>
 </asp:Content>
