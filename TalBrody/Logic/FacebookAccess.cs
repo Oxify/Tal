@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -11,7 +12,15 @@ namespace TalBrody.Logic
 {
     public class FacebookAccess
     {
+        private static string ClientIdentifier;
+        private static string ClientSecret;
 
+        static FacebookAccess()
+        {
+            ClientIdentifier = ConfigurationManager.AppSettings["facebookAppID"];
+            ClientSecret = ConfigurationManager.AppSettings["facebookAppSecret"];
+
+        }
 
 
         public class FacebookDetails
@@ -59,6 +68,7 @@ namespace TalBrody.Logic
         {
             FacebookDetails Result = new FacebookDetails();
             Result.Graph = ReadGraph(AccessToken);
+            GetLongLivedToken(AccessToken);
             Result.Friends = ReadFriends(AccessToken);
 
             return Result;
@@ -108,5 +118,27 @@ namespace TalBrody.Logic
             return Result;
         }
 
+        public static string GetLongLivedToken(string ShortToken)
+        {
+            string Result = "";
+
+
+            string url = "https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token" +
+                                            "&client_id=" + ClientIdentifier + 
+                                            "&client_secret=" + ClientSecret +
+                                              "&fb_exchange_token= " + Uri.EscapeDataString(ShortToken);
+            var request = WebRequest.Create(url);
+            using (var response = request.GetResponse())
+            {
+                using (var responseStream = response.GetResponseStream())
+                {
+                    System.IO.StreamReader streamReader = new System.IO.StreamReader(responseStream, true);
+                    Result = streamReader.ReadToEnd();
+                }
+            }
+
+            return Result;
+
+        }
     }
 }

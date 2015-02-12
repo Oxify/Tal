@@ -199,6 +199,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ajax.aspx" />
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
     <Content Include="ConfirmEmail.aspx" />
@@ -235,6 +236,7 @@
     <Content Include="JavaScript\LightBoxLargePack.js" />
     <Content Include="JavaScript\LightBoxPack.js" />
     <Content Include="JavaScript\login.js" />
+    <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />
     <Content Include="MainPage.aspx" />
     <Content Include="ProjectData.aspx" />
@@ -257,6 +259,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ajax.aspx.cs">
+      <DependentUpon>Ajax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax.aspx.designer.cs">
+      <DependentUpon>Ajax.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Brody.aspx.cs">
       <DependentUpon>Brody.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
