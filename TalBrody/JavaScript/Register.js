@@ -94,7 +94,7 @@ function Register(platform, token) {
             debugger;
             if (response.d.NextStep == 1) {
                 debugger;
-                window.Location.href = '/Share.aspx';
+                window.top.location.href = '/Share.aspx';
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }
