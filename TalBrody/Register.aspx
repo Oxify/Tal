@@ -17,11 +17,13 @@
 
             <h1>Register an account
             </h1>
+
+            <input placeholder="you@email.com" id="email" runat="server" />
+             <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
+            <input placeholder="Your Name" id="displayName" runat="server" />
             <div>
                 <button id="FacebookButton">Login with FB here</button>
             </div>
-            <input placeholder="you@email.com" id="email" runat="server" />
-            <input placeholder="Your Name" id="displayName" runat="server" />
 
             <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
 
