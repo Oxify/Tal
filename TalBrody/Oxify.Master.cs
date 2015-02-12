@@ -25,22 +25,6 @@ namespace TalBrody
             }
         }
 
-        public void DoLogIN(string id)
-        {
-
-            try
-            {
-                Crypto crp = new Crypto();
-                int UserId = int.Parse(crp.SignSymmetric(id));
-                CommonFunction.AddUserToSession(UserId);
-            }
-            catch (Exception ex)
-            {
-                    
-                throw ex;
-            }
-        }
-
         public void DoLOgOut()
         {
             Session.Remove("Usession");
@@ -60,7 +44,7 @@ namespace TalBrody
 					 * */
                     result = true;
 					//int id = us.UserId;
-					OxifyId = "asdffggggh";//crp.SignSymmetric(id.ToString());
+					OxifyId = "1";//crp.SignSymmetric(id.ToString());
                 }
             }
             catch (Exception ex)

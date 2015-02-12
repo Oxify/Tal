@@ -55,7 +55,7 @@
             			if (response.d == 1) {
             				//debugger;
 							// i close it for not do endless loops
-            				//window.location.reload(); // refreashg
+            				window.location.reload(); // refreashg
             			}
 
             		},
