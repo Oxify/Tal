@@ -18,7 +18,7 @@ namespace TalBrody.DataLayer
                 var cmd = GetCommand("select Id, UserId, ProjectId, PermisstionName" +
                                      " from Permissions where UserId = @UserId", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithNullableValue("@UserId", UserId);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();

@@ -25,6 +25,7 @@ namespace TalBrody.Logic
 
         public class FacebookDetails
         {
+            public string AccessToken { get; set; }
             public FacebookGraph Graph { get; set; }
             public List<FacebookFriendsData> Friends { get; set; }
 
@@ -55,6 +56,7 @@ namespace TalBrody.Logic
 
         private static void PopulateUser(FacebookDetails details, ref Entity.User user)
         {
+            user.FacebookAccessToken = details.AccessToken;
             user.FacebookId = details.Graph.Id;
             user.Email = details.Graph.EMail;
             user.DisplayName = details.Graph.Name;
@@ -67,6 +69,7 @@ namespace TalBrody.Logic
         public static FacebookDetails GetUserData(string AccessToken)
         {
             FacebookDetails Result = new FacebookDetails();
+            Result.AccessToken = AccessToken;
             Result.Graph = ReadGraph(AccessToken);
             //GetLongLivedToken(AccessToken);
             Result.Friends = ReadFriends(AccessToken);

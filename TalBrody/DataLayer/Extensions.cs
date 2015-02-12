@@ -25,5 +25,12 @@ namespace TalBrody.DataLayer
 			return default(T);
 		}
 
+        public static SqlParameter AddWithNullableValue(this SqlParameterCollection collection, string parameterName, object value)
+        {
+            if (value == null)
+                return collection.AddWithNullableValue(parameterName, DBNull.Value);
+            else
+                return collection.AddWithNullableValue(parameterName, value);
+        }
 	}
 }

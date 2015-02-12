@@ -20,7 +20,7 @@ namespace TalBrody.DataLayer
                 var cmd = GetCommand("select *" +
                                      " from Users where Email = @Email", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithNullableValue("@Email", email);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
@@ -40,7 +40,7 @@ namespace TalBrody.DataLayer
                 var cmd = GetCommand("select *" +
                                      " from Users where Id = @id", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithNullableValue("@id", id);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
@@ -61,7 +61,7 @@ namespace TalBrody.DataLayer
                 var cmd = GetCommand("select *" +
                                      " from Users where TwitterId = @Twitterid", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Twitterid", Twitterid);
+                cmd.Parameters.AddWithNullableValue("@Twitterid", Twitterid);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
@@ -82,7 +82,7 @@ namespace TalBrody.DataLayer
                 var cmd = GetCommand("select *" +
                                      " from Users where FacebookId = @Facebookd", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Facebookd", Facebookd);
+                cmd.Parameters.AddWithNullableValue("@Facebookd", Facebookd);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
@@ -100,28 +100,28 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 var cmd = GetCommand("update Users set Email = @Email, DisplayName = @DisplayName, FacebookId = @FacebookId" +
-                                     ", FacebookAccessToken = @FacebookAccessToken, TwitterId = @TwitterId " +
+                                     ", FacebookAccessToken = @FacebookAccessToken1, TwitterId = @TwitterId " +
                                      ", TwitterToken = @TwitterToken, TwitterSecret = @TwitterSecret, TwitterAccessToken = @TwitterAccessToken" +
                                      ", ReferredBy = @ReferredBy, PasswordSalt = @PasswordSalt" +
                                      ", PasswordHash = @PasswordHash , EmailConfirmed = @EmailConfirmed" + 
                                      ", Birthday = @Birthday, ValidPassword = @ValidPassword" +
                                      " where Id = @Id", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Email", user.Email);
-                cmd.Parameters.AddWithValue("@DisplayName", user.DisplayName);
-                cmd.Parameters.AddWithValue("@FacebookId", user.FacebookId);
-                cmd.Parameters.AddWithValue("@FacebookAccessToken", user.FacebookAccessToken);
-                cmd.Parameters.AddWithValue("@TwitterId", user.TwitterId);
-                cmd.Parameters.AddWithValue("@TwitterToken", user.TwitterToken);
-                cmd.Parameters.AddWithValue("@TwitterSecret", user.TwitterSecret);
-                cmd.Parameters.AddWithValue("@TwitterAccessToken", user.TwitterAccessToken);
-                cmd.Parameters.AddWithValue("@ReferredBy", user.ReferredBy);
-                cmd.Parameters.AddWithValue("@PasswordSalt", user.PasswordSalt);
-                cmd.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
-                cmd.Parameters.AddWithValue("@EmailConfirmed", user.EmailConfirmed);
-                cmd.Parameters.AddWithValue("@Birthday", user.Birthday);
-                cmd.Parameters.AddWithValue("@ValidPassword", user.ValidPassword);
-                cmd.Parameters.AddWithValue("@Id", user.Id);
+                cmd.Parameters.AddWithNullableValue("@Email", user.Email);
+                cmd.Parameters.AddWithNullableValue("@DisplayName", user.DisplayName);
+                cmd.Parameters.AddWithNullableValue("@FacebookId", user.FacebookId);
+                cmd.Parameters.AddWithNullableValue("@FacebookAccessToken1", user.FacebookAccessToken);
+                cmd.Parameters.AddWithNullableValue("@TwitterId", user.TwitterId);
+                cmd.Parameters.AddWithNullableValue("@TwitterToken", user.TwitterToken);
+                cmd.Parameters.AddWithNullableValue("@TwitterSecret", user.TwitterSecret);
+                cmd.Parameters.AddWithNullableValue("@TwitterAccessToken", user.TwitterAccessToken);
+                cmd.Parameters.AddWithNullableValue("@ReferredBy", user.ReferredBy);
+                cmd.Parameters.AddWithNullableValue("@PasswordSalt", user.PasswordSalt);
+                cmd.Parameters.AddWithNullableValue("@PasswordHash", user.PasswordHash);
+                cmd.Parameters.AddWithNullableValue("@EmailConfirmed", user.EmailConfirmed);
+                cmd.Parameters.AddWithNullableValue("@Birthday", user.Birthday);
+                cmd.Parameters.AddWithNullableValue("@ValidPassword", user.ValidPassword);
+                cmd.Parameters.AddWithNullableValue("@Id", user.Id);
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -139,11 +139,11 @@ namespace TalBrody.DataLayer
                         conn);
                 var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Hash", hash);
-                cmd.Parameters.AddWithValue("@Salt", salt);
-                cmd.Parameters.AddWithValue("@ReferralCode", referralCode);
-                cmd.Parameters.AddWithValue("@ValidPassword", false);
+                cmd.Parameters.AddWithNullableValue("@Email", email);
+                cmd.Parameters.AddWithNullableValue("@Hash", hash);
+                cmd.Parameters.AddWithNullableValue("@Salt", salt);
+                cmd.Parameters.AddWithNullableValue("@ReferralCode", referralCode);
+                cmd.Parameters.AddWithNullableValue("@ValidPassword", false);
 
                 cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
@@ -170,7 +170,7 @@ namespace TalBrody.DataLayer
                         conn);
                 //      var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithNullableValue("@Email", user.Email);
 
                 //         cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();

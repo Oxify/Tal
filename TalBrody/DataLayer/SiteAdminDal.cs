@@ -19,7 +19,7 @@ namespace TalBrody.DataLayer
                
                 var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@UserId", sadmin.UserId);
+                cmd.Parameters.AddWithNullableValue("@UserId", sadmin.UserId);
 
                 cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
@@ -42,7 +42,7 @@ namespace TalBrody.DataLayer
                 var cmd = GetCommand("select [Id], [UserId]" +
                                      " from SiteAdmin where UserId = @UserId", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithNullableValue("@UserId", UserId);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
