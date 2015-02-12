@@ -44,16 +44,18 @@ $('document').ready(function () {
 });
 
 function FaceboookLogin() {
-//    debugger;
+    debugger;
 
- //   if (FacebookStatus != 'connected') {
+    if (FacebookStatus == 'connected') {
+        Register("FB", FacebookToken);
+    } else {
         FB.login(FacebookLoginResult, { scope: 'public_profile, email, user_friends, user_birthday, user_location' });
-    // }
+     }
     return false;
 }
 
 function FacebookLoginResult(response) {
-
+    
     console.log('FacebookLoginResult');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -80,7 +82,7 @@ function FacebookLoginResult(response) {
 }
 
 function Register(platform, token) {
-
+    debugger;
     var params = "{'platform':'" + platform + "', 'token':'"+ token+ "'}";
 
     $.ajax({

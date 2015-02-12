@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
@@ -18,20 +19,29 @@ namespace TalBrody
                 return;
             }
             Response.Redirect("/", true);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        public class RegisterResult
+        {
+            public string UserContext { get; set; }
+            public int NextStep { get; set; } // 0 - login failure, 1 - registrating complete, 2 - email needed.
+
 
         }
 
-
         [WebMethod(EnableSession = true)]
-        public static int SocialRegister(string platform, string token)
+        public static RegisterResult SocialRegister(string platform, string token)
         {
-            int result = 0;
+            RegisterResult result = new RegisterResult {NextStep = 0};
             try
             {
                 if (platform.ToUpper() == "FB")
                 {
                     var User = FacebookAccess.RegisterUser(token);
-                    result = User.Id;
+                    result.UserContext = Users.GetUserContext(User);
+                    result.NextStep = 0;
+                    
                 }
             }
             catch (Exception ex)

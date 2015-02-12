@@ -25,7 +25,6 @@
             </div>
             <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
 
-            <a href="Facebook.aspx">Sign up with Facebook</a>
 
             <div id="register-result">
                 <asp:Label ID="registerResultLabel" runat="server" Text="Label">

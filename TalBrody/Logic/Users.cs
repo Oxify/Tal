@@ -94,5 +94,15 @@ namespace TalBrody.Logic
 	        var storedCode = dal.FindConfirmCode(code, email);
             return storedCode != null;
 	    }
+
+	    public static string GetUserContext(int UserId)
+	    {
+	        return "ziv";
+	    }
+
+	    public static string GetUserContext(User user)
+	    {
+	        return GetUserContext(user.Id);
+	    }
 	}
 }
