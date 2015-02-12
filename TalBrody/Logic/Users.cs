@@ -97,12 +97,18 @@ namespace TalBrody.Logic
 
 	    public static string GetUserContext(int UserId)
 	    {
-	        return "ziv";
+	        return UserId.ToString();
 	    }
 
 	    public static string GetUserContext(User user)
 	    {
 	        return GetUserContext(user.Id);
 	    }
+
+	    public static int SetUserContext(string Context)
+	    {
+	        return int.Parse(Context);
+	    }
+
 	}
 }
