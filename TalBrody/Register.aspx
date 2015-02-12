@@ -17,12 +17,12 @@
 
             <h1>Register an account
             </h1>
-
+            <div>
+                <button id="FacebookButton">Login with FB here</button>
+            </div>
             <input placeholder="you@email.com" id="email" runat="server" />
             <input placeholder="Your Name" id="displayName" runat="server" />
-            <div>
-                <button onclick="FaceboookLogin(); return false;">Login with FB here</button>
-            </div>
+
             <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
 
 
@@ -36,6 +36,6 @@
 
         </div>
     </form>
-    <div id="fb-root"></div>
+  
 </body>
 </html>
