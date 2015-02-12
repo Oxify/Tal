@@ -21,12 +21,12 @@
             <input placeholder="you@email.com" id="email" runat="server" />
              <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
             <input placeholder="Your Name" id="displayName" runat="server" />
-            <div>
-                <button id="FacebookButton">Login with FB here</button>
-            </div>
 
             <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
-
+            <hr/>
+            <div>
+                <button id="FacebookButton">Login with Facebook</button>
+            </div>
 
             <div id="register-result">
                 <asp:Label ID="registerResultLabel" runat="server" Text="Label">
