@@ -44,9 +44,7 @@ $('document').ready(function () {
 });
 
 function FaceboookLogin() {
-    debugger;
-
-    if (FacebookStatus == 'connected') {
+   if (FacebookStatus == 'connected') {
         Register("FB", FacebookToken);
     } else {
         FB.login(FacebookLoginResult, { scope: 'public_profile, email, user_friends, user_birthday, user_location' });
@@ -93,8 +91,10 @@ function Register(platform, token) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            if (response.d == 1) {
+            debugger;
+            if (response.d.NextStep == 1) {
                 debugger;
+                window.Location.href = '/Share.aspx';
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }

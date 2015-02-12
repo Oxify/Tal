@@ -25,7 +25,6 @@ namespace TalBrody
 
         public class RegisterResult
         {
-            public string UserContext { get; set; }
             public int NextStep { get; set; } // 0 - login failure, 1 - registrating complete, 2 - email needed.
 
 
@@ -40,8 +39,8 @@ namespace TalBrody
                 if (platform.ToUpper() == "FB")
                 {
                     var User = FacebookAccess.RegisterUser(token);
-                    result.UserContext = Users.GetUserContext(User);
-                    result.NextStep = 0;
+                    CommonFunction.AddUserToSession(User.Id);
+                    result.NextStep = 1;
                     
                 }
             }
