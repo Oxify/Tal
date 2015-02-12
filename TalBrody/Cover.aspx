@@ -51,7 +51,7 @@
 </script>
 	<script type="text/javascript" src="JavaScript/Cover.js"> </script>
 	<link href="Css/Cover.css" rel="stylesheet" />
-	<div class="page-wrapper" id="firstpage">
+	<div class="page-wrapper" id="firstpage" runat="server">
 		<div class="page-content">
 			<div class="first-page">
 				<div class="Title">"השגריר"</div>

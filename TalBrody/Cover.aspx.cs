@@ -15,8 +15,20 @@ namespace TalBrody
 			{
 				InitParam();
 			}
+
+		    ChecktoHideDiv();
 		}
 
+	    private void ChecktoHideDiv()
+	    {
+	        if (Session["Usession"] != null)
+	        {
+	            firstpage.Visible = false;
+	        }
+	    }
+
+		
+		
 		private void InitParam()
 		{
 //			LblTitle.Style.Add("font-size", "30px");
