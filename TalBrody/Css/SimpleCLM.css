@@ -3,12 +3,12 @@
     font-family: 'Simple CLM';
     font-weight: 400;
     font-style: normal;
-    src: url('http://s3-eu-west-1.amazonaws.com/fonts-project/fonts/SimpleCLM/400.woff') format('woff');
+    src: url('/fonts/SimpleCLM400.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Simple CLM';
     font-weight: 700;
     font-style: normal;
-    src: url('http://s3-eu-west-1.amazonaws.com/fonts-project/fonts/SimpleCLM/700.woff') format('woff');
+    src: url('/fonts/SimpleCLM700.woff') format('woff');
 }
