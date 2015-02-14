@@ -8,6 +8,11 @@ namespace TalBrody.DataLayer
     {
         public void StoreConfirmCode(string code, string email)
         {
+            if (string.IsNullOrEmpty(code))
+                throw new ArgumentNullException("code");
+            if (string.IsNullOrEmpty(email))
+                throw new ArgumentNullException("email");
+
             using (var conn = PortalConection)
             {
                 conn.Open();
@@ -24,13 +29,18 @@ namespace TalBrody.DataLayer
 
         public EmailConfirmCodes FindConfirmCode(string code, string email)
         {
+            if (string.IsNullOrEmpty("code"))
+                throw new ArgumentNullException("code");
+            if (string.IsNullOrEmpty("email"))
+                throw new ArgumentNullException("email");
+
             using (var conn = PortalConection)
             {
                 var cmd = GetCommand("select Code, Email, CreatedDate" +
                                      " from EmailConfirmCodes where Email = @Email AND Code = @Code", conn);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithNullableValue("@Code", code);
-                cmd.Parameters.AddWithNullableValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Code", code);
+                cmd.Parameters.AddWithValue("@Email", email);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();

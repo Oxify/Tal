@@ -100,7 +100,7 @@ namespace TalBrody.DataLayer
         {
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("update Users set Email = @Email, DisplayName = @DisplayName, FacebookId = @FacebookId" +
+                DbCommand cmd = GetCommand("update Users set Email = @Email, DisplayName = @DisplayName, FacebookId = @FacebookId" +
                                      ", FacebookAccessToken = @FacebookAccessToken, TwitterId = @TwitterId " +
                                      ", TwitterToken = @TwitterToken, TwitterSecret = @TwitterSecret, TwitterAccessToken = @TwitterAccessToken" +
                                      ", ReferredBy = @ReferredBy, PasswordSalt = @PasswordSalt" +
@@ -108,21 +108,22 @@ namespace TalBrody.DataLayer
                                      ", Birthday = @Birthday, ValidPassword = @ValidPassword" +
                                      " where Id = @Id", conn);
                 cmd.CommandType = CommandType.Text;
-                AddWithNullableValue(ref cmd, "@Email", user.Email);
-                AddWithNullableValue(ref cmd, "@DisplayName", user.DisplayName);
-                AddWithNullableValue(ref cmd, "@FacebookId", user.FacebookId);
-                AddWithNullableValue(ref cmd, "@FacebookAccessToken", user.FacebookAccessToken);
-                AddWithNullableValue(ref cmd, "@TwitterId", user.TwitterId);
-                AddWithNullableValue(ref cmd, "@TwitterToken", user.TwitterToken);
-                AddWithNullableValue(ref cmd, "@TwitterSecret", user.TwitterSecret);
-                AddWithNullableValue(ref cmd, "@TwitterAccessToken", user.TwitterAccessToken);
-                AddWithNullableValue(ref cmd, "@ReferredBy", user.ReferredBy);
-                AddWithNullableValue(ref cmd, "@PasswordSalt", user.PasswordSalt);
-                AddWithNullableValue(ref cmd, "@PasswordHash", user.PasswordHash);
-                AddWithNullableValue(ref cmd, "@EmailConfirmed", user.EmailConfirmed);
-                AddWithNullableValue(ref cmd, "@Birthday", user.Birthday);
-                AddWithNullableValue(ref cmd, "@ValidPassword", user.ValidPassword);
-                AddWithNullableValue(ref cmd, "@Id", user.Id);
+                
+                AddWithNullableValue(cmd, "@Email", user.Email);
+                AddWithNullableValue(cmd, "@DisplayName", user.DisplayName);
+                AddWithNullableValue(cmd, "@FacebookId", user.FacebookId);
+                AddWithNullableValue(cmd, "@FacebookAccessToken", user.FacebookAccessToken);
+                AddWithNullableValue(cmd, "@TwitterId", user.TwitterId);
+                AddWithNullableValue(cmd, "@TwitterToken", user.TwitterToken);
+                AddWithNullableValue(cmd, "@TwitterSecret", user.TwitterSecret);
+                AddWithNullableValue(cmd, "@TwitterAccessToken", user.TwitterAccessToken);
+                AddWithNullableValue(cmd, "@ReferredBy", user.ReferredBy);
+                AddWithNullableValue(cmd, "@PasswordSalt", user.PasswordSalt);
+                AddWithNullableValue(cmd, "@PasswordHash", user.PasswordHash);
+                AddWithNullableValue(cmd, "@EmailConfirmed", user.EmailConfirmed);
+                AddWithNullableValue(cmd, "@Birthday", user.Birthday);
+                AddWithNullableValue(cmd, "@ValidPassword", user.ValidPassword);
+                AddWithNullableValue(cmd, "@Id", user.Id);
                 conn.Open();
 
                 cmd.ExecuteNonQuery();
@@ -164,7 +165,7 @@ namespace TalBrody.DataLayer
         {
             // http://stackoverflow.com/a/10402129/11236
 
-            int UsersID = 0;
+            int UsersID;
             using (var conn = PortalConection)
             {
                 conn.Open();
