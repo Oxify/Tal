@@ -18,10 +18,17 @@
     align-items: center;
     text-align: center;
     font-family: 'Simple CLM', serif;
+    
 }
 
 .first-page {
     padding-bottom: 60px;
+}
+
+.additional-page {
+    width: 600px;
+    margin: auto;
+    text-align: right;
 }
 
 .scroll-button-wrapper {
@@ -59,13 +66,12 @@
     text-decoration: none;
 }
 
-.ScrollButton:hover {
-    background: url(../images/DownButton.hover.png) no-repeat;    
-}
+    .ScrollButton:hover {
+        background: url(../images/DownButton.hover.png) no-repeat;
+    }
 
 
 .Title {
-    
     font-size: 53px;
     font-weight: bold;
     padding-bottom: 27px;
