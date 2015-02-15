@@ -43,7 +43,7 @@ namespace TalBrody.Logic
                 id = new User();
                 PopulateUser(data, ref id);
                 id.Id = Users.CreateUserWithoutPassword(id);
-            }
+            } 
             else
             {
                 // user already registered somehow, let's update the DB
