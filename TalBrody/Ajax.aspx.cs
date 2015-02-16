@@ -40,6 +40,8 @@ namespace TalBrody
         [WebMethod(EnableSession = false)]
         public static string Test(bool throwException)
         {
+            // Pro tip: to call this, use
+            // curl -H "Content-Type:application/json; charset=utf-8" http://tal.apphb.com/Ajax.aspx/Test?throwException=false
             log.Info("Test method called, throwException = " + throwException);
             if (throwException)
             {
