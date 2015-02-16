@@ -13,10 +13,7 @@
 
     <form id="form1" runat="server">
         <div>
-            <link href="Css/Register.less" rel="stylesheet" />
-
-            <h1>Register an account
-            </h1>
+            <h1>Register an account</h1>
 
             <input placeholder="you@email.com" id="email" runat="server" />
              <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
