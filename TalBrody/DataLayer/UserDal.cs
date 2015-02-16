@@ -169,11 +169,12 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 conn.Open();
-                var cmd = GetCommand("insert into Users (Email, ValidPassword) values (@Email, False); ",
+                var cmd = GetCommand("insert into Users (Email, ValidPassword) values (@Email, @ValidPassword); ",
                         conn);
                 //      var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@ValidPassword", false);
 
                 //         cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
