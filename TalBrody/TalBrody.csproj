@@ -214,6 +214,7 @@
     <Content Include="Css\Master.css" />
     <Content Include="Css\SimpleCLM.css" />
     <Content Include="Css\Temp.css" />
+    <Content Include="ErrorPage.html" />
     <Content Include="fancybox\blank.gif" />
     <Content Include="fancybox\fancybox_loading.gif" />
     <Content Include="fancybox\fancybox_sprite.png" />
