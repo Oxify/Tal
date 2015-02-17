@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Security;
 using DotNetOpenAuth.ApplicationBlock.Facebook;
 using TalBrody.Entity;
+using TalBrody.Util;
 
 namespace TalBrody.Logic
 {
@@ -43,6 +44,8 @@ namespace TalBrody.Logic
                 id = new User();
                 PopulateUser(data, ref id);
                 id.Id = Users.CreateUserWithoutPassword(id);
+                var code = Users.GenerateUserRegistrationCode(id);
+                new Email().SendRegistrationEmail(id, code);
             } 
             else
             {

@@ -54,8 +54,13 @@
     <div class="page-wrapper" id="firstpage" runat="server">
         <div class="page-content">
             <div class="first-page">
-                <div class="Title">"עודני ילד"</div>
-                <div class="SubTitle">ספר חדש על "בית הבראה לצעצועים"</div>
+                <div class="left_side">
+                    <div class="Title">"עודני ילד"</div>
+                    <div class="SubTitle">ספר חדש על "בית הבראה לצעצועים"</div>
+                </div>
+                <div class="right_side">
+                    <iframe class="video" src="https://www.youtube.com/embed/_urBx5_3lNY" frameborder="0" allowfullscreen></iframe>
+                </div>
                 <hr style="width: 900px" />
                 <div class="Description">
                     בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
@@ -73,7 +78,7 @@
 
     </div>
     <div class="page-wrapper" id="secondpage">
-        <div class="page-content" >
+        <div class="page-content">
             <div class="additional-page">
                 <div>
                     "עודני ילד" הוא ספר חדש מאת חגי מרום, מעצב גרפי, צלם ובעל הוצאת הספרים "מרום תרבות ישראלית".
