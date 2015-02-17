@@ -105,7 +105,7 @@ namespace TalBrody.Logic
             DropIfExists("Permissions");
 
             string Query = "CREATE TABLE [Permissions]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL," +
-                           "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL ,CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]))";
+                           "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL, [CreatedDate] datetime DEFAULT getdate() NULL ,CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]))";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
@@ -129,7 +129,7 @@ namespace TalBrody.Logic
         {
             DropIfExists("SiteAdmin");
 
-            string Query = "CREATE TABLE [SiteAdmin]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL) ";
+            string Query = "CREATE TABLE [SiteAdmin]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL, [CreatedDate] datetime DEFAULT getdate() NULL) ";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }
@@ -139,7 +139,7 @@ namespace TalBrody.Logic
             DropIfExists("ProjectDetails");
 
             string Query = "CREATE TABLE [ProjectDetails](	[Id] [int] IDENTITY(1,1) NOT NULL,[ProjectId] [int] NOT NULL,[FieldId] [int] NOT NULL,";
-            Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](4000) NULL,[FontSize] [int] NOT NULL, CONSTRAINT [PK_ProjectDetails] PRIMARY KEY  (";
+            Query = Query + "[LangId] [int] NOT NULL,[Text] [nvarchar](4000) NULL,[FontSize] [int] NOT NULL, [CreatedDate] datetime DEFAULT getdate() NULL, CONSTRAINT [PK_ProjectDetails] PRIMARY KEY  (";
             Query = Query + "[Id]))";
 
             BdHandlingDal dal = new BdHandlingDal();
@@ -150,7 +150,7 @@ namespace TalBrody.Logic
         {
             DropIfExists("Followers");
 
-            string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL,";
+            string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL, [CreatedDate] datetime DEFAULT getdate() NULL,";
             Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] )) ";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
@@ -178,7 +178,7 @@ namespace TalBrody.Logic
             DropIfExists("Projects");
 
             string Query = "CREATE TABLE [Projects]([id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](500) NULL,[ShortName] [nvarchar](100) NULL,";
-            Query = Query + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[MovieUrl] [nvarchar](100) NULL, CONSTRAINT [PK_Projects] PRIMARY KEY (";
+            Query = Query + "[Description] [ntext] NULL,[LinkUrl] [nvarchar](100) NULL,[MovieUrl] [nvarchar](100) NULL, [CreatedDate] datetime DEFAULT getdate() NULL, CONSTRAINT [PK_Projects] PRIMARY KEY (";
             Query = Query + "[id] ))";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
@@ -189,7 +189,7 @@ namespace TalBrody.Logic
             DropIfExists("Perks");
 
             string Query = "CREATE TABLE [Perks]([PerkId] [int] IDENTITY(1,1) NOT NULL,[Title] [nvarchar](100) NULL,[Description] [nvarchar](500) NULL,[Cost] [int] NULL,";
-            Query = Query + "[ProjectId] [int] NOT NULL,[ShowOrder] [int] NULL,CONSTRAINT [PK_Perks] PRIMARY KEY ([PerkId]))";
+            Query = Query + "[ProjectId] [int] NOT NULL,[ShowOrder] [int] NULL, [CreatedDate] datetime DEFAULT getdate() NULL,CONSTRAINT [PK_Perks] PRIMARY KEY ([PerkId]))";
 
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
@@ -201,7 +201,7 @@ namespace TalBrody.Logic
 
             string Query = "CREATE TABLE [Params] (";
             Query += "[Id] int IDENTITY (1,1) NOT NULL, ";
-            Query += "[Name] nvarchar(50) NOT NULL, [Value] nvarchar(50) NOT NULL, [ValueInt] int NULL, CONSTRAINT [PK_Params] PRIMARY KEY ([Id]))";
+            Query += "[Name] nvarchar(50) NOT NULL, [Value] nvarchar(50) NOT NULL, [ValueInt] int NULL, [CreatedDate] datetime DEFAULT getdate() NULL, CONSTRAINT [PK_Params] PRIMARY KEY ([Id]))";
 
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
