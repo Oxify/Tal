@@ -36,9 +36,9 @@ namespace TalBrody.DataLayer
 
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw ex;
+				throw;
 			}
 			return Result;
 		}

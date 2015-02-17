@@ -86,7 +86,7 @@ namespace TalBrody.Logic
             catch (Exception ex)
             {
                 Loging.InsertLog("DbHandling", "DBHandling0 Threw: " + ex.ToString());
-                throw ex;
+                throw;
             }
         }
 

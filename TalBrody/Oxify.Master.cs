@@ -45,10 +45,10 @@ namespace TalBrody
                     LblUserName.Text = "Hello: " + us.UserName;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                throw;
             }
             return result;
         }

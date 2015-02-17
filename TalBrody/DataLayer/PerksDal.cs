@@ -45,7 +45,7 @@ namespace TalBrody.DataLayer
 			{
                 Log.Error("GetAllPerksByProjectId Threw: " + ex.ToString());
 
-				throw ex;
+				throw;
 			}
 			return Result;
 		}

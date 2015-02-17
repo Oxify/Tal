@@ -48,10 +48,10 @@ namespace TalBrody
                         lblDescription.Text = Pro.Description;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
 
         }

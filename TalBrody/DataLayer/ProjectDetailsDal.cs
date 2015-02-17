@@ -33,7 +33,7 @@ namespace TalBrody.DataLayer
 			catch (Exception ex)
 			{
 				Log.Error("GetProjectDetails Threw: " + ex.ToString());
-				throw ex;
+				throw;
 			}
 			return Result;
 		}

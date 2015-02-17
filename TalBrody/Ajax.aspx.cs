@@ -66,10 +66,10 @@ namespace TalBrody
                     
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             return result;
         }
@@ -84,10 +84,10 @@ namespace TalBrody
                 CommonFunction.AddUserToSession(UserId);
                 result = 1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             return result;
         }

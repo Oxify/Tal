@@ -51,10 +51,10 @@ namespace TalBrody
 			{
 				
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				
-				throw ex;
+				throw;
 			}
 		}
 
@@ -64,10 +64,10 @@ namespace TalBrody
 			{
 				
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				
-				throw ex;
+				throw;
 			}
 		}
 	}
