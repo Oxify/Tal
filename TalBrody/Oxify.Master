@@ -5,13 +5,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="he"> 
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="he">
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href='Css/SimpleCLM.css' rel ='stylesheet' type='text/css'/>
+
+    <!--- start of FB meta tags --->
+    <meta property="og:url" content="http://tal.apphb.com" />
+    <meta property="og:title" content="Oxify - עודני ילד" />
+    <meta property="og:description" content="'ספר חדש על 'בית הבראה לצעצועים" />
+    <meta property="og:image" content="https://img.youtube.com/vi/_urBx5_3lNY/default.jpg" />
+    <meta property="og:video" content="https://www.youtube.com/v/_urBx5_3lNY" />
+    <meta proeprty="og:type" content="video" />
+    <meta property="og:video:type" content="application/x-shockwave-flash" />
+    <!--- end of FB meta tags  --->
+
+
+    <link href='Css/SimpleCLM.css' rel='stylesheet' type='text/css' />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="Css/Master.css" type="text/css" />
@@ -20,13 +32,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.14/jquery.scrollTo.min.js"></script>
     <script src="JavaScript/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="JavaScript/SmoothScroll.js"></script>
-	<script src="JavaScript/LightBox.js"></script>
-	<script src="JavaScript/LightBoxBigPack.js"></script>
-	<script src="JavaScript/LightBoxPack.js"></script>
-	<link href="Css/LightBoxBig.css" rel="stylesheet" />
-	<link href="Css/LightBox.css" rel="stylesheet" />
-	<link href="Css/LightBoxLarge.css" rel="stylesheet" />
-	<script src="JavaScript/Common.js"></script>
+    <script src="JavaScript/LightBox.js"></script>
+    <script src="JavaScript/LightBoxBigPack.js"></script>
+    <script src="JavaScript/LightBoxPack.js"></script>
+    <link href="Css/LightBoxBig.css" rel="stylesheet" />
+    <link href="Css/LightBox.css" rel="stylesheet" />
+    <link href="Css/LightBoxLarge.css" rel="stylesheet" />
+    <script src="JavaScript/Common.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dialog").hide();
@@ -35,37 +47,36 @@
         });
 
         function CheckCookie() {
-        	debugger;
             var cooke = getCookie("OxifyId");
             var LogInFlag = '<%= LogInFlag%>';
             var oxifyId = '<% = OxifyId%>';
             if (LogInFlag == "False" && cooke != null) {
-               // log in false and cooke is true do login 
-				            	           	
-            	var params = "{'id':'" + cooke + "'}";
+                // log in false and cooke is true do login 
 
-            	$.ajax({
-            		type: "POST",
-            		url: "Ajax.aspx/AutoLogin",
-            		async: false,
-            		data: params,
-            		contentType: "application/json; charset=utf-8",
-            		dataType: "json",
-            		success: function (response) {
-            			if (response.d == 1) {
-            				//debugger;
-							// i close it for not do endless loops
-            				window.location.reload(); // refreashg
-            			}
+                var params = "{'id':'" + cooke + "'}";
 
-            		},
-            		failure: function (msg) {
-            			//debugger;
-            		},
-            		error: function (XMLHttpRequest, textStatus, errorThrown) {
-            		//	debugger;
-            		}
-            	});
+                $.ajax({
+                    type: "POST",
+                    url: "Ajax.aspx/AutoLogin",
+                    async: false,
+                    data: params,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.d == 1) {
+                            //debugger;
+                            // i close it for not do endless loops
+                            window.location.reload(); // refreashg
+                        }
+
+                    },
+                    failure: function (msg) {
+                        //debugger;
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //	debugger;
+                    }
+                });
 
 
             } else if (LogInFlag == "True" && cooke == null) {
@@ -85,7 +96,7 @@
             });
             $mydialog.dialog("open");
         }
-        
+
         function LogOut() {
             deleteCookie("OxifyId"); // delete cooke
             <%DoLOgOut();%> // delete session
@@ -116,34 +127,36 @@
     </script>
 </head>
 <body id="myBody" onresize="ChanghFormSizeOnresize">
-    <div class="master-header">
-        <div class="header-buttons">
-            <input id="Button1" type="button" value="LogIn" onclick="ShowLogin();" />
-              <input id="btnLogOut" type="button" value="LogOut" onclick="LogOut();" />
-            <asp:Label ID="LblUserName" runat="server" Text="Hello: "></asp:Label>
-        </div>
-    </div>
-
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <div id="master-wrapper">
+            <div id="main">
+                <div class="master-header">
+                    <div class="header-buttons">
+                        <input id="Button1" type="button" class="header_button" value="התחבר" onclick="ShowLogin();" />
+                        <input id="btnLogOut" type="button" class="header_button" value="התנתק" onclick="LogOut();" />
+                        <asp:Label ID="LblUserName" runat="server" Text="Hello: "></asp:Label>
+                    </div>
+                </div>
+                <div class="master-content">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+            <div class="master-footer">
+                <div>
+                    <a href="About.aspx" class="footer-link">עלינו</a>
+                    <a href="FAQ.aspx" class="footer-link">שאלות ותשובות</a>
+                    <a href="TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
+                    <a href="PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
+                </div>
+            </div>
         </div>
-        <footer>
-
-            <div style="margin: 0px auto">
-                <hr />
-            </div>
-            <div style="text-align: center; width: 1008px; margin: 0px auto">
-                This is the footer<br />
-                We will have here important links and stuff
-        <br />
-                Things like how kaka is ziv
-            </div>
-        </footer>
         <div id="dialog" title="Dialog Title" style="display: none">
             <uc1:LogInControle runat="server" ID="LogInControle" />
         </div>
+
     </form>
 </body>
 </html>

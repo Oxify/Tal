@@ -199,6 +199,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
     <Content Include="Ajax.aspx" />
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
@@ -219,6 +220,7 @@
     <Content Include="fancybox\jquery.fancybox.css" />
     <Content Include="fancybox\jquery.fancybox.js" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
+    <Content Include="FAQ.aspx" />
     <Content Include="Images\blank.gif" />
     <Content Include="Images\DownButton.hover.png" />
     <Content Include="Images\DownButton.png" />
@@ -243,6 +245,7 @@
     <Content Include="JavaScript\login.js" />
     <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />
+    <Content Include="PrivacyPolicy.aspx" />
     <Content Include="ProjectData.aspx" />
     <Content Include="Defaulte.aspx" />
     <Content Include="Register.aspx" />
@@ -256,6 +259,7 @@
     <Content Include="sqlcese40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="TermsOfService.aspx" />
     <Content Include="UserControl\LogInControle.ascx" />
     <Content Include="UserControl\RegisterControl.ascx" />
     <Content Include="Web.config">
@@ -263,6 +267,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ajax.aspx.cs">
       <DependentUpon>Ajax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,6 +324,13 @@
     <Compile Include="Entity\ProjectDetails.cs" />
     <Compile Include="Entity\SiteAdmin.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -332,6 +350,13 @@
     <Compile Include="Logic\SiteAdmins.cs" />
     <Compile Include="Logic\Users.cs" />
     <Compile Include="PageMethodExceptionLogger.cs" />
+    <Compile Include="PrivacyPolicy.aspx.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProjectData.aspx.cs">
       <DependentUpon>ProjectData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -371,6 +396,13 @@
     </Compile>
     <Compile Include="Share.aspx.designer.cs">
       <DependentUpon>Share.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermsOfService.aspx.cs">
+      <DependentUpon>TermsOfService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsOfService.aspx.designer.cs">
+      <DependentUpon>TermsOfService.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\LoginController.cs" />
     <Compile Include="UserControl\LogInControle.ascx.cs">
