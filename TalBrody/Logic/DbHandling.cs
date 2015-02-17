@@ -69,6 +69,7 @@ namespace TalBrody.Logic
         {
             try
             {
+                CreateFriends();
                 CreatePerks();
                 CreateProjects();
                 CreateUsers();
@@ -88,6 +89,18 @@ namespace TalBrody.Logic
                 Loging.InsertLog("DbHandling", "DBHandling0 Threw: " + ex.ToString());
                 throw;
             }
+        }
+
+        private void CreateFriends()
+        {
+            DropIfExists("Friends");
+
+            string Query = "CREATE TABLE [Friends] (  [Id] int IDENTITY (1,1) NOT NULL" +
+                            ", [Userid  ] int NOT NULL, [FriendId ] nvarchar(100) NOT NULL" +
+                            ", [createdate ] datetime DEFAULT getdate()  NULL),CONSTRAINT [PK_Friends] PRIMARY KEY ([Id]);";
+            BdHandlingDal dal = new BdHandlingDal();
+            dal.ExcuteDbCommand(Query);
+
         }
 
         private void CreateEmailConfirmCodes()

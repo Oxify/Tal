@@ -309,6 +309,7 @@
     <Compile Include="DataLayer\BdHandlingDal.cs" />
     <Compile Include="DataLayer\EmailConfirmDal.cs" />
     <Compile Include="DataLayer\Extensions.cs" />
+    <Compile Include="DataLayer\friendDal.cs" />
     <Compile Include="DataLayer\ParamDal.cs" />
     <Compile Include="DataLayer\PerksDal.cs" />
     <Compile Include="DataLayer\PermissionDal.cs" />
@@ -318,6 +319,7 @@
     <Compile Include="DataLayer\SiteAdminDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
     <Compile Include="Entity\EmailConfirmCodes.cs" />
+    <Compile Include="Entity\friend.cs" />
     <Compile Include="Entity\Param.cs" />
     <Compile Include="Entity\Perks.cs" />
     <Compile Include="Entity\Permission.cs" />
@@ -344,6 +346,7 @@
     </Compile>
     <Compile Include="Logic\DbHandling.cs" />
     <Compile Include="Logic\FacebookAccess.cs" />
+    <Compile Include="Logic\friends.cs" />
     <Compile Include="Logic\Params.cs" />
     <Compile Include="Logic\Perkses.cs" />
     <Compile Include="Logic\Permissions.cs" />

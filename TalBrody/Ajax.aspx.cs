@@ -55,15 +55,17 @@ namespace TalBrody
         [WebMethod(EnableSession = true)]
         public static RegisterResult SocialRegister(string platform, string token)
         {
-            RegisterResult result = new RegisterResult {NextStep = 0};
+            RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
                 if (platform.ToUpper() == "FB")
                 {
                     var User = FacebookAccess.RegisterUser(token);
                     CommonFunction.AddUserToSession(User.Id);
-                    result.NextStep = 1;
-                    
+                    if (User.Email != null && User.Email.IndexOf('@') != -1)
+                        result.NextStep = 1;
+                    else
+                        result.NextStep = -1;
                 }
             }
             catch (Exception)
