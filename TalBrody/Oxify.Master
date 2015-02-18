@@ -134,7 +134,8 @@
                     <div class="header-buttons">
                         <input id="Button1" type="button" class="header_button" value="התחבר" onclick="ShowLogin();" />
                         <input id="btnLogOut" type="button" class="header_button" value="התנתק" onclick="LogOut();" />
-                        <asp:HyperLink ID="HypEditProject" runat="server" Text="Edit Project"></asp:HyperLink>
+                        <asp:HyperLink ID="HypEditProject" Visible="false" runat="server" Text="Edit Project"></asp:HyperLink>
+                        <asp:HyperLink ID="HypSiteAdmin" Visible="false" runat="server" Text="Site Admin"></asp:HyperLink>
                         <asp:Label ID="LblUserName" runat="server" Text="Hello: "></asp:Label>
                     </div>
                 </div>

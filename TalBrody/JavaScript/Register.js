@@ -51,7 +51,7 @@ function FacebookLogin(e) {
 }
 
 function FacebookLoginResult(response) {
-    debugger;
+   // debugger;
 //    console.log('FacebookLoginResult');
 //    console.log(response);
     // The response object is returned with a status field that lets the
@@ -78,7 +78,7 @@ function FacebookLoginResult(response) {
 }
 
 function Register(platform, token) {
-    debugger;
+   // debugger;
     var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
 
     $.ajax({
@@ -89,9 +89,9 @@ function Register(platform, token) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            debugger;
+           // debugger;
             if (response.d.NextStep == 1) {
-                debugger;
+              //  debugger;
                 window.top.location.href = '/Share.aspx';
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
@@ -105,10 +105,10 @@ function Register(platform, token) {
 
         },
         failure: function (msg) {
-            debugger;
+           // debugger;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            debugger;
+          //  debugger;
         }
     });
 

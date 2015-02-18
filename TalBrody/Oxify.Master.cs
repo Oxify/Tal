@@ -63,9 +63,14 @@ namespace TalBrody
             {
                 var usession = (UserSession)Session["Usession"];
                 if (usession.PermissionList.Exists(o => o.PermisstionName == PermisstionEnum.Admin.ToString()))
+                {
+                    HypSiteAdmin.Visible = true;
                     return;
+                }
                 else
                 {
+                    if (false)//  check if the user is projectadmin
+                        HypEditProject.Visible = true;
                     //TODO ziv  add permission Ability 
                 }
             }
