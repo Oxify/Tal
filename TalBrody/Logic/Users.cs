@@ -53,7 +53,7 @@ namespace TalBrody.Logic
             UserDal dal = new UserDal();
             UserId = dal.CreateUser(user);
             user.Id = UserId;
-            dal.UpdateUser(user);
+            //dal.UpdateUser(user);
            
             return UserId;
         }

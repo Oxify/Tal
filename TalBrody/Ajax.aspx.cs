@@ -68,7 +68,7 @@ namespace TalBrody
                         result.NextStep = -1;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
