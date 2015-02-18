@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AdminDeashBord.aspx" />
     <Content Include="Ajax.aspx" />
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
@@ -214,6 +215,7 @@
     <Content Include="Css\Master.css" />
     <Content Include="Css\SimpleCLM.css" />
     <Content Include="Css\Temp.css" />
+    <Content Include="EditProject.aspx" />
     <Content Include="ErrorPage.html" />
     <Content Include="fancybox\blank.gif" />
     <Content Include="fancybox\fancybox_loading.gif" />
@@ -275,6 +277,13 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminDeashBord.aspx.cs">
+      <DependentUpon>AdminDeashBord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDeashBord.aspx.designer.cs">
+      <DependentUpon>AdminDeashBord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ajax.aspx.cs">
       <DependentUpon>Ajax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -318,6 +327,13 @@
     <Compile Include="DataLayer\ProjectDetailsDal.cs" />
     <Compile Include="DataLayer\SiteAdminDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
+    <Compile Include="EditProject.aspx.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProject.aspx.designer.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\EmailConfirmCodes.cs" />
     <Compile Include="Entity\friend.cs" />
     <Compile Include="Entity\Param.cs" />
