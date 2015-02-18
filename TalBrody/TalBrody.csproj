@@ -301,6 +301,7 @@
     <Compile Include="Common\CommonFunction.cs" />
     <Compile Include="Common\Enums\language.cs" />
     <Compile Include="Common\Enums\PermisstionEnum.cs" />
+    <Compile Include="Common\Enums\PlatformEnum.cs" />
     <Compile Include="ConfirmEmail.aspx.cs">
       <DependentUpon>ConfirmEmail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

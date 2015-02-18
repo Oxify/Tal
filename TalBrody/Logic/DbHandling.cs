@@ -96,7 +96,7 @@ namespace TalBrody.Logic
             DropIfExists("Friends");
 
             string Query = "CREATE TABLE [Friends] (  [Id] int IDENTITY (1,1) NOT NULL" +
-                            ", [Userid  ] int NOT NULL, [FriendId ] nvarchar(100) NOT NULL" +
+                            ", [Userid  ] int NOT NULL, [FriendId ] nvarchar(100) NOT NULL,[platform] int null" +
                             ", [createdate ] datetime DEFAULT getdate()  NULL),CONSTRAINT [PK_Friends] PRIMARY KEY ([Id]);";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);

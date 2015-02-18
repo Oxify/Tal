@@ -14,5 +14,7 @@ namespace TalBrody.Entity
 
         public DateTime createdate { get; set; }
 
+        public int platform { get; set; }
+
     }
 }
