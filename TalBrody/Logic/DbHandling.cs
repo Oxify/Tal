@@ -118,7 +118,7 @@ namespace TalBrody.Logic
             DropIfExists("Permissions");
 
             string Query = "CREATE TABLE [Permissions]([Id] [int] IDENTITY(1,1) NOT NULL,[UserId] [int] NULL," +
-                           "[ProjectId] [int] NULL,[PermisstionName] [nvarchar](50) NULL, [CreatedDate] datetime DEFAULT getdate() NULL ,CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]))";
+                           "[ProjectId] [int] NULL,[PermisstionId] int NULL, [CreatedDate] datetime DEFAULT getdate() NULL ,CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]))";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
         }

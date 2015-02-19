@@ -16,11 +16,7 @@ namespace TalBrody.DataLayer
 	{
 
 		public int Get_NmberOf_Followers_By_Project(int ProjectId)
-		{
-			string OnAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
-			Log.Info("Log4Net: Number of followers, OnAppHarbor = " + OnAppHarbor);
-			Trace.TraceError("TraceError: Number of followers, OnAppHarbor = " + OnAppHarbor);
-
+		{			
 			int Result = 0;
 			try
 			{
@@ -42,6 +38,26 @@ namespace TalBrody.DataLayer
 			}
 			return Result;
 		}
+
+        public List<Follower> Get_Follower_by_Project(int ProjectId)
+        {
+            List<Follower> PermissionList = new List<Follower>();
+
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("SELECT [Id],[ProjectId],[UserId],[CreatedDate] FROM [Followers] where ProjectId = @ProjectId", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@ProjectId", ProjectId);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    PermissionList.Add(Populators.Populate_Follower(reader));
+                }
+            }
+            return PermissionList;
+        }
 		
 	}
 }

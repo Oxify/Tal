@@ -12,11 +12,11 @@ namespace TalBrody.DataLayer
 
 			return new Follower
 			{
-			    ContactEmail = dr.GetValue<string>("ContactEmail"),
+                Id = dr.GetValue<int>("Id"),
 			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
-			    ConseptId = dr.GetValue<int>("ConseptId"),
-			    count = dr.GetValue<int>("count"),
-			    ContactId = dr.GetValue<int>("ContactId")
+                ProjectId = dr.GetValue<int>("ProjectId"),
+                UserId = dr.GetValue<int>("UserId"),
+			   
 			};
 		}
 
@@ -24,11 +24,10 @@ namespace TalBrody.DataLayer
 		{
 			return new Follower
 			{
-			    ContactEmail = dr.GetValue<string>("ContactEmail"),
-			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
-			    ConseptId = dr.GetValue<int>("ConseptId"),
-			    count = dr.GetValue<int>("count"),
-			    ContactId = dr.GetValue<int>("ContactId")
+                Id = dr.GetValue<int>("Id"),
+                DateCreated = dr.GetValue<DateTime>("DateCreated"),
+                ProjectId = dr.GetValue<int>("ProjectId"),
+                UserId = dr.GetValue<int>("UserId"),
 			};
 		}
 
@@ -211,7 +210,7 @@ namespace TalBrody.DataLayer
 	        return new Permission
 	        {
 	            Id = dr.GetValue<int>("Id"),
-	            PermisstionName = dr.GetValue<string>("PermisstionName"),
+	            PermisstionId = dr.GetValue<int>("PermisstionId"),
 	            ProjectId = dr.GetValue<int>("ProjectId"),
 	            UserId = dr.GetValue<int>("UserId")
 	        };
@@ -222,7 +221,7 @@ namespace TalBrody.DataLayer
             return new Permission
             {
                 Id = dr.GetValue<int>("Id"),
-                PermisstionName = dr.GetValue<string>("PermisstionName"),
+                PermisstionId = dr.GetValue<int>("PermisstionId"),
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId")
             };

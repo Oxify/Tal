@@ -14,5 +14,11 @@ namespace TalBrody.Logic
 			FollowerDal dal = new FollowerDal();
 			return dal.Get_NmberOf_Followers_By_Project(ProjectId);
 		}
+
+        public static List<Follower> Get_Follower_by_Project(int ProjectId)
+        {
+            FollowerDal dal = new FollowerDal();
+            return dal.Get_Follower_by_Project(ProjectId);
+        }
 	}
 }

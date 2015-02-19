@@ -28,7 +28,7 @@
                         <td>
                             <asp:Label ID="LblCreateDate" runat="server" Text="Label"></asp:Label></td>
                         <td>
-                            <asp:Button ID="Btn" runat="server" Text="Add Permission" OnClick="Btn_Click" />
+                            <asp:Button ID="BtnAddPermission" runat="server" Enabled="false" Text="Add Permission" OnClick="Btn_Click" />
                         </td>
                     </tr>
                 </ItemTemplate>

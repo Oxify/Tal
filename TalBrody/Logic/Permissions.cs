@@ -19,7 +19,7 @@ namespace TalBrody.Logic
                 var p = new Permission
                 {
                     Id = -99,
-                    PermisstionName = PermisstionEnum.Admin.ToString(),
+                    PermisstionId = (int)PermisstionEnum.Admin,
                     ProjectId = -99,
                     UserId = UserId
                 };
@@ -31,6 +31,18 @@ namespace TalBrody.Logic
                 permissionList = dal.GetAllPermissionByUserId(UserId);
             }
             return permissionList;
+        }
+
+        public static void InsertPermission(Permission per)
+        {
+            PermissionDal dal = new PermissionDal();
+            dal.InsertPermission(per);
+        }
+
+        public static void RemovePermission(int Id)
+        {
+            PermissionDal dal = new PermissionDal();
+            dal.RemovePermission(Id);
         }
     }
 }

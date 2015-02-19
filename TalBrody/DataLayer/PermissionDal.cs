@@ -24,10 +24,63 @@ namespace TalBrody.DataLayer
                 var reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    PermissionList.Add(Populators.Populate_SiteAdmin(reader));
+                    PermissionList.Add(Populators.Populate_permission(reader));
                 }
             }
             return PermissionList;
+        }
+
+        public void InsertPermission(Permission per)
+        {
+            try
+            {
+                using (var myConnection = PortalConection)
+                {
+                    var myCommand = GetCommand("INSERT INTO [Permissions]([UserId],[ProjectId],[PermisstionId])"+
+                        " VALUES(@UserId,@ProjectId ,@PermisstionId);", myConnection);
+                    myCommand.CommandType = CommandType.Text;
+                    myCommand.Parameters.Add("@UserId", SqlDbType.Int).Value = per.UserId;
+                    myCommand.Parameters.Add("@ProjectId", SqlDbType.Int).Value = per.ProjectId;
+                    myCommand.Parameters.Add("@PermisstionId", SqlDbType.Int).Value = per.PermisstionId;                   
+
+                    myConnection.Open();
+                    var result = myCommand.ExecuteNonQuery();
+                    if (result != 1)
+                    {
+                        throw new Exception("Expected result 1, got " + result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("InsertParam Threw: " + ex);
+                throw;
+            }
+        }
+
+        public void RemovePermission(int Id)
+        {
+            try
+            {
+                using (var myConnection = PortalConection)
+                {
+                    var myCommand = GetCommand("delete from [Permissions] where Id = @Id);", myConnection);
+                    myCommand.CommandType = CommandType.Text;
+                    myCommand.Parameters.Add("@Id", SqlDbType.Int).Value = Id;
+                   
+                    myConnection.Open();
+                    var result = myCommand.ExecuteNonQuery();
+                    if (result != 1)
+                    {
+                        throw new Exception("Expected result 1, got " + result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("InsertParam Threw: " + ex);
+                throw;
+            }
         }
     }
 }
