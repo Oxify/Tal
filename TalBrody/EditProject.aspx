@@ -7,7 +7,7 @@
         <asp:Label ID="Label1" runat="server" Text="Followers"></asp:Label>
         <br />
         <table>
-            <asp:Repeater runat="server" ID="Rpt_Followers" OnDataBinding="Rpt_Followers_DataBinding">
+            <asp:Repeater runat="server" ID="Rpt_Followers" OnItemDataBound="Rpt_Followers_ItemDataBound">
                 <HeaderTemplate>
                     <tr>
                         <th>Id</th>
