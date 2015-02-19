@@ -206,6 +206,7 @@
     <Content Include="Brody.aspx" />
     <Content Include="ConfirmEmail.aspx" />
     <Content Include="Cover.aspx" />
+    <Content Include="Css\BootstrapDefaults.css" />
     <Content Include="Css\Brody.css" />
     <Content Include="Css\Cover.css" />
     <Content Include="Css\LightBox.css" />
@@ -232,6 +233,7 @@
     <Content Include="Images\fancybox_overlay.png" />
     <Content Include="Images\fancybox_sprite%402x.png" />
     <Content Include="Images\fancybox_sprite.png" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Images\Social.png" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
@@ -250,7 +252,6 @@
     <Content Include="JavaScript\SmoothScroll.js" />
     <Content Include="PrivacyPolicy.aspx" />
     <Content Include="ProjectData.aspx" />
-    <Content Include="Defaulte.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Share.aspx" />
     <Content Include="sqlceme40.dll">
@@ -387,13 +388,6 @@
     </Compile>
     <Compile Include="DataLayer\BaseDal.cs" />
     <Compile Include="DataLayer\FollowerDal.cs" />
-    <Compile Include="Defaulte.aspx.cs">
-      <DependentUpon>Defaulte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Defaulte.aspx.designer.cs">
-      <DependentUpon>Defaulte.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Follower.cs" />
     <Compile Include="Logic\Followers.cs" />
     <Compile Include="Oxify.Master.cs">

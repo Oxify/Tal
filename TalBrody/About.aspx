@@ -6,11 +6,6 @@
     <div>
         <div style="height: 80vh">
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
             <h1>על Oxify</h1>
             <br/>
             <br/>

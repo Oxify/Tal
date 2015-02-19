@@ -27,10 +27,14 @@
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="Css/Master.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <!---link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" /-->
+    <link rel="stylesheet" href="Css/BootstrapDefaults.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.14/jquery.scrollTo.min.js"></script>
     <script src="JavaScript/jquery.easing.1.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="JavaScript/SmoothScroll.js"></script>
     <script src="JavaScript/LightBox.js"></script>
     <script src="JavaScript/LightBoxBigPack.js"></script>
@@ -104,11 +108,6 @@
 
         }
 
-        function ChanghFormSizeOnresize() {
-
-            var body = document.getElementById("myBody");
-            body.style.minHeight = window.innerHeight;
-        }
 
     </script>
 
@@ -126,38 +125,50 @@
 
     </script>
 </head>
-<body id="myBody" onresize="ChanghFormSizeOnresize">
-    <form id="form1" runat="server">
-        <div id="master-wrapper">
-            <div id="main">
-                <div class="master-header">
-                    <div class="header-buttons">
-                        <input id="Button1" type="button" class="header_button" value="התחבר" onclick="ShowLogin();" />
-                        <input id="btnLogOut" type="button" class="header_button" value="התנתק" onclick="LogOut();" />
-                        <asp:HyperLink ID="HypEditProject" runat="server" Text="Edit Project"></asp:HyperLink>
-                        <asp:Label ID="LblUserName" runat="server" Text="Hello: "></asp:Label>
-                    </div>
-                </div>
-                <div class="master-content">
-                    <div>
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </div>
-                </div>
+<body id="myBody" >
+    <div class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img alt="Oxify" src="Images/Logo.png" style="margin-top: -15px;" />
+                </a>
             </div>
-            <div class="master-footer">
-                <div>
-                    <a href="About.aspx" class="footer-link">עלינו</a>
-                    <a href="FAQ.aspx" class="footer-link">שאלות ותשובות</a>
-                    <a href="TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
-                    <a href="PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
-                </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <button type="button" class="btn btn-default navbar-btn" onclick="ShowLogin();">התחבר</button>
+                    <button type="button" class="btn btn-default navbar-btn" onclick="LogOut();">התנתק</button>
+                    <asp:HyperLink ID="HypEditProject" runat="server" Text="Edit Project"></asp:HyperLink>
+                    <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Text="Hello: "></asp:Label>
+                </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container-fluid -->
+    </div>
+
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
         <div id="dialog" title="Dialog Title" style="display: none">
             <uc1:LogInControle runat="server" ID="LogInControle" />
         </div>
 
     </form>
+    <footer class="footer">
+        <div class="container">
+            <a href="About.aspx" class="footer-link">עלינו</a>
+            <a href="FAQ.aspx" class="footer-link">שאלות ותשובות</a>
+            <a href="TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
+            <a href="PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
+        </div>
+    </footer>
 </body>
 </html>

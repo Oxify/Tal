@@ -78,7 +78,7 @@ function FacebookLoginResult(response) {
 }
 
 function Register(platform, token) {
-    debugger;
+  
     var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
 
     $.ajax({
@@ -89,9 +89,8 @@ function Register(platform, token) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            debugger;
             if (response.d.NextStep == 1) {
-                debugger;
+           
                 window.top.location.href = '/Share.aspx';
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
