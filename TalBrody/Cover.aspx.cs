@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Util;
 
 namespace TalBrody
 {
@@ -25,6 +26,12 @@ namespace TalBrody
 	        {
                 
                 firstpage.Visible = false;
+                if (Request.QueryString["ProjectId"] != null)
+                {
+                    int ProjectId = int.Parse(Request.QueryString["ProjectId"]);
+                    UserSession u = (UserSession)Session["Usession"];
+                    u.CurrentProjectId = ProjectId;
+                }
 	        }
 	    }
 
