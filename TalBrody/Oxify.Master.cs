@@ -91,7 +91,7 @@ namespace TalBrody
                 {
                     const string message = "You do not have authorization to this page !!";
                     // TODO - do something secure here
-                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
+                     Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
                 }
             }
         }

@@ -163,7 +163,7 @@ namespace TalBrody.Logic
         {
             DropIfExists("Followers");
 
-            string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL, [CreatedDate] datetime DEFAULT getdate() NULL,";
+            string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL, [CreatedDate] datetime DEFAULT getdate() NULL,[FollowerGuid] uniqueidentifier DEFAULT NEWID() NUL,";
             Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] )) ";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
