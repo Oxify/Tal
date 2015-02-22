@@ -110,6 +110,16 @@
 
         }
 
+        function ChangePassword() {
+
+        }
+
+        function ForgetPassword()
+        {
+
+
+        }
+
 
     </script>
 
@@ -146,7 +156,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <button type="button" class="btn btn-default navbar-btn" onclick="ShowLogin();">התחבר</button>
                     <button type="button" class="btn btn-default navbar-btn" onclick="LogOut();">התנתק</button>
-                    <asp:HyperLink ID="HypEditProject" runat="server" Text="Edit Project"></asp:HyperLink>
+                    <button type="button" class="btn btn-default navbar-btn"  runat="server" onclick="LogOut();">Forget Password</button>
+                    <button type="button" class="btn btn-default navbar-btn" runat="server" visible="false" onclick="LogOut();">Change Password</button>
+                    <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
                     <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Text="Hello: "></asp:Label>
                 </ul>
             </div>
