@@ -8,8 +8,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="he">
 <head runat="server">
     <title>Oxify - עודני ילד</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!--- start of FB meta tags --->
@@ -43,6 +41,10 @@
     <link href="Css/LightBox.css" rel="stylesheet" />
     <link href="Css/LightBoxLarge.css" rel="stylesheet" />
     <script src="JavaScript/Common.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dialog").hide();

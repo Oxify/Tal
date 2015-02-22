@@ -59,10 +59,10 @@ namespace TalBrody.DataLayer
 			};
 		}
 
-		internal static Project Populate_Project(SqlCeDataReader dr)
+        internal static ProjectEntity Populate_Project(SqlCeDataReader dr)
 		{
 
-			return new Project
+            return new ProjectEntity
 			{
 			    Description = dr.GetValue<string>("Description"),
 			    DisplayName = dr.GetValue<string>("DisplayName"),
@@ -73,10 +73,10 @@ namespace TalBrody.DataLayer
 			};
 		}
 
-		internal static Project Populate_Project(SqlDataReader dr)
+        internal static ProjectEntity Populate_Project(SqlDataReader dr)
 		{
 
-			return new Project
+            return new ProjectEntity
 			{
 			    Description = dr.GetValue<string>("Description"),
 			    DisplayName = dr.GetValue<string>("DisplayName"),

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TalBrody.Entity
 {
-	public class Project
+    public class ProjectEntity
 	{
 		public string DisplayName { get; set; }
 		public string ShortName { get; set; }

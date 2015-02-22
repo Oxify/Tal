@@ -33,7 +33,7 @@ namespace TalBrody
                 if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
                 {
                     RepeaterItem item = e.Item;
-                    Project Pro = item.DataItem as Project;
+                    ProjectEntity Pro = item.DataItem as ProjectEntity;
 
                     HyperLink HypProjectLink = e.Item.FindControl("HypProjectLink") as HyperLink;
                     if (HypProjectLink != null)

@@ -214,6 +214,7 @@
     <Content Include="Css\LightBoxLarge.css" />
     <Content Include="Css\LightBoxVeryBig.css" />
     <Content Include="Css\Master.css" />
+    <Content Include="Css\Project.css" />
     <Content Include="Css\SimpleCLM.css" />
     <Content Include="Css\Temp.css" />
     <Content Include="EditProject.aspx" />
@@ -251,6 +252,7 @@
     <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />
     <Content Include="PrivacyPolicy.aspx" />
+    <Content Include="Project.aspx" />
     <Content Include="ProjectData.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Share.aspx" />
@@ -378,6 +380,13 @@
     </Compile>
     <Compile Include="PrivacyPolicy.aspx.designer.cs">
       <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project.aspx.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project.aspx.designer.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectData.aspx.cs">
       <DependentUpon>ProjectData.aspx</DependentUpon>
