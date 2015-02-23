@@ -37,6 +37,7 @@ namespace TalBrody.Logic
 	        UserDal dal1 = new UserDal();
 	        dal1.UpdateUser(user);
 
+            // Send registration email
 	        var code = GenerateUserRegistrationCode(user);
             IOC.GetInstance<Email>().SendRegistrationEmail(user, code);
 
