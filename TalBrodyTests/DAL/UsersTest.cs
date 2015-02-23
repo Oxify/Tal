@@ -1,8 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TalBrody.Common;
 using TalBrody.DataLayer;
 using TalBrody.Logic;
 using System.Text;
+using TalBrody.Util;
 
 namespace TalBrodyTests.DAL
 {
@@ -21,7 +23,13 @@ namespace TalBrodyTests.DAL
             Assert.IsFalse(Users.CheckUserPassword(email, password));
 
             // Create it
-            Users.CreateUser(email, password);
+            int UserId = 0;
+            var salt = SessionUtil.CreateSalt();
+            var hashed = SessionUtil.Hash(password, salt);
+            UserDal dal = new UserDal();
+            string referralCode = UUIDCreator.Create(8);
+            UserId = dal.CreateUser(email, password, hashed, salt, referralCode);
+            int temp = UserId;
 
             // Check it does exist
             Assert.IsTrue(Users.CheckUserPassword(email, password));

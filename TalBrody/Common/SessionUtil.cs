@@ -8,7 +8,7 @@ using TalBrody.Util;
 
 namespace TalBrody.Common
 {
-    public class CommonFunction
+    public class SessionUtil
     {
         public static void AddUserToSession(int UserId)
         {

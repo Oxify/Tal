@@ -61,7 +61,7 @@ namespace TalBrody
                 if (platform.ToUpper() == "FB")
                 {
                     var User = FacebookAccess.RegisterUser(token);
-                    CommonFunction.AddUserToSession(User.Id);
+                    SessionUtil.AddUserToSession(User.Id);
                     if (User.Email != null && User.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
@@ -83,7 +83,7 @@ namespace TalBrody
             try
             {
                 int UserId = Users.SetUserContext(id);
-                CommonFunction.AddUserToSession(UserId);
+                SessionUtil.AddUserToSession(UserId);
                 result = 1;
             }
             catch (Exception)

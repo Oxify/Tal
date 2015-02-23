@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
+using log4net;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Common;
@@ -9,6 +11,8 @@ namespace TalBrody.Logic
 {
 	public class Users
 	{
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
 		public static User FindUserByEmail(string email)
 		{
 			UserDal dal = new UserDal();
@@ -32,20 +36,29 @@ namespace TalBrody.Logic
             UserDal dal = new UserDal();
             return dal.FindUserByTwitterid(Twitterid);
         }
-         
-	    public static int CreateUser(string email, string password)
-	    {
-	        int UserId = 0;
-            var salt = CommonFunction.CreateSalt();
-            var hashed = CommonFunction.Hash(password, salt);
-	        UserDal dal = new UserDal();
-	        string referralCode = UUIDCreator.Create(8);
-            UserId = dal.CreateUser(email, password, hashed, salt, referralCode);
 
+	    public static User AddUser(string emailStr, string password, string displayNameA)
+        {
+            log.Info(String.Format("Creating new user (email, name) = ({0}, {1})", emailStr, displayNameA));
 
-            // TODO Ziv  emil sending for comfermation email address 
-	        return UserId;
-	    }
+            var dal = new UserDal();
+
+            // Create User
+	        var salt = SessionUtil.CreateSalt();
+            var hashed = SessionUtil.Hash(password, salt);
+            var referralCode = UUIDCreator.Create(8);
+            dal.CreateUser(emailStr, password, hashed, salt, referralCode);
+
+            // Update with display name (TODO - no need for a separate update)
+	        var user = dal.FindUserByEmail(emailStr);
+            user.DisplayName = displayNameA;
+            UpdateUser(user);
+
+            var code = GenerateUserRegistrationCode(user);
+            new Email().SendRegistrationEmail(user, code);
+
+            return user;
+        }
 
         public static int CreateUserWithoutPassword(User user)
         {
@@ -72,7 +85,7 @@ namespace TalBrody.Logic
                 //log.Debug("Didn't find user with email = " + email);
                 return false;
             }
-            var hash = CommonFunction.Hash(password, user.PasswordSalt);
+            var hash = SessionUtil.Hash(password, user.PasswordSalt);
             return hash.SequenceEqual(user.PasswordHash);
         }
 
@@ -97,9 +110,9 @@ namespace TalBrody.Logic
             return storedCode != null;
 	    }
 
-	    public static string GetUserContext(int UserId)
+	    public static string GetUserContext(int userId)
 	    {
-	        return UserId.ToString();
+	        return userId.ToString();
 	    }
 
 	    public static string GetUserContext(User user)
@@ -107,10 +120,9 @@ namespace TalBrody.Logic
 	        return GetUserContext(user.Id);
 	    }
 
-	    public static int SetUserContext(string Context)
+	    public static int SetUserContext(string context)
 	    {
-	        return int.Parse(Context);
+	        return Int32.Parse(context);
 	    }
-
 	}
 }

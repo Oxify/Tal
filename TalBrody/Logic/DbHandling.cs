@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TalBrody.Common;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Util;
@@ -125,15 +126,33 @@ namespace TalBrody.Logic
 
         private void InsertSiteAdminAndUser()
         {
-            int userId = Users.CreateUser("zivverb@hotmail.com", "1ziv@tzoran");
+            int UserId = 0;
+            var salt = SessionUtil.CreateSalt();
+            var hashed = SessionUtil.Hash("1ziv@tzoran", salt);
+            UserDal dal = new UserDal();
+            string referralCode = UUIDCreator.Create(8);
+            UserId = dal.CreateUser("zivverb@hotmail.com", "1ziv@tzoran", hashed, salt, referralCode);
+            int userId = UserId;
             SiteAdmin sadmin = new SiteAdmin {UserId = userId};
             SiteAdmins.InsertSiteAdmin(sadmin);
 
-            int userId1 = Users.CreateUser("ortal@oxify.co", "1ortal@raz");
+            int userId3 = 0;
+            var salt1 = SessionUtil.CreateSalt();
+            var hashed1 = SessionUtil.Hash("1ortal@raz", salt1);
+            UserDal dal1 = new UserDal();
+            string referralCode1 = UUIDCreator.Create(8);
+            userId3 = dal1.CreateUser("ortal@oxify.co", "1ortal@raz", hashed1, salt1, referralCode1);
+            int userId1 = userId3;
             SiteAdmin sadmin1 = new SiteAdmin {UserId = userId1};
             SiteAdmins.InsertSiteAdmin(sadmin1);
 
-            int userId2 = Users.CreateUser("ron@oxify.co", "1ron@gross");
+            int userId4 = 0;
+            var salt2 = SessionUtil.CreateSalt();
+            var hashed2 = SessionUtil.Hash("1ron@gross", salt2);
+            UserDal dal2 = new UserDal();
+            string referralCode2 = UUIDCreator.Create(8);
+            userId4 = dal2.CreateUser("ron@oxify.co", "1ron@gross", hashed2, salt2, referralCode2);
+            int userId2 = userId4;
             SiteAdmin sadmin2 = new SiteAdmin {UserId = userId2};
             SiteAdmins.InsertSiteAdmin(sadmin2);
         }

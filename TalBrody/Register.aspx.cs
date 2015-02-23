@@ -26,35 +26,31 @@ namespace TalBrody
 
         protected void registerButton_Click(object sender, EventArgs eventArgs)
         {
-            if (string.IsNullOrEmpty(email.Value))
+            var emailStr = email.Value;
+            if (string.IsNullOrEmpty(emailStr))
             {
                 throw new Exception("Missing email on registration form");
             }
 
             string msg;
-            var user = new UserDal().FindUserByEmail(email.Value);
+            var user = new UserDal().FindUserByEmail(emailStr);
             if (user != null)
             {
                 msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
                 log.Info(msg);
                 registerResultLabel.Text = msg;
                 return;
-                //TODO handel Dubale registration 
+                //TODO handel duplicate registration 
             }
 
-            Users.CreateUser(email.Value, TxtPassword.Value);
-            msg = string.Format("Created new user (email, name) = ({0}, {1})", email.Value, displayName.Value);
-            registerResultLabel.Text = msg;
-            log.Info(msg);
+            user = Users.AddUser(emailStr, TxtPassword.Value, displayName.Value);
 
-            user = new UserDal().FindUserByEmail(email.Value);
-            user.DisplayName = displayName.Value;
-            Users.UpdateUser(user);
-            var code = Users.GenerateUserRegistrationCode(user);
-            new Email().SendRegistrationEmail(user, code);
-            CommonFunction.AddUserToSession(user.Id);
+            // TODO Remove (this is properly logged elsewhere)
+            registerResultLabel.Text = string.Format("Created new user (email, name) = ({0}, {1})", emailStr, displayName);
+            
+            SessionUtil.AddUserToSession(user.Id);
+            // TODO What does this do? Document please
             ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '../Share.aspx'; </script>");
-
         }
 
         protected void BtnAddEmail_Click(object sender, EventArgs e)

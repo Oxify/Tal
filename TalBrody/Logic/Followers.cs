@@ -10,7 +10,7 @@ namespace TalBrody.Logic
 {
 	public class Followers
 	{
-		public static int Get_NmberOf_Followers_By_Project(int ProjectId)
+		public static int Get_NumberOf_Followers_By_Project(int ProjectId)
 		{
 			FollowerDal dal = new FollowerDal();
 			return dal.Get_NmberOf_Followers_By_Project(ProjectId);
@@ -28,7 +28,7 @@ namespace TalBrody.Logic
             return dal.Insert_Follwer(foll);
         }
 
-        public static int Insert_Follwer(int ProjectId,int UserId)
+        public static int Insert_Follwer(int ProjectId, int UserId)
         {
             Follower foll = new Follower();
             foll.FollowerGuid = UUIDCreator.Create(8);

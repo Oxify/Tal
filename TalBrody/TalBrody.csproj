@@ -301,7 +301,7 @@
     <Compile Include="Brody.aspx.designer.cs">
       <DependentUpon>Brody.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Common\CommonFunction.cs" />
+    <Compile Include="Common\SessionUtil.cs" />
     <Compile Include="Common\Enums\language.cs" />
     <Compile Include="Common\Enums\PermisstionEnum.cs" />
     <Compile Include="Common\Enums\PlatformEnum.cs" />

@@ -1,4 +1,5 @@
-﻿using TalBrody.DataLayer;
+﻿using TalBrody.Common;
+using TalBrody.DataLayer;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -109,7 +110,14 @@ namespace TalBrody.UserControl
 				return 0;
 			}
 
-            return Users.CreateUser(email, password); 
+		    int UserId = 0;
+		    var salt = SessionUtil.CreateSalt();
+		    var hashed = SessionUtil.Hash(password, salt);
+		    UserDal dal = new UserDal();
+		    string referralCode = UUIDCreator.Create(8);
+		    UserId = dal.CreateUser(email, password, hashed, salt, referralCode);
+
+		    return UserId;
 		}
 
 		public string CreateAccount(string email)
