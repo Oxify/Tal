@@ -27,6 +27,14 @@ namespace TalBrody
             }
         }
 
+        private void GetProjectId()
+        {
+            int ProjectId = -1;
+            if (Request.QueryString["ProjectId"] != null)
+                int.TryParse(Request.QueryString["ProjectId"], out ProjectId);
+            HypEditProject.NavigateUrl = "EditProject.aspx?ProjectId=" + ProjectId;
+        }
+
         public void DoLOgOut()
         {
             Session.Remove("Usession");
@@ -45,10 +53,10 @@ namespace TalBrody
                     LblUserName.Text = "Hello: " + us.UserName;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                throw;
             }
             return result;
         }
@@ -62,20 +70,28 @@ namespace TalBrody
             if (Session["Usession"] != null)
             {
                 var usession = (UserSession)Session["Usession"];
-                if (usession.PermissionList.Exists(o => o.PermisstionName == PermisstionEnum.Admin.ToString()))
+                if (usession.PermissionList.Exists(o => o.PermisstionId == (int)PermisstionEnum.Admin))
+                {
+                    HypSiteAdmin.Visible = true;
                     return;
+                }
                 else
                 {
-                    //TODO ziv  add permission Ability 
+                    int ProjectId = -1;
+                    if (Request.QueryString["ProjectId"] != null)
+                        int.TryParse(Request.QueryString["ProjectId"] ,out ProjectId);
+                    if (usession.PermissionList.Exists(o => o.ProjectId == ProjectId && (o.PermisstionId == (int)PermisstionEnum.ProjectAdmin || o.PermisstionId == (int)PermisstionEnum.ProjectOwner)))//  check if the user is projectadmin
+                        HypEditProject.Visible = true;
+                    
                 }
             }
             else
-            {
+            { 
                 if (s.IndexOf("Cover.aspx", System.StringComparison.Ordinal) == -1)
                 {
                     const string message = "You do not have authorization to this page !!";
                     // TODO - do something secure here
-                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
+                     Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
                 }
             }
         }

@@ -94,7 +94,7 @@ namespace TalBrody.DataLayer
             catch (Exception ex)
             {
                 Log.Error("UpdateParam Threw: " + ex);
-                throw ex;
+                throw;
             }
         }
 
@@ -124,7 +124,7 @@ namespace TalBrody.DataLayer
             catch (Exception ex)
             {
                 Log.Error("InsertParam Threw: " + ex);
-                throw ex;
+                throw;
             }
         }
 

@@ -199,11 +199,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="AdminDeashBord.aspx" />
     <Content Include="Ajax.aspx" />
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
     <Content Include="ConfirmEmail.aspx" />
     <Content Include="Cover.aspx" />
+    <Content Include="Css\BootstrapDefaults.css" />
     <Content Include="Css\Brody.css" />
     <Content Include="Css\Cover.css" />
     <Content Include="Css\LightBox.css" />
@@ -211,14 +214,18 @@
     <Content Include="Css\LightBoxLarge.css" />
     <Content Include="Css\LightBoxVeryBig.css" />
     <Content Include="Css\Master.css" />
+    <Content Include="Css\Project.css" />
     <Content Include="Css\SimpleCLM.css" />
     <Content Include="Css\Temp.css" />
+    <Content Include="EditProject.aspx" />
+    <Content Include="ErrorPage.html" />
     <Content Include="fancybox\blank.gif" />
     <Content Include="fancybox\fancybox_loading.gif" />
     <Content Include="fancybox\fancybox_sprite.png" />
     <Content Include="fancybox\jquery.fancybox.css" />
     <Content Include="fancybox\jquery.fancybox.js" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
+    <Content Include="FAQ.aspx" />
     <Content Include="Images\blank.gif" />
     <Content Include="Images\DownButton.hover.png" />
     <Content Include="Images\DownButton.png" />
@@ -227,6 +234,7 @@
     <Content Include="Images\fancybox_overlay.png" />
     <Content Include="Images\fancybox_sprite%402x.png" />
     <Content Include="Images\fancybox_sprite.png" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Images\Social.png" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
@@ -243,8 +251,9 @@
     <Content Include="JavaScript\login.js" />
     <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />
+    <Content Include="PrivacyPolicy.aspx" />
+    <Content Include="Project.aspx" />
     <Content Include="ProjectData.aspx" />
-    <Content Include="Defaulte.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Share.aspx" />
     <Content Include="sqlceme40.dll">
@@ -256,6 +265,7 @@
     <Content Include="sqlcese40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="TermsOfService.aspx" />
     <Content Include="UserControl\LogInControle.ascx" />
     <Content Include="UserControl\RegisterControl.ascx" />
     <Content Include="Web.config">
@@ -263,6 +273,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDeashBord.aspx.cs">
+      <DependentUpon>AdminDeashBord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDeashBord.aspx.designer.cs">
+      <DependentUpon>AdminDeashBord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ajax.aspx.cs">
       <DependentUpon>Ajax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,6 +304,7 @@
     <Compile Include="Common\CommonFunction.cs" />
     <Compile Include="Common\Enums\language.cs" />
     <Compile Include="Common\Enums\PermisstionEnum.cs" />
+    <Compile Include="Common\Enums\PlatformEnum.cs" />
     <Compile Include="ConfirmEmail.aspx.cs">
       <DependentUpon>ConfirmEmail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +322,7 @@
     <Compile Include="DataLayer\BdHandlingDal.cs" />
     <Compile Include="DataLayer\EmailConfirmDal.cs" />
     <Compile Include="DataLayer\Extensions.cs" />
+    <Compile Include="DataLayer\friendDal.cs" />
     <Compile Include="DataLayer\ParamDal.cs" />
     <Compile Include="DataLayer\PerksDal.cs" />
     <Compile Include="DataLayer\PermissionDal.cs" />
@@ -305,7 +331,15 @@
     <Compile Include="DataLayer\ProjectDetailsDal.cs" />
     <Compile Include="DataLayer\SiteAdminDal.cs" />
     <Compile Include="DataLayer\UserDal.cs" />
+    <Compile Include="EditProject.aspx.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProject.aspx.designer.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\EmailConfirmCodes.cs" />
+    <Compile Include="Entity\friend.cs" />
     <Compile Include="Entity\Param.cs" />
     <Compile Include="Entity\Perks.cs" />
     <Compile Include="Entity\Permission.cs" />
@@ -313,6 +347,13 @@
     <Compile Include="Entity\ProjectDetails.cs" />
     <Compile Include="Entity\SiteAdmin.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -325,6 +366,7 @@
     </Compile>
     <Compile Include="Logic\DbHandling.cs" />
     <Compile Include="Logic\FacebookAccess.cs" />
+    <Compile Include="Logic\friends.cs" />
     <Compile Include="Logic\Params.cs" />
     <Compile Include="Logic\Perkses.cs" />
     <Compile Include="Logic\Permissions.cs" />
@@ -332,6 +374,20 @@
     <Compile Include="Logic\SiteAdmins.cs" />
     <Compile Include="Logic\Users.cs" />
     <Compile Include="PageMethodExceptionLogger.cs" />
+    <Compile Include="PrivacyPolicy.aspx.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project.aspx.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project.aspx.designer.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProjectData.aspx.cs">
       <DependentUpon>ProjectData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -341,13 +397,6 @@
     </Compile>
     <Compile Include="DataLayer\BaseDal.cs" />
     <Compile Include="DataLayer\FollowerDal.cs" />
-    <Compile Include="Defaulte.aspx.cs">
-      <DependentUpon>Defaulte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Defaulte.aspx.designer.cs">
-      <DependentUpon>Defaulte.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Follower.cs" />
     <Compile Include="Logic\Followers.cs" />
     <Compile Include="Oxify.Master.cs">
@@ -371,6 +420,13 @@
     </Compile>
     <Compile Include="Share.aspx.designer.cs">
       <DependentUpon>Share.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermsOfService.aspx.cs">
+      <DependentUpon>TermsOfService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsOfService.aspx.designer.cs">
+      <DependentUpon>TermsOfService.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\LoginController.cs" />
     <Compile Include="UserControl\LogInControle.ascx.cs">

@@ -163,7 +163,7 @@ namespace TalBrody.DataLayer
             catch (Exception ex)
             {
                 Log.Error("CheckParamExists Threw: " + ex.ToString());
-                throw ex;
+                throw;
             }
             return exists;
         }

@@ -12,11 +12,12 @@ namespace TalBrody.DataLayer
 
 			return new Follower
 			{
-			    ContactEmail = dr.GetValue<string>("ContactEmail"),
+                Id = dr.GetValue<int>("Id"),
 			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
-			    ConseptId = dr.GetValue<int>("ConseptId"),
-			    count = dr.GetValue<int>("count"),
-			    ContactId = dr.GetValue<int>("ContactId")
+                ProjectId = dr.GetValue<int>("ProjectId"),
+                UserId = dr.GetValue<int>("UserId"),
+                FollowerGuid = dr.GetValue<string>("FollowerGuid"),
+			   
 			};
 		}
 
@@ -24,11 +25,11 @@ namespace TalBrody.DataLayer
 		{
 			return new Follower
 			{
-			    ContactEmail = dr.GetValue<string>("ContactEmail"),
-			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
-			    ConseptId = dr.GetValue<int>("ConseptId"),
-			    count = dr.GetValue<int>("count"),
-			    ContactId = dr.GetValue<int>("ContactId")
+                Id = dr.GetValue<int>("Id"),
+                DateCreated = dr.GetValue<DateTime>("DateCreated"),
+                ProjectId = dr.GetValue<int>("ProjectId"),
+                UserId = dr.GetValue<int>("UserId"),
+                FollowerGuid = dr.GetValue<string>("FollowerGuid"),
 			};
 		}
 
@@ -60,10 +61,10 @@ namespace TalBrody.DataLayer
 			};
 		}
 
-		internal static Project Populate_Project(SqlCeDataReader dr)
+        internal static ProjectEntity Populate_Project(SqlCeDataReader dr)
 		{
 
-			return new Project
+            return new ProjectEntity
 			{
 			    Description = dr.GetValue<string>("Description"),
 			    DisplayName = dr.GetValue<string>("DisplayName"),
@@ -74,10 +75,10 @@ namespace TalBrody.DataLayer
 			};
 		}
 
-		internal static Project Populate_Project(SqlDataReader dr)
+        internal static ProjectEntity Populate_Project(SqlDataReader dr)
 		{
 
-			return new Project
+            return new ProjectEntity
 			{
 			    Description = dr.GetValue<string>("Description"),
 			    DisplayName = dr.GetValue<string>("DisplayName"),
@@ -211,7 +212,7 @@ namespace TalBrody.DataLayer
 	        return new Permission
 	        {
 	            Id = dr.GetValue<int>("Id"),
-	            PermisstionName = dr.GetValue<string>("PermisstionName"),
+	            PermisstionId = dr.GetValue<int>("PermisstionId"),
 	            ProjectId = dr.GetValue<int>("ProjectId"),
 	            UserId = dr.GetValue<int>("UserId")
 	        };
@@ -222,7 +223,7 @@ namespace TalBrody.DataLayer
             return new Permission
             {
                 Id = dr.GetValue<int>("Id"),
-                PermisstionName = dr.GetValue<string>("PermisstionName"),
+                PermisstionId = dr.GetValue<int>("PermisstionId"),
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId")
             };

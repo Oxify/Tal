@@ -89,6 +89,12 @@ function Register(platform, token) {
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }
+            else if(response.d.NextStep == -1)// missing email 
+            {
+                $("#AddEmailDiv").show();
+                $("#RegularResitrationDiv").hide();
+                alert("Plase add Email !");
+            }
 
         },
         failure: function (msg) {

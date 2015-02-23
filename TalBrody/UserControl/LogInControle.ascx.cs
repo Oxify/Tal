@@ -36,10 +36,10 @@ namespace TalBrody.UserControl
 					e.Authenticated = false;
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 
-				throw ex;
+				throw;
 			}
 		}
 

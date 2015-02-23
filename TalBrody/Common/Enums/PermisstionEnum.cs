@@ -9,6 +9,6 @@ namespace TalBrody.Common.Enums
     {
         Admin = 1,
         ProjectAdmin = 2,
-        RegularUser = 3
+        ProjectOwner = 3
     }
 }

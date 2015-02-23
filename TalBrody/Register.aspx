@@ -14,27 +14,32 @@
     <form id="form1" runat="server">
         <div>
             <h1>Register an account</h1>
+            <div id="RegularResitrationDiv">
+                <input placeholder="you@email.com" id="email" runat="server" />
+                <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
+                <input placeholder="Your Name" id="displayName" runat="server" />
 
-            <input placeholder="you@email.com" id="email" runat="server" />
-             <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
-            <input placeholder="Your Name" id="displayName" runat="server" />
+                <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
+                <hr />
+                <div>
+                    <button id="FacebookButton">Login with Facebook</button>
+                </div>
 
-            <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
-            <hr/>
-            <div>
-                <button id="FacebookButton">Login with Facebook</button>
-            </div>
-
-            <div id="register-result">
-                <asp:Label ID="registerResultLabel" runat="server" Text="Label">
+                <div id="register-result">
+                    <asp:Label ID="registerResultLabel" runat="server" Text="Label">
             
-                </asp:Label>
+                    </asp:Label>
+                </div>
+                <div id="status">
+                </div>
             </div>
-            <div id="status">
+            <div style="display:none" id="AddEmailDiv">
+                <input placeholder="you@email.com" id="txtEmail" runat="server" />
+                <asp:Button ID="BtnAddEmail" runat="server" Text="Add Email" OnClick="BtnAddEmail_Click" />
             </div>
 
         </div>
     </form>
-  
+
 </body>
 </html>

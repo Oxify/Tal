@@ -57,6 +57,20 @@ namespace TalBrody
 
         }
 
+        protected void BtnAddEmail_Click(object sender, EventArgs e)
+        {
+            if (Session["Usession"] != null)
+            {
+                UserSession useastion = (UserSession)Session["Usession"];
+                User user = Users.FindUserByid(useastion.UserId);
+                user.Email = txtEmail.Value;
+                Users.UpdateUser(user);
+                var code = Users.GenerateUserRegistrationCode(user);
+                new Email().SendRegistrationEmail(user, code);
+                ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '/Share.aspx'; </script>");
+            }
+        }
+
 
     }
 

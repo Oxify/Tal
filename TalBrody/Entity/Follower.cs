@@ -7,10 +7,14 @@ namespace TalBrody.Entity
 {
 	public class Follower
 	{
-		public int ContactId { get; set; }
-		public string ContactEmail { get; set; }
+		public int Id { get; set; }
+        public int ProjectId { get; set; }
 		public DateTime DateCreated { get; set; }
-		public int ConseptId { get; set; }
-		public int count { get; set; }
+        public int UserId { get; set; }
+
+        public string FollowerGuid { get; set; }
+
+        public int FollowerCount { get; set; }
+		
 	}
 }

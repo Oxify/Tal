@@ -1,0 +1,42 @@
+﻿
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: 'Simple CLM', Helvetica, Arial, sans-serif!important;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 50px;
+    background-color: lightgray;
+}
+
+/* navbar */
+.navbar-custom {
+    background-color: lightgray;
+    color: #ffffff;
+    border-radius: 0;
+}

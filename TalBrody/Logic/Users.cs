@@ -42,6 +42,7 @@ namespace TalBrody.Logic
 	        string referralCode = UUIDCreator.Create(8);
             UserId = dal.CreateUser(email, password, hashed, salt, referralCode);
 
+
             // TODO Ziv  emil sending for comfermation email address 
 	        return UserId;
 	    }
@@ -51,8 +52,9 @@ namespace TalBrody.Logic
             int UserId = 0;
             UserDal dal = new UserDal();
             UserId = dal.CreateUser(user);
-
-            // TODO Ziv  emil sending for comfermation email address 
+            user.Id = UserId;
+            //dal.UpdateUser(user);
+           
             return UserId;
         }
         

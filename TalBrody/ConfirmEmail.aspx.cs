@@ -40,6 +40,8 @@ namespace TalBrody
             user.EmailConfirmed = true;
             userDal.UpdateUser(user);
             ActionResultLabel.Text = string.Format("Hi {0}, your email ({1}) is now confirmed", user.DisplayName, user.Email);
+
+            // TODO redirect to share page on succesfull auth. remove code from DB. style the error page.
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Security;
 using DotNetOpenAuth.ApplicationBlock.Facebook;
 using TalBrody.Entity;
+using TalBrody.Util;
 
 namespace TalBrody.Logic
 {
@@ -35,7 +36,9 @@ namespace TalBrody.Logic
         public static Entity.User RegisterUser(string AccessToken)
         {
             var data = GetUserData(AccessToken);
-            Entity.User id = Users.FindUserByEmail(data.Graph.EMail);
+            Entity.User id = null;
+            if (data.Graph.EMail != null)
+                id = Users.FindUserByEmail(data.Graph.EMail);
 
             if (id == null)
             {
@@ -43,7 +46,12 @@ namespace TalBrody.Logic
                 id = new User();
                 PopulateUser(data, ref id);
                 id.Id = Users.CreateUserWithoutPassword(id);
-            } 
+                if (id.Email != null)
+                {
+                    var code = Users.GenerateUserRegistrationCode(id);
+                    new Email().SendRegistrationEmail(id, code);
+                }
+            }
             else
             {
                 // user already registered somehow, let's update the DB
@@ -127,7 +135,7 @@ namespace TalBrody.Logic
 
 
             string url = "https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token" +
-                                            "&client_id=" + ClientIdentifier + 
+                                            "&client_id=" + ClientIdentifier +
                                             "&client_secret=" + ClientSecret +
                                               "&fb_exchange_token= " + Uri.EscapeDataString(ShortToken);
             var request = WebRequest.Create(url);

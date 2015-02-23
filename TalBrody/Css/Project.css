@@ -1,0 +1,22 @@
+﻿html, body {
+    min-height: 100%;
+}
+
+.jumbotron {
+    height: 100vh;
+}
+
+#title {
+    height: 100%;
+    position: relative;
+    background-color: lightgoldenrodyellow;
+}
+
+
+#title-content {
+        position: absolute;
+    bottom: 0;
+
+    background-color: lightsalmon;
+
+}

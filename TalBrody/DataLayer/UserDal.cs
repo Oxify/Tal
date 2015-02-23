@@ -173,7 +173,7 @@ namespace TalBrody.DataLayer
                         conn);
                 //      var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@Email", (user.Email != null)? user.Email : string.Empty);
                 cmd.Parameters.AddWithValue("@ValidPassword", false);
 
                 //         cmd.Transaction = tr;
