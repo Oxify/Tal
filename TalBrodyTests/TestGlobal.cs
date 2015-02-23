@@ -9,19 +9,22 @@ namespace TalBrodyTests
     [SetUpFixture]
     public class TestGlobal
     {
-        [SetUp]
+        [SetUp] // This is run once globally
         public void Setup()
         {
             IOC.InitContainer(container =>
             {
-                var path = Directory.GetCurrentDirectory() + @"..\..\..\..\TalBrody\";
                 IOC.Container.Register(
-                    Component.For<IResourceResolver>().Instance(new FileSystemResourceResolver(path)));
+                    Component.For<IResourceResolver>().Instance(new MockResourceResolver()));
             });
-
-
-
         }
     }
 
+    public class MockResourceResolver : IResourceResolver
+    {
+        public string Resolve(string path)
+        {
+            return "A";
+        }
+    }
 }
