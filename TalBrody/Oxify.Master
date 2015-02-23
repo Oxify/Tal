@@ -35,7 +35,6 @@
         });
 
         function CheckCookie() {
-        	debugger;
             var cooke = getCookie("OxifyId");
             var LogInFlag = '<%= LogInFlag%>';
             var oxifyId = '<% = OxifyId%>';
@@ -53,17 +52,14 @@
             		dataType: "json",
             		success: function (response) {
             			if (response.d == 1) {
-            				//debugger;
 							// i close it for not do endless loops
             				window.location.reload(); // refreashg
             			}
 
             		},
             		failure: function (msg) {
-            			//debugger;
             		},
             		error: function (XMLHttpRequest, textStatus, errorThrown) {
-            		//	debugger;
             		}
             	});
 

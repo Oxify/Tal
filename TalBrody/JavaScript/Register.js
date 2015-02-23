@@ -6,8 +6,6 @@ var FacebookToken;
 
 function updateStatusCallback(response) {
 
-    //   debugger;
-
    // console.log('statusChangeCallback');
   //  console.log(response);
     // The response object is returned with a status field that lets the
@@ -36,7 +34,6 @@ function updateStatusCallback(response) {
 
 
 function FacebookLogin(e) {
- //   debugger;
     if (FacebookStatus == 'connected') {
         Register("FB", FacebookToken);
     } else {
@@ -51,7 +48,6 @@ function FacebookLogin(e) {
 }
 
 function FacebookLoginResult(response) {
-    debugger;
 //    console.log('FacebookLoginResult');
 //    console.log(response);
     // The response object is returned with a status field that lets the
@@ -78,7 +74,6 @@ function FacebookLoginResult(response) {
 }
 
 function Register(platform, token) {
-    debugger;
     var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
 
     $.ajax({
@@ -89,9 +84,7 @@ function Register(platform, token) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            debugger;
             if (response.d.NextStep == 1) {
-                debugger;
                 window.top.location.href = '/Share.aspx';
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
@@ -99,10 +92,8 @@ function Register(platform, token) {
 
         },
         failure: function (msg) {
-            debugger;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            debugger;
         }
     });
 
