@@ -31,7 +31,7 @@ namespace TalBrody
             });
 
 
-            ConfigurationManager.AppSettings.Add("Global.BaseUrl", CalcBaseUrl());
+            // ConfigurationManager.AppSettings.Add("Global.BaseUrl", CalcBaseUrl()); // or SiteUrl
 
             // Set up a simple configuration that logs on the console.
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
