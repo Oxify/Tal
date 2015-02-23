@@ -51,6 +51,7 @@
     .flat-button:hover {
         background: #3cb0fd;
         text-decoration: none;
+        cursor: pointer;
     }
 
 .ScrollButton {
