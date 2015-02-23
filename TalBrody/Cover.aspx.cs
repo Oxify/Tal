@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Logic;
 using TalBrody.Util;
 
 namespace TalBrody
@@ -15,10 +16,27 @@ namespace TalBrody
 			if (!IsPostBack)
 			{
 				InitParam();
+                AddFollowerCount();
 			}
 
 		    ChecktoHideDiv();
 		}
+
+        private void AddFollowerCount()
+        {
+            try
+            {
+                if(Request.QueryString["r"] != null)
+                {
+                    Followers.AddFollowerCount(Request.QueryString["r"]);
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
 	    private void ChecktoHideDiv()
 	    {

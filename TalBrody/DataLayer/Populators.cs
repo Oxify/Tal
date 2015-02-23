@@ -16,6 +16,7 @@ namespace TalBrody.DataLayer
 			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId"),
+                FollowerGuid = dr.GetValue<string>("FollowerGuid"),
 			   
 			};
 		}
@@ -28,6 +29,7 @@ namespace TalBrody.DataLayer
                 DateCreated = dr.GetValue<DateTime>("DateCreated"),
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId"),
+                FollowerGuid = dr.GetValue<string>("FollowerGuid"),
 			};
 		}
 

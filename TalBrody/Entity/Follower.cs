@@ -11,6 +11,10 @@ namespace TalBrody.Entity
         public int ProjectId { get; set; }
 		public DateTime DateCreated { get; set; }
         public int UserId { get; set; }
+
+        public string FollowerGuid { get; set; }
+
+        public int FollowerCount { get; set; }
 		
 	}
 }
