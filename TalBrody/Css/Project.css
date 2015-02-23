@@ -4,19 +4,134 @@
 
 .jumbotron {
     height: 100vh;
+    background-color: white;
 }
 
+.jumbotron-header {
+    /*background-color: pink;*/
+
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+.main-container {
+    /*background-color: darkorange;*/
+    display: table-row;
+}
+.the-rest {
+    /*background-color: lightgreen;*/
+    /*position: relative;*/
+    display: table-row;
+}
+
+.scroll-button-wrapper {
+    /*background-color: aqua;*/
+    /*position: absolute;
+    bottom: 0;
+    left: 0;*/
+    display: table-cell;
+    vertical-align: central;
+    width: 100%;
+    margin-bottom: 105px;
+
+}
+
+.scroll-button-inner {
+    position: relative;
+}
 #title {
     height: 100%;
     position: relative;
-    background-color: lightgoldenrodyellow;
+    /*background-color: lightgoldenrodyellow;*/
 }
 
 
 #title-content {
-        position: absolute;
     bottom: 0;
-
-    background-color: lightsalmon;
-
+    /*background-color: lightsalmon;*/
 }
+
+#cover-page {
+    /*background-color: lightblue;*/
+}
+
+
+.small_divider {
+    width: 100%;
+    border-color: gray;
+}
+
+#title-video {
+    /*background-color: yellow;*/
+
+    padding: 0;
+}
+
+#title {
+    /*background-color: green;*/
+}
+
+.Description {
+    display: block;
+    text-align: center;
+    line-height: 30px;
+}
+
+
+.scroll-button-div {
+    /*background-color: orange;*/
+    width: 54px;
+    height: 54px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 50%;
+    margin-top: 60px;
+}
+
+.ScrollButton {
+    background-position: center;
+    content: '';
+    background: url(../images/DownButton.png) no-repeat;
+    border: none;
+    width: 0px;
+    padding: 27px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    left: -50%;
+}
+
+    .ScrollButton:hover {
+        background: url(../images/DownButton.hover.png) no-repeat;
+    }
+
+.flat-button {
+    font-family: 'Simple CLM', serif;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 23px;
+    background: #3498db;
+    padding: 10px 40px 10px 40px;
+    width: 63px;
+    height: 50px;
+    text-decoration: none;
+    border: 0;
+    margin: 0 auto;
+}
+
+    .flat-button:hover {
+        background: #3cb0fd;
+        text-decoration: none;
+    }
+
+
+.register-button-div {
+    /*background-color: purple;*/
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
