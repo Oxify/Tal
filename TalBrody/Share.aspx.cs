@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
@@ -26,7 +27,7 @@ namespace TalBrody
             string FollowerGuid = followerlist.Find(o => o.UserId == Usession.UserId).FollowerGuid;
 
 
-            ShareUrl = string.Format("{0}?r={1}", Global.BaseUrl, FollowerGuid);
+            ShareUrl = string.Format("{0}?r={1}", ConfigurationManager.AppSettings.Get("Global.BaseUrl"), FollowerGuid);
             FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?app_id=1423139441310101&u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
             TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
         }

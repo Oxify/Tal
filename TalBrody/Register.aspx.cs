@@ -70,7 +70,7 @@ namespace TalBrody
                 user.Email = txtEmail.Value;
                 dal.UpdateUser(user);
                 var code = Container.Resolve<Users>().GenerateUserRegistrationCode(user);
-                new Email().SendRegistrationEmail(user, code);
+                IOC.GetInstance<Email>().SendRegistrationEmail(user, code);
                 ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '/Share.aspx'; </script>");
             }
         }

@@ -9,7 +9,6 @@ namespace TalBrodyTests.DAL
     [TestFixture]
     public class UsersTest
     {
-        [Ignore("TODO Ron, fixing it")]
         [Test]
         public void FindUserByEmailTest()
         {

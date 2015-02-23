@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.Razor;
+using Castle.Windsor.Installer;
 using log4net;
 using Mandrill;
 using RazorEngine;
@@ -16,15 +17,20 @@ namespace TalBrody.Util
     public class Email
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly IResourceResolver _resourceResolver;
+
+        public Email(IResourceResolver resourceResolver)
+        {
+            _resourceResolver = resourceResolver;
+        }
 
         public void SendRegistrationEmail(User user, string code)
         {
             var mandril = GetMandrill();
-            var templateLocation = HttpContext.Current.Server.MapPath("~/Emails/RegistrationEmail.email");
-            string template = System.IO.File.ReadAllText(templateLocation);
+            string template = _resourceResolver.Resolve("Emails/RegistrationEmail.email");
 
             var viewBag = new DynamicViewBag();
-            viewBag.AddValue("BaseUrl", Global.BaseUrl);
+            viewBag.AddValue("BaseUrl", ConfigurationManager.AppSettings.Get("Global.BaseUrl"));
             viewBag.AddValue("Code", code);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
  
@@ -40,6 +46,7 @@ namespace TalBrody.Util
             sendEmail(mandril, emailMessage);
         }
 
+        
         private static void sendEmail(MandrillApi mandril, EmailMessage emailMessage)
         {
             log.Info("Sending email to " + emailMessage.to);

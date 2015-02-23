@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Dynamic;
 using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 using System.Web.UI;
+using Castle.MicroKernel.Registration;
 using log4net;
 using log4net.Config;
-using log4net.Repository.Hierarchy;
-using System.Diagnostics;
 using System.Configuration;
 using TalBrody.Logic;
-using TalBrody.Entity;
+using TalBrody.Util;
 
 namespace TalBrody
 {
@@ -26,30 +20,18 @@ namespace TalBrody
 
         public static bool OnAppHarbor { get; private set; }
 
-        /// <summary>
-        /// Returns http://tal.apphb.com/ in production.
-        /// </summary>
-        public static string BaseUrl
-        {
-            get
-            {
-                var result = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
-                   HttpContext.Current.Request.ApplicationPath;
-
-                if (Global.OnAppHarbor)
-                {
-                    // Remove any ports on appharbor (we're behind a proxy)
-                    result = Regex.Replace(result, ":\\d+", "");
-                }
-
-                return result;
-            }
-        }
-
         protected void Application_Start(object sender, EventArgs e)
         {
             // Setup Dependnecy Injection
-            IOC.InitContainer();
+            IOC.InitContainer(container =>
+            {
+                container.Register(
+                    Component.For<IResourceResolver>()
+                        .Instance(new FileSystemResourceResolver(HttpContext.Current.Server.MapPath("~/"))));
+            });
+
+
+            ConfigurationManager.AppSettings.Add("Global.BaseUrl", CalcBaseUrl());
 
             // Set up a simple configuration that logs on the console.
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
@@ -73,6 +55,20 @@ namespace TalBrody
 				DbHandling dbhandling = new DbHandling();
                 dbhandling.UpgradeDbVerstion(DbVersion, CurrentDbVersion);
 			}
+        }
+
+        private string CalcBaseUrl()
+        {
+            var result = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
+                   HttpContext.Current.Request.ApplicationPath;
+
+            if (OnAppHarbor)
+            {
+                // Remove any ports on appharbor (we're behind a proxy)
+                result = Regex.Replace(result, ":\\d+", "");
+            }
+
+            return result;
         }
 
         protected void Session_Start(object sender, EventArgs e)

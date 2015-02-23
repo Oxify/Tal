@@ -450,6 +450,8 @@
     <Compile Include="Util\Crypto.cs" />
     <Compile Include="Util\Email.cs" />
     <Compile Include="Util\Http.cs" />
+    <Compile Include="Util\FileSystemResourceResolver.cs" />
+    <Compile Include="Util\IResourceResolver.cs" />
     <Compile Include="Util\Log.cs" />
     <Compile Include="Util\Loging.cs" />
     <Compile Include="Util\UserSession.cs" />
