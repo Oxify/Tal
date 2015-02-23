@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Castle.Windsor;
 using Mandrill;
 using TalBrody.Common;
 using TalBrody.DataLayer;
@@ -18,6 +19,11 @@ namespace TalBrody
     public partial class Register : System.Web.UI.Page
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        private WindsorContainer Container
+        {
+            get { return IOC.Container; }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +49,8 @@ namespace TalBrody
                 //TODO handel duplicate registration 
             }
 
-            user = Users.AddUser(emailStr, TxtPassword.Value, displayName.Value);
+            var users = Container.Resolve<Users>();
+            user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value);
 
             // TODO Remove (this is properly logged elsewhere)
             registerResultLabel.Text = string.Format("Created new user (email, name) = ({0}, {1})", emailStr, displayName);
@@ -58,10 +65,11 @@ namespace TalBrody
             if (Session["Usession"] != null)
             {
                 UserSession useastion = (UserSession)Session["Usession"];
-                User user = Users.FindUserByid(useastion.UserId);
+                UserDal dal = Container.Resolve<UserDal>();
+                User user = dal.FindUserByid(useastion.UserId);
                 user.Email = txtEmail.Value;
-                Users.UpdateUser(user);
-                var code = Users.GenerateUserRegistrationCode(user);
+                dal.UpdateUser(user);
+                var code = Container.Resolve<Users>().GenerateUserRegistrationCode(user);
                 new Email().SendRegistrationEmail(user, code);
                 ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '/Share.aspx'; </script>");
             }

@@ -1,34 +1,32 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TalBrody.Common;
-using TalBrody.DataLayer;
+using NUnit.Framework;
+using TalBrody;
 using TalBrody.Logic;
 using System.Text;
-using TalBrody.Util;
 
 namespace TalBrodyTests.DAL
 {
-    [TestClass]
+    [TestFixture]
     public class UsersTest
     {
         [Ignore("TODO Ron, fixing it")]
-        [TestMethod]
+        [Test]
         public void FindUserByEmailTest()
         {
             var email = RandomString(10) + "@mail.com";
             var password = "12344321";
             var displayName = "John Doe";
 
-            var users = new UserDal();
-            
+            var users = IOC.GetInstance<Users>();
+
             // Check user does not exist
-            Assert.IsFalse(Users.CheckUserPassword(email, password));
+            Assert.IsFalse(users.CheckUserPassword(email, password));
 
             // Create it
-            Users.AddUser(email, password, displayName);
+            users.AddUser(email, password, displayName);
 
             // Check it does exist
-            Assert.IsTrue(Users.CheckUserPassword(email, password));
+            Assert.IsTrue(users.CheckUserPassword(email, password));
         }
 
         #region Helpers

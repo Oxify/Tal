@@ -1,20 +1,22 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using TalBrody;
 using TalBrody.Entity;
 using TalBrody.Logic;
 
 namespace TalBrodyTests
 {
-    [TestClass]
+    [TestFixture]
     public class EmailConfirmCodeTest
     {
-        [TestMethod]
+        [Test]
         public void Sanity()
         {
-            User user = new User {Email = "muhamad@ali.com"};
-            var code = Users.GenerateUserRegistrationCode(user);
+            var users = IOC.GetInstance<Users>();
 
-            Users.IsValidRegistrationCode(code, user.Email);
+            User user = new User {Email = "muhamad@ali.com"};
+            var code = users.GenerateUserRegistrationCode(user);
+
+            users.IsValidRegistrationCode(code, user.Email);
         }
     }
 }

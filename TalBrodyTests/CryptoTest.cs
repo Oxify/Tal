@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using TalBrody.Util;
 
 namespace TalBrodyTests
 {
-    [TestClass]
+    [TestFixture]
     public class CryptoTest
     {
-        [TestMethod]
+        [Test]
         public void Sign()
         {
             var str =

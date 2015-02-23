@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
+using TalBrody.DataLayer;
+using TalBrody.Entity;
 using TalBrody.Logic;
 using TalBrody.Util;
 
@@ -16,7 +18,8 @@ namespace TalBrody.Common
             Usession.UserId = UserId;
             Usession.StartSession = DateTime.Now;
             Usession.PermissionList = Permissions.Get_All_Permission_By_UserId(UserId);
-            Usession.UserName = Users.FindUserByid(UserId).DisplayName;
+            UserDal dal = new UserDal();
+            Usession.UserName = dal.FindUserByid(UserId).DisplayName;
             HttpContext.Current.Session.Add("Usession", Usession);
         }
         public static byte[] CreateSalt()

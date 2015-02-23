@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Security;
 using DotNetOpenAuth.ApplicationBlock.Facebook;
+using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Util;
 
@@ -13,14 +14,18 @@ namespace TalBrody.Logic
 {
     public class FacebookAccess
     {
-        private static string ClientIdentifier;
-        private static string ClientSecret;
+        private readonly string ClientIdentifier;
+        private readonly string ClientSecret;
+        private readonly Users _users;
+        private readonly Email _email;
 
-        static FacebookAccess()
+        public FacebookAccess()
         {
             ClientIdentifier = ConfigurationManager.AppSettings["facebookAppID"];
             ClientSecret = ConfigurationManager.AppSettings["facebookAppSecret"];
 
+            _users = IOC.GetInstance<Users>(); // TODO move to ctor params
+            _email = IOC.GetInstance<Email>();
         }
 
 
@@ -33,33 +38,37 @@ namespace TalBrody.Logic
         }
 
 
-        public static Entity.User RegisterUser(string AccessToken)
+        public User RegisterUser(string AccessToken)
         {
             var data = GetUserData(AccessToken);
-            Entity.User id = null;
+            User user = null;
             if (data.Graph.EMail != null)
-                id = Users.FindUserByEmail(data.Graph.EMail);
+            {
+                UserDal _usersDal = new UserDal();
+                user = _usersDal.FindUserByEmail(data.Graph.EMail);
+            }
 
-            if (id == null)
+            if (user == null)
             {
                 // no id, new user!
-                id = new User();
-                PopulateUser(data, ref id);
-                id.Id = Users.CreateUserWithoutPassword(id);
-                if (id.Email != null)
+                user = new User();
+                PopulateUser(data, ref user);
+                user.Id = _users.CreateUserWithoutPassword(user);
+                if (user.Email != null)
                 {
-                    var code = Users.GenerateUserRegistrationCode(id);
-                    new Email().SendRegistrationEmail(id, code);
+                    var code = _users.GenerateUserRegistrationCode(user);
+                    _email.SendRegistrationEmail(user, code);
                 }
             }
             else
             {
                 // user already registered somehow, let's update the DB
-                PopulateUser(data, ref id);
-                Users.UpdateUser(id);
+                PopulateUser(data, ref user);
+                UserDal dal = new UserDal();
+                dal.UpdateUser(user);
             }
 
-            return id;
+            return user;
         }
 
         private static void PopulateUser(FacebookDetails details, ref Entity.User user)
@@ -129,7 +138,7 @@ namespace TalBrody.Logic
             return Result;
         }
 
-        public static string GetLongLivedToken(string ShortToken)
+        public string GetLongLivedToken(string ShortToken)
         {
             string Result = "";
 

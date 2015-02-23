@@ -9,6 +9,7 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Castle.Windsor;
 using log4net;
 using TalBrody.Common;
 using TalBrody.Logic;
@@ -18,6 +19,10 @@ namespace TalBrody
     public partial class Ajax : System.Web.UI.Page
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static WindsorContainer Container
+        {
+            get { return IOC.Container; }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,9 +65,10 @@ namespace TalBrody
             {
                 if (platform.ToUpper() == "FB")
                 {
-                    var User = FacebookAccess.RegisterUser(token);
-                    SessionUtil.AddUserToSession(User.Id);
-                    if (User.Email != null && User.Email.IndexOf('@') != -1)
+                    var facebookAccess = Container.Resolve<FacebookAccess>();
+                    var user = facebookAccess.RegisterUser(token);
+                    SessionUtil.AddUserToSession(user.Id);
+                    if (user.Email != null && user.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
                         result.NextStep = -1;

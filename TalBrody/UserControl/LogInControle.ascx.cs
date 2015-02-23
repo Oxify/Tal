@@ -1,4 +1,5 @@
-﻿using TalBrody.Common;
+﻿using Castle.Windsor;
+using TalBrody.Common;
 using TalBrody.DataLayer;
 using log4net;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Entity;
 using TalBrody.Logic;
 using TalBrody.Util;
 
@@ -15,6 +17,11 @@ namespace TalBrody.UserControl
 	public partial class LogInControle : System.Web.UI.UserControl
 	{
 		private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        private WindsorContainer Container
+        {
+            get { return IOC.Container; }
+        }
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -105,7 +112,8 @@ namespace TalBrody.UserControl
 				return 0;
 			}
 
-            if (Users.FindUserByEmail(email) != null)
+		    UserDal dal1 = new UserDal();
+		    if (dal1.FindUserByEmail(email) != null)
 			{
 				return 0;
 			}
@@ -138,10 +146,7 @@ namespace TalBrody.UserControl
 
 		public bool TryLogin(string email, string password)
 		{
-			return Users.CheckUserPassword(email, password);
-			//{
-			//	return Json(new { success = false, error = "Wrong email or password" });
-			//}			
+			return Container.Resolve<Users>().CheckUserPassword(email, password);
 		}
 
 		bool IsValidPassword(string password)

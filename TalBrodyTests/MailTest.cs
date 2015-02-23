@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Mandrill;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace TalBrodyTests
 {
-    [TestClass]
+    [TestFixture]
     public class MailTest
     {
-        [TestMethod]
+        [Test]
         public void EmailTest()
         {
             var api = new MandrillApi("J0BCtrmARKDInbkE0Xw3TQ");

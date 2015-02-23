@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -46,6 +48,8 @@ namespace TalBrody
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            // Setup Dependnecy Injection
+            IOC.InitContainer();
 
             // Set up a simple configuration that logs on the console.
             XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
