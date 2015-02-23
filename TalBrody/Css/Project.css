@@ -3,21 +3,24 @@
 }
 
 .jumbotron {
+    height: 100%;
     height: 100vh;
     background-color: white;
+    padding: 5px;
 }
 
 .jumbotron-header {
     /*background-color: pink;*/
-
     height: 100%;
     width: 100%;
     display: table;
 }
+
 .main-container {
     /*background-color: darkorange;*/
     display: table-row;
 }
+
 .the-rest {
     /*background-color: lightgreen;*/
     /*position: relative;*/
@@ -33,48 +36,48 @@
     vertical-align: central;
     width: 100%;
     margin-bottom: 105px;
-
 }
 
 .scroll-button-inner {
     position: relative;
 }
+
 #title {
     height: 100%;
-    position: relative;
+    overflow: hidden;
     /*background-color: lightgoldenrodyellow;*/
 }
 
-
-#title-content {
-    bottom: 0;
-    /*background-color: lightsalmon;*/
-}
 
 #cover-page {
     /*background-color: lightblue;*/
 }
 
+#title-div {
+    height: 100%;
+}
 
 .small_divider {
     width: 100%;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
     border-color: gray;
 }
 
 #title-video {
     /*background-color: yellow;*/
-
-    padding: 0;
+    /*padding-left: 0; moved to sm size only*/
 }
 
-#title {
-    /*background-color: green;*/
+#title-content {
+    padding-bottom: 0;
+    text-align: center;
 }
 
 .Description {
     display: block;
     text-align: center;
-    line-height: 30px;
 }
 
 
@@ -95,7 +98,7 @@
     content: '';
     background: url(../images/DownButton.png) no-repeat;
     border: none;
-    width: 0px;
+    width: 0;
     padding: 27px;
     margin-left: auto;
     margin-right: auto;
@@ -110,17 +113,17 @@
     }
 
 .flat-button {
-    font-family: 'Simple CLM', serif;
+    /*font-family: 'Simple CLM', serif;*/
     font-weight: bold;
     color: #ffffff;
-    font-size: 23px;
     background: #3498db;
-    padding: 10px 40px 10px 40px;
-    width: 63px;
-    height: 50px;
     text-decoration: none;
     border: 0;
     margin: 0 auto;
+    font-size: 15px;
+    padding: 5px 20px 5px 20px;
+    width: 63px;
+    height: 50px;
 }
 
     .flat-button:hover {
@@ -136,3 +139,106 @@
     margin-top: 10px;
 }
 
+
+.bottom-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.bottom-responsive-item {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 0;
+}
+
+.bottom-responsive-16by9 {
+    padding-top: 56.25%;
+    padding-bottom: 7%;
+}
+
+.bottom-responsive-4by3 {
+    padding-top: 75%;
+}
+
+
+
+
+
+/* Conditional attributes */
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+/* For col-sm-x */
+@media (min-width: 768px) {
+
+    .jumbotron {
+        padding: 50px 15px;
+    }
+
+    #main-row {
+        width: 768px;
+    }
+
+    .sm-bottom-responsive {
+        position: relative;
+        display: block;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .sm-bottom-responsive-item {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border: 0;
+    }
+
+    .sm-bottom-responsive-16by9 {
+        padding-top: 56.25%;
+        padding-bottom: 7%;
+    }
+
+    .sm-bottom-responsive-4by3 {
+        padding-top: 75%;
+    }
+
+    #title-video {
+        /*background-color: yellow;*/
+        padding-left: 0;
+    }
+
+    #title-content {
+        text-align: right;
+    }
+
+    .Description {
+        line-height: 30px;
+    }
+
+    .flat-button {
+        /*font-family: 'Simple CLM', serif;*/
+        font-size: 23px;
+        padding: 10px 40px 10px 40px;
+        width: 63px;
+        height: 50px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+/* For col-md-x */
+@media (min-width: 992px) {
+    /*#main-row {
+        width: 992px;
+    }*/
+}
+
+/* Large devices (large desktops, 1200px and up) */
+/* For col-lg-x */
+@media (min-width: 1200px) {
+}

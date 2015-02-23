@@ -10,13 +10,15 @@
             <div class="main-container">
                 <div class="container">
                     <div class="row" id="cover-page">
-                        <div class="col-xs-12 col-lg-8 col-lg-offset-2">
-                            <div class="row">
+                        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" >
+                            <div class="row" id="main-row">
                                 <div class="col-sm-6 col-xs-12" id="title">
-                                    <div id="title-content">
-                                        <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
-                                        <h3>ספר חדש ונוסטלגי</h3>
-                                        <h3>על "בית הבראה לצעצועים"</h3>
+                                    <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
+                                        <div class="sm-bottom-responsive-item" id="title-content">
+                                            <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
+                                            <h3>ספר חדש ונוסטלגי
+                                                <br/>על "בית הבראה לצעצועים"</h3>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-xs-12" id="title-video">
