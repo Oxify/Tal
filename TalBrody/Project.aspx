@@ -5,7 +5,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="jumbotron">
+    <div class="jumbotron first">
         <div class="jumbotron-header">
             <div class="main-container">
                 <div class="container">
@@ -50,6 +50,7 @@
                     </div>
                 </div>
             </div>
+            <div class="buffer"></div>
             <div class="the-rest">
                 <div class="scroll-button-wrapper">
                     <div class="scroll-button-inner">
