@@ -5,7 +5,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="jumbotron first">
+    <div class="jumbotron">
         <div class="jumbotron-header">
             <div class="main-container">
                 <div class="container">
@@ -60,20 +60,20 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+            <div class="last-row"></div>
         </div>
     </div>
 
 
 
     <div class="jumbotron" id="secondpage">
-        <div class="jumbotron-header" >
+        <div class="jumbotron-header">
             <div class="main-container">
                 <div class="container">
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                            <div class="row main-row" >
+                            <div class="row main-row">
                                 <div class="col-sm-6 col-xs-12" id="title">
                                     <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                         <div class="sm-bottom-responsive-item" id="title-content">
@@ -117,18 +117,20 @@
                 </div>
 
             </div>
+            <div class="last-row"></div>
+
         </div>
     </div>
     <div class="jumbotron" id="thirdpage">
         <div class="jumbotron-header">
             <div class="main-container">
                 <div class="container">
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                             <div class="row main-row">
-                                <div class="col-sm-6 col-xs-12" >
-                                    <div class="sm-bottom-responsive sm-bottom-responsive-16by9" >
-                                        <div class="sm-bottom-responsive-item" >
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="sm-bottom-responsive sm-bottom-responsive-16by9">
+                                        <div class="sm-bottom-responsive-item">
                                             <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
                                             <h3>ספר חדש ונוסטלגי
                                                 <br />
@@ -136,7 +138,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-xs-12" >
+                                <div class="col-sm-6 col-xs-12">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
                                     </div>
