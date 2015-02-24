@@ -10,14 +10,15 @@
             <div class="main-container">
                 <div class="container">
                     <div class="row" id="cover-page">
-                        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" >
-                            <div class="row" id="main-row">
+                        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                            <div class="row main-row">
                                 <div class="col-sm-6 col-xs-12" id="title">
                                     <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                         <div class="sm-bottom-responsive-item" id="title-content">
                                             <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
                                             <h3>ספר חדש ונוסטלגי
-                                                <br/>על "בית הבראה לצעצועים"</h3>
+                                                <br />
+                                                על "בית הבראה לצעצועים"</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -66,14 +67,109 @@
 
 
 
-    <div class="jumbotron">
-        <div class="container ">
+    <div class="jumbotron" id="secondpage">
+        <div class="jumbotron-header" >
+            <div class="main-container">
+                <div class="container">
+                    <div class="row" >
+                        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                            <div class="row main-row" >
+                                <div class="col-sm-6 col-xs-12" id="title">
+                                    <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
+                                        <div class="sm-bottom-responsive-item" id="title-content">
+                                            <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
+                                            <h3>ספר חדש ונוסטלגי
+                                                <br />
+                                                על "בית הבראה לצעצועים"</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
+                                    </div>
+                                </div>
 
-            <div class="row" id="second-page" style="height: 100%">
-                <div class="col-md-6">
-                    <h4>more things</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <hr class="small_divider" />
+                                    <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
+					<br />
+                                        <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b><br />
+                                        לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
+                                        לפרוייקט, אותם תוכלו לממש בקמפיין.
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="buffer"></div>
+            <div class="the-rest">
+                <div class="scroll-button-wrapper">
+                    <div class="scroll-button-inner">
+                        <div class="scroll-button-div">
+                            <a href="#" class='ScrollButton' data-goto="thirdpage"></a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+    <div class="jumbotron" id="thirdpage">
+        <div class="jumbotron-header">
+            <div class="main-container">
+                <div class="container">
+                    <div class="row" >
+                        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                            <div class="row main-row">
+                                <div class="col-sm-6 col-xs-12" >
+                                    <div class="sm-bottom-responsive sm-bottom-responsive-16by9" >
+                                        <div class="sm-bottom-responsive-item" >
+                                            <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
+                                            <h3>ספר חדש ונוסטלגי
+                                                <br />
+                                                על "בית הבראה לצעצועים"</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12" >
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <hr class="small_divider" />
+                                    <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
+					<br />
+                                        <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b><br />
+                                        לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
+                                        לפרוייקט, אותם תוכלו לממש בקמפיין.
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="register-button-div">
+                                        <a class="flat-button" id="BtnRegister" onclick="ShowRegister()">להרשמה</a><br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buffer"></div>
+            <div class="the-rest">
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="JavaScript/Cover.js"> </script>
 </asp:Content>
