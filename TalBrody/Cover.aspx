@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="right_side">
-                            <iframe class="video" src="https://www.youtube.com/embed/_urBx5_3lNY" frameborder="0" allowfullscreen></iframe>
+                            <iframe class="video" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
                     <hr class="small_divider" />
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="right_side_second">
-                            <iframe class="video" src="https://www.youtube.com/embed/_urBx5_3lNY" frameborder="0" allowfullscreen></iframe>
+                            <iframe class="video" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
 

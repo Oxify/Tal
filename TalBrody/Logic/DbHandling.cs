@@ -98,7 +98,7 @@ namespace TalBrody.Logic
 
             string Query = "CREATE TABLE [Friends] (  [Id] int IDENTITY (1,1) NOT NULL" +
                             ", [Userid  ] int NOT NULL, [FriendId ] nvarchar(100) NOT NULL,[platform] int null" +
-                            ", [createdate ] datetime DEFAULT getdate()  NULL),CONSTRAINT [PK_Friends] PRIMARY KEY ([Id]);";
+                            ", [createdate ] datetime DEFAULT getdate()  NULL,CONSTRAINT [PK_Friends] PRIMARY KEY ([Id]));";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);
 
@@ -182,7 +182,7 @@ namespace TalBrody.Logic
         {
             DropIfExists("Followers");
 
-            string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL, [CreatedDate] datetime DEFAULT getdate() NULL,[FollowerGuid] [nvarchar](100) NUL,FollowerCount [int] DEFAULT 0 NULL";
+            string Query = "CREATE TABLE [Followers](	[Id] [int] IDENTITY(1,1) NOT NULL,	[ProjectId] [int] NOT NULL,	[UserId] [int] NOT NULL, [CreatedDate] datetime DEFAULT getdate() NULL,[FollowerGuid] [nvarchar](100) NULL,FollowerCount [int] DEFAULT 0 NULL,";
             Query = Query + "CONSTRAINT [PK_Followers] PRIMARY KEY  ([Id] )) ";
             BdHandlingDal dal = new BdHandlingDal();
             dal.ExcuteDbCommand(Query);

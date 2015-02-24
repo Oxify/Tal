@@ -64,9 +64,9 @@ namespace TalBrody
         private void CheckPermissions()
         {
             // TODO make this relevant. right now it only kicks everyone out unless it's the cover page
-            return;
+            //return;
 
-            string s = Request.FilePath;
+            string s = Request.PhysicalPath;
             if (Session["Usession"] != null)
             {
                 var usession = (UserSession)Session["Usession"];
@@ -77,17 +77,15 @@ namespace TalBrody
                 }
                 else
                 {
-                    int ProjectId = -1;
-                    if (Request.QueryString["ProjectId"] != null)
-                        int.TryParse(Request.QueryString["ProjectId"] ,out ProjectId);
+                    int ProjectId = usession.CurrentProjectId;                   
                     if (usession.PermissionList.Exists(o => o.ProjectId == ProjectId && (o.PermisstionId == (int)PermisstionEnum.ProjectAdmin || o.PermisstionId == (int)PermisstionEnum.ProjectOwner)))//  check if the user is projectadmin
                         HypEditProject.Visible = true;
                     
                 }
             }
             else
-            { 
-                if (s.IndexOf("Cover.aspx", System.StringComparison.Ordinal) == -1)
+            {
+                if (s.IndexOf("EditProject.aspx", System.StringComparison.Ordinal) != -1 || s.IndexOf("SiteAdmin.aspx", System.StringComparison.Ordinal) != -1)
                 {
                     const string message = "You do not have authorization to this page !!";
                     // TODO - do something secure here

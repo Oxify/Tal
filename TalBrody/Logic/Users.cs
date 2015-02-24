@@ -17,6 +17,12 @@ namespace TalBrody.Logic
 	        _emailConfirmDal = emailConfirmDal;
 	    }
 
+        public Users()
+        {
+            _userDal = new UserDal();
+            _emailConfirmDal = new EmailConfirmDal();
+        }
+
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 	    private readonly UserDal _userDal;
 	    private readonly EmailConfirmDal _emailConfirmDal;
