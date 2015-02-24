@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="col-sm-6 col-xs-12" id="title-video">
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY"></iframe>
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
                                     </div>
                                 </div>
 
@@ -67,7 +67,7 @@
 
 
     <div class="jumbotron">
-        <div class="container-fluid ">
+        <div class="container ">
 
             <div class="row" id="second-page" style="height: 100%">
                 <div class="col-md-6">
