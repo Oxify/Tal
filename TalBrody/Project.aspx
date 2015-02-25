@@ -136,7 +136,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-xs-6">
+                                <div class="col-sm-4 col-xs-12">
                                     <div class="flat-box">
                                         <div class="share-title">שתפו עם חברים</div>
                                         <div class="share-buttons">

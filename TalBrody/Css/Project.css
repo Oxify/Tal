@@ -468,6 +468,10 @@
     .sm-bottom-responsive-16by9 {
         padding-bottom: 7%;
     }
+
+    .whatsapp-box {
+        display: inline-block;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
