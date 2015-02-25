@@ -41,6 +41,7 @@
     display: table-row;
     height: 40px;
 }
+
 .scroll-button-wrapper {
     /*background-color: aqua;*/
     /*position: absolute;
@@ -179,6 +180,173 @@
 }
 
 
+#thirdpage {
+    height: 100%;
+}
+
+.share-title {
+    text-align: center;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.share-box {
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    margin: auto auto auto auto;
+}
+
+.share-buttons {
+    text-align: center;
+    vertical-align: central;
+    font-size: 32px;
+    color: black;
+
+}
+
+.flat-box {
+    text-align: center;
+    height: 60px;
+    width: 190px;
+    margin: 15px auto 0 auto;
+}
+
+.flat-box-title {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.flat-box-description {
+    font-size: 14px;
+}
+
+
+.flat-box-right {
+    width: 35px;
+    display: inline-block;
+    height: 100%;
+    padding-top: 15px;
+}
+
+.flat-box-left {
+    display: inline-block;
+    width: 130px;
+}
+
+.blue {
+    background-color: #3498db;
+    color: white;
+}
+
+.inverse-blue {
+    background-color: white;
+    color: #3498db;
+}
+
+.grey {
+    background-color: #dadada;
+    color: #312783;
+}
+
+.inverse-grey {
+    background-color: #312783;
+    color: #dadada;
+}
+
+.circle-text {
+    width: 30px;
+    background-color: #3498db;
+    display: inline-block;
+    font-size: 20px;
+}
+
+    .circle-text:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        background: white;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    .circle-text div, .circle-text span {
+        float: left;
+        width: 100%;
+        padding-top: 50%;
+        line-height: 1em;
+        margin-top: -0.5em;
+        text-align: center;
+    }
+
+
+.circle-blue {
+    width: 30px;
+    background-color: #3498db;
+    display: inline-block;
+    font-size: 20px;
+}
+
+    .circle-blue:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        background: white;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    .circle-blue div, .circle-blue span {
+        float: left;
+        width: 100%;
+        padding-top: 50%;
+        line-height: 1em;
+        margin-top: -0.5em;
+        text-align: center;
+        color: #3498db;
+    }
+
+
+.circle-grey {
+    width: 30px;
+    background-color: #dadada;
+    display: inline-block;
+    font-size: 20px;
+}
+
+    .circle-grey:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        background: #312783;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    .circle-grey div, .circle-grey span {
+        float: left;
+        width: 100%;
+        padding-top: 50%;
+        line-height: 1em;
+        margin-top: -0.5em;
+        text-align: center;
+        color: #dadada;
+    }
+
 
 
 
@@ -255,5 +423,4 @@
 /* Large devices (large desktops, 1200px and up) */
 /* For col-lg-x */
 @media (min-width: 1200px) {
-
 }
