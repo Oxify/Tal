@@ -94,6 +94,14 @@
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
                                     </div>
+                                    <div>
+                                        <div class="coming-soon">
+                                            <div class="coming-soon-text">
+                                                הקמפיין יתחיל בשבועות הקרובים
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -146,7 +154,7 @@
                                             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.oxify.co/test" data-size="large" data-count="vertical">צייץ</a>
                                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                                         </div>--%>
-                                            <div class="share-box whatsapp-box whatsapp-color"><a href="whatsapp://send?text=oxify.co/code" data-action="share/whatsapp/share"><i class="fa fa-whatsapp whatsapp-color"></i></a></div>
+                                            <div class="share-box whatsapp-box whatsapp-color"><a href="whatsapp://send?text=oxify.co/code" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a></div>
                                             <div class="share-box email-color"><i class="fa fa-envelope-o "></i></div>
                                         </div>
                                     </div>
