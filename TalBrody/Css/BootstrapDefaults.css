@@ -31,15 +31,18 @@ h6,
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 50px;
-    background-color: lightgray;
+    height: 30px;
+    background-color: #dddddd;
 }
 
 /* navbar */
 .navbar-custom {
-    background-color: lightgray;
+    background-color: #dddddd;
     color: #ffffff;
     border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    height: 40px;
 }
 
 
