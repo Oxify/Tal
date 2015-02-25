@@ -355,31 +355,46 @@
 
 
 
-.facebook-color,
-.twitter-color,
-.whatsapp-color,
-.email-color {
-    color: black;
+
+.facebook-color {
+    color: #3b5998;
+    background-color: white;
 }
 
     .facebook-color:hover {
-        color: #3b5998;
-  
+        color: white;
+        background-color: #3b5998;
     }
+
+.twitter-color {
+    color: #55acee;
+    background-color: white;
+}
 
     .twitter-color:hover {
-        color: #55acee;
+        color: white;
+        background-color: #55acee;
     }
 
-
-
-.whatsapp-color:hover {
+.whatsapp-color {
+    background-color: white;
     color: #0dc143;
 }
 
-.email-color:hover {
+    .whatsapp-color:hover {
+        background-color: #0dc143;
+        color: white;
+    }
+
+.email-color {
     color: #D64A38;
+    background-color: white;
 }
+
+    .email-color:hover {
+        background-color: #D64A38;
+        color: white;
+    }
 
 .whatsapp-box {
     display: none;
