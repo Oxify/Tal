@@ -199,14 +199,20 @@
     border-color: black;
     border-style: solid;
     margin: auto auto auto auto;
+    color: black;
 }
+
+    .share-box:active,
+    .share-box:visited,
+    .share-box:link {
+        color: black;
+    }
 
 .share-buttons {
     text-align: center;
     vertical-align: central;
     font-size: 32px;
     color: black;
-
 }
 
 .flat-box {
@@ -349,6 +355,35 @@
 
 
 
+.facebook-color,
+.twitter-color,
+.whatsapp-color,
+.email-color {
+    color: black;
+}
+
+    .facebook-color:hover {
+        color: #3b5998;
+  
+    }
+
+    .twitter-color:hover {
+        color: #55acee;
+    }
+
+
+
+.whatsapp-color:hover {
+    color: #0dc143;
+}
+
+.email-color:hover {
+    color: #D64A38;
+}
+
+.whatsapp-box {
+    display: none;
+}
 
 /* Conditional attributes */
 /* Extra small devices (phones, less than 768px) */
