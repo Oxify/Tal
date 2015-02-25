@@ -242,7 +242,7 @@
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Social.png" />
     <Content Include="Images\VerySmallLogo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
