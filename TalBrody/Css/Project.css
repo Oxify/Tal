@@ -396,9 +396,7 @@
         color: white;
     }
 
-.whatsapp-box {
-    display: none;
-}
+
 
 /* Conditional attributes */
 /* Extra small devices (phones, less than 768px) */
@@ -470,7 +468,7 @@
     }
 
     .whatsapp-box {
-        display: inline-block;
+        display: none;
     }
 }
 
