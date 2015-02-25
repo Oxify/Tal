@@ -17,7 +17,7 @@
     height: 100%;
     width: 100%;
     display: table;
-    padding: 90px 5px 0 5px;
+    padding: 60px 5px 0 5px;
 }
 
 .main-container {
@@ -90,11 +90,33 @@
     text-align: center;
 }
 
+    #title-content h3 {
+        margin-top: 0px;
+    }
+
+#title-video {
+    margin-top: 5px;
+}
+
 .Description {
     display: block;
     text-align: center;
 }
 
+
+.scroll-icon-wrapper {
+    text-align: center;
+}
+
+.scroll-icon {
+    font-size: 40px;
+    color: #3498db;
+    background-color: white;
+}
+
+    .scroll-icon:hover {
+        color: #3b5998;
+    }
 
 .scroll-button-div {
     /*background-color: orange;*/
@@ -208,11 +230,16 @@
         color: black;
     }
 
+
 .share-buttons {
     text-align: center;
     vertical-align: central;
     font-size: 32px;
     color: black;
+}
+
+.whatsapp-box {
+    display: inline-block;
 }
 
 .coming-soon {
@@ -394,12 +421,15 @@
 .whatsapp-color {
     background-color: white;
     color: #0dc143;
+    margin-top: -5px;
 }
 
     .whatsapp-color:hover {
         background-color: #0dc143;
         color: white;
     }
+
+
 
 .email-color {
     color: #D64A38;
@@ -472,6 +502,14 @@
         padding: 10px 40px 10px 40px;
         width: 63px;
         height: 50px;
+    }
+
+    .register-button-div {
+        margin-top: 38px;
+    }
+
+    .last-row {
+        height: 240px;
     }
 }
 

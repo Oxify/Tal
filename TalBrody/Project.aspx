@@ -24,20 +24,31 @@
                                 </div>
                                 <div class="col-sm-6 col-xs-12" id="title-video">
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent&showinfo=0"></iframe>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <hr class="small_divider" />
-                                    <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
+                                    <div class="visible-xs">
+
+                                        <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
+				
+                                            <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b>
+                                            לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם
+                                            לפרוייקט, אותם תוכלו לממש בקמפיין.
+                                        </h4>
+                                    </div>
+                                    <div class="hidden-xs">
+                                        <hr class="small_divider" />
+                                        <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
 					<br />
-                                        <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b><br />
-                                        לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
-                                        לפרוייקט, אותם תוכלו לממש בקמפיין.
-                                    </h4>
+                                            <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b><br />
+                                            לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
+                                            לפרוייקט, אותם תוכלו לממש בקמפיין.
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -53,12 +64,8 @@
             </div>
             <div class="buffer"></div>
             <div class="the-rest">
-                <div class="scroll-button-wrapper">
-                    <div class="scroll-button-inner">
-                        <div class="scroll-button-div">
-                            <a href="#" class='ScrollButton' data-goto="secondpage"></a>
-                        </div>
-                    </div>
+                <div class="scroll-icon-wrapper">
+                    <a href="#" class='scroll-icon' data-goto="secondpage"><i class="fa fa-arrow-circle-down"></i></a>
                 </div>
             </div>
             <div class="last-row"></div>
@@ -75,24 +82,18 @@
                         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                             <div class="row main-row">
                                 <div class="col-sm-6 col-xs-12">
-                                    <div>
-                                        <div>
-                                            <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
-                                            <h3>הספר על "בית ההבראה לצעצועים"</h3>
-                                            <h4>"עודני ילד" הוא ספר חדש מאת חגי מרום.
+                                    <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
+                                    <h3>הספר על "בית ההבראה לצעצועים"</h3>
+                                    <h4>"עודני ילד" הוא ספר חדש מאת חגי מרום.
                                                 <br />
-                                                הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.<br />
-                                                הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.<br />
-                                                בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h4>
-                                            <br />
-                                        </div>
-
-
-                                    </div>
+                                        הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.<br />
+                                        הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.<br />
+                                        בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h4>
+                                    <br />
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent&showinfo=0"></iframe>
                                     </div>
                                     <div>
                                         <div class="coming-soon">
@@ -111,7 +112,7 @@
                                         <div class="flat-box-right">
                                             <div class="circle-blue ">
                                                 <div>
-                                                    <i class="fa fa-money"></i>
+                                                    <i class="fa fa-ils"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +131,7 @@
                                         <div class="flat-box-right">
                                             <div class="circle-grey ">
                                                 <div>
-                                                    <i class="fa fa-users"></i>
+                                                    <i class="fa fa-male"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,14 +149,14 @@
                                     <div class="flat-box">
                                         <div class="share-title">שתפו עם חברים</div>
                                         <div class="share-buttons">
-                                            <div class="share-box facebook-color"><i class="fa fa-facebook"></i></div>
-                                            <div class="share-box twitter-color"><i class="fa fa-twitter "></i></div>
-                                            <%--                                        <div class="share-box">
-                                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.oxify.co/test" data-size="large" data-count="vertical">צייץ</a>
-                                            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
-                                        </div>--%>
-                                            <div class="share-box whatsapp-box whatsapp-color"><a href="whatsapp://send?text=oxify.co/code" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a></div>
-                                            <div class="share-box email-color"><i class="fa fa-envelope-o "></i></div>
+                                            <a href="facebook sharer"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
+                                            <a href="twitter sharer"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
+                                            <div class="whatsapp-box">
+                                                <a href="whatsapp://send?text=oxify.co/code" data-action="share/whatsapp/share"><span class="share-box whatsapp-color"><i class="fa fa-whatsapp"></i></span></a>
+                                            </div>
+                                            <a href="emailto:..."><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
+                                            </a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -204,31 +205,42 @@
 
                             </div>
                             <div class="row">
-                                <div class="col-xs-12">
-                                    <hr class="small_divider" />
-                                    <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
+                                <div class="col-xs-12 ">
+                                    <div class="hidden-xs">
+                                        <hr class="small_divider" />
+                                        <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
 					<br />
-                                        <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b><br />
-                                        לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
-                                        לפרוייקט, אותם תוכלו לממש בקמפיין.
-                                    </h4>
+                                            <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b><br />
+                                            לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
+                                            לפרוייקט, אותם תוכלו לממש בקמפיין.
+                                        </h4>
+                                    </div>
+                                    <div class="visible-xs">
+                                        <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
+                                        <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b>
+                                            לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
+                                            לפרוייקט, אותם תוכלו לממש בקמפיין.
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="register-button-div">
-                                        <a class="flat-button" id="BtnRegister" onclick="ShowRegister()">להרשמה</a><br />
-                                    </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="register-button-div">
+                                    <a class="flat-button" id="BtnRegister" onclick="ShowRegister()">להרשמה</a><br />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="buffer"></div>
-            <div class="the-rest">
-            </div>
         </div>
+        <div class="buffer"></div>
+        <div class="the-rest">
+        </div>
+    </div>
     </div>
 
     <script type="text/javascript" src="JavaScript/Cover.js"> </script>

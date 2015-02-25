@@ -15,7 +15,7 @@ namespace TalBrody.DataLayer
             
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select Id, UserId, ProjectId, PermisstionName" +
+                var cmd = GetCommand("select * " +
                                      " from Permissions where UserId = @UserId", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@UserId", UserId);

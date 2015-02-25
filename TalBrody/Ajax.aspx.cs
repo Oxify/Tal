@@ -92,8 +92,9 @@ namespace TalBrody
                 SessionUtil.AddUserToSession(UserId);
                 result = 1;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                log.Error(ex);
 
                 throw;
             }
