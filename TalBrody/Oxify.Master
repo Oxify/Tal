@@ -48,9 +48,26 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dialog").hide();
+           
             CheckCookie();
-
+            CheckbuttonShow()
         });
+
+        function CheckbuttonShow()
+        {
+            
+            var LogInFlag = '<%= LogInFlag%>';
+            if (LogInFlag != "False")
+            {
+                $('#BtnConect').hide();
+                $('#BtnLogOff').show();
+            }
+            else
+            {
+                $('#BtnConect').show();
+                $('#BtnLogOff').hide();
+            }
+        }
 
         function CheckCookie() {
         
@@ -150,8 +167,8 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <button type="button" class="btn btn-default navbar-btn" onclick="ShowLogin();">התחבר</button>
-                    <button type="button" class="btn btn-default navbar-btn" onclick="LogOut();">התנתק</button>
+                    <button type="button" class="btn btn-default navbar-btn" id="BtnConect" onclick="ShowLogin();">התחבר</button>
+                    <button type="button" class="btn btn-default navbar-btn" id="BtnLogOff" onclick="LogOut();">התנתק</button>
                     <button type="button" class="btn btn-default navbar-btn"  runat="server" onclick="LogOut();">Forget Password</button>
                     <button type="button" class="btn btn-default navbar-btn" runat="server" visible="false" onclick="LogOut();">Change Password</button>
                     <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
