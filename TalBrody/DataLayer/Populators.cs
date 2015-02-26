@@ -17,7 +17,7 @@ namespace TalBrody.DataLayer
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId"),
                 FollowerGuid = dr.GetValue<string>("FollowerGuid"),
-			   
+                ReferByUserId = dr.GetValue<int>("ReferByUserId"),
 			};
 		}
 
@@ -30,6 +30,7 @@ namespace TalBrody.DataLayer
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId"),
                 FollowerGuid = dr.GetValue<string>("FollowerGuid"),
+                ReferByUserId = dr.GetValue<int>("ReferByUserId"),
 			};
 		}
 

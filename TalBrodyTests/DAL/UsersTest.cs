@@ -15,14 +15,14 @@ namespace TalBrodyTests.DAL
             var email = RandomString(10) + "@mail.com";
             var password = "12344321";
             var displayName = "John Doe";
-
+            var UserRefId = 1; 
             var users = IOC.GetInstance<Users>();
 
             // Check user does not exist
             Assert.IsFalse(users.CheckUserPassword(email, password));
 
             // Create it
-            users.AddUser(email, password, displayName);
+            users.AddUser(email, password, displayName, UserRefId);
 
             // Check it does exist
             Assert.IsTrue(users.CheckUserPassword(email, password));

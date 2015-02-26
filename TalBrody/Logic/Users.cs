@@ -9,13 +9,13 @@ using TalBrody.Util;
 
 namespace TalBrody.Logic
 {
-	public class Users
-	{
-	    public Users(UserDal userDal, EmailConfirmDal emailConfirmDal)
-	    {
-	        _userDal = userDal;
-	        _emailConfirmDal = emailConfirmDal;
-	    }
+    public class Users
+    {
+        public Users(UserDal userDal, EmailConfirmDal emailConfirmDal)
+        {
+            _userDal = userDal;
+            _emailConfirmDal = emailConfirmDal;
+        }
 
         public Users()
         {
@@ -24,28 +24,32 @@ namespace TalBrody.Logic
         }
 
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-	    private readonly UserDal _userDal;
-	    private readonly EmailConfirmDal _emailConfirmDal;
+        private readonly UserDal _userDal;
+        private readonly EmailConfirmDal _emailConfirmDal;
 
-	    public User AddUser(string emailStr, string password, string displayNameA)
+        public User AddUser(string emailStr, string password, string displayNameA, int RefUserId)
         {
             log.Info(String.Format("Creating new user (email, name) = ({0}, {1})", emailStr, displayNameA));
 
             // Create User
-	        var salt = SessionUtil.CreateSalt();
+            var salt = SessionUtil.CreateSalt();
             var hashed = SessionUtil.Hash(password, salt);
             var referralCode = UUIDCreator.Create(8);
             _userDal.CreateUser(emailStr, password, hashed, salt, referralCode);
 
             // Update with display name (TODO - no need for a separate update)
-	        var user = _userDal.FindUserByEmail(emailStr);
+            var user = _userDal.FindUserByEmail(emailStr);
             user.DisplayName = displayNameA;
-	        UserDal dal1 = new UserDal();
-	        dal1.UpdateUser(user);
+            UserDal dal1 = new UserDal();
+            dal1.UpdateUser(user);
 
             // Send registration email
-	        var code = GenerateUserRegistrationCode(user);
+            var code = GenerateUserRegistrationCode(user);
             IOC.GetInstance<Email>().SendRegistrationEmail(user, code);
+
+            // add folower to th project 
+            if (RefUserId > 0)
+                Followers.Insert_Follwer(1, user.Id, RefUserId);
 
             return user;
         }
@@ -60,11 +64,11 @@ namespace TalBrody.Logic
             int UserId = _userDal.CreateUser(user);
             user.Id = UserId;
             //dal.UpdateUser(user);
-           
+
             return UserId;
         }
 
-	    public bool CheckUserPassword(string email, string password)
+        public bool CheckUserPassword(string email, string password)
         {
             var user = _userDal.FindUserByEmail(email);
             if (user == null)
@@ -81,32 +85,32 @@ namespace TalBrody.Logic
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-	    public string GenerateUserRegistrationCode(User user)
+        public string GenerateUserRegistrationCode(User user)
         {
             var code = UUIDCreator.Create(8);
             _emailConfirmDal.StoreConfirmCode(code, user.Email);
             return code;
         }
 
-	    public bool IsValidRegistrationCode(string code, string email)
-	    {
+        public bool IsValidRegistrationCode(string code, string email)
+        {
             var storedCode = _emailConfirmDal.FindConfirmCode(code, email);
             return storedCode != null;
-	    }
+        }
 
-	    public static string GetUserContext(int userId)
-	    {
-	        return userId.ToString();
-	    }
+        public static string GetUserContext(int userId)
+        {
+            return userId.ToString();
+        }
 
-	    public static string GetUserContext(User user)
-	    {
-	        return GetUserContext(user.Id);
-	    }
+        public static string GetUserContext(User user)
+        {
+            return GetUserContext(user.Id);
+        }
 
-	    public static int SetUserContext(string context)
-	    {
-	        return Int32.Parse(context);
-	    }
-	}
+        public static int SetUserContext(string context)
+        {
+            return Int32.Parse(context);
+        }
+    }
 }

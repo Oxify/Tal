@@ -102,6 +102,7 @@ namespace TalBrody.UserControl
 
 		}
 
+        /*
 		public int Register(string email, string password)
 		{
 			if (!IsValidEmail(email))
@@ -121,15 +122,16 @@ namespace TalBrody.UserControl
 			}
 
 		    int UserId = 0;
-		    var salt = SessionUtil.CreateSalt();
-		    var hashed = SessionUtil.Hash(password, salt);
-		    UserDal dal = new UserDal();
+		   
+            Users users = new Users();
 		    string referralCode = UUIDCreator.Create(8);
-		    UserId = dal.CreateUser(email, password, hashed, salt, referralCode);
+            UserId = users.AddUser(email, password, txt ,0);
 
 		    return UserId;
 		}
 
+         * 
+         */
 		public string CreateAccount(string email)
 		{
 			if (string.IsNullOrEmpty(email))

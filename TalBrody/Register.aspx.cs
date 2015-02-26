@@ -50,7 +50,10 @@ namespace TalBrody
             }
 
             var users = Container.Resolve<Users>();
-            user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value);
+            int UserRefId = 0;
+            if (Session["UserRefId"] != null)
+                UserRefId = (int)Session["UserRefId"];
+                user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value, UserRefId);
 
             // TODO Remove (this is properly logged elsewhere)
             registerResultLabel.Text = string.Format("Created new user (email, name) = ({0}, {1})", emailStr, displayName);

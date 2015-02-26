@@ -9,11 +9,14 @@ namespace TalBrody.Util
     {
         public static string Create(int length)
         {
-            if (length > 8)
-            {
-                throw new ArgumentException("I'm lazy, length > 8 not yet supported (GUIDs look like 12345678-something-something");
-            }
-            return Guid.NewGuid().ToString().Substring(0, 8);
+            Guid g = Guid.NewGuid();
+            string GuidString = Convert.ToBase64String(g.ToByteArray());
+            GuidString = GuidString.Replace("=", "");
+            GuidString = GuidString.Replace("+", "");
+            if (length == -1)
+                return GuidString;
+            else
+                return GuidString.Substring(0, length);
         }
     }
 }

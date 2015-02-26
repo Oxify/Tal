@@ -13,6 +13,7 @@ using Castle.Windsor;
 using log4net;
 using TalBrody.Common;
 using TalBrody.Logic;
+using TalBrody.Entity;
 
 namespace TalBrody
 {
@@ -84,15 +85,31 @@ namespace TalBrody
             RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
+                User user = null; 
                 if (platform.ToUpper() == "FB")
                 {
                     var facebookAccess = Container.Resolve<FacebookAccess>();
-                    var user = facebookAccess.RegisterUser(token);
+                    user = facebookAccess.RegisterUser(token);
                     SessionUtil.AddUserToSession(user.Id);
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
                         result.NextStep = -1;
+                }
+                if (user != null)
+                {
+
+                    List<Follower> fololist = Followers.Get_Follower_by_Project(1);
+                    if (!fololist.Exists(o => o.UserId == user.Id))
+                    {
+                        int UserRefId = 0;
+                        if (HttpContext.Current.Session["UserRefId"] != null)
+                        {
+                            UserRefId = (int)HttpContext.Current.Session["UserRefId"];
+
+                        }
+                        Followers.Insert_Follwer(1, user.Id, UserRefId);
+                    }
                 }
             }
             catch (Exception)

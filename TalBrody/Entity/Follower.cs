@@ -15,6 +15,8 @@ namespace TalBrody.Entity
         public string FollowerGuid { get; set; }
 
         public int FollowerCount { get; set; }
+
+        public int ReferByUserId { get; set; }
 		
 	}
 }
