@@ -50,6 +50,11 @@ namespace TalBrody.Logic
             return user;
         }
 
+        public User FindUserByEmail(string email)
+        {
+            return _userDal.FindUserByEmail(email);
+        }
+
         public int CreateUserWithoutPassword(User user)
         {
             int UserId = _userDal.CreateUser(user);

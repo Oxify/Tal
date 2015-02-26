@@ -30,6 +30,7 @@ namespace TalBrody.UserControl
 
 		protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
 		{
+            /*
 			log.Info(String.Format("Gotting authenticate request (%s, %s)", Login1.UserName, Login1.Password));
 
 			try
@@ -49,6 +50,7 @@ namespace TalBrody.UserControl
 
 				throw;
 			}
+             * */
 		}
 
 		protected void loginButton_Click(object sender, EventArgs e)

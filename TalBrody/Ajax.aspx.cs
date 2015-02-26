@@ -41,6 +41,27 @@ namespace TalBrody
 
         }
 
+
+        [WebMethod(EnableSession = true)]
+        public static string LogInCheck(string UserName, string Password)
+        {
+            string result = "0";
+            Users u = new Users();
+            if (u.CheckUserPassword(UserName, Password))
+            {
+                SessionUtil.AddUserToSession(u.FindUserByEmail(UserName).Id);
+                result = "1";
+            }
+            else
+            {
+                // LblMessage.Visible = true;
+                // LblMessage.Text = "User name or Password is Incurect";
+            }
+
+            return result;
+
+        }
+
         [ScriptMethod(UseHttpGet = true)]
         [WebMethod(EnableSession = false)]
         public static string Test(bool throwException)
