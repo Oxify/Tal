@@ -33,10 +33,10 @@
                                 <div class="col-xs-12">
                                     <div class="visible-xs">
 
-                                      <h3 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
+                                        <h3 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
 					
                                             <b>הירשמו ותוכלו לזכות בהטבות מיוחדות.</b>
-     ביחד, נוציא את הספר לאור.
+                                            ביחד, נוציא את הספר לאור.
                                         </h3>
                                     </div>
                                     <div class="hidden-xs">
@@ -44,7 +44,7 @@
                                         <h3 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
 					<br />
                                             <b>הירשמו ותוכלו לזכות בהטבות מיוחדות.</b><br />
-     ביחד, נוציא את הספר לאור.
+                                            ביחד, נוציא את הספר לאור.
                                         </h3>
                                     </div>
                                 </div>
@@ -165,14 +165,9 @@
             </div>
             <div class="buffer"></div>
             <div class="the-rest">
-                <div class="scroll-button-wrapper">
-                    <div class="scroll-button-inner">
-                        <div class="scroll-button-div">
-                            <a href="#" class='ScrollButton' data-goto="thirdpage"></a>
-                        </div>
-                    </div>
+               <div class="scroll-icon-wrapper">
+                    <a href="#" class='scroll-icon' data-goto="thirdpage"><i class="fa fa-arrow-circle-down"></i></a>
                 </div>
-
             </div>
             <div class="last-row"></div>
 
@@ -239,7 +234,7 @@
         <div class="the-rest">
         </div>
     </div>
-    </div>
 
-    <script type="text/javascript" src="JavaScript/Cover.js"> </script>
+
+    <script type="text/javascript" src="JavaScript/Project.js"> </script>
 </asp:Content>

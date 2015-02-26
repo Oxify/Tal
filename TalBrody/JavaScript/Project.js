@@ -1,5 +1,6 @@
 ﻿
 $(document).ready(function () {
+
     var elements = document.getElementsByClassName('ScrollButton');
     for (var i = 0; i < elements.length; i++) {
         elements[i].onclick = ScrollToTarget;

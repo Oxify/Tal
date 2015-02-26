@@ -33,8 +33,8 @@
 
 .the-rest {
     display: table-row;
-    height: 54px;
-    padding-top: 130px;
+    /*height: 54px;*/
+    padding-top: 60px;
 }
 
 .last-row {
@@ -42,20 +42,6 @@
     height: 40px;
 }
 
-.scroll-button-wrapper {
-    /*background-color: aqua;*/
-    /*position: absolute;
-    bottom: 0;
-    left: 0;*/
-    display: table-cell;
-    vertical-align: central;
-    width: 100%;
-    margin-bottom: 105px;
-}
-
-.scroll-button-inner {
-    position: relative;
-}
 
 #title {
     height: 100%;
@@ -455,7 +441,7 @@
 @media (min-width: 768px) {
 
     .jumbotron-header {
-        padding: 150px 15px 0 15px;
+        padding: 90px 15px 0 15px;
     }
 
     .main-row {
@@ -513,7 +499,7 @@
     }
 
     .last-row {
-        height: 240px;
+        height: 150px;
     }
 }
 
