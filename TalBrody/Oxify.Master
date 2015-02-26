@@ -53,6 +53,7 @@
         });
 
         function CheckCookie() {
+        	debugger;
             var cooke = getCookie("OxifyId");
             var LogInFlag = '<%= LogInFlag%>';
             var oxifyId = '<% = OxifyId%>';
