@@ -4,6 +4,12 @@ $(document).ready(function () {
     for (var i = 0; i < elements.length; i++) {
         elements[i].onclick = ScrollToTarget;
     }
+    elements = document.getElementsByClassName('scroll-icon');
+    for (i = 0; i < elements.length; i++) {
+        elements[i].onclick = ScrollToTarget;
+    }
+
+    
 
 });
 
