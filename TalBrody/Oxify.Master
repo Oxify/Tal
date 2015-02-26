@@ -20,11 +20,10 @@
     <meta property="og:video:type" content="application/x-shockwave-flash" />
     <!--- end of FB meta tags  --->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
     <link href='Css/SimpleCLM.css' rel='stylesheet' type='text/css' />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="Css/Master.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <!---link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" /-->
     <link rel="stylesheet" href="Css/BootstrapDefaults.css" />
@@ -41,6 +40,7 @@
     <link href="Css/LightBox.css" rel="stylesheet" />
     <link href="Css/LightBoxLarge.css" rel="stylesheet" />
     <script src="JavaScript/Common.js"></script>
+    <link rel="stylesheet" href="Css/Master.css" type="text/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -48,29 +48,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dialog").hide();
-           
             CheckCookie();
-            CheckbuttonShow()
+
         });
 
-        function CheckbuttonShow()
-        {
-            
-            var LogInFlag = '<%= LogInFlag%>';
-            if (LogInFlag != "False")
-            {
-                $('#BtnConect').hide();
-                $('#BtnLogOff').show();
-            }
-            else
-            {
-                $('#BtnConect').show();
-                $('#BtnLogOff').hide();
-            }
-        }
-
         function CheckCookie() {
-        
+
             var cooke = getCookie("OxifyId");
             var LogInFlag = '<%= LogInFlag%>';
             var oxifyId = '<% = OxifyId%>';
@@ -127,8 +110,7 @@
 
         }
 
-        function ForgetPassword()
-        {
+        function ForgetPassword() {
 
 
         }
@@ -150,7 +132,7 @@
 
     </script>
 </head>
-<body id="myBody" >
+<body id="myBody">
     <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -167,12 +149,12 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <button type="button" class="btn btn-default navbar-btn" id="BtnConect" onclick="ShowLogin();">התחבר</button>
-                    <button type="button" class="btn btn-default navbar-btn" id="BtnLogOff" onclick="LogOut();">התנתק</button>
-                    <button type="button" class="btn btn-default navbar-btn"  runat="server" onclick="LogOut();">Forget Password</button>
+                    <button type="button" class="btn btn-default navbar-btn" onclick="ShowLogin();">התחבר</button>
+                    <button type="button" class="btn btn-default navbar-btn" onclick="LogOut();">התנתק</button>
+                    <button type="button" class="btn btn-default navbar-btn" runat="server" onclick="LogOut();">Forget Password</button>
                     <button type="button" class="btn btn-default navbar-btn" runat="server" visible="false" onclick="LogOut();">Change Password</button>
                     <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
-                     <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
+                    <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
                     <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Text="Hello: "></asp:Label>
                 </ul>
             </div>

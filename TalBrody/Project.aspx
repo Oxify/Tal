@@ -3,9 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="Css/Project.css" type="text/css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="jumbotron">
+    <div class="jumbotron" id="firstpage" runat="server">
         <div class="jumbotron-header">
             <div class="main-container">
                 <div class="container">
@@ -69,7 +71,6 @@
             <div class="last-row"></div>
         </div>
     </div>
-
 
 
     <div class="jumbotron" id="secondpage">
@@ -165,7 +166,7 @@
             </div>
             <div class="buffer"></div>
             <div class="the-rest">
-               <div class="scroll-icon-wrapper">
+                <div class="scroll-icon-wrapper">
                     <a href="#" class='scroll-icon' data-goto="thirdpage"><i class="fa fa-arrow-circle-down"></i></a>
                 </div>
             </div>
@@ -180,52 +181,41 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                             <div class="row main-row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="sm-bottom-responsive sm-bottom-responsive-16by9">
-                                        <div class="sm-bottom-responsive-item">
-                                            <h2><strong>"עודני ילד" / חגי מרום</strong></h2>
-                                            <h3>ספר חדש ונוסטלגי
+                                <div class="col-sm-10 col-xs-12">
+                                    <h3>עוד על הפרוייקט</h3>
+                                    <h5>"עודני ילד" הוא ספר חדש מאת חגי מרום.
                                                 <br />
-                                                על "בית הבראה לצעצועים"</h3>
+                                        הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.<br />
+                                        הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.<br />
+                                        בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h5>
+                                    <br />
+
+                                </div>
+                                <div class="col-sm-2 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <img src="Images/Logo.png" />
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="info-box ">
+
+                                                <div class="info-buttons" style="margin-right:-1px;"> 
+                                                    <a href="mailto:hagi@hagimarom.com"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
+                                                    </a>
+                                                </div>
+                                                <div class="info-buttons">
+                                                    <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_urBx5_3lNY?wmode=transparent"></iframe>
-                                    </div>
-                                </div>
 
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 ">
-                                    <div class="hidden-xs">
-                                        <hr class="small_divider" />
-                                        <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
-					<br />
-                                            <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b><br />
-                                            לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
-                                            לפרוייקט, אותם תוכלו לממש בקמפיין.
-                                        </h4>
-                                    </div>
-                                    <div class="visible-xs">
-                                        <h4 class="Description">בקרוב יתחיל הקמפיין לגיוס התקציב הנחוץ להפקת הספר.
-                                        <b>הירשמו ותהיה הראשונים לדעת על השקת הקמפיין.</b>
-                                            לאחר שנרשמתם, הפיצו את הקמפיין ותצברו 2 ש"ח על כל חבר שנרשם בזכותכם<br />
-                                            לפרוייקט, אותם תוכלו לממש בקמפיין.
-                                        </h4>
-                                    </div>
-                                </div>
                             </div>
 
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="register-button-div">
-                                    <a class="flat-button" id="BtnRegister" onclick="ShowRegister()">להרשמה</a><br />
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -235,6 +225,8 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 
     <script type="text/javascript" src="JavaScript/Project.js"> </script>
+
 </asp:Content>
