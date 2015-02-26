@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     height: 100%;
+    text-decoration: none;
 }
 
 
@@ -27,6 +28,7 @@
 .form {
     height: 100%;
 }
+
 .main {
     height: 100%;
 }

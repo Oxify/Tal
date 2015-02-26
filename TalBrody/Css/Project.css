@@ -9,6 +9,7 @@
     padding: 0;
     margin-top: 0;
     margin-bottom: 5px;
+    min-height: 560px;
 }
 
 
@@ -29,6 +30,7 @@
 .main-row {
     width: 100%;
 }
+
 .buffer {
     display: table-row;
     height: 100%;
@@ -227,9 +229,10 @@
     color: black;
 }
 
-.share-buttons a {
-    text-decoration: none;
-}
+    .share-buttons a {
+        text-decoration: none;
+    }
+
 .whatsapp-box {
     display: inline-block;
 }
@@ -433,6 +436,32 @@
         color: white;
     }
 
+
+.info-buttons {
+    display: inline-block;  
+    text-align: center;
+    vertical-align: central;
+    font-size: 32px;
+    color: black;
+    margin: auto;
+  
+}
+
+    .info-buttons a {
+        text-decoration: none;
+    }
+
+.info-box {
+    width: 84px;
+    height: 40px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid #000000;
+    text-decoration: none;
+    text-align: center;
+
+}
 
 
 /* Conditional attributes */
