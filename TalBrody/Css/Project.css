@@ -26,6 +26,9 @@
     height: 0;
 }
 
+.main-row {
+    width: 100%;
+}
 .buffer {
     display: table-row;
     height: 100%;
@@ -499,7 +502,7 @@
     }
 
     .last-row {
-        height: 170px;
+        height: 197px;
     }
 }
 
