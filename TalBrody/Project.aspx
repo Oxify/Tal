@@ -199,7 +199,7 @@
                                         <div class="col-xs-12">
                                             <div class="info-box ">
 
-                                                <div class="info-buttons" style="margin-right:-1px;"> 
+                                                <div class="info-buttons" style="margin-right: -1px;">
                                                     <a href="mailto:hagi@hagimarom.com"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
                                                     </a>
                                                 </div>

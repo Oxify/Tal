@@ -1,5 +1,9 @@
-﻿html, body {
+﻿body {
+    height: 100%;
+}
+html, body {
     min-height: 100%;
+    
 }
 
 .jumbotron {
@@ -452,8 +456,8 @@
     }
 
 .info-box {
-    width: 84px;
-    height: 40px;
+    width: 86px;
+    height: 42px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
