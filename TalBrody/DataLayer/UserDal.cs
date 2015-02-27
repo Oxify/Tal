@@ -19,8 +19,9 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select *" +
-                                     " from Users where FacebookId = @FaceBookId", conn);
+                var cmd = GetCommand("select [Id],[DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId]" +
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]" +
+             ",[Birthday],[ValidPassword],[DateCreated],[ReferralCode] from Users where FacebookId = @FaceBookId", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@FaceBookId", FaceBookId);
 
@@ -39,8 +40,9 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select *" +
-                                     " from Users where Email = @Email", conn);
+                var cmd = GetCommand("select [Id],[DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId]" +
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]" +
+             ",[Birthday],[ValidPassword],[DateCreated],[ReferralCode] from Users where Email = @Email", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Email", email);
 
@@ -59,8 +61,9 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select *" +
-                                     " from Users where Id = @id", conn);
+                var cmd = GetCommand("select [Id],[DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId]" +
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]" +
+             ",[Birthday],[ValidPassword],[DateCreated],[ReferralCode] from Users where Id = @id", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -80,8 +83,9 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select *" +
-                                     " from Users where TwitterId = @Twitterid", conn);
+                var cmd = GetCommand("select [Id],[DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId]" +
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]" +
+             ",[Birthday],[ValidPassword],[DateCreated],[ReferralCode] from Users where TwitterId = @Twitterid", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Twitterid", Twitterid);
 
@@ -101,8 +105,9 @@ namespace TalBrody.DataLayer
             User user = null;
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("select *" +
-                                     " from Users where FacebookId = @FacebookId", conn);
+                var cmd = GetCommand("select [Id],[DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId]" +
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]" +
+             ",[Birthday],[ValidPassword],[DateCreated],[ReferralCode] from Users where FacebookId = @FacebookId", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@FacebookId", FacebookId);
 
@@ -125,11 +130,11 @@ namespace TalBrody.DataLayer
                                      ", FacebookAccessToken = @FacebookAccessToken, TwitterId = @TwitterId " +
                                      ", TwitterToken = @TwitterToken, TwitterSecret = @TwitterSecret, TwitterAccessToken = @TwitterAccessToken" +
                                      ", ReferredBy = @ReferredBy, PasswordSalt = @PasswordSalt" +
-                                     ", PasswordHash = @PasswordHash , EmailConfirmed = @EmailConfirmed" + 
+                                     ", PasswordHash = @PasswordHash , EmailConfirmed = @EmailConfirmed" +
                                      ", Birthday = @Birthday, ValidPassword = @ValidPassword" +
                                      " where Id = @Id", conn);
                 cmd.CommandType = CommandType.Text;
-                
+
                 AddWithNullableValue(cmd, "@Email", user.Email);
                 AddWithNullableValue(cmd, "@DisplayName", user.DisplayName);
                 AddWithNullableValue(cmd, "@FacebookId", user.FacebookId);
@@ -172,11 +177,11 @@ namespace TalBrody.DataLayer
                 cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
 
-                cmd = GetCommand("SELECT @@IDENTITY AS ID",conn);
+                cmd = GetCommand("SELECT @@IDENTITY AS ID", conn);
                 cmd.Transaction = tr;
                 object o = cmd.ExecuteScalar();
                 UsersID = Convert.ToInt32(o);
-               
+
                 tr.Commit();
             }
             return UsersID;
@@ -190,12 +195,30 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 conn.Open();
-                var cmd = GetCommand("insert into Users (Email, ValidPassword) values (@Email, @ValidPassword); ",
+                var cmd = GetCommand("insert into Users ([DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId],[TwitterToken]" +
+           ",[TwitterSecret] ,[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed],[Birthday],[ValidPassword]" +
+           ",[DateCreated],[ReferralCode]) values ( @DisplayName,@Email,@FacebookId,@FacebookAccessToken,@TwitterId,@TwitterToken" +
+           ",@TwitterSecret,@TwitterAccessToken,@ReferredBy,@PasswordSalt,@PasswordHash,@EmailConfirmed,@Birthday,@ValidPassword" +
+           ",@DateCreated,@ReferralCode); ",
                         conn);
                 //      var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Email", (user.Email != null)? user.Email : string.Empty);
-                cmd.Parameters.AddWithValue("@ValidPassword", false);
+                AddWithNullableValue(cmd, "@Email", user.Email);
+                AddWithNullableValue(cmd, "@DisplayName", user.DisplayName);
+                AddWithNullableValue(cmd, "@FacebookId", user.FacebookId);
+                AddWithNullableValue(cmd, "@FacebookAccessToken", user.FacebookAccessToken);
+                AddWithNullableValue(cmd, "@TwitterId", user.TwitterId);
+                AddWithNullableValue(cmd, "@TwitterToken", user.TwitterToken);
+                AddWithNullableValue(cmd, "@TwitterSecret", user.TwitterSecret);
+                AddWithNullableValue(cmd, "@TwitterAccessToken", user.TwitterAccessToken);
+                AddWithNullableValue(cmd, "@ReferredBy", user.ReferredBy);
+                AddWithNullableValue(cmd, "@PasswordSalt", user.PasswordSalt);
+                AddWithNullableValue(cmd, "@PasswordHash", user.PasswordHash);
+                AddWithNullableValue(cmd, "@EmailConfirmed", user.EmailConfirmed);
+                AddWithNullableValue(cmd, "@Birthday", user.Birthday);
+                AddWithNullableValue(cmd, "@ValidPassword", user.ValidPassword);
+                AddWithNullableValue(cmd, "@DateCreated", DateTime.Now);
+                AddWithNullableValue(cmd, "@ReferralCode", user.ReferralCode);
 
                 //         cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();

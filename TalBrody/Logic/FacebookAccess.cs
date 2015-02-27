@@ -81,7 +81,8 @@ namespace TalBrody.Logic
         {
             user.FacebookAccessToken = details.AccessToken;
             user.FacebookId = details.Graph.Id;
-            user.Email = details.Graph.EMail;
+            if (details.Graph.EMail != null)
+                user.Email = details.Graph.EMail;
             user.DisplayName = details.Graph.Name;
             // TODO add referece by support by cookies here
             // user.ReferredBy = 
