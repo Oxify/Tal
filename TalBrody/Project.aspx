@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="Css/slick-theme-oxify.css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="jumbotron" id="firstpage" runat="server">
@@ -213,38 +214,35 @@
                                 </div>
 
                             </div>
-                            <div class="row main-row">
-                                <div class="col-xs-12">
-                                    <div class="gallary-box">
+                        </div>
+                        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                            <div class="gallary-box">
 
-                                        <div class="slick-box">
-                                            <div>
-                                                <img src="Images/1A_1.jpg" />
-                                            </div>
-                                            <div>
-                                                <img src="Images/2A_1.jpg" />
-                                            </div>
-                                            <div>
-                                                <img src="Images/3A_1.jpg" />
-                                            </div>
-                                            <div>
-                                                <img src="Images/4A_1.jpg" />
-                                            </div>
-                                            <div>
-                                                <img src="Images/5A_1.jpg" />
-                                            </div>
-                                            <div>
-                                                <img src="Images/6A_1.jpg" />
-                                            </div>
-                                            <div>
-                                                <img src="Images/7A_1.jpg" />
-                                            </div>
-                                        </div>
+                                <div class="slick-box">
+                                    <div class="gallary-image">
+                                        <img src="Images/1A_1.jpg" />
+                                    </div>
+                                    <div class="gallary-image">
+                                        <img src="Images/2A_1.jpg" />
+                                    </div>
+                                    <div class="gallary-image">
+                                        <img src="Images/3A_1.jpg" />
+                                    </div>
+                                    <div class="gallary-image">
+                                        <img src="Images/4A_1.jpg" />
+                                    </div>
+                                    <div class="gallary-image">
+                                        <img src="Images/5A_1.jpg" />
+                                    </div>
+                                    <div class="gallary-image">
+                                        <img src="Images/6A_1.jpg" />
+                                    </div>
+                                    <div class="gallary-image">
+                                        <img src="Images/7A_1.jpg" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

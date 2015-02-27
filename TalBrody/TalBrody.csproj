@@ -221,6 +221,7 @@
     <Content Include="Css\Master.css" />
     <Content Include="Css\Project.css" />
     <Content Include="Css\SimpleCLM.css" />
+    <Content Include="Css\slick-theme-oxify.css" />
     <Content Include="Css\Temp.css" />
     <Content Include="EditProject.aspx" />
     <Content Include="ErrorPage.html" />
