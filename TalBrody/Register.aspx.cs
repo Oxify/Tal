@@ -65,9 +65,10 @@ namespace TalBrody
 
         protected void BtnAddEmail_Click(object sender, EventArgs e)
         {
-            if (Session["Usession"] != null)
+            UserSession useastion = SessionUtil.GetUserSesstion();
+            if (useastion != null)
             {
-                UserSession useastion = (UserSession)Session["Usession"];
+               
                 UserDal dal = Container.Resolve<UserDal>();
                 User user = dal.FindUserByid(useastion.UserId);
                 user.Email = txtEmail.Value;

@@ -166,7 +166,7 @@
                                         </div>
                                         <div class="flat-box-left">
                                             <div class="flat-box-title">
-                                                22 ש"ח
+                                                <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label> ש"ח
                                             </div>
                                             <div class="flat-box-description">
                                                 הנחה צברת
@@ -185,7 +185,7 @@
                                         </div>
                                         <div class="flat-box-left">
                                             <div class="flat-box-title">
-                                                188
+                                                <asp:Label ID="LblFollowerCount" runat="server" Text="0"></asp:Label>
                                             </div>
                                             <div class="flat-box-description">
                                                 עוקבים אחר הפרוייקט

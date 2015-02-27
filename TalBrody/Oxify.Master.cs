@@ -45,9 +45,10 @@ namespace TalBrody
             bool result = false;
             try
             {
-                if (Session["Usession"] != null)
+                UserSession us = SessionUtil.GetUserSesstion();
+                if (us != null)
                 {
-                    UserSession us = (UserSession)Session["Usession"];
+                    
                     result = true;
                     OxifyId = Users.GetUserContext(us.UserId);
                     LblUserName.Text = "Hello: " + us.UserName;
@@ -65,11 +66,11 @@ namespace TalBrody
         {
             // TODO make this relevant. right now it only kicks everyone out unless it's the cover page
             //return;
-
+            var usession = SessionUtil.GetUserSesstion();
             string s = Request.PhysicalPath;
-            if (Session["Usession"] != null)
+            if (usession != null)
             {
-                var usession = (UserSession)Session["Usession"];
+               
                 if (usession.PermissionList.Exists(o => o.PermisstionId == (int)PermisstionEnum.Admin))
                 {
                     HypSiteAdmin.Visible = true;

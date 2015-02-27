@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Common;
 using TalBrody.Entity;
 using TalBrody.Logic;
 using TalBrody.Util;
@@ -18,9 +19,19 @@ namespace TalBrody
             {
                 InitParam();
                 AddFollowerCount();
+                PopulateFollowerCountLable();
             }
 
             ChecktoHideDiv();
+        }
+
+        private void PopulateFollowerCountLable()
+        {
+            List<Follower> folloList = Followers.Get_Follower_by_Project(1);
+            LblFollowerCount.Text = folloList.Count.ToString();
+            UserSession usess = SessionUtil.GetUserSesstion();
+            if (usess != null)
+                LblDiscaount.Text = (folloList.FindAll(o => o.ReferByUserId == usess.UserId).Count * 2).ToString();
         }
 
         private void AddFollowerCount()
@@ -44,14 +55,14 @@ namespace TalBrody
 
         private void ChecktoHideDiv()
         {
-            if (Session["Usession"] != null)
+            UserSession u = SessionUtil.GetUserSesstion();
+            if (u != null)
             {
 
                 firstpage.Visible = false;
                 if (Request.QueryString["ProjectId"] != null)
                 {
-                    int ProjectId = int.Parse(Request.QueryString["ProjectId"]);
-                    UserSession u = (UserSession)Session["Usession"];
+                    int ProjectId = int.Parse(Request.QueryString["ProjectId"]);                    
                     u.CurrentProjectId = ProjectId;
                 }
             }

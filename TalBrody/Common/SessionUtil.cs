@@ -30,6 +30,14 @@ namespace TalBrody.Common
             return salt;
         }
 
+        public static UserSession GetUserSesstion()
+        {
+            UserSession usess = null;
+            if (HttpContext.Current.Session["Usession"] != null)
+                usess = (UserSession)HttpContext.Current.Session["Usession"];
+            return usess;
+        }
+
         public static byte[] Hash(string password, byte[] salt)
         {
 

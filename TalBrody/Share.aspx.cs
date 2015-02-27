@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Common;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Logic;
@@ -39,7 +40,7 @@ namespace TalBrody
 			// TODO - Get Logged In User
 			//var user = new UserDal().FindUserByid(1);
 
-			UserSession Usession = (UserSession)Session["Usession"];
+            UserSession Usession = SessionUtil.GetUserSesstion();
 			if (Usession != null)
 			{
 				// No session, redirect to homepage
