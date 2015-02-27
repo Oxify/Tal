@@ -37,15 +37,19 @@ namespace TalBrody.Logic
 
         }
 
-
         public User RegisterUser(string AccessToken)
         {
             var data = GetUserData(AccessToken);
             User user = null;
             if (data.Graph.EMail != null)
             {
-                UserDal _usersDal = new UserDal();
-                user = _usersDal.FindUserByEmail(data.Graph.EMail);
+                Users users = new Users();
+                user = users.FindUserByEmail(data.Graph.EMail);
+            }
+            else if (data.Graph != null)
+            {
+                Users users = new Users();
+                user = users.FinduserByFaceBookId(data.Graph.Id);
             }
 
             if (user == null)
@@ -68,7 +72,7 @@ namespace TalBrody.Logic
                 dal.UpdateUser(user);
             }
 
-            
+
 
             return user;
         }

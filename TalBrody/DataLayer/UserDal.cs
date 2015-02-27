@@ -13,6 +13,27 @@ namespace TalBrody.DataLayer
 {
     public class UserDal : BaseDal
     {
+
+        public User FindUserByFacebookd(long FaceBookId)
+        {
+            User user = null;
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("select *" +
+                                     " from Users where FacebookId = @FaceBookId", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@FaceBookId", FaceBookId);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    user = Populators.Populate_User(reader);
+                }
+                return user;
+            }
+        }
+
         public User FindUserByEmail(string email)
         {
             User user = null;

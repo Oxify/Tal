@@ -1,8 +1,56 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Oxify.Master" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="TalBrody.Project" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <script type="text/javascript">
+        function ShowRegister() {
+           
+            var ProjectId = 1;
+
+            var href = "Register.aspx?ProjectId=" + ProjectId;
+
+            var txtSaveClickedHidden = '';
+            var a = $(".BtnRegister").val;
+            $(".BtnRegister").fancybox(
+            {
+                maxWidth: 516,
+                maxHeight: 520,
+                fitToView: false,
+                width: '80%',
+                height: '95%',
+                autoSize: false,
+                closeClick: false,
+                openEffect: 'none',
+                closeEffect: 'none',
+                nextEffect: 'fade',
+                prevEffect: 'fade',
+                'href': href,
+                'type': 'iframe',
+
+                //Change title position and overlay color
+                helpers:
+                {
+                    title:
+                    {
+                        type: 'inside',
+                        position: 'top',
+                        background: '#032f4a',
+                        color: '#FFF'
+                    }
+                },
+                beforeClose: function () {
+                    //txtSaveClickedHidden = $('.fancybox-iframe').contents().find("#txtSaveClickedHidden").val();
+                },
+                afterClose: function () {
+                    //if (true) {
+                    //parent.location.reload(true);
+                    //}
+                }
+            });
+
+        }
+    </script>
     <link rel="stylesheet" href="Css/Project.css" type="text/css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="Css/slick-theme-oxify.css"/>
@@ -55,7 +103,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="register-button-div">
-                                        <a class="flat-button" id="BtnRegister" onclick="ShowRegister()">הירשמו עכשיו</a><br />
+                                        <a class="flat-button BtnRegister fancybox.iframe" id="BtnRegister" onclick="ShowRegister()">הירשמו עכשיו</a><br />
                                     </div>
                                 </div>
                             </div>

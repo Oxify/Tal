@@ -27,6 +27,11 @@ namespace TalBrody.Logic
         private readonly UserDal _userDal;
         private readonly EmailConfirmDal _emailConfirmDal;
 
+        public void UpdateUser(User user)
+        {
+           _userDal.UpdateUser(user);
+        }
+
         public User AddUser(string emailStr, string password, string displayNameA, int RefUserId)
         {
             log.Info(String.Format("Creating new user (email, name) = ({0}, {1})", emailStr, displayNameA));
@@ -57,6 +62,16 @@ namespace TalBrody.Logic
         public User FindUserByEmail(string email)
         {
             return _userDal.FindUserByEmail(email);
+        }
+
+        public User FinduserByFaceBookId(long FaceBookId)
+        {
+           return  _userDal.FindUserByFacebookd(FaceBookId);
+        }
+
+        public User FinduserByFaceBookId(int FaceBookId)
+        {
+            return _userDal.FindUserByFacebookd(FaceBookId);
         }
 
         public int CreateUserWithoutPassword(User user)
