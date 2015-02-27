@@ -11,11 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!--- start of FB meta tags --->
-    <meta property="og:url" content="http://tal.apphb.com" />
-    <meta property="og:title" content="Oxify - עודני ילד" />
+    <meta property="og:url" content="http://oxify.co" />
+    <meta property="og:title" content="עודני ילד" />
     <meta property="og:description" content="'ספר חדש על 'בית הבראה לצעצועים" />
-    <meta property="og:image" content="https://img.youtube.com/vi/_urBx5_3lNY/default.jpg" />
-    <meta property="og:video" content="https://www.youtube.com/v/_urBx5_3lNY" />
+    <meta property="og:image" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg" />
+    <meta property="og:video" content="https://www.youtube.com/v/2xgVbFniiVU" />
     <meta proeprty="og:type" content="video" />
     <meta property="og:video:type" content="application/x-shockwave-flash" />
     <!--- end of FB meta tags  --->
