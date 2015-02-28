@@ -85,16 +85,12 @@ namespace TalBrody
             RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
-                log.Info("SocialRegister hits");
+                
                 User user = null; 
                 if (platform.ToUpper() == "FB")
-                {
-                    log.Info("SocialRegister hits 1");
-                    var facebookAccess = Container.Resolve<FacebookAccess>();
-                    log.Info("SocialRegister hits 2");
-                    log.Info("token = " + token.ToString());
-                    user = facebookAccess.RegisterUser(token);
-                    log.Info("SocialRegister hits 6");
+                {                   
+                    var facebookAccess = Container.Resolve<FacebookAccess>();                  
+                    user = facebookAccess.RegisterUser(token);                  
                     SessionUtil.AddUserToSession(user.Id);
                    
                     if (user.Email != null && user.Email.IndexOf('@') != -1)

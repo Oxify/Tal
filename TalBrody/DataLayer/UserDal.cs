@@ -214,8 +214,7 @@ namespace TalBrody.DataLayer
             Log.Info("SocialRegister hits 5.6.1");
 
             int UsersID;
-            try
-            {
+           
                 using (var conn = PortalConection)
                 {
                     conn.Open();
@@ -253,12 +252,7 @@ namespace TalBrody.DataLayer
                     UsersID = Convert.ToInt32(o);
                     Log.Info("SocialRegister hits 5.6.9");
                 }
-            }
-            catch (Exception ex)
-            {
-                Log.Info("SocialRegister hits 5.6.0 " + ex.ToString());
-                throw;
-            }
+           
             
             return UsersID;
         }
