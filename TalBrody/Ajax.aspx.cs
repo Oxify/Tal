@@ -93,13 +93,14 @@ namespace TalBrody
                     var facebookAccess = Container.Resolve<FacebookAccess>();
                     log.Info("SocialRegister hits 2");
                     user = facebookAccess.RegisterUser(token);
-                    SessionUtil.AddUserToSession(user.Id);
                     log.Info("SocialRegister hits 3");
+                    SessionUtil.AddUserToSession(user.Id);
+                    log.Info("SocialRegister hits 4");
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
                         result.NextStep = -1;
-                    log.Info("SocialRegister hits 4");
+                    
                 }
                 if (user != null)
                 {
