@@ -9,11 +9,13 @@ using DotNetOpenAuth.ApplicationBlock.Facebook;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Util;
+using log4net;
 
 namespace TalBrody.Logic
 {
     public class FacebookAccess
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private readonly string ClientIdentifier;
         private readonly string ClientSecret;
         private readonly Users _users;
@@ -43,15 +45,17 @@ namespace TalBrody.Logic
             User user = null;
             if (data.Graph.EMail != null)
             {
+                log.Info("SocialRegister hits 3");
                 Users users = new Users();
                 user = users.FindUserByEmail(data.Graph.EMail);
-            }
+            }                 
             else if (data.Graph != null)
             {
+                log.Info("SocialRegister hits 4");
                 Users users = new Users();
                 user = users.FinduserByFaceBookId(data.Graph.Id);
             }
-
+            log.Info("SocialRegister hits 5");
             if (user == null)
             {
                 // no id, new user!

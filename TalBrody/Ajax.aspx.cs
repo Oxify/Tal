@@ -93,9 +93,9 @@ namespace TalBrody
                     var facebookAccess = Container.Resolve<FacebookAccess>();
                     log.Info("SocialRegister hits 2");
                     user = facebookAccess.RegisterUser(token);
-                    log.Info("SocialRegister hits 3");
+                  
                     SessionUtil.AddUserToSession(user.Id);
-                    log.Info("SocialRegister hits 4");
+                   
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
@@ -104,7 +104,7 @@ namespace TalBrody
                 }
                 if (user != null)
                 {
-                    log.Info("SocialRegister hits 5");
+                   
                     List<Follower> fololist = Followers.Get_Follower_by_Project(1);
                     if (!fololist.Exists(o => o.UserId == user.Id))
                     {
