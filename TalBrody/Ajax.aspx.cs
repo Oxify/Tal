@@ -61,7 +61,7 @@ namespace TalBrody
 
             return result;
 
-        }
+        } 
 
         [ScriptMethod(UseHttpGet = true)]
         [WebMethod(EnableSession = false)]
@@ -85,20 +85,23 @@ namespace TalBrody
             RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
+                
                 User user = null; 
                 if (platform.ToUpper() == "FB")
-                {
-                    var facebookAccess = Container.Resolve<FacebookAccess>();
-                    user = facebookAccess.RegisterUser(token);
+                {                   
+                    var facebookAccess = Container.Resolve<FacebookAccess>();                  
+                    user = facebookAccess.RegisterUser(token);                  
                     SessionUtil.AddUserToSession(user.Id);
+                   
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
                         result.NextStep = -1;
+                    
                 }
                 if (user != null)
                 {
-
+                   
                     List<Follower> fololist = Followers.Get_Follower_by_Project(1);
                     if (!fololist.Exists(o => o.UserId == user.Id))
                     {

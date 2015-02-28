@@ -29,7 +29,9 @@ namespace TalBrody
             {
                 _capturedStream.Position = 0;
                 string responseJson = new StreamReader(_capturedStream).ReadToEnd();
-                log.Error("Caught WebMethod Exception: " + responseJson);
+              
+               
+                log.Error("Caught WebMethod Exception: " + responseJson) ;
             }
 
             _baseStream.Close();

@@ -164,7 +164,7 @@ namespace TalBrody.DataLayer
         }
         public static void AddWithNullableValue(dynamic command, string parameterName, object value)
         {
-            command.Parameters.AddWithValue(parameterName, value ?? DBNull.Value);
+            command.Parameters.AddWithValue(parameterName, value ?? DBNull.Value);           
         }
     }
 }

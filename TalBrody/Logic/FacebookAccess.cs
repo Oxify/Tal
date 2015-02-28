@@ -9,11 +9,13 @@ using DotNetOpenAuth.ApplicationBlock.Facebook;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Util;
+using log4net;
 
 namespace TalBrody.Logic
 {
     public class FacebookAccess
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private readonly string ClientIdentifier;
         private readonly string ClientSecret;
         private readonly Users _users;
@@ -39,33 +41,41 @@ namespace TalBrody.Logic
 
         public User RegisterUser(string AccessToken)
         {
+          
             var data = GetUserData(AccessToken);
             User user = null;
             if (data.Graph.EMail != null)
             {
+               
                 Users users = new Users();
                 user = users.FindUserByEmail(data.Graph.EMail);
-            }
+            }                 
             else if (data.Graph != null)
             {
+               
                 Users users = new Users();
                 user = users.FinduserByFaceBookId(data.Graph.Id);
             }
-
+           
             if (user == null)
             {
+               
                 // no id, new user!
                 user = new User();
                 PopulateUser(data, ref user);
+               
                 user.Id = _users.CreateUserWithoutPassword(user);
+               
                 if (user.Email != null)
                 {
+                   
                     var code = _users.GenerateUserRegistrationCode(user);
                     _email.SendRegistrationEmail(user, code);
                 }
             }
             else
             {
+               
                 // user already registered somehow, let's update the DB
                 PopulateUser(data, ref user);
                 UserDal dal = new UserDal();
@@ -92,12 +102,13 @@ namespace TalBrody.Logic
         }
         public static FacebookDetails GetUserData(string AccessToken)
         {
+            
             FacebookDetails Result = new FacebookDetails();
             Result.AccessToken = AccessToken;
             Result.Graph = ReadGraph(AccessToken);
             //GetLongLivedToken(AccessToken);
             Result.Friends = ReadFriends(AccessToken);
-
+          
             return Result;
 
         }
