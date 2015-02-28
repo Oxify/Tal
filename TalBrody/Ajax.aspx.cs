@@ -94,7 +94,7 @@ namespace TalBrody
                     log.Info("SocialRegister hits 2");
                     log.Info("token = " + token.ToString());
                     user = facebookAccess.RegisterUser(token);
-                  
+                    log.Info("SocialRegister hits 6");
                     SessionUtil.AddUserToSession(user.Id);
                    
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
