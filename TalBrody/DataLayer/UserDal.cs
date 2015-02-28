@@ -235,8 +235,10 @@ namespace TalBrody.DataLayer
                     AddWithNullableValue(cmd, "@TwitterSecret", user.TwitterSecret);
                     AddWithNullableValue(cmd, "@TwitterAccessToken", user.TwitterAccessToken);
                     AddWithNullableValue(cmd, "@ReferredBy", user.ReferredBy);
-                    AddWithNullableValue(cmd, "@PasswordSalt", user.PasswordSalt ?? new byte[16]);
-                    AddWithNullableValue(cmd, "@PasswordHash", user.PasswordHash ?? new byte[20]);
+                    AddWithNullableValue(cmd, "@PasswordSalt", user.PasswordSalt );
+                    AddWithNullableValue(cmd, "@PasswordHash", user.PasswordHash );
+                 //   AddWithNullableValue(cmd, "@PasswordSalt", user.PasswordSalt ?? new byte[16]);
+                 //   AddWithNullableValue(cmd, "@PasswordHash", user.PasswordHash ?? new byte[20]);
                     AddWithNullableValue(cmd, "@EmailConfirmed", user.EmailConfirmed);
                     AddWithNullableValue(cmd, "@Birthday", user.Birthday);
                     AddWithNullableValue(cmd, "@ValidPassword", user.ValidPassword);
