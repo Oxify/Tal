@@ -37,24 +37,21 @@ namespace TalBrody
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			// TODO - Get Logged In User
-			//var user = new UserDal().FindUserByid(1);
 
-            UserSession Usession = SessionUtil.GetUserSesstion();
+            UserSession Usession = SessionUtil.GetUserSession();
 			if (Usession != null)
 			{
-				// No session, redirect to homepage
-				// TODO
-
-
 				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), Usession.UserId);
+			    ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
 				FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
 				TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
+                WhatsappUrl = "whatsapp://send?text=" + " עודני כאן - ספר נוסטלגי על בית הבראה לצעצועים " + ShareUrlEncoded;
 			}
 		}
 
 		public string ShareUrl;
 		public string FacebookShareUrl;
 		public string TwitterShareUrl;
+	    public string WhatsappUrl;
 	}
 }

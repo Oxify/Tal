@@ -87,6 +87,9 @@
                             // i close it for not do endless loops
                             window.location.reload(); // refreashg
                         }
+                        else if (response.d == 0) {
+                            deleteCookie("OxifyId"); // delete cooke
+                        }
 
                     },
                     failure: function (msg) {

@@ -45,7 +45,7 @@ namespace TalBrody
             bool result = false;
             try
             {
-                UserSession us = SessionUtil.GetUserSesstion();
+                UserSession us = SessionUtil.GetUserSession();
                 if (us != null)
                 {
                     
@@ -66,7 +66,7 @@ namespace TalBrody
         {
             // TODO make this relevant. right now it only kicks everyone out unless it's the cover page
             //return;
-            var usession = SessionUtil.GetUserSesstion();
+            var usession = SessionUtil.GetUserSession();
             string s = Request.PhysicalPath;
             if (usession != null)
             {

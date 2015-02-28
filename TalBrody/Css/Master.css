@@ -67,3 +67,116 @@
     text-decoration: none;
     border: 0;
 }
+
+
+
+.flat-box {
+    text-align: center;
+    height: 60px;
+    width: 190px;
+    margin: 15px auto 0 auto;
+}
+
+.share-title {
+    text-align: center;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.share-buttons {
+    text-align: center;
+    vertical-align: central;
+    font-size: 32px;
+    color: black;
+}
+
+    .share-buttons a {
+        text-decoration: none;
+    }
+
+.share-box {
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    /*border-width: 2px;*/
+    /*border-color: black;
+    border-style: solid;*/
+    margin: auto auto auto auto;
+    color: black;
+}
+
+    .share-box:active,
+    .share-box:visited,
+    .share-box:link {
+        color: black;
+    }
+
+.whatsapp-box {
+    display: inline-block;
+}
+
+
+
+.blue {
+    background-color: #3498db;
+    color: white;
+}
+
+.inverse-blue {
+    background-color: white;
+    color: #3498db;
+}
+
+.grey {
+    background-color: #dadada;
+    color: #312783;
+}
+
+.inverse-grey {
+    background-color: #312783;
+    color: #dadada;
+}
+
+.facebook-color {
+    color: #3b5998;
+    background-color: white;
+}
+
+    .facebook-color:hover {
+        color: white;
+        background-color: #3b5998;
+    }
+
+.twitter-color {
+    color: #55acee;
+    background-color: white;
+}
+
+    .twitter-color:hover {
+        color: white;
+        background-color: #55acee;
+    }
+
+.whatsapp-color {
+    background-color: white;
+    color: #0dc143;
+    margin-top: -5px;
+}
+
+    .whatsapp-color:hover {
+        background-color: #0dc143;
+        color: white;
+    }
+
+
+
+.email-color {
+    color: #D64A38;
+    background-color: white;
+}
+
+    .email-color:hover {
+        background-color: #D64A38;
+        color: white;
+    }

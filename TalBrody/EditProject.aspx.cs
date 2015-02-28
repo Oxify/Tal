@@ -63,7 +63,7 @@ namespace TalBrody
                 if(BtnAddPermission != null)
                 {
                    // check enable button for owner or admin
-                    UserSession us = SessionUtil.GetUserSesstion();
+                    UserSession us = SessionUtil.GetUserSession();
                     if (us.PermissionList.Exists(o => o.PermisstionId == (int)PermisstionEnum.ProjectOwner || o.PermisstionId == (int)PermisstionEnum.Admin))
                         BtnAddPermission.Enabled = true;
 

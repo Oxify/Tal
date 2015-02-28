@@ -127,8 +127,11 @@ namespace TalBrody
             try
             {
                 int UserId = Users.SetUserContext(id);
-                SessionUtil.AddUserToSession(UserId);
-                result = 1;
+                if (SessionUtil.AddUserToSession(UserId))
+                {
+                    result = 1;
+
+                }
             }
             catch (Exception ex)
             {

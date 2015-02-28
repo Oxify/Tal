@@ -29,7 +29,7 @@ namespace TalBrody
         {
             List<Follower> folloList = Followers.Get_Follower_by_Project(1);
             LblFollowerCount.Text = folloList.Count.ToString();
-            UserSession usess = SessionUtil.GetUserSesstion();
+            UserSession usess = SessionUtil.GetUserSession();
             if (usess != null)
                 LblDiscaount.Text = (folloList.FindAll(o => o.ReferByUserId == usess.UserId).Count * 2).ToString();
         }
@@ -55,7 +55,7 @@ namespace TalBrody
 
         private void ChecktoHideDiv()
         {
-            UserSession u = SessionUtil.GetUserSesstion();
+            UserSession u = SessionUtil.GetUserSession();
             if (u != null)
             {
 
