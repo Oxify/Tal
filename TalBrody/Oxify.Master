@@ -47,6 +47,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            alert('up up and away ');
             $("#dialog").hide();
             CheckCookie();
             CheckbuttonShow();
