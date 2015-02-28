@@ -10,9 +10,18 @@ $(document).ready(function () {
         elements[i].onclick = ScrollToTarget;
     }
 
+
+
+    $("a.gallary-image").fancybox({
+        'transitionIn': 'elastic',
+        'transitionOut': 'elastic',
+        'speedIn': 600,
+        'speedOut': 200,
+        'overlayShow': false,
+    });
+
     $('.slick-box').slick({
         arrows: true,
-        rtl: true,
         dots: true,
         infinite: false,
         speed: 300,

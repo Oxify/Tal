@@ -243,11 +243,17 @@
     <Content Include="Images\Icon.ico" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Social.png" />
+    <Content Include="Images\Toys\1.jpg" />
     <Content Include="Images\Toys\1A.jpg" />
+    <Content Include="Images\Toys\2.jpg" />
     <Content Include="Images\Toys\2A.jpg" />
+    <Content Include="Images\Toys\3.jpg" />
     <Content Include="Images\Toys\3A.jpg" />
+    <Content Include="Images\Toys\4.jpg" />
     <Content Include="Images\Toys\4A.jpg" />
+    <Content Include="Images\Toys\5.jpg" />
     <Content Include="Images\Toys\5A.jpg" />
+    <Content Include="Images\Toys\6.jpg" />
     <Content Include="Images\Toys\6A.jpg" />
     <Content Include="Images\Toys\7A.jpg" />
     <Content Include="Images\Toys\8A.jpg" />

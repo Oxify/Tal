@@ -265,24 +265,24 @@
                             <div class="gallary-box">
 
                                 <div class="slick-box">
-                                    <div class="gallary-image">
+                                    <a class="gallary-image" rel="gallary" href="Images/Toys/1.jpg">
                                         <img src="Images/Toys/1A.jpg" />
-                                    </div>
-                                    <div class="gallary-image">
+                                    </a>
+                                    <a class="gallary-image" rel="gallary" href="Images/Toys/2.jpg">
                                         <img src="Images/Toys/2A.jpg" />
-                                    </div>
-                                    <div class="gallary-image">
+                                    </a>
+                                    <a class="gallary-image" rel="gallary" href="Images/Toys/3.jpg">
                                         <img src="Images/Toys/3A.jpg" />
-                                    </div>
-                                    <div class="gallary-image">
+                                    </a>
+                                    <a class="gallary-image" rel="gallary" href="Images/Toys/4.jpg">
                                         <img src="Images/Toys/4A.jpg" />
-                                    </div>
-                                    <div class="gallary-image">
+                                    </a>
+                                    <a class="gallary-image" rel="gallary" href="Images/Toys/5.jpg">
+                                        <img src="Images/Toys/5A.jpg" />
+                                    </a>
+                                    <a class="gallary-image" rel="gallary" href="Images/Toys/6.jpg">
                                         <img src="Images/Toys/6A.jpg" />
-                                    </div>
-                                    <div class="gallary-image">
-                                        <img src="Images/Toys/7A.jpg" />
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -290,10 +290,12 @@
                 </div>
             </div>
         </div>
-        <div class="buffer"></div>
-        <div class="the-rest">
-        </div>
     </div>
+
+    <div class="buffer"></div>
+    <div class="the-rest">
+    </div>
+
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 
