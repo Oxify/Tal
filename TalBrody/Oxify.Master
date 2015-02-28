@@ -58,10 +58,14 @@
             if (LogInFlag != "False") {
                 $('#BtnConect').hide();
                 $('#BtnLogOff').show();
+               // $('#BtnForgetPass').show();
+                $('#BtnChanghPassword').hide();
             }
             else {
                 $('#BtnConect').show();
                 $('#BtnLogOff').hide();
+              //  $('#BtnForgetPass').hide();
+                $('#BtnChanghPassword').hide();
             }
         }
 
@@ -164,11 +168,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <button type="button" class="btn btn-default navbar-btn" id="BtnConect" onclick="ShowLogin();">התחבר</button>
                     <button type="button" class="btn btn-default navbar-btn" id="BtnLogOff" onclick="LogOut();">התנתק</button>
-                    <button type="button" class="btn btn-default navbar-btn" runat="server" onclick="LogOut();">Forget Password</button>
-                    <button type="button" class="btn btn-default navbar-btn" runat="server" visible="false" onclick="LogOut();">Change Password</button>
+
+                    <button type="button" class="btn btn-default navbar-btn" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
                     <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
                     <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
-                    <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Text="Hello: "></asp:Label>
+                    <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -182,6 +186,7 @@
 
         <div id="dialog" title="Dialog Title" style="display: none">
             <uc1:LogInControle runat="server" ID="LogInControle" />
+            <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
         </div>
 
     </form>

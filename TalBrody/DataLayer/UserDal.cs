@@ -122,6 +122,28 @@ namespace TalBrody.DataLayer
 
         }
 
+         public User FindUserByUserId(int UserId)
+        {
+            User user = null;
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("select [Id],[DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId]" +
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]" +
+             ",[Birthday],[ValidPassword],[DateCreated],[ReferralCode] from Users where Id = @UserId", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    user = Populators.Populate_User(reader);
+                }
+                return user;
+            }
+
+        }
+
         public void UpdateUser(User user)
         {
             using (var conn = PortalConection)
