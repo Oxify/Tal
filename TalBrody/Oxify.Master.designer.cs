@@ -22,6 +22,15 @@ namespace TalBrody {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
+        /// BtnChanghPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton BtnChanghPassword;
+        
+        /// <summary>
         /// HypEditProject control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace TalBrody {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::TalBrody.UserControl.LogInControle LogInControle;
+        
+        /// <summary>
+        /// BtnForgetPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton BtnForgetPass;
     }
 }

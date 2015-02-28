@@ -74,6 +74,12 @@ namespace TalBrody.Logic
             return _userDal.FindUserByFacebookd(FaceBookId);
         }
 
+        public User FindUserByUserId(int UserId)
+        {
+            return _userDal.FindUserByid(UserId);
+
+        }
+
         public int CreateUserWithoutPassword(User user)
         {
             int UserId = _userDal.CreateUser(user);

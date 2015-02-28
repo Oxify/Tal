@@ -31,7 +31,27 @@ namespace TalBrody
             LblFollowerCount.Text = folloList.Count.ToString();
             UserSession usess = SessionUtil.GetUserSession();
             if (usess != null)
-                LblDiscaount.Text = (folloList.FindAll(o => o.ReferByUserId == usess.UserId).Count * 2).ToString();
+            {
+                folloList = folloList.FindAll(o => o.ReferByUserId == usess.UserId);
+                if (folloList.Count > 0)
+                {
+                    LblDiscaount.Text = (folloList.Count * 2).ToString();
+                    string tool = "נרשמו כ - " + folloList.Count + " להלן:   " + Environment.NewLine;
+                    int count = 0;
+                    count = folloList.Count - 5;
+
+                    foreach (Follower item in folloList.OrderByDescending(o => o.DateCreated).Take(5).ToList())
+                    {
+                        Users users = new Users();
+                        User u = users.FindUserByUserId(item.UserId);
+
+                        tool = tool + " " + u.DisplayName + "  " + Environment.NewLine;
+                    }
+                    if (count > 0)
+                        tool = tool + Environment.NewLine + "ועוד " + count;
+                    DiscountDiv.Attributes.Add("title", tool);
+                }
+            }
         }
 
         private void AddFollowerCount()
@@ -62,7 +82,7 @@ namespace TalBrody
                 firstpage.Visible = false;
                 if (Request.QueryString["ProjectId"] != null)
                 {
-                    int ProjectId = int.Parse(Request.QueryString["ProjectId"]);                    
+                    int ProjectId = int.Parse(Request.QueryString["ProjectId"]);
                     u.CurrentProjectId = ProjectId;
                 }
             }

@@ -164,7 +164,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="flat-box-left">
+                                        <div class="flat-box-left" runat="server" id="DiscountDiv">
                                             <div class="flat-box-title">
                                                 <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label> ש"ח
                                             </div>
