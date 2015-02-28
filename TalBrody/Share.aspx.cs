@@ -42,7 +42,7 @@ namespace TalBrody
 			if (Usession != null)
 			{
 				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), Usession.UserId);
-			    ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
+			    var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
 				FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
 				TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
                 WhatsappUrl = "whatsapp://send?text=" + " עודני כאן - ספר נוסטלגי על בית הבראה לצעצועים " + ShareUrlEncoded;
