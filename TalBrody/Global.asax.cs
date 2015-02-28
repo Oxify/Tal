@@ -108,14 +108,15 @@ namespace TalBrody
                 string contentType = context.Request.ContentType.Split(';')[0];
                 if (contentType.Equals("application/json", StringComparison.OrdinalIgnoreCase))
                 {
-                    context.Response.Filter = new PageMethodExceptionLogger(context.Response);
+                    context.Response.Filter = new PageMethodExceptionLogger(context.Response );
                 }
             }
         }
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Exception ex = Server.GetLastError();
+
+            Exception ex =  Server.GetLastError();
 
             if (ex == null)
             {
@@ -126,6 +127,7 @@ namespace TalBrody
             // Note: WebMethods don't reach this. See Application_PostMapRequestHandler
           //  log.Error("Caught exception", ex );
             log.ErrorFormat("My {0} message: {1}", "Caught exception", ex.StackTrace);
+            HttpContext.Current.Response.Write(string.Format("My {0} message: {1}", "Caught exception", ex.StackTrace));
             if (ex is HttpUnhandledException)
             {
                 // Pass the error on to the error page.

@@ -102,13 +102,13 @@ namespace TalBrody.Logic
         }
         public static FacebookDetails GetUserData(string AccessToken)
         {
-            log.Info("SocialRegister hits 3.5");
+            
             FacebookDetails Result = new FacebookDetails();
             Result.AccessToken = AccessToken;
             Result.Graph = ReadGraph(AccessToken);
             //GetLongLivedToken(AccessToken);
             Result.Friends = ReadFriends(AccessToken);
-            log.Info("SocialRegister hits 3.9");
+          
             return Result;
 
         }

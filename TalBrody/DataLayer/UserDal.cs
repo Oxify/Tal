@@ -210,8 +210,7 @@ namespace TalBrody.DataLayer
         }
 
         public int CreateUser(User user)
-        {
-            Log.Info("SocialRegister hits 5.6.1");
+        {           
 
             int UsersID;
            
@@ -252,7 +251,7 @@ namespace TalBrody.DataLayer
                     //          cmd.Transaction = tr;
                     object o = cmd.ExecuteScalar();
                     UsersID = Convert.ToInt32(o);
-                    Log.Info("SocialRegister hits 5.6.9");
+                  
                 }
            
             
