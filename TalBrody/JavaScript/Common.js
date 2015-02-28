@@ -85,3 +85,18 @@ function deleteCookie(name, path, domain) {
     if (getCookie(name))
         createCookie(name, "", -1, path, domain);
 }
+
+function PopupWindow() {
+    var url = this.attributes['data-target'].value;
+    window.open(url, "myWindow", "status = 1, height = 360, width = 500, resizable = 0");
+}
+
+
+$(document).ready(function() {
+
+    var elements = document.getElementsByClassName('Popup-Link');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].onclick = PopupWindow;
+    }
+});
+

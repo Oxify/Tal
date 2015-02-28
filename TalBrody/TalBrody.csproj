@@ -232,22 +232,6 @@
     <Content Include="fancybox\jquery.fancybox.js" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Images\1A.jpg" />
-    <Content Include="Images\1A_1.jpg" />
-    <Content Include="Images\2A.jpg" />
-    <Content Include="Images\2A_1.jpg" />
-    <Content Include="Images\3A.jpg" />
-    <Content Include="Images\3A_1.jpg" />
-    <Content Include="Images\4A.jpg" />
-    <Content Include="Images\4A_1.jpg" />
-    <Content Include="Images\5A.jpg" />
-    <Content Include="Images\5A_1.jpg" />
-    <Content Include="Images\6A.jpg" />
-    <Content Include="Images\6A_1.jpg" />
-    <Content Include="Images\7A.jpg" />
-    <Content Include="Images\7A_1.jpg" />
-    <Content Include="Images\8A.jpg" />
-    <Content Include="Images\8A_1.jpg" />
     <Content Include="Images\blank.gif" />
     <Content Include="Images\DownButton.hover.png" />
     <Content Include="Images\DownButton.png" />
@@ -256,8 +240,18 @@
     <Content Include="Images\fancybox_overlay.png" />
     <Content Include="Images\fancybox_sprite%402x.png" />
     <Content Include="Images\fancybox_sprite.png" />
+    <Content Include="Images\Icon.ico" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Social.png" />
+    <Content Include="Images\Toys\1A.jpg" />
+    <Content Include="Images\Toys\2A.jpg" />
+    <Content Include="Images\Toys\3A.jpg" />
+    <Content Include="Images\Toys\4A.jpg" />
+    <Content Include="Images\Toys\5A.jpg" />
+    <Content Include="Images\Toys\6A.jpg" />
+    <Content Include="Images\Toys\7A.jpg" />
+    <Content Include="Images\Toys\8A.jpg" />
+    <Content Include="Images\Toys\BennyAndHagi.jpg" />
     <Content Include="Images\VerySmallLogo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

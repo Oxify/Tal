@@ -19,7 +19,8 @@
     <meta proeprty="og:type" content="video" />
     <meta property="og:video:type" content="application/x-shockwave-flash" />
     <!--- end of FB meta tags  --->
-
+    
+    <link rel="icon" type="image/ico" href="Images/Icon.ico"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
     <link href='Css/SimpleCLM.css' rel='stylesheet' type='text/css' />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -47,7 +48,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            alert('up up and away ');
             $("#dialog").hide();
             CheckCookie();
             CheckbuttonShow();

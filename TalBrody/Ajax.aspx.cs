@@ -115,7 +115,7 @@ namespace TalBrody
             catch (Exception ex)
             {
 
-                throw ex;
+                throw;
             }
             return result;
         }

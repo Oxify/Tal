@@ -48,21 +48,3 @@
     text-align: center;
 }
 
-#facebookShareButton, #twitterShareButton, #emailShareButton {
-    background-image: url(../Images/Social.png);
-    height: 65px;
-    display: inline-block;
-}
-
-#facebookShareButton {
-    width: 63px;
-    background-position: 0 0;
-}
-#twitterShareButton {
-    width: 65px;
-    background-position: -87px 0;
-}
-#emailShareButton {
-    width: 65px;
-    background-position: -175px 0;
-}

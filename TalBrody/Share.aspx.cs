@@ -41,11 +41,12 @@ namespace TalBrody
             UserSession Usession = SessionUtil.GetUserSession();
 			if (Usession != null)
 			{
+			    string ProjectName = " עודני כאן - ספר נוסטלגי על בית הבראה לצעצועים ";
 				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), Usession.UserId);
 			    var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
 				FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
 				TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
-                WhatsappUrl = "whatsapp://send?text=" + " עודני כאן - ספר נוסטלגי על בית הבראה לצעצועים " + ShareUrlEncoded;
+                WhatsappUrl = "whatsapp://send?text=" + ProjectName + ShareUrlEncoded;
 			}
 		}
 

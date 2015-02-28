@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Oxify.Master" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="TalBrody.Project" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <script type="text/javascript">
+    <script type="text/javascript">
         function ShowRegister() {
-           
+
             var ProjectId = 1;
 
             var href = "Register.aspx?ProjectId=" + ProjectId;
@@ -50,10 +50,10 @@
         }
     </script>
     <link rel="stylesheet" href="Css/Project.css" type="text/css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css" />
-    <link rel="stylesheet" type="text/css" href="Css/slick-theme-oxify.css"/>
+    <link rel="stylesheet" type="text/css" href="Css/slick-theme-oxify.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="jumbotron" id="firstpage" runat="server">
@@ -105,19 +105,16 @@
                                     <div class="register-button-div">
                                         <a class="flat-button BtnRegister fancybox.iframe" id="BtnRegister" onclick="ShowRegister()">הירשמו עכשיו</a><br />
                                     </div>
+                                    <div class="scroll-icon-wrapper">
+                                        <a href="#" class='scroll-icon' data-goto="secondpage"><i class="fa fa-arrow-circle-down"></i></a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="buffer"></div>
-            <div class="the-rest">
-                <div class="scroll-icon-wrapper">
-                    <a href="#" class='scroll-icon' data-goto="secondpage"><i class="fa fa-arrow-circle-down"></i></a>
-                </div>
-            </div>
-            <div class="last-row"></div>
         </div>
     </div>
 
@@ -166,7 +163,8 @@
                                         </div>
                                         <div class="flat-box-left" runat="server" id="DiscountDiv">
                                             <div class="flat-box-title">
-                                                <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label> ש"ח
+                                                <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
+                                                ש"ח
                                             </div>
                                             <div class="flat-box-description">
                                                 הנחה צברת
@@ -243,7 +241,7 @@
                                 <div class="col-sm-2 col-xs-12">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <img src="Images/Logo.png" />
+                                            <img src="Images/Toys/BennyAndHagi.jpg" />
                                         </div>
                                         <div class="col-xs-12">
                                             <div class="info-box ">
@@ -268,25 +266,22 @@
 
                                 <div class="slick-box">
                                     <div class="gallary-image">
-                                        <img src="Images/1A_1.jpg" />
+                                        <img src="Images/Toys/1A.jpg" />
                                     </div>
                                     <div class="gallary-image">
-                                        <img src="Images/2A_1.jpg" />
+                                        <img src="Images/Toys/2A.jpg" />
                                     </div>
                                     <div class="gallary-image">
-                                        <img src="Images/3A_1.jpg" />
+                                        <img src="Images/Toys/3A.jpg" />
                                     </div>
                                     <div class="gallary-image">
-                                        <img src="Images/4A_1.jpg" />
+                                        <img src="Images/Toys/4A.jpg" />
                                     </div>
                                     <div class="gallary-image">
-                                        <img src="Images/5A_1.jpg" />
+                                        <img src="Images/Toys/6A.jpg" />
                                     </div>
                                     <div class="gallary-image">
-                                        <img src="Images/6A_1.jpg" />
-                                    </div>
-                                    <div class="gallary-image">
-                                        <img src="Images/7A_1.jpg" />
+                                        <img src="Images/Toys/7A.jpg" />
                                     </div>
                                 </div>
                             </div>
