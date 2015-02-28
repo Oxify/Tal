@@ -59,18 +59,23 @@ namespace TalBrody.Logic
             log.Info("SocialRegister hits 5");
             if (user == null)
             {
+                log.Info("SocialRegister hits 5.5");
                 // no id, new user!
                 user = new User();
                 PopulateUser(data, ref user);
+                log.Info("SocialRegister hits 5.6");
                 user.Id = _users.CreateUserWithoutPassword(user);
+                log.Info("SocialRegister hits 5.7");
                 if (user.Email != null)
                 {
+                    log.Info("SocialRegister hits 5.8");
                     var code = _users.GenerateUserRegistrationCode(user);
                     _email.SendRegistrationEmail(user, code);
                 }
             }
             else
             {
+                log.Info("SocialRegister hits 5.9");
                 // user already registered somehow, let's update the DB
                 PopulateUser(data, ref user);
                 UserDal dal = new UserDal();
