@@ -211,45 +211,55 @@ namespace TalBrody.DataLayer
 
         public int CreateUser(User user)
         {
-            // http://stackoverflow.com/a/10402129/11236
+            Log.Info("SocialRegister hits 5.6.1");
 
             int UsersID;
-            using (var conn = PortalConection)
+            try
             {
-                conn.Open();
-                var cmd = GetCommand("insert into Users ([DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId],[TwitterToken]" +
-           ",[TwitterSecret] ,[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed],[Birthday],[ValidPassword]" +
-           ",[DateCreated],[ReferralCode]) values ( @DisplayName,@Email,@FacebookId,@FacebookAccessToken,@TwitterId,@TwitterToken" +
-           ",@TwitterSecret,@TwitterAccessToken,@ReferredBy,@PasswordSalt,@PasswordHash,@EmailConfirmed,@Birthday,@ValidPassword" +
-           ",@DateCreated,@ReferralCode); ",
-                        conn);
-                //      var tr = conn.BeginTransaction();
-                cmd.CommandType = CommandType.Text;
-                AddWithNullableValue(cmd, "@Email", user.Email);
-                AddWithNullableValue(cmd, "@DisplayName", user.DisplayName);
-                AddWithNullableValue(cmd, "@FacebookId", user.FacebookId);
-                AddWithNullableValue(cmd, "@FacebookAccessToken", user.FacebookAccessToken);
-                AddWithNullableValue(cmd, "@TwitterId", user.TwitterId);
-                AddWithNullableValue(cmd, "@TwitterToken", user.TwitterToken);
-                AddWithNullableValue(cmd, "@TwitterSecret", user.TwitterSecret);
-                AddWithNullableValue(cmd, "@TwitterAccessToken", user.TwitterAccessToken);
-                AddWithNullableValue(cmd, "@ReferredBy", user.ReferredBy);
-                AddWithNullableValue(cmd, "@PasswordSalt", user.PasswordSalt);
-                AddWithNullableValue(cmd, "@PasswordHash", user.PasswordHash);
-                AddWithNullableValue(cmd, "@EmailConfirmed", user.EmailConfirmed);
-                AddWithNullableValue(cmd, "@Birthday", user.Birthday);
-                AddWithNullableValue(cmd, "@ValidPassword", user.ValidPassword);
-                AddWithNullableValue(cmd, "@DateCreated", DateTime.Now);
-                AddWithNullableValue(cmd, "@ReferralCode", user.ReferralCode);
+                using (var conn = PortalConection)
+                {
+                    conn.Open();
+                    var cmd = GetCommand("insert into Users ([DisplayName],[Email],[FacebookId],[FacebookAccessToken],[TwitterId],[TwitterToken]" +
+               ",[TwitterSecret] ,[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed],[Birthday],[ValidPassword]" +
+               ",[DateCreated],[ReferralCode]) values ( @DisplayName,@Email,@FacebookId,@FacebookAccessToken,@TwitterId,@TwitterToken" +
+               ",@TwitterSecret,@TwitterAccessToken,@ReferredBy,@PasswordSalt,@PasswordHash,@EmailConfirmed,@Birthday,@ValidPassword" +
+               ",@DateCreated,@ReferralCode); ",
+                            conn);
+                    //      var tr = conn.BeginTransaction();
+                    cmd.CommandType = CommandType.Text;
+                    AddWithNullableValue(cmd, "@Email", user.Email);
+                    AddWithNullableValue(cmd, "@DisplayName", user.DisplayName);
+                    AddWithNullableValue(cmd, "@FacebookId", user.FacebookId);
+                    AddWithNullableValue(cmd, "@FacebookAccessToken", user.FacebookAccessToken);
+                    AddWithNullableValue(cmd, "@TwitterId", user.TwitterId);
+                    AddWithNullableValue(cmd, "@TwitterToken", user.TwitterToken);
+                    AddWithNullableValue(cmd, "@TwitterSecret", user.TwitterSecret);
+                    AddWithNullableValue(cmd, "@TwitterAccessToken", user.TwitterAccessToken);
+                    AddWithNullableValue(cmd, "@ReferredBy", user.ReferredBy);
+                    AddWithNullableValue(cmd, "@PasswordSalt", user.PasswordSalt);
+                    AddWithNullableValue(cmd, "@PasswordHash", user.PasswordHash);
+                    AddWithNullableValue(cmd, "@EmailConfirmed", user.EmailConfirmed);
+                    AddWithNullableValue(cmd, "@Birthday", user.Birthday);
+                    AddWithNullableValue(cmd, "@ValidPassword", user.ValidPassword);
+                    AddWithNullableValue(cmd, "@DateCreated", DateTime.Now);
+                    AddWithNullableValue(cmd, "@ReferralCode", user.ReferralCode);
 
-                //         cmd.Transaction = tr;
-                cmd.ExecuteNonQuery();
+                    //         cmd.Transaction = tr;
+                    cmd.ExecuteNonQuery();
 
-                cmd = GetCommand("SELECT @@IDENTITY AS ID", conn);
-                //          cmd.Transaction = tr;
-                object o = cmd.ExecuteScalar();
-                UsersID = Convert.ToInt32(o);
+                    cmd = GetCommand("SELECT @@IDENTITY AS ID", conn);
+                    //          cmd.Transaction = tr;
+                    object o = cmd.ExecuteScalar();
+                    UsersID = Convert.ToInt32(o);
+                    Log.Info("SocialRegister hits 5.6.9");
+                }
             }
+            catch (Exception ex)
+            {
+                Log.Info("SocialRegister hits 5.6.0 " + ex.ToString());
+                throw;
+            }
+            
             return UsersID;
         }
     }
