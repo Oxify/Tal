@@ -61,7 +61,7 @@ namespace TalBrody
 
             return result;
 
-        }
+        } 
 
         [ScriptMethod(UseHttpGet = true)]
         [WebMethod(EnableSession = false)]
@@ -92,6 +92,7 @@ namespace TalBrody
                     log.Info("SocialRegister hits 1");
                     var facebookAccess = Container.Resolve<FacebookAccess>();
                     log.Info("SocialRegister hits 2");
+                    log.Info("token = " + token.ToString());
                     user = facebookAccess.RegisterUser(token);
                   
                     SessionUtil.AddUserToSession(user.Id);
