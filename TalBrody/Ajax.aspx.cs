@@ -89,17 +89,21 @@ namespace TalBrody
                 User user = null; 
                 if (platform.ToUpper() == "FB")
                 {
+                    log.Info("SocialRegister hits 1");
                     var facebookAccess = Container.Resolve<FacebookAccess>();
+                    log.Info("SocialRegister hits 2");
                     user = facebookAccess.RegisterUser(token);
                     SessionUtil.AddUserToSession(user.Id);
+                    log.Info("SocialRegister hits 3");
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
                         result.NextStep = -1;
+                    log.Info("SocialRegister hits 4");
                 }
                 if (user != null)
                 {
-
+                    log.Info("SocialRegister hits 5");
                     List<Follower> fololist = Followers.Get_Follower_by_Project(1);
                     if (!fololist.Exists(o => o.UserId == user.Id))
                     {
