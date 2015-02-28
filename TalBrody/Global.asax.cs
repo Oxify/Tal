@@ -127,7 +127,7 @@ namespace TalBrody
             // Note: WebMethods don't reach this. See Application_PostMapRequestHandler
           //  log.Error("Caught exception", ex );
             log.ErrorFormat("My {0} message: {1}", "Caught exception", ex.StackTrace);
-            HttpContext.Current.Response.Write(string.Format("My {0} message: {1}", "Caught exception", ex.StackTrace));
+           // HttpContext.Current.Response.Write(string.Format("My {0} message: {1}", "Caught exception", ex.StackTrace));
             if (ex is HttpUnhandledException)
             {
                 // Pass the error on to the error page.
