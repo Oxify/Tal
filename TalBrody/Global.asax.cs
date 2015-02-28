@@ -20,8 +20,19 @@ namespace TalBrody
 
         public static bool OnAppHarbor { get; private set; }
 
+        /*
+        public void RegisterRoute(RouterCollection routers )
+        {
+
+                
+        }
+        */
+
         protected void Application_Start(object sender, EventArgs e)
         {
+           // RegisterRoute(routerTable )
+           //     MapPageRoute 
+                    
             // Setup Dependnecy Injection
             IOC.InitContainer(container =>
             {

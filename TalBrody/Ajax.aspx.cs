@@ -85,6 +85,7 @@ namespace TalBrody
             RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
+                log.Info("SocialRegister hits");
                 User user = null; 
                 if (platform.ToUpper() == "FB")
                 {
