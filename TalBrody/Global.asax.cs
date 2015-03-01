@@ -25,15 +25,20 @@ namespace TalBrody
         public static void RegisterRoute(RouteCollection routers)
         {
             
-            routers.Ignore("{resource}.axd/{*pathInfo}");
-            routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
+          //  routers.Ignore("{resource}.axd/{*pathInfo}");
+           // routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
             routers.MapPageRoute("", "p", "~/Project.aspx");
-            routers.MapPageRoute("", "p/m127fj","~/Project.aspx");
-            routers.MapPageRoute("", "p/m127fj/toys", "~/Project.aspx");
-            routers.MapPageRoute("", "p/m127fj/toys/shaer", "~/Share.aspx");
+            routers.MapPageRoute("", "p/m1fj","~/Project.aspx");
+            routers.MapPageRoute("", "p/m1fj/toys", "~/Project.aspx");
+            routers.MapPageRoute("", "p/m1fj/toys/shaer", "~/Share.aspx");
             routers.MapPageRoute("", "tos", "~/TermsOfService.aspx");
             routers.MapPageRoute("", "privacy", "~/PrivacyPolicy.aspx");
             routers.MapPageRoute("", "about", "~/About.aspx");
+            routers.MapPageRoute("", "contact", "~/ContactUs.aspx");
+            routers.MapPageRoute("", "fAQ", "~/FAQ.aspx");
+            //routers.MapPageRoute("", "Blog", "blog.oxify.co");
+            routers.MapPageRoute("", "Edit", "~/EditProject.aspx");
+            routers.MapPageRoute("", "s", "~/AdminDeashBord.aspx");
         }
 
 

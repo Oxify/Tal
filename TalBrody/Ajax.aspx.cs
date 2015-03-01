@@ -101,9 +101,8 @@ namespace TalBrody
                 }
                 if (user != null)
                 {
-                   
-                    List<Follower> fololist = Followers.Get_Follower_by_Project(1);
-                    if (!fololist.Exists(o => o.UserId == user.Id))
+                    Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+                    if (fol == null)
                     {
                         int UserRefId = 0;
                         if (HttpContext.Current.Session["UserRefId"] != null)

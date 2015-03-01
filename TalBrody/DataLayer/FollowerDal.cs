@@ -68,6 +68,7 @@ namespace TalBrody.DataLayer
                     cmd.Parameters.AddWithValue("@FollowerGuid", FollowerGuid);
                     cmd.CommandType = CommandType.Text;
                     conn.Open();
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception)
@@ -141,7 +142,7 @@ namespace TalBrody.DataLayer
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
-                if (reader.Read())
+                while (reader.Read())
                 {
                     PermissionList.Add(Populators.Populate_Follower(reader));
                 }

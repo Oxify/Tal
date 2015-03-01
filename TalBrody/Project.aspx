@@ -6,7 +6,7 @@
 
             var ProjectId = 1;
 
-            var href = "Register.aspx?ProjectId=" + ProjectId;
+            var href = "/Register.aspx?ProjectId=" + ProjectId;
 
             var txtSaveClickedHidden = '';
             var a = $(".BtnRegister").val;
