@@ -25,7 +25,7 @@ namespace TalBrody
         public static void RegisterRoute(RouteCollection routers)
         {
             
-            routers.Ignore("{resource}.axd/{*pathInfo}");
+          //  routers.Ignore("{resource}.axd/{*pathInfo}");
             routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
             routers.MapPageRoute("", "p", "~/Project.aspx");
             routers.MapPageRoute("", "p/m127fj","~/Project.aspx");

@@ -4,18 +4,25 @@
 
 html, body {
     min-height: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .jumbotron {
     height: 100%;
-    /*height: 100vh;*/
+    width: 100%;
     background-color: white;
     padding: 0;
     margin-top: 0;
     margin-bottom: 5px;
-    min-height: 560px;
 }
 
+#firstpage {
+    height: 100%;
+    min-height: 560px;
+   
+}
 
 .jumbotron-header {
     /*background-color: pink;*/
@@ -29,6 +36,7 @@ html, body {
     /*background-color: darkorange;*/
     display: table-row;
     height: 0;
+    width: 768px;
 }
 
 .main-row {
@@ -136,7 +144,7 @@ html, body {
     margin-right: auto;
     cursor: pointer;
     text-decoration: none;
-    position: relative;
+ 2   position: relative;
     left: -50%;
 }
 
@@ -206,12 +214,12 @@ html, body {
 .coming-soon {
     height: 45px;
     width: 100%;
-    background-color: #3498db;
-    color: white;
     margin-top: 25px;
 }
 
 .coming-soon-text {
+    background-color: #3498db;
+    color: white;
     font-size: 24px;
     text-align: center;
     margin-top: auto;
@@ -347,6 +355,7 @@ html, body {
     .info-buttons a {
         text-decoration: none;
     }
+
 
 .gallary-box {
     width: 100%;

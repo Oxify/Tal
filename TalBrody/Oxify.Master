@@ -19,8 +19,8 @@
     <meta proeprty="og:type" content="video" />
     <meta property="og:video:type" content="application/x-shockwave-flash" />
     <!--- end of FB meta tags  --->
-    
-    <link rel="icon" type="image/ico" href="Images/Icon.ico"/>
+
+    <link rel="icon" type="image/ico" href="Images/Icon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
     <link href='Css/SimpleCLM.css' rel='stylesheet' type='text/css' />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -59,13 +59,13 @@
             if (LogInFlag != "False") {
                 $('#BtnConect').hide();
                 $('#BtnLogOff').show();
-               // $('#BtnForgetPass').show();
+                // $('#BtnForgetPass').show();
                 $('#BtnChanghPassword').hide();
             }
             else {
                 $('#BtnConect').show();
                 $('#BtnLogOff').hide();
-              //  $('#BtnForgetPass').hide();
+                //  $('#BtnForgetPass').hide();
                 $('#BtnChanghPassword').hide();
             }
         }
@@ -154,53 +154,55 @@
     </script>
 </head>
 <body id="myBody">
-    <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img alt="Oxify" src="~/Images/VerySmallLogo.png" style="margin-top: -5px;" />
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <button type="button" class="btn btn-default navbar-btn" id="BtnConect" onclick="ShowLogin();">התחבר</button>
-                    <button type="button" class="btn btn-default navbar-btn" id="BtnLogOff" onclick="LogOut();">התנתק</button>
-
-                    <button type="button" class="btn btn-default navbar-btn" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
-                    <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
-                    <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
-                    <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-
     <form id="form1" runat="server">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
+        <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img alt="Oxify" src="/Images/VerySmallLogo.png" style="margin-top: -5px;" />
+                    </a>
+                </div>
 
-        <div id="dialog" title="Dialog Title" style="display: none">
-            <uc1:LogInControle runat="server" ID="LogInControle" />
-            <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <button type="button" class="btn btn-default navbar-btn" id="BtnConect" onclick="ShowLogin();">התחבר</button>
+                        <button type="button" class="btn btn-default navbar-btn" id="BtnLogOff" onclick="LogOut();">התנתק</button>
+
+                        <button type="button" class="btn btn-default navbar-btn" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
+                        <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
+                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
+                        <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
+        <div class="master-container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
 
+            <div id="dialog" title="Dialog Title" style="display: none">
+                <uc1:LogInControle runat="server" ID="LogInControle" />
+                <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
+            </div>
+
+
+            <footer class="footer">
+                <div class="container">
+                    <a href="About.aspx" class="footer-link">עלינו</a>
+                    <a href="FAQ.aspx" class="footer-link">שאלות ותשובות</a>
+                    <a href="TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
+                    <a href="PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
+                </div>
+            </footer>
+        </div>
     </form>
-    <footer class="footer">
-        <div class="container">
-            <a href="About.aspx" class="footer-link">עלינו</a>
-            <a href="FAQ.aspx" class="footer-link">שאלות ותשובות</a>
-            <a href="TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
-            <a href="PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
-        </div>
-    </footer>
 </body>
 </html>
