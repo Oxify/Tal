@@ -272,8 +272,6 @@
                                     <div class="col-xs-12 col-sm-8 col-sm-pull-2">
                                         <h3 style="text-align: center">הפרוייקט של בני ירוחם וחגי מרום</h3>
                                     </div>
-
-
                                 </div>
                                 <div class="row main-row">
                                     <h4 style="text-align: justify">

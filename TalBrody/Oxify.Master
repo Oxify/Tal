@@ -171,12 +171,12 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <button type="button" class="btn btn-default navbar-btn" id="BtnConect" onclick="ShowLogin();">התחבר</button>
-                        <button type="button" class="btn btn-default navbar-btn" id="BtnLogOff" onclick="LogOut();">התנתק</button>
+                        <button type="button" class="btn btn-default navbar-btn footer-link" id="BtnConect" onclick="ShowLogin();">התחבר</button>
+                        <button type="button" class="btn btn-default navbar-btn footer-link" id="BtnLogOff" onclick="LogOut();">התנתק</button>
 
-                        <button type="button" class="btn btn-default navbar-btn" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
-                        <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
-                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
+                        <button type="button" class="btn btn-default navbar-btn footer-link" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
+                        <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project" CssClass="footer-link"></asp:HyperLink>
+                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin" CssClass="footer-link"></asp:HyperLink>
                         <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
                     </ul>
                 </div>
@@ -200,6 +200,10 @@
                     <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>
                     <a href="/TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
                     <a href="/PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
+<%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
+<%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
+                    <a href="/tos" class="footer-link">תנאי שימוש</a>
+                    <a href="/privacy" class="footer-link">מדיניות פרטיות</a>
                 </div>
             </footer>
         </div>

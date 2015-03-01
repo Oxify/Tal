@@ -32,6 +32,7 @@ namespace TalBrody
             routers.MapPageRoute("", "p/m127fj/toys", "~/Project.aspx");
             routers.MapPageRoute("", "p/m127fj/toys/shaer", "~/Share.aspx");
             routers.MapPageRoute("", "tos", "~/TermsOfService.aspx");
+            routers.MapPageRoute("", "privacy", "~/PrivacyPolicy.aspx");
             routers.MapPageRoute("", "about", "~/About.aspx");
         }
 

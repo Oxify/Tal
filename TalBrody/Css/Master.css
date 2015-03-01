@@ -11,6 +11,16 @@
 }
 
 .master-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin-left: -15px;
+    /*width: 100%;*/
+}
 
 .master-wrapper {
     height: 100%;
@@ -64,7 +74,7 @@
     color: #ffffff;
     font-size: 12px;
     background: #3498db;
-    padding: 2px;
+    padding: 2px 5px 2px 2px;
     text-decoration: none;
     border: 0;
 }
