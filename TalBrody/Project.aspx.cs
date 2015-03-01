@@ -15,6 +15,7 @@ namespace TalBrody
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string p = Page.RouteData.Values["ppp"] as string;
             if (!IsPostBack)
             {
                 InitParam();

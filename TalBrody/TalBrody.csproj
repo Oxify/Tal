@@ -472,9 +472,11 @@
     <Compile Include="Util\Email.cs" />
     <Compile Include="Util\Http.cs" />
     <Compile Include="Util\FileSystemResourceResolver.cs" />
+    <Compile Include="Util\ImageRouteHandler.cs" />
     <Compile Include="Util\IResourceResolver.cs" />
     <Compile Include="Util\Log.cs" />
     <Compile Include="Util\Loging.cs" />
+    <Compile Include="Util\ProjectRouteHandler.cs" />
     <Compile Include="Util\UserSession.cs" />
     <Compile Include="Util\UUIDCreator.cs" />
   </ItemGroup>
