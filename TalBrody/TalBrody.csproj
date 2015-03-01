@@ -255,8 +255,6 @@
     <Content Include="Images\Toys\5A.jpg" />
     <Content Include="Images\Toys\6.jpg" />
     <Content Include="Images\Toys\6A.jpg" />
-    <Content Include="Images\Toys\7A.jpg" />
-    <Content Include="Images\Toys\8A.jpg" />
     <Content Include="Images\Toys\BennyAndHagi.jpg" />
     <Content Include="Images\VerySmallLogo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
