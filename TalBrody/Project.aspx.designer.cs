@@ -13,13 +13,13 @@ namespace TalBrody {
     public partial class Project {
         
         /// <summary>
-        /// firstpage control.
+        /// projectpage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl firstpage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projectpage;
         
         /// <summary>
         /// DiscountDiv control.
