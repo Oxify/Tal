@@ -57,7 +57,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="project" id="projectpage" runat="server">
-        <div class="jumbotron" id="firstpage">
+        <div class="jumbotron" id="firstpage" runat="server">
             <div class="jumbotron-header">
                 <div class="main-container">
                     <div class="container">
@@ -130,12 +130,12 @@
                                     <div class="col-sm-6 col-xs-12">
                                         <h2><strong>"עודני ילד" </strong></h2>
                                         <h3>הספר על "בית ההבראה לצעצועים"</h3>
-                                        <h4>"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
+                                        <h5 style="text-align: justify">"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
                                                 <br />
-                                            הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.<br />
-                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.<br />
-                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h4>
-                                        <br />
+                                            הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
+                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
+                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h5>
+                                     
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <div class="embed-responsive embed-responsive-16by9">
@@ -143,29 +143,11 @@
                                         </div>
                                         <div>
                                             <div class="coming-soon">
-                                                <div class="coming-soon-text">הקמפיין יתחיל בשבועות הקרובים</div>
+                                                <div class="coming-soon-text"><h4>הקמפיין יתחיל בשבועות הקרובים</h4></div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-6">
-                                                <div class="flat-box blue">
-                                                    <div class="flat-box-right">
-                                                        <div class="circle-blue ">
-                                                            <div>
-                                                                <i class="fa fa-ils"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flat-box-left" runat="server" id="DiscountDiv">
-                                                        <div class="flat-box-title">
-                                                            <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
-                                                            ש"ח
-                                                        </div>
-                                                        <div class="flat-box-description">
-                                                            הנחה צברת
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="flat-box grey">
                                                     <div class="flat-box-right">
                                                         <div class="circle-grey ">
@@ -180,6 +162,24 @@
                                                         </div>
                                                         <div class="flat-box-description">
                                                             עוקבים אחר הפרוייקט
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flat-box blue ">
+                                                    <div class="flat-box-right">
+                                                        <div class="circle-blue ">
+                                                            <div>
+                                                                <i class="fa fa-ils"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flat-box-left" runat="server" id="DiscountDiv">
+                                                        <div class="flat-box-title">
+                                                            <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
+                                                            ש"ח
+                                                        </div>
+                                                        <div class="flat-box-description">
+                                                            הנחה צברת
                                                         </div>
                                                     </div>
                                                 </div>

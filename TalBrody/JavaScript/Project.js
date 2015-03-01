@@ -27,8 +27,8 @@ $(document).ready(function () {
         infinite: false,
         rtl: true,
         speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         respondTo: 'min',
         varibleWidth: true,
         responsive: [

@@ -8,10 +8,12 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
 .project {
     width: 100%;
     min-height: 100%;
 }
+
 .jumbotron {
     height: 100%;
     width: 100%;
@@ -24,7 +26,6 @@ html, body {
 #firstpage {
     height: 100%;
     min-height: 560px;
-   
 }
 
 .jumbotron-header {
@@ -41,10 +42,8 @@ html, body {
     height: 0;
     width: 768px;
 }
-.margincall {
-    margin: 0;
-    padding: 0;
-}
+
+
 .main-row {
     width: 100%;
     margin: 0;
@@ -115,7 +114,7 @@ html, body {
 
 .scroll-icon-wrapper {
     text-align: center;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .scroll-icon {
@@ -151,7 +150,7 @@ html, body {
     margin-right: auto;
     cursor: pointer;
     text-decoration: none;
- 2   position: relative;
+    2 position: relative;
     left: -50%;
 }
 
@@ -219,9 +218,9 @@ html, body {
 
 
 .coming-soon {
-    height: 45px;
+    height: 25px;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .coming-soon-text {
@@ -231,82 +230,57 @@ html, body {
     text-align: center;
     margin-top: auto;
     margin-bottom: auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
-
-
 .flat-box-title {
-    font-size: 28px;
     font-weight: bold;
-    line-height: 26px;
+    display: inline-block;
+    font-size: 26px;
 }
 
 .flat-box-description {
     font-size: 14px;
+    display: inline-block;
 }
-
 
 .flat-box-right {
     width: 35px;
     display: inline-block;
     height: 100%;
-    padding-top: 15px;
+    padding-top: 1px;
+    right: 0;
 }
 
 .flat-box-left {
     display: inline-block;
-    width: 130px;
+    width: 190px;
+    margin-top: -15px;
+    vertical-align: middle;
 }
 
-
-.circle-text {
-    width: 30px;
-    background-color: #3498db;
+.circle-blue,
+.circle-grey {
+    width: 25px;
     display: inline-block;
-    font-size: 20px;
+    margin-top: 3px;
+    font-size: 18px;
 }
 
-    .circle-text:after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 0;
-        padding-bottom: 100%;
-        background: white;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-    }
-
-    .circle-text div, .circle-text span {
-        float: left;
-        width: 100%;
-        padding-top: 50%;
-        line-height: 1em;
-        margin-top: -0.5em;
-        text-align: center;
-    }
-
-
-.circle-blue {
-    width: 30px;
-    background-color: #3498db;
-    display: inline-block;
-    font-size: 20px;
-}
-
+    .circle-grey:after,
     .circle-blue:after {
         content: "";
         display: block;
         width: 100%;
         height: 0;
         padding-bottom: 100%;
-        background: white;
         -moz-border-radius: 50%;
         -webkit-border-radius: 50%;
         border-radius: 50%;
     }
 
+    .circle-grey div, .circle-grey span,
     .circle-blue div, .circle-blue span {
         float: left;
         width: 100%;
@@ -314,36 +288,33 @@ html, body {
         line-height: 1em;
         margin-top: -0.5em;
         text-align: center;
+    }
+
+
+
+.circle-blue {
+    background-color: #3498db;
+}
+
+    .circle-blue:after {
+        background: white;
+        =;
+    }
+
+    .circle-blue div, .circle-blue span {
         color: #3498db;
     }
 
 
 .circle-grey {
-    width: 30px;
     background-color: #dadada;
-    display: inline-block;
-    font-size: 20px;
 }
 
     .circle-grey:after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 0;
-        padding-bottom: 100%;
         background: #312783;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
     }
 
     .circle-grey div, .circle-grey span {
-        float: left;
-        width: 100%;
-        padding-top: 50%;
-        line-height: 1em;
-        margin-top: -0.5em;
-        text-align: center;
         color: #dadada;
     }
 
@@ -363,18 +334,21 @@ html, body {
         text-decoration: none;
     }
 
-    .image-slide {
-        padding: 10px;
-    }
+.image-slide {
+    padding: 10px;
+}
+
 .gallary-box {
     width: 100%;
     height: 100%;
     padding: 30px;
 }
+
 .slick-box {
     padding: 15px;
     width: 100%;
 }
+
 .gallary-image {
     width: 240px;
     height: 180px;
@@ -396,6 +370,13 @@ html, body {
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
+/* for things input xs sizes */
+@media (max-width: 768px) {
+    .margincall {
+        margin: 0;
+        padding: 0;
+    }
+}
 /* Small devices (tablets, 768px and up) */
 /* For col-sm-x */
 @media (min-width: 768px) {
@@ -454,8 +435,50 @@ html, body {
         cursor: pointer;
     }
 
+
+    .flat-box-right {
+        width: 35px;
+        display: inline-block;
+        height: 100%;
+        padding-top: 15px;
+    }
+
+    .flat-box-left {
+        display: inline-block;
+        width: 130px;
+    }
+
+    .flat-box-title {
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 26px;
+    }
+
+    .flat-box-description {
+        font-size: 14px;
+    }
+
+
+    .circle-grey {
+        width: 30px;
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    .circle-blue {
+        width: 30px;
+        display: inline-block;
+        font-size: 20px;
+    }
+
     .register-button-div {
         margin-top: 20px;
+    }
+
+    .coming-soon {
+        height: 45px;
+        width: 100%;
+        margin-top: 10px;
     }
 
     .last-row {
