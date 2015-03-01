@@ -30,7 +30,6 @@ namespace TalBrody
         {
             List<Follower> folloList = Followers.Get_Follower_by_Project(1);
             LblFollowerCount.Text = folloList.Count.ToString();
-            LblFollowerCount.Text = "99,999";
             UserSession usess = SessionUtil.GetUserSession();
             if (usess != null)
             {
