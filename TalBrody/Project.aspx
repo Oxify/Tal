@@ -217,7 +217,7 @@
                     </div>
                 </div>
             </div>
-   
+
         </div>
         <div class="main-row">
             <div class="gallary-box">
@@ -252,7 +252,7 @@
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
                                 <div class="row main-row">
-                                    <div class="col-xs-5 col-md-2">
+                                    <div class="col-xs-5 col-sm-2">
                                         צרו איתנו קשר
                                                 <div class="info-buttons" style="margin-right: -1px;">
                                                     <a href="mailto:hagi@hagimarom.com"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
@@ -262,16 +262,17 @@
                                             <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
                                         </div>
                                     </div>
-                                    <div class="col-xs-7 col-sm-2">
+                                    <div class="col-xs-7 col-sm-2 col-sm-push-8">
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <img src="Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12">
+                                    <div class="col-xs-12 col-sm-8 col-sm-pull-2">
                                         <h3 style="text-align: center">הפרוייקט של בני ירוחם וחגי מרום</h3>
                                     </div>
+
 
                                 </div>
                                 <div class="row main-row">
@@ -289,7 +290,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
             <br />
