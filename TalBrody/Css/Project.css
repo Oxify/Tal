@@ -32,7 +32,7 @@ html, body {
     height: 100%;
     width: 100%;
     display: table;
-    padding: 60px 5px 0 5px;
+    padding: 40px 5px 0 5px;
 }
 
 .main-container {
@@ -41,10 +41,13 @@ html, body {
     height: 0;
     width: 768px;
 }
-
+.margincall {
+    margin: 0;
+    padding: 0;
+}
 .main-row {
     width: 100%;
-
+    margin: 0;
 }
 
 .buffer {

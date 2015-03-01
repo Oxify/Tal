@@ -62,9 +62,10 @@
                 <div class="main-container">
                     <div class="container">
                         <div class="row" id="cover-page">
-                            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
                                 <div class="row main-row">
-                                    <div class="col-sm-6 col-xs-12" id="title">
+                                    <div class="col-sm-6 col-xs-12 margincall
+                                        " id="title">
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                             <div class="sm-bottom-responsive-item" id="title-content">
                                                 <h2><strong>"עודני ילד" </strong></h2>
@@ -85,11 +86,11 @@
                                     <div class="col-xs-12">
                                         <div class="visible-xs">
 
-                                            <h3 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
+                                            <h4 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
 					
                                             <b>הירשמו ותוכלו לזכות בהטבות מיוחדות.</b>
                                                 ביחד, נוציא את הספר לאור.
-                                            </h3>
+                                            </h4>
                                         </div>
                                         <div class="hidden-xs">
                                             <hr class="small_divider" />
