@@ -65,7 +65,8 @@
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
                                 <div class="row main-row">
                                     <div class="col-sm-6 col-xs-12 margincall
-                                        " id="title">
+                                        "
+                                        id="title">
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                             <div class="sm-bottom-responsive-item" id="title-content">
                                                 <h2><strong>"עודני ילד" </strong></h2>
@@ -135,7 +136,7 @@
                                             הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
                                             הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
                                             בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h5>
-                                     
+
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <div class="embed-responsive embed-responsive-16by9">
@@ -143,7 +144,9 @@
                                         </div>
                                         <div>
                                             <div class="coming-soon">
-                                                <div class="coming-soon-text"><h4>הקמפיין יתחיל בשבועות הקרובים</h4></div>
+                                                <div class="coming-soon-text">
+                                                    <h4>הקמפיין יתחיל בשבועות הקרובים</h4>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -186,16 +189,18 @@
 
                                             </div>
                                             <div class="col-sm-6 col-xs-12">
-                                                <div class="flat-box">
-                                                    <div class="share-title">
-                                                        <h3>שתפו עם חברים</h3>
+                                                <div>
+                                                    <div class="flat-box">
+                                                        <div class="share-title">
+                                                            <h3>שתפו עם חברים</h3>
+                                                        </div>
                                                     </div>
                                                     <div class="share-buttons">
                                                         <a href="twitter sharer"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
                                                         <div class="whatsapp-box">
                                                             <a href="whatsapp://send?text=oxify.co/code" data-action="share/whatsapp/share"><span class="share-box whatsapp-color"><i class="fa fa-whatsapp"></i></span></a>
                                                         </div>
-                                                        <br />
+                                                        <br class="hidden-xs" />
                                                         <a href="mailto:..."><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
                                                         </a>
                                                         <a href="facebook sharer"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
@@ -204,13 +209,48 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+   
+        </div>
+        <div class="main-row">
+            <div class="gallary-box">
+
+                <div class="slick-box">
+                    <a class="gallary-image" rel="gallary" href="/Images/Toys/1.jpg">
+                        <img src="/Images/Toys/1A.jpg" />
+                    </a>
+                    <a class="gallary-image" rel="gallary" href="/Images/Toys/2.jpg">
+                        <img src="/Images/Toys/2A.jpg" />
+                    </a>
+                    <a class="gallary-image" rel="gallary" href="/Images/Toys/3.jpg">
+                        <img src="/Images/Toys/3A.jpg" />
+                    </a>
+                    <a class="gallary-image" rel="gallary" href="/Images/Toys/4.jpg">
+                        <img src="/Images/Toys/4A.jpg" />
+                    </a>
+                    <a class="gallary-image" rel="gallary" href="/Images/Toys/5.jpg">
+                        <img src="/Images/Toys/5A.jpg" />
+                    </a>
+                    <a class="gallary-image" rel="gallary" href="/Images/Toys/6.jpg">
+                        <img src="/Images/Toys/6A.jpg" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron" id="thirdpage">
+            <div class="jumbotron-header">
+                <div class="main-container">
+                    <div class="container">
+                        <div class="row ">
+
+
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
                                 <div class="row main-row">
@@ -241,7 +281,8 @@
                                         <strong>בני ירוחם</strong>
                                         - אספן צעצועים ומשחקים ישנים, הקים בשנת 2011 ביחד עם ג'ניס אישתו, את "בית
 הבראה לצעצועים", מוזיאון צעצועים ללא כוונת רווח, הפועל בנמל יפו. שיתוף הפעולה בין חגי ובני
-נוצר מתוך כבוד ואהבה משותפים לנוסטלגיה הישראלית ומתוך כוונה לשמר ולתעד אותה.                                       
+נוצר מתוך כבוד ואהבה משותפים לנוסטלגיה הישראלית ומתוך כוונה לשמר ולתעד אותה.
+                                       
                                         <br />
                                         <strong>חגי מרום</strong> - אספן תרבות ישראלית, מעצב גרפי וצלם, הקים בשנת 2011 את הוצאת הספרים "מרום
 תרבות ישראלית". ההוצאה מפיקה ומוציאה לאור ספרים העוסקים בתרבות, אמנות ונוסטלגיה
@@ -257,30 +298,6 @@
             <br />
 
         </div>
-        <div class="gallary-box ">
-
-            <div class="slick-box">
-                <a class="gallary-image" rel="gallary" href="/Images/Toys/1.jpg">
-                    <img src="/Images/Toys/1A.jpg" />
-                </a>
-                <a class="gallary-image" rel="gallary" href="/Images/Toys/2.jpg">
-                    <img src="/Images/Toys/2A.jpg" />
-                </a>
-                <a class="gallary-image" rel="gallary" href="/Images/Toys/3.jpg">
-                    <img src="/Images/Toys/3A.jpg" />
-                </a>
-                <a class="gallary-image" rel="gallary" href="/Images/Toys/4.jpg">
-                    <img src="/Images/Toys/4A.jpg" />
-                </a>
-                <a class="gallary-image" rel="gallary" href="/Images/Toys/5.jpg">
-                    <img src="/Images/Toys/5A.jpg" />
-                </a>
-                <a class="gallary-image" rel="gallary" href="/Images/Toys/6.jpg">
-                    <img src="/Images/Toys/6A.jpg" />
-                </a>
-            </div>
-    </div>
-
     </div>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 
