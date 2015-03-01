@@ -49,11 +49,11 @@
 
         }
     </script>
-    <link rel="stylesheet" href="Css/Project.css" type="text/css" />
+    <link rel="stylesheet" href="/Css/Project.css" type="text/css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css" />
-    <link rel="stylesheet" type="text/css" href="Css/slick-theme-oxify.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/slick-theme-oxify.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="jumbotron" id="firstpage" runat="server">
@@ -266,22 +266,22 @@
 
                                 <div class="slick-box">
                                     <a class="gallary-image" rel="gallary" href="Images/Toys/1.jpg">
-                                        <img src="Images/Toys/1A.jpg" />
+                                        <img src="/Images/Toys/1A.jpg" />
                                     </a>
                                     <a class="gallary-image" rel="gallary" href="Images/Toys/2.jpg">
-                                        <img src="Images/Toys/2A.jpg" />
+                                        <img src="/Images/Toys/2A.jpg" />
                                     </a>
                                     <a class="gallary-image" rel="gallary" href="Images/Toys/3.jpg">
-                                        <img src="Images/Toys/3A.jpg" />
+                                        <img src="/Images/Toys/3A.jpg" />
                                     </a>
                                     <a class="gallary-image" rel="gallary" href="Images/Toys/4.jpg">
-                                        <img src="Images/Toys/4A.jpg" />
+                                        <img src="/Images/Toys/4A.jpg" />
                                     </a>
                                     <a class="gallary-image" rel="gallary" href="Images/Toys/5.jpg">
-                                        <img src="Images/Toys/5A.jpg" />
+                                        <img src="/Images/Toys/5A.jpg" />
                                     </a>
                                     <a class="gallary-image" rel="gallary" href="Images/Toys/6.jpg">
-                                        <img src="Images/Toys/6A.jpg" />
+                                        <img src="/Images/Toys/6A.jpg" />
                                     </a>
                                 </div>
                             </div>

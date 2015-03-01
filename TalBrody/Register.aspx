@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="JavaScript/jquery-1.8.2.min.js"></script>
+    <script src="/JavaScript/jquery-1.8.2.min.js"></script>
     <script src="https://connect.facebook.net/en_US/all.js"></script>
-    <script type="text/javascript" src="JavaScript/Register.js"> </script>
+    <script type="text/javascript" src="/JavaScript/Register.js"> </script>
 </head>
 <body>
 
