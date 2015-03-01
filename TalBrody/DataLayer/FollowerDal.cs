@@ -15,6 +15,27 @@ namespace TalBrody.DataLayer
 	public class FollowerDal : BaseDal
 	{
 
+        public Follower GET_Follower_BY_UserId_and_project(int userId, int projectid)
+        {
+            Follower follo = null;
+
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("SELECT [Id],[ProjectId],[UserId],[CreatedDate],FollowerGuid,FollowerCount,ReferByUserId FROM [Followers] " +
+                    "where UserId = @userId and ProjectId = @ProjectId ", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@ProjectId", projectid);
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    follo = Populators.Populate_Follower(reader);
+                }
+            }
+            return follo;
+        }
+
         public Follower GET_Follower_BY_FollowerGuid(string FollowerGuid)
         {
             Follower follo = null;

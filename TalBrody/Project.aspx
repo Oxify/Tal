@@ -49,11 +49,11 @@
 
         }
     </script>
-    <link rel="stylesheet" href="Css/Project.css" type="text/css" />
+    <link rel="stylesheet" href="/Css/Project.css" type="text/css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css" />
-    <link rel="stylesheet" type="text/css" href="Css/slick-theme-oxify.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/slick-theme-oxify.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="project" id="projectpage" runat="server">
@@ -265,7 +265,7 @@
                                     <div class="col-xs-7 col-sm-2 col-sm-push-8">
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <img src="Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
+                                                <img src="/Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
                                             </div>
                                         </div>
                                     </div>
@@ -300,6 +300,6 @@
     </div>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 
-    <script type="text/javascript" src="JavaScript/Project.js"> </script>
+    <script type="text/javascript" src="/JavaScript/Project.js"> </script>
 
 </asp:Content>

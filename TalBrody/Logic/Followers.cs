@@ -50,5 +50,11 @@ namespace TalBrody.Logic
             FollowerDal dal = new FollowerDal();
             return dal.GET_Follower_BY_FollowerGuid(FollowerGuid);
         }
+
+        public static Follower GET_Follower_BY_UserId_and_project(int userId,int projectid)
+        {
+            FollowerDal dal = new FollowerDal();
+            return dal.GET_Follower_BY_UserId_and_project(userId, projectid);
+        }
 	}
 }

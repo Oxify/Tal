@@ -13,6 +13,10 @@ namespace TalBrody
 {
     public partial class Project : System.Web.UI.Page
     {
+        public string ShareUrl;
+        public string FacebookShareUrl;
+        public string TwitterShareUrl;
+        public string WhatsappUrl;
         protected void Page_Load(object sender, EventArgs e)
         {
             string p = Page.RouteData.Values["ppp"] as string;
@@ -24,6 +28,21 @@ namespace TalBrody
             }
 
             ChecktoHideDiv();
+        }
+
+        private void InitParam()
+        {
+            UserSession Usession = SessionUtil.GetUserSession();
+            if (Usession != null)
+            {
+                Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 1);
+                string ProjectName = " עודני כאן - ספר נוסטלגי על בית הבראה לצעצועים ";
+                ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), fol.FollowerGuid);
+                var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
+                FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
+                TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
+                WhatsappUrl = "whatsapp://send?text=" + ProjectName + ShareUrlEncoded;
+            }
         }
 
         private void PopulateFollowerCountLable()
@@ -91,9 +110,6 @@ namespace TalBrody
 
 
 
-        private void InitParam()
-        {
-            //			LblTitle.Style.Add("font-size", "30px");
-        }
+       
     }
 }
