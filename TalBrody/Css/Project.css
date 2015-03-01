@@ -139,25 +139,6 @@ html, body {
     /*margin-bottom: -50px;*/
 }
 
-.ScrollButton {
-    background-position: center;
-    content: '';
-    background: url(../images/DownButton.png) no-repeat;
-    border: none;
-    width: 0;
-    padding: 27px;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    text-decoration: none;
-    position: relative;
-    left: -50%;
-}
-
-    .ScrollButton:hover {
-        background: url(../images/DownButton.hover.png) no-repeat;
-    }
-
 .flat-button {
     /*font-family: 'Simple CLM', serif;*/
     font-weight: bold;
