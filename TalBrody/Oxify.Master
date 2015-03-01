@@ -1,0 +1,208 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Oxify.master.cs" Inherits="TalBrody.Oxify" %>
+
+<%@ Register Src="~/UserControl/LogInControle.ascx" TagPrefix="uc1" TagName="LogInControle" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="he">
+<head runat="server">
+    <title>Oxify - עודני ילד</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--- start of FB meta tags --->
+    <meta property="og:url" content="http://oxify.co" />
+    <meta property="og:title" content="עודני ילד" />
+    <meta property="og:description" content="'ספר חדש על 'בית הבראה לצעצועים" />
+    <meta property="og:image" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg" />
+    <meta property="og:video" content="https://www.youtube.com/v/2xgVbFniiVU" />
+    <meta proeprty="og:type" content="video" />
+    <meta property="og:video:type" content="application/x-shockwave-flash" />
+    <!--- end of FB meta tags  --->
+
+    <link rel="icon" type="image/ico" href="Images/Icon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
+    <link href='Css/SimpleCLM.css' rel='stylesheet' type='text/css' />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <!---link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" /-->
+    <link rel="stylesheet" href="Css/BootstrapDefaults.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.14/jquery.scrollTo.min.js"></script>
+    <script src="JavaScript/jquery.easing.1.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="JavaScript/SmoothScroll.js"></script>
+    <script src="JavaScript/LightBox.js"></script>
+    <script src="JavaScript/LightBoxBigPack.js"></script>
+    <script src="JavaScript/LightBoxPack.js"></script>
+    <link href="Css/LightBoxBig.css" rel="stylesheet" />
+    <link href="Css/LightBox.css" rel="stylesheet" />
+    <link href="Css/LightBoxLarge.css" rel="stylesheet" />
+    <script src="JavaScript/Common.js"></script>
+    <link rel="stylesheet" href="Css/Master.css" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#dialog").hide();
+            CheckCookie();
+            CheckbuttonShow();
+        });
+
+        function CheckbuttonShow() {
+
+            var LogInFlag = '<%= LogInFlag%>';
+            if (LogInFlag != "False") {
+                $('#BtnConect').hide();
+                $('#BtnLogOff').show();
+                // $('#BtnForgetPass').show();
+                $('#BtnChanghPassword').hide();
+            }
+            else {
+                $('#BtnConect').show();
+                $('#BtnLogOff').hide();
+                //  $('#BtnForgetPass').hide();
+                $('#BtnChanghPassword').hide();
+            }
+        }
+
+        function CheckCookie() {
+
+            var cooke = getCookie("OxifyId");
+            var LogInFlag = '<%= LogInFlag%>';
+            var oxifyId = '<% = OxifyId%>';
+            if (LogInFlag == "False" && cooke != null) {
+                // log in false and cooke is true do login 
+
+                var params = "{'id':'" + cooke + "'}";
+
+                $.ajax({
+                    type: "POST",
+                    url: "Ajax.aspx/AutoLogin",
+                    async: false,
+                    data: params,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.d == 1) {
+                            // i close it for not do endless loops
+                            window.location.reload(); // refreashg
+                        }
+                        else if (response.d == 0) {
+                            deleteCookie("OxifyId"); // delete cooke
+                        }
+
+                    },
+                    failure: function (msg) {
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    }
+                });
+            } else if (LogInFlag == "True" && cooke == null) {
+                //log in is true and no cooke make cooke
+                createCookie("OxifyId", oxifyId, 30);
+            }
+
+        }
+
+        function ShowLogin() {
+            $mydialog = $("#dialog").dialog({
+                height: 600, width: 650, dialogClass: 'Dialog', title: 'Log in Dialog',
+                autoOpen: false,
+                buttons: {
+
+                }
+            });
+            $mydialog.dialog("open");
+        }
+
+        function LogOut() {
+            deleteCookie("OxifyId"); // delete cooke
+            <%DoLOgOut();%> // delete session
+            window.location.reload(); // refrash page
+
+        }
+
+        function ChangePassword() {
+
+        }
+
+        function ForgetPassword() {
+
+
+        }
+
+
+    </script>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-55414092-3', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+<body id="myBody">
+    <form id="form1" runat="server">
+        <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img alt="Oxify" src="/Images/VerySmallLogo.png" style="margin-top: -5px;" />
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <button type="button" class="btn btn-default navbar-btn" id="BtnConect" onclick="ShowLogin();">התחבר</button>
+                        <button type="button" class="btn btn-default navbar-btn" id="BtnLogOff" onclick="LogOut();">התנתק</button>
+
+                        <button type="button" class="btn btn-default navbar-btn" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
+                        <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
+                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
+                        <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <div class="master-container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <div id="dialog" title="Dialog Title" style="display: none">
+                <uc1:LogInControle runat="server" ID="LogInControle" />
+                <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
+            </div>
+
+
+            <footer class="footer">
+                <div class="container">
+                    <a href="About.aspx" class="footer-link">עלינו</a>
+                    <a href="FAQ.aspx" class="footer-link">שאלות ותשובות</a>
+                    <a href="TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
+                    <a href="PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
+                </div>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
