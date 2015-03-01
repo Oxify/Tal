@@ -69,8 +69,7 @@
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                             <div class="sm-bottom-responsive-item" id="title-content">
                                                 <h2><strong>"עודני ילד" </strong></h2>
-                                                <h3>ספר נוסטלגי
-                                                <br />
+                                                <h3>ספר נוסטלגי<br />
                                                     על "בית הבראה לצעצועים"</h3>
                                             </div>
                                         </div>
