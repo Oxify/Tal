@@ -30,7 +30,7 @@ namespace TalBrody
             routers.MapPageRoute("", "p", "~/Project.aspx");
             routers.MapPageRoute("", "p/m1fj","~/Project.aspx");
             routers.MapPageRoute("", "p/m1fj/toys", "~/Project.aspx");
-            routers.MapPageRoute("", "p/m1fj/toys/shaer", "~/Share.aspx");
+            routers.MapPageRoute("", "p/m1fj/toys/share", "~/Share.aspx");
             routers.MapPageRoute("", "tos", "~/TermsOfService.aspx");
             routers.MapPageRoute("", "privacy", "~/PrivacyPolicy.aspx");
             routers.MapPageRoute("", "about", "~/About.aspx");
@@ -38,7 +38,7 @@ namespace TalBrody
             routers.MapPageRoute("", "fAQ", "~/FAQ.aspx");
             //routers.MapPageRoute("", "Blog", "blog.oxify.co");
             routers.MapPageRoute("", "Edit", "~/EditProject.aspx");
-            routers.MapPageRoute("", "s", "~/AdminDeashBord.aspx");
+            routers.MapPageRoute("", "a", "~/AdminDashBord.aspx");
         }
 
 
