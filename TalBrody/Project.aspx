@@ -196,14 +196,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="share-buttons">
-                                                        <a href="twitter sharer"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
+                                                        <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= TwitterShareUrl %>"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
                                                         <div class="whatsapp-box">
-                                                            <a href="whatsapp://send?text=oxify.co/code" data-action="share/whatsapp/share"><span class="share-box whatsapp-color"><i class="fa fa-whatsapp"></i></span></a>
+                                                            <a href="<%= WhatsappUrl %>" data-action="share/whatsapp/share"><span class="share-box whatsapp-color"><i class="fa fa-whatsapp"></i></span></a>
                                                         </div>
-                                                        <br class="hidden-xs" />
-                                                        <a href="mailto:..."><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
+                                                        <a href="mailto:?subject=Look at this cool project&body=Check out this new campaign!%0A<%= ShareUrl %>"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
                                                         </a>
-                                                        <a href="facebook sharer"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
+                                                        <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= FacebookShareUrl %> "><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
 
                                                     </div>
                                                 </div>
