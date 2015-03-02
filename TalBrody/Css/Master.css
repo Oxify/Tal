@@ -78,7 +78,10 @@
     text-decoration: none;
     border: 0;
 }
-
+.footer-link:hover {
+    background-color: #312783;
+    color: white;
+}
     .footer-link a {
         text-decoration: none;
     }
@@ -188,8 +191,12 @@
         color: white;
     }
 
-
-
+   .register-button {
+       font-size: 20px;
+   }
+   .modal-body {
+       text-align: center;
+   }
 .email-color {
     color: #D64A38;
     background-color: white;

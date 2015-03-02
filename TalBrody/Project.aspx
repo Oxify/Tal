@@ -49,11 +49,10 @@
 
         }
     </script>
-    <link rel="stylesheet" href="/Css/Project.css" type="text/css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/Css/slick-theme-oxify.css" />
+    <link rel="stylesheet" href="/Css/Project.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="project" id="projectpage" runat="server">
