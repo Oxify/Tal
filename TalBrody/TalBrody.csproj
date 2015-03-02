@@ -210,6 +210,7 @@
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
     <Content Include="ConfirmEmail.aspx" />
+    <Content Include="ContactUs.aspx" />
     <Content Include="Cover.aspx" />
     <Content Include="Css\BootstrapDefaults.css" />
     <Content Include="Css\Brody.css" />
@@ -272,7 +273,6 @@
     <Content Include="JavaScript\LightBoxLargePack.js" />
     <Content Include="JavaScript\LightBoxPack.js" />
     <Content Include="JavaScript\login.js" />
-    <Content Include="JavaScript\Master.js" />
     <Content Include="JavaScript\Project.js" />
     <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />
@@ -336,6 +336,13 @@
     </Compile>
     <Compile Include="ConfirmEmail.aspx.designer.cs">
       <DependentUpon>ConfirmEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cover.aspx.cs">
       <DependentUpon>Cover.aspx</DependentUpon>

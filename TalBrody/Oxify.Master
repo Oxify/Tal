@@ -202,15 +202,18 @@
 
 
             <footer class="footer">
-                <div class="container">
-                    <a href="/About.aspx" class="footer-link">עלינו</a>
-                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>
-                    <a href="/TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
-                    <a href="/PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
+                <div class="container custom-footer">
+<%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
+<%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
+
                     <%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
                     <%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
+                    <a href="/contact" class="footer-link">צור קשר</a>
                     <a href="/tos" class="footer-link">תנאי שימוש</a>
                     <a href="/privacy" class="footer-link">מדיניות פרטיות</a>
+ <%--                   <span>
+                        כל הזכויות שמורות ל-Oxify <i class="fa fa-copyright"></i> 2015
+                    </span>--%>
                 </div>
             </footer>
         </div>
