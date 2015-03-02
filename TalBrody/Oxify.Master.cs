@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Castle.Windsor;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.ClientServices;
@@ -7,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TalBrody.Common;
 using TalBrody.Common.Enums;
+using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Logic;
 using TalBrody.Util;
@@ -18,6 +21,11 @@ namespace TalBrody
     {
         public bool LogInFlag = false;
         public string OxifyId = null;
+
+        private WindsorContainer Container
+        {
+            get { return IOC.Container; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             LogInFlag = CheckLogIn();
@@ -97,6 +105,58 @@ namespace TalBrody
                     // TODO - do something secure here
                      Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
                 }
+            }
+        }
+
+        protected void BtnAddEmail_Click(object sender, EventArgs e)
+        {
+            UserSession useastion = SessionUtil.GetUserSession();
+            if (useastion != null)
+            {
+
+                UserDal dal = Container.Resolve<UserDal>();
+                User user = dal.FindUserByid(useastion.UserId);
+                user.Email = txtEmail.Value;
+                dal.UpdateUser(user);
+                var code = Container.Resolve<Users>().GenerateUserRegistrationCode(user);
+                IOC.GetInstance<Email>().SendRegistrationEmail(user, code);
+               
+            }
+        }
+
+        protected void registerButton_Click(object sender, EventArgs e)
+        {
+            var emailStr = email.Value;
+            if (string.IsNullOrEmpty(emailStr))
+            {
+                throw new Exception("Missing email on registration form");
+            }
+
+            string msg;
+            var user = new UserDal().FindUserByEmail(emailStr);
+            if (user != null)
+            {
+                msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
+                log.Info(msg);
+               // registerResultLabel.Text = msg;
+                return;
+                //TODO handel duplicate registration 
+            }
+
+            var users = Container.Resolve<Users>();
+            int UserRefId = 0;
+            if (Session["UserRefId"] != null)
+                UserRefId = (int)Session["UserRefId"];
+            user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value, UserRefId);
+
+            // TODO Remove (this is properly logged elsewhere)
+          //  registerResultLabel.Text = string.Format("Created new user (email, name) = ({0}, {1})", emailStr, displayName);
+
+            SessionUtil.AddUserToSession(user.Id);
+            Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+            if (fol == null)
+            {
+                Followers.Insert_Follwer(1, user.Id, UserRefId);
             }
         }
     }
