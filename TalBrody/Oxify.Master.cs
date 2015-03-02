@@ -62,6 +62,11 @@ namespace TalBrody
             return result;
         }
 
+        public void btnClic(object sender, EventArgs e)
+        {
+            
+        }
+
         private void CheckPermissions()
         {
             // TODO make this relevant. right now it only kicks everyone out unless it's the cover page
