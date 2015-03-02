@@ -7,8 +7,17 @@
     margin: 0;
     padding: 0;
     height: 100%;
+    text-decoration: none;
 }
 
+.master-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    top: -30px;
+    /*width: 100%;*/
+}
 
 .master-wrapper {
     height: 100%;
@@ -27,12 +36,21 @@
 .form {
     height: 100%;
 }
+
 .main {
     height: 100%;
 }
 
 #form1 {
     margin-top: -60px;
+}
+
+.full-page {
+    height: 100%;
+}
+.main-content {
+    padding-top: 80px;
+ 
 }
 
 .master-footer {
@@ -55,13 +73,207 @@
     border: 0;
 }
 
+.custom-footer {
+    padding-top: 6px;
+}
+
 .footer-link {
     font-family: 'Simple CLM', serif;
     font-weight: bold;
     color: #ffffff;
     font-size: 12px;
     background: #3498db;
-    padding: 2px;
+    padding: 3px 5px 3px 5px;
     text-decoration: none;
     border: 0;
+    margin-top: 0px;
+    vertical-align: middle;
+    /*margin-right: 5px;*/
+}
+
+    .footer-link a {
+        text-decoration: none;
+    }
+
+.container a {
+    text-decoration: none;
+}
+
+.flat-box {
+    text-align: center;
+    height: 60px;
+    width: 190px;
+    margin: 15px auto 0 auto;
+}
+
+.share-title {
+    text-align: center;
+    font-weight: bold;
+    color: #3498db;
+    
+}
+
+.share-buttons {
+    text-align: center;
+    vertical-align: central;
+    font-size: 32px;
+    color: black;
+}
+
+    .share-buttons a {
+        text-decoration: none;
+    }
+
+.share-box {
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    /*border-width: 2px;*/
+    /*border-color: black;
+    border-style: solid;*/
+    margin: auto auto auto auto;
+    color: black;
+}
+
+    .share-box:active,
+    .share-box:visited,
+    .share-box:link {
+        color: black;
+    }
+
+.whatsapp-box {
+    display: inline-block;
+}
+
+.Popup-Link: {
+    cursor: pointer;
+}
+
+.blue {
+    background-color: #3498db;
+    color: white;
+}
+
+.inverse-blue {
+    background-color: white;
+    color: #3498db;
+}
+
+.grey {
+    background-color: #dadada;
+    color: #312783;
+}
+
+.inverse-grey {
+    background-color: #312783;
+    color: #dadada;
+}
+
+.facebook-color {
+    color: #3b5998;
+    background-color: white;
+}
+
+    .facebook-color:hover {
+        color: white;
+        background-color: #3b5998;
+    }
+
+.twitter-color {
+    color: #55acee;
+    background-color: white;
+}
+
+    .twitter-color:hover {
+        color: white;
+        background-color: #55acee;
+    }
+
+.whatsapp-color {
+    background-color: white;
+    color: #0dc143;
+    margin-top: -5px;
+}
+
+    .whatsapp-color:hover {
+        background-color: #0dc143;
+        color: white;
+    }
+
+
+
+.email-color {
+    color: #D64A38;
+    background-color: white;
+}
+
+    .email-color:hover {
+        background-color: #D64A38;
+        color: white;
+    }
+
+
+
+
+/* Conditional attributes */
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+/* For col-sm-x */
+@media (min-width: 768px) {
+}
+
+/* Medium devices (desktops, 992px and up) */
+/* For col-md-x */
+@media (min-width: 992px) {
+    .whatsapp-box {
+        display: none;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+/* For col-lg-x */
+@media (min-width: 1200px) {
+}
+
+
+/*navbar fix*/
+@media (max-width: 500px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    /* since 3.1.0 */
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
 }

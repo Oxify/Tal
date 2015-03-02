@@ -12,15 +12,21 @@ namespace TalBrody.Common
 {
     public class SessionUtil
     {
-        public static void AddUserToSession(int UserId)
+        public static bool AddUserToSession(int UserId)
         {
             UserSession Usession = new UserSession();
             Usession.UserId = UserId;
             Usession.StartSession = DateTime.Now;
             Usession.PermissionList = Permissions.Get_All_Permission_By_UserId(UserId);
             UserDal dal = new UserDal();
-            Usession.UserName = dal.FindUserByid(UserId).DisplayName;
+            var user = dal.FindUserByid(UserId);
+            if (user == null)
+            {
+                return false;
+            }
+            Usession.UserName = user.DisplayName;
             HttpContext.Current.Session.Add("Usession", Usession);
+            return true;
         }
         public static byte[] CreateSalt()
         {
@@ -28,6 +34,14 @@ namespace TalBrody.Common
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
 
             return salt;
+        }
+
+        public static UserSession GetUserSession()
+        {
+            UserSession usess = null;
+            if (HttpContext.Current.Session["Usession"] != null)
+                usess = (UserSession)HttpContext.Current.Session["Usession"];
+            return usess;
         }
 
         public static byte[] Hash(string password, byte[] salt)

@@ -15,6 +15,48 @@ namespace TalBrody.DataLayer
 	public class FollowerDal : BaseDal
 	{
 
+        public Follower GET_Follower_BY_UserId_and_project(int userId, int projectid)
+        {
+            Follower follo = null;
+
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("SELECT [Id],[ProjectId],[UserId],[CreatedDate],FollowerGuid,FollowerCount,ReferByUserId FROM [Followers] " +
+                    "where UserId = @userId and ProjectId = @ProjectId ", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@ProjectId", projectid);
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    follo = Populators.Populate_Follower(reader);
+                }
+            }
+            return follo;
+        }
+
+        public Follower GET_Follower_BY_FollowerGuid(string FollowerGuid)
+        {
+            Follower follo = null;
+
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("SELECT [Id],[ProjectId],[UserId],[CreatedDate],FollowerGuid,FollowerCount,ReferByUserId FROM [Followers] " +
+                    "where FollowerGuid = @FollowerGuid", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@FollowerGuid", FollowerGuid);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    follo = Populators.Populate_Follower(reader);
+                }
+            }
+            return follo;
+        }
+
         public void AddFollowerCount(string FollowerGuid)
         {           
             try
@@ -26,6 +68,7 @@ namespace TalBrody.DataLayer
                     cmd.Parameters.AddWithValue("@FollowerGuid", FollowerGuid);
                     cmd.CommandType = CommandType.Text;
                     conn.Open();
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception)
@@ -41,15 +84,15 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 conn.Open();
-                var cmd = GetCommand("INSERT INTO [Followers]([ProjectId],[UserId],[CreatedDate],[FollowerGuid])" +
-                                    "VALUES (@ProjectId,@UserId,@CreatedDate,@FollowerGuid);", conn);
+                var cmd = GetCommand("INSERT INTO [Followers]([ProjectId],[UserId],[CreatedDate],[FollowerGuid],ReferByUserId)" +
+                                    "VALUES (@ProjectId,@UserId,@CreatedDate,@FollowerGuid,@ReferByUserId);", conn);
                 var tr = conn.BeginTransaction();
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@ProjectId", Foll.ProjectId);
                 cmd.Parameters.AddWithValue("@UserId", Foll.UserId);
                 cmd.Parameters.AddWithValue("@CreatedDate", Foll.DateCreated);
-                cmd.Parameters.AddWithValue("@FollowerGuid", Foll.FollowerGuid);               
-
+                cmd.Parameters.AddWithValue("@FollowerGuid", Foll.FollowerGuid);
+                cmd.Parameters.AddWithValue("@ReferByUserId", Foll.ReferByUserId);    
                 cmd.Transaction = tr;
                 cmd.ExecuteNonQuery();
 
@@ -93,13 +136,13 @@ namespace TalBrody.DataLayer
 
             using (var conn = PortalConection)
             {
-                var cmd = GetCommand("SELECT [Id],[ProjectId],[UserId],[CreatedDate],FollowerGuid,FollowerCount FROM [Followers] where ProjectId = @ProjectId", conn);
+                var cmd = GetCommand("SELECT [Id],[ProjectId],[UserId],[CreatedDate],FollowerGuid,FollowerCount,ReferByUserId FROM [Followers] where ProjectId = @ProjectId", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@ProjectId", ProjectId);
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
-                if (reader.Read())
+                while (reader.Read())
                 {
                     PermissionList.Add(Populators.Populate_Follower(reader));
                 }

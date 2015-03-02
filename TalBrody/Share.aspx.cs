@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Common;
 using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Logic;
@@ -27,8 +28,8 @@ namespace TalBrody
 
 		public string GetProjectUrl()
 		{
-			string projectId = "mfp17"; // TODO
-			return GetBaseUrl() + "p/mfp17/toys";
+            string projectId = "m1fj"; // TODO
+            return GetBaseUrl() + "p/m1fj/toys";
 		}
 	}
 
@@ -36,24 +37,23 @@ namespace TalBrody
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			// TODO - Get Logged In User
-			//var user = new UserDal().FindUserByid(1);
 
-			UserSession Usession = (UserSession)Session["Usession"];
+            UserSession Usession = SessionUtil.GetUserSession();
 			if (Usession != null)
 			{
-				// No session, redirect to homepage
-				// TODO
-
-
-				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), Usession.UserId);
+                Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 1);
+			    string ProjectName = " עודני כאן - ספר נוסטלגי על בית הבראה לצעצועים ";
+				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), fol.FollowerGuid);
+			    var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
 				FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
 				TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
+                WhatsappUrl = "whatsapp://send?text=" + ProjectName + ShareUrlEncoded;
 			}
 		}
 
 		public string ShareUrl;
 		public string FacebookShareUrl;
 		public string TwitterShareUrl;
+	    public string WhatsappUrl;
 	}
 }

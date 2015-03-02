@@ -13,6 +13,7 @@ using Castle.Windsor;
 using log4net;
 using TalBrody.Common;
 using TalBrody.Logic;
+using TalBrody.Entity;
 
 namespace TalBrody
 {
@@ -41,6 +42,27 @@ namespace TalBrody
 
         }
 
+
+        [WebMethod(EnableSession = true)]
+        public static string LogInCheck(string UserName, string Password)
+        {
+            string result = "0";
+            Users u = new Users();
+            if (u.CheckUserPassword(UserName, Password))
+            {
+                SessionUtil.AddUserToSession(u.FindUserByEmail(UserName).Id);
+                result = "1";
+            }
+            else
+            {
+                // LblMessage.Visible = true;
+                // LblMessage.Text = "User name or Password is Incurect";
+            }
+
+            return result;
+
+        } 
+
         [ScriptMethod(UseHttpGet = true)]
         [WebMethod(EnableSession = false)]
         public static string Test(bool throwException)
@@ -63,18 +85,36 @@ namespace TalBrody
             RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
+                
+                User user = null; 
                 if (platform.ToUpper() == "FB")
-                {
-                    var facebookAccess = Container.Resolve<FacebookAccess>();
-                    var user = facebookAccess.RegisterUser(token);
+                {                   
+                    var facebookAccess = Container.Resolve<FacebookAccess>();                  
+                    user = facebookAccess.RegisterUser(token);                  
                     SessionUtil.AddUserToSession(user.Id);
+                   
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
                         result.NextStep = 1;
                     else
                         result.NextStep = -1;
+                    
+                }
+                if (user != null)
+                {
+                    Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+                    if (fol == null)
+                    {
+                        int UserRefId = 0;
+                        if (HttpContext.Current.Session["UserRefId"] != null)
+                        {
+                            UserRefId = (int)HttpContext.Current.Session["UserRefId"];
+
+                        }
+                        Followers.Insert_Follwer(1, user.Id, UserRefId);
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -89,8 +129,11 @@ namespace TalBrody
             try
             {
                 int UserId = Users.SetUserContext(id);
-                SessionUtil.AddUserToSession(UserId);
-                result = 1;
+                if (SessionUtil.AddUserToSession(UserId))
+                {
+                    result = 1;
+
+                }
             }
             catch (Exception ex)
             {

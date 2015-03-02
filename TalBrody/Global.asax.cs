@@ -10,18 +10,43 @@ using log4net.Config;
 using System.Configuration;
 using TalBrody.Logic;
 using TalBrody.Util;
+using System.Web.Routing;
 
 namespace TalBrody
 {
     public class Global : System.Web.HttpApplication
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-		private int CurrentDbVersion = 1;
+        private int CurrentDbVersion = 1;
 
         public static bool OnAppHarbor { get; private set; }
 
+
+        public static void RegisterRoute(RouteCollection routers)
+        {
+            
+            routers.Ignore("{resource}.axd/{*pathInfo}");
+           // routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
+            routers.MapPageRoute("", "p", "~/Project.aspx");
+            routers.MapPageRoute("", "p/m1fj","~/Project.aspx");
+            routers.MapPageRoute("", "p/m1fj/toys", "~/Project.aspx");
+            routers.MapPageRoute("", "p/m1fj/toys/share", "~/Share.aspx");
+            routers.MapPageRoute("", "tos", "~/TermsOfService.aspx");
+            routers.MapPageRoute("", "privacy", "~/PrivacyPolicy.aspx");
+            routers.MapPageRoute("", "about", "~/About.aspx");
+            routers.MapPageRoute("", "contact", "~/ContactUs.aspx");
+            routers.MapPageRoute("", "fAQ", "~/FAQ.aspx");
+            //routers.MapPageRoute("", "Blog", "blog.oxify.co");
+            routers.MapPageRoute("", "Edit", "~/EditProject.aspx");
+            routers.MapPageRoute("", "a", "~/AdminDashBord.aspx");
+        }
+
+
         protected void Application_Start(object sender, EventArgs e)
         {
+            RegisterRoute(RouteTable.Routes);
+            //     MapPageRoute 
+
             // Setup Dependnecy Injection
             IOC.InitContainer(container =>
             {
@@ -43,7 +68,7 @@ namespace TalBrody
             log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
             log.Info("--------------------------------------");
             // cheking the db version and upgrade if needed
-            int DbVersion = 0; 
+            int DbVersion = 0;
             if (Params.CheckParamExists())
             {
                 DbVersion = Params.GetParam(Params.PARAM_DB_VERSION).ValueInt ?? 0;
@@ -51,10 +76,10 @@ namespace TalBrody
 
             log.Info("DB Version = " + DbVersion);
             if (DbVersion < CurrentDbVersion)
-			{
-				DbHandling dbhandling = new DbHandling();
+            {
+                DbHandling dbhandling = new DbHandling();
                 dbhandling.UpgradeDbVerstion(DbVersion, CurrentDbVersion);
-			}
+            }
         }
 
         private string CalcBaseUrl()
@@ -104,6 +129,7 @@ namespace TalBrody
 
         protected void Application_Error(object sender, EventArgs e)
         {
+
             Exception ex = Server.GetLastError();
 
             if (ex == null)
@@ -113,7 +139,9 @@ namespace TalBrody
             }
 
             // Note: WebMethods don't reach this. See Application_PostMapRequestHandler
-            log.Error("Caught exception", ex);
+            //  log.Error("Caught exception", ex );
+            log.ErrorFormat("My {0} message: {1}", "Caught exception", ex.StackTrace);
+            // HttpContext.Current.Response.Write(string.Format("My {0} message: {1}", "Caught exception", ex.StackTrace));
             if (ex is HttpUnhandledException)
             {
                 // Pass the error on to the error page.

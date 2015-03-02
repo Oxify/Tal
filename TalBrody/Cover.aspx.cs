@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Entity;
 using TalBrody.Logic;
 using TalBrody.Util;
 
@@ -28,7 +29,10 @@ namespace TalBrody
             {
                 if(Request.QueryString["r"] != null)
                 {
-                    Followers.AddFollowerCount(Request.QueryString["r"]);
+                    string FollowerGuid = Request.QueryString["r"];
+                    Followers.AddFollowerCount(FollowerGuid);
+                    Follower follo =  Followers.GET_Follower_BY_FollowerGuid(FollowerGuid);
+                    Session.Add("UserRefId", follo.UserId);
                 }
             }
             catch (Exception)

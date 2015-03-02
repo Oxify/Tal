@@ -50,21 +50,30 @@ namespace TalBrody
             }
 
             var users = Container.Resolve<Users>();
-            user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value);
+            int UserRefId = 0;
+            if (Session["UserRefId"] != null)
+                UserRefId = (int)Session["UserRefId"];
+            user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value, UserRefId);
 
             // TODO Remove (this is properly logged elsewhere)
             registerResultLabel.Text = string.Format("Created new user (email, name) = ({0}, {1})", emailStr, displayName);
-            
+
             SessionUtil.AddUserToSession(user.Id);
+            Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+            if (fol == null)
+            {
+                Followers.Insert_Follwer(1, user.Id, UserRefId);
+            }
             // TODO What does this do? Document please
             ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '../Share.aspx'; </script>");
         }
 
         protected void BtnAddEmail_Click(object sender, EventArgs e)
         {
-            if (Session["Usession"] != null)
+            UserSession useastion = SessionUtil.GetUserSession();
+            if (useastion != null)
             {
-                UserSession useastion = (UserSession)Session["Usession"];
+
                 UserDal dal = Container.Resolve<UserDal>();
                 User user = dal.FindUserByid(useastion.UserId);
                 user.Email = txtEmail.Value;

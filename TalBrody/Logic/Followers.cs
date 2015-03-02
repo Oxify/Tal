@@ -28,20 +28,33 @@ namespace TalBrody.Logic
             return dal.Insert_Follwer(foll);
         }
 
-        public static int Insert_Follwer(int ProjectId, int UserId)
+        public static int Insert_Follwer(int ProjectId, int UserId,int RefUserId)
         {
             Follower foll = new Follower();
-            foll.FollowerGuid = UUIDCreator.Create(8);
+            foll.FollowerGuid = UUIDCreator.Create(-1);
             foll.DateCreated = DateTime.Now;
             foll.ProjectId = ProjectId;
             foll.UserId = UserId;
+            foll.ReferByUserId = RefUserId;
             return Insert_Follwer(foll);
         }
 
         public static void AddFollowerCount(string FollowerGuid)
         {
             FollowerDal dal = new FollowerDal();
+            dal.AddFollowerCount(FollowerGuid);
+        }
 
+        public static Follower GET_Follower_BY_FollowerGuid(string FollowerGuid)
+        {
+            FollowerDal dal = new FollowerDal();
+            return dal.GET_Follower_BY_FollowerGuid(FollowerGuid);
+        }
+
+        public static Follower GET_Follower_BY_UserId_and_project(int userId,int projectid)
+        {
+            FollowerDal dal = new FollowerDal();
+            return dal.GET_Follower_BY_UserId_and_project(userId, projectid);
         }
 	}
 }

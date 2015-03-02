@@ -13,11 +13,11 @@ namespace TalBrody.DataLayer
 			return new Follower
 			{
                 Id = dr.GetValue<int>("Id"),
-			    DateCreated = dr.GetValue<DateTime>("DateCreated"),
+                DateCreated = dr.GetValue<DateTime>("CreatedDate"),
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId"),
                 FollowerGuid = dr.GetValue<string>("FollowerGuid"),
-			   
+                ReferByUserId = dr.GetValue<int>("ReferByUserId"),
 			};
 		}
 
@@ -26,10 +26,11 @@ namespace TalBrody.DataLayer
 			return new Follower
 			{
                 Id = dr.GetValue<int>("Id"),
-                DateCreated = dr.GetValue<DateTime>("DateCreated"),
+                DateCreated = dr.GetValue<DateTime>("CreatedDate"),
                 ProjectId = dr.GetValue<int>("ProjectId"),
                 UserId = dr.GetValue<int>("UserId"),
                 FollowerGuid = dr.GetValue<string>("FollowerGuid"),
+                ReferByUserId = dr.GetValue<int>("ReferByUserId"),
 			};
 		}
 

@@ -30,6 +30,7 @@ namespace TalBrody.UserControl
 
 		protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
 		{
+            /*
 			log.Info(String.Format("Gotting authenticate request (%s, %s)", Login1.UserName, Login1.Password));
 
 			try
@@ -49,6 +50,7 @@ namespace TalBrody.UserControl
 
 				throw;
 			}
+             * */
 		}
 
 		protected void loginButton_Click(object sender, EventArgs e)
@@ -100,6 +102,7 @@ namespace TalBrody.UserControl
 
 		}
 
+        /*
 		public int Register(string email, string password)
 		{
 			if (!IsValidEmail(email))
@@ -119,15 +122,16 @@ namespace TalBrody.UserControl
 			}
 
 		    int UserId = 0;
-		    var salt = SessionUtil.CreateSalt();
-		    var hashed = SessionUtil.Hash(password, salt);
-		    UserDal dal = new UserDal();
+		   
+            Users users = new Users();
 		    string referralCode = UUIDCreator.Create(8);
-		    UserId = dal.CreateUser(email, password, hashed, salt, referralCode);
+            UserId = users.AddUser(email, password, txt ,0);
 
 		    return UserId;
 		}
 
+         * 
+         */
 		public string CreateAccount(string email)
 		{
 			if (string.IsNullOrEmpty(email))

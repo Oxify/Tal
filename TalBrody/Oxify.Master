@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Oxify.master.cs" Inherits="TalBrody.Oxify" %>
 
-<%@ Register Src="~/UserControl/LogInControle.ascx" TagPrefix="uc1" TagName="LogInControle" %>
+<%@ Register Src="/UserControl/LogInControle.ascx" TagPrefix="uc1" TagName="LogInControle" %>
 
 
 <!DOCTYPE html>
@@ -11,36 +11,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!--- start of FB meta tags --->
-    <meta property="og:url" content="http://tal.apphb.com" />
-    <meta property="og:title" content="Oxify - עודני ילד" />
+    <meta property="og:url" content="http://oxify.co" />
+    <meta property="og:title" content="עודני ילד" />
     <meta property="og:description" content="'ספר חדש על 'בית הבראה לצעצועים" />
-    <meta property="og:image" content="https://img.youtube.com/vi/_urBx5_3lNY/default.jpg" />
-    <meta property="og:video" content="https://www.youtube.com/v/_urBx5_3lNY" />
+    <meta property="og:image" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg" />
+    <meta property="og:video" content="https://www.youtube.com/v/2xgVbFniiVU" />
     <meta proeprty="og:type" content="video" />
     <meta property="og:video:type" content="application/x-shockwave-flash" />
     <!--- end of FB meta tags  --->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css"/>
-    <link href='Css/SimpleCLM.css' rel='stylesheet' type='text/css' />
+    <link rel="icon" type="image/ico" href="/Images/Icon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
+    <link href='/Css/SimpleCLM.css' rel='stylesheet' type='text/css' />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="Css/Master.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <!---link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" /-->
-    <link rel="stylesheet" href="Css/BootstrapDefaults.css" />
+    <link rel="stylesheet" href="/Css/BootstrapDefaults.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.14/jquery.scrollTo.min.js"></script>
-    <script src="JavaScript/jquery.easing.1.3.js"></script>
+    <script src="/JavaScript/jquery.easing.1.3.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="JavaScript/SmoothScroll.js"></script>
-    <script src="JavaScript/LightBox.js"></script>
-    <script src="JavaScript/LightBoxBigPack.js"></script>
-    <script src="JavaScript/LightBoxPack.js"></script>
-    <link href="Css/LightBoxBig.css" rel="stylesheet" />
-    <link href="Css/LightBox.css" rel="stylesheet" />
-    <link href="Css/LightBoxLarge.css" rel="stylesheet" />
-    <script src="JavaScript/Common.js"></script>
+    <script type="text/javascript" src="/JavaScript/SmoothScroll.js"></script>
+    <script src="/JavaScript/LightBox.js"></script>
+    <script src="/JavaScript/LightBoxBigPack.js"></script>
+    <script src="/JavaScript/LightBoxPack.js"></script>
+    <link href="/Css/LightBoxBig.css" rel="stylesheet" />
+    <link href="/Css/LightBox.css" rel="stylesheet" />
+    <link href="/Css/LightBoxLarge.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <script src="/JavaScript/Common.js"></script>
+    <script src="/JavaScript/Master.js"></script>
+    <link rel="stylesheet" href="/Css/Master.css" type="text/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -49,11 +52,28 @@
         $(document).ready(function () {
             $("#dialog").hide();
             CheckCookie();
-
+            CheckbuttonShow();
         });
 
+        function CheckbuttonShow() {
+
+            var LogInFlag = '<%= LogInFlag%>';
+            if (LogInFlag != "False") {
+                $('#BtnConect').hide();
+                $('#BtnLogOff').show();
+                // $('#BtnForgetPass').show();
+                $('#BtnChanghPassword').hide();
+            }
+            else {
+                $('#BtnConect').show();
+                $('#BtnLogOff').hide();
+                //  $('#BtnForgetPass').hide();
+                $('#BtnChanghPassword').hide();
+            }
+        }
+
         function CheckCookie() {
-        
+
             var cooke = getCookie("OxifyId");
             var LogInFlag = '<%= LogInFlag%>';
             var oxifyId = '<% = OxifyId%>';
@@ -73,6 +93,9 @@
                         if (response.d == 1) {
                             // i close it for not do endless loops
                             window.location.reload(); // refreashg
+                        }
+                        else if (response.d == 0) {
+                            deleteCookie("OxifyId"); // delete cooke
                         }
 
                     },
@@ -106,12 +129,15 @@
 
         }
 
+        function Register() {
+            $('#RegisterModal').modal();
+        }
+
         function ChangePassword() {
 
         }
 
-        function ForgetPassword()
-        {
+        function ForgetPassword() {
 
 
         }
@@ -133,53 +159,98 @@
 
     </script>
 </head>
-<body id="myBody" >
-    <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img alt="Oxify" src="Images/VerySmallLogo.png" style="margin-top: -5px;" />
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <button type="button" class="btn btn-default navbar-btn" onclick="ShowLogin();">התחבר</button>
-                    <button type="button" class="btn btn-default navbar-btn" onclick="LogOut();">התנתק</button>
-                    <button type="button" class="btn btn-default navbar-btn"  runat="server" onclick="LogOut();">Forget Password</button>
-                    <button type="button" class="btn btn-default navbar-btn" runat="server" visible="false" onclick="LogOut();">Change Password</button>
-                    <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project"></asp:HyperLink>
-                     <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin"></asp:HyperLink>
-                    <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Text="Hello: "></asp:Label>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-
+<body id="myBody">
     <form id="form1" runat="server">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
+        <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img alt="Oxify" src="/Images/VerySmallLogo.png" style="margin-top: -5px;" />
+                    </a>
+                </div>
 
-        <div id="dialog" title="Dialog Title" style="display: none">
-            <uc1:LogInControle runat="server" ID="LogInControle" />
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <button type="button" class="navbar-btn footer-link" id="BtnConect" onclick="ShowLogin();">התחברות</button>
+                        <button type="button" class="navbar-btn footer-link" id="BtnLogOff" onclick="LogOut();">התנתק</button>
+                        <button type="button" class="navbar-btn footer-link" id="BtnRegister" onclick="Register();">הרשמה</button>
+
+                        <button type="button" class="navbar-btn footer-link" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
+                        <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project" CssClass="navbar-btn footer-link"></asp:HyperLink>
+                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin" CssClass="navbar-btn footer-link"></asp:HyperLink>
+                        <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
+        <div class="master-container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
 
+            <div id="dialog" title="Dialog Title" style="display: none">
+                <uc1:LogInControle runat="server" ID="LogInControle" />
+                <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
+            </div>
+
+
+            <footer class="footer">
+                <div class="container custom-footer">
+<%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
+<%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
+
+                    <%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
+                    <%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
+                    <a href="/contact" class="footer-link">צור קשר</a>
+                    <a href="/tos" class="footer-link">תנאי שימוש</a>
+                    <a href="/privacy" class="footer-link">מדיניות פרטיות</a>
+ <%--                   <span>
+                        כל הזכויות שמורות ל-Oxify <i class="fa fa-copyright"></i> 2015
+                    </span>--%>
+                </div>
+            </footer>
+        </div>
     </form>
-    <footer class="footer">
-        <div class="container">
-            <a href="About.aspx" class="footer-link">עלינו</a>
-            <a href="FAQ.aspx" class="footer-link">שאלות ותשובות</a>
-            <a href="TermsOfService.aspx" class="footer-link">תנאי שימוש</a>
-            <a href="PrivacyPolicy.aspx" class="footer-link">מדיניות פרטיות</a>
+    <!-- Modal -->
+    <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div>
+                        <h3>הרשמה:</h3>
+                    </div>
+                    <div id="RegisterStart" >
+                        <div>
+                            <button class="register-button flat-button blue" id="FacebookButton">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+                            <a class="flat-button" id="BtnRegister1" onclick="ShowRegister()">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
+                            <br />
+                        </div>
+                        <a class="flat-button" id="EmailButton" onclick="ShowRegisterByEMail();">הרשמה באמצעות דואר אלקטרוני</a>
+                    </div>
+                    <div id="RegisterByEMail" style="display: none;">
+                        <input placeholder="you@email.com" id="email" runat="server" />
+                        <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
+                        <input placeholder="Your Name" id="displayName" runat="server" />
+                        <a class="flat-button" onclick="EmailReturnToSelection();">חזור</a>
+<%--                        <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />--%>
+
+                    </div>
+                    <div id="ResgisterMissingEMail" style="display: none;">
+                        <input placeholder="you@email.com" id="txtEmail" runat="server" />
+<%--                        <asp:Button ID="AddMissingEmail" runat="server" Text="Add Email" OnClick="btnClic"/>--%>
+                    </div>
+                    <div>הרשמה משמעותה קבלה של תנאי השימוש שלנו אותם ניתן לקרוא כאן </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
 </body>
 </html>

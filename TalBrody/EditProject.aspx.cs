@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Common;
 using TalBrody.Common.Enums;
 using TalBrody.Entity;
 using TalBrody.Logic;
@@ -62,7 +63,7 @@ namespace TalBrody
                 if(BtnAddPermission != null)
                 {
                    // check enable button for owner or admin
-                    UserSession us = (UserSession)Session["Usession"];
+                    UserSession us = SessionUtil.GetUserSession();
                     if (us.PermissionList.Exists(o => o.PermisstionId == (int)PermisstionEnum.ProjectOwner || o.PermisstionId == (int)PermisstionEnum.Admin))
                         BtnAddPermission.Enabled = true;
 
