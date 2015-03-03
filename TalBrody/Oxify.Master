@@ -66,6 +66,7 @@
     <%--    End of Pingdom RIM--%>
     <script type="text/javascript">
         $(document).ready(function () {
+         
             $("#dialog").hide();
             CheckCookie();
             CheckbuttonShow();
@@ -92,7 +93,7 @@
         }
 
         function CheckCookie() {
-
+       
             var cooke = getCookie("OxifyId");
             var LogInFlag = '<%= LogInFlag%>';
             var oxifyId = '<% = OxifyId%>';
@@ -103,7 +104,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "Ajax.aspx/AutoLogin",
+                    url: "/Ajax.aspx/AutoLogin",
                     async: false,
                     data: params,
                     contentType: "application/json; charset=utf-8",
@@ -235,10 +236,10 @@
             </div>
         </div>
         <%--        LoginControl--%>
-        <div id="dialog" title="Dialog Title" style="display: none">
+        <%--        <div id="dialog" title="Dialog Title" style="display: none">
             <uc1:LogInControle runat="server" ID="LogInControle" />
             <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
-        </div>
+        </div>--%>
 
         <!-- Login Modal -->
 
@@ -269,51 +270,51 @@
                 </div>
             </div>
         </div>
-    </form>
 
 
-    <!-- Registration Modal -->
-    <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div>
-                        <h3>הרשמה:</h3>
-                    </div>
 
-                    <div id="RegisterStart">
-
+        <!-- Registration Modal -->
+        <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <div>
-                            <button class="register-button flat-button blue" id="FacebookButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
-
-                            <br />
+                            <h3>הרשמה:</h3>
                         </div>
-                        <a class="flat-button" id="EmailButton" onclick="ShowRegisterByEMail();">הרשמה באמצעות דואר אלקטרוני</a>
-                    </div>
-                    <div id="RegisterByEMail" style="display: none;">
-                        <input placeholder="you@email.com" id="email" runat="server" />
-                        <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
-                        <input placeholder="Your Name" id="displayName" runat="server" />
-                        <a class="flat-button" onclick="EmailReturnToSelection();">חזור</a>
-                        <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
 
-                    </div>
+                        <div id="RegisterStart">
 
-                    <div id="ResgisterMissingEMail" style="display: none;">
-                        <input placeholder="you@email.com" id="txtEmail" runat="server" />
-                        <asp:Button ID="BtnAddEmail" runat="server" Text="Add Email" OnClick="BtnAddEmail_Click" />
+                            <div>
+                                <button class="register-button flat-button blue" id="FacebookButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
 
+                                <br />
+                            </div>
+                            <a class="flat-button" id="EmailButton" onclick="ShowRegisterByEMail();">הרשמה באמצעות דואר אלקטרוני</a>
+                        </div>
+                        <div id="RegisterByEMail" style="display: none;">
+                            <input placeholder="you@email.com" id="email" runat="server" />
+                            <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
+                            <input placeholder="Your Name" id="displayName" runat="server" />
+                            <a class="flat-button" onclick="EmailReturnToSelection();">חזור</a>
+                            <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
+
+                        </div>
+
+                        <div id="ResgisterMissingEMail" style="display: none;">
+                            <input placeholder="you@email.com" id="txtEmail" runat="server" />
+                            <asp:Button ID="BtnAddEmail" runat="server" Text="Add Email" OnClick="BtnAddEmail_Click" />
+
+                        </div>
+                        <div>
+                            <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
+                            <label id="clientsidelabel" style="display: none;"></label>
+                        </div>
+                        <div>הרשמה משמעותה קבלה של תנאי השימוש שלנו אותם ניתן לקרוא כאן </div>
                     </div>
-                    <div>
-                        <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
-                        <label id="clientsidelabel" style="display: none;"></label>
-                    </div>
-                    <div>הרשמה משמעותה קבלה של תנאי השימוש שלנו אותם ניתן לקרוא כאן </div>
                 </div>
             </div>
         </div>
-    </div>
     </form>
 
 
