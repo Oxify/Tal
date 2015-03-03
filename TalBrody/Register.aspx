@@ -19,7 +19,7 @@
                 <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
                 <input placeholder="Your Name" id="displayName" runat="server" />
 
-                <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
+                <asp:Button ID="registerKaftor" runat="server" Text="Register" OnClick="registerButton_Click" />
                 <hr />
                 <div>
                     <button id="FacebookButton">Login with Facebook</button>

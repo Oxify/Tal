@@ -148,7 +148,7 @@ namespace TalBrody
             if (ex is HttpUnhandledException)
             {
                 // Pass the error on to the error page.
-                Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
+                Server.Transfer("ErrorPage.html?handler=Application_Error%20-%20Global.asax", true);
             }
         }
 
