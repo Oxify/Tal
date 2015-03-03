@@ -251,6 +251,25 @@
     margin-right: auto;
 }
 
+.flat-button {
+    /*font-family: 'Simple CLM', serif;*/
+    font-weight: bold;
+    color: #ffffff;
+    background: #3498db;
+    text-decoration: none;
+    border: 0;
+    margin: 0 auto;
+    font-size: 15px;
+    padding: 5px 20px 5px 20px;
+    width: 63px;
+    height: 50px;
+}
+
+    .flat-button:hover {
+        background: #3cb0fd;
+        text-decoration: none;
+    }
+
 /* Conditional attributes */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
@@ -264,6 +283,15 @@
         width: 190px;
         margin: 15px auto 0 auto;
     }
+        .flat-button {
+        /*font-family: 'Simple CLM', serif;*/
+        font-size: 23px;
+        padding: 10px 40px 10px 40px;
+        width: 63px;
+        height: 50px;
+        cursor: pointer;
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */

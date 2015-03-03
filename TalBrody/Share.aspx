@@ -2,29 +2,31 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <link href="Css/Share.css" rel="stylesheet"/>
+    <link href="Css/Share.css" rel="stylesheet" />
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="jumbotron">
+    <div class="jumbotron share-common">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h3>תודה שנרשמתם!</h3>
-                    <h4>אנא אשרו את הרשמתכם דרך המייל שנשלח אליכם.
+                    <br/>
+                    <h2>תודה שנרשמתם!</h2>
+                    <h3>אנא אשרו את הרשמתכם דרך המייל שנשלח אליכם.
                         <br />
                         נשמח לעדכן אתכם על הספר ותחילת קמפיין הגיוס.
                 <br />
 
-                    </h4>
-                    <h3>איך זה עובד?</h3>
-                    <h4>הפיצו את הקישור הייחודי שלכם או לחצו על כפתורי השיתוף השונים.<br />
+                    </h3>
+                    <h2>איך זה עובד?</h2>
+                    <h3>הפיצו את הקישור הייחודי שלכם או לחצו על כפתורי השיתוף השונים.<br />
                         על כל חבר שנרשם בזכותכם לפרויקט, תצברו הנחה של 2 ש"ח שאותם תוכלו לממש בקמפיין.
-                    </h4>
-                    <input id="shareUrlInput" value="<%= ShareUrl %>" />
-
-                    <div class="flat-box">
-                        <div class="share-title">שתפו עם חברים</div>
+                    </h3>
+                    <h3>
+                        <input id="shareUrlInput" value="<%= ShareUrl %>" />
+                    </h3>
+                    <div class="">
+                        <div class="share-title h2">שתפו עם חברים</div>
                         <div class="share-buttons">
                             <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= TwitterShareUrl %>"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
                             <div class="whatsapp-box">
@@ -36,8 +38,9 @@
 
                         </div>
                     </div>
+                    <br/>
                     <div>
-                        <a href="/" class="flat-button">לדף הפרוייקט</a>
+                        <a href="/" class="flat-button">חזרה לדף הפרוייקט</a>
                     </div>
                 </div>
 
