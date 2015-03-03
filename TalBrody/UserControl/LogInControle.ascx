@@ -39,7 +39,7 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {
-                debugger;
+    
                 if (response.d == "1") {
                     // i close it for not do endless loops
                     window.location.reload(); // refreashg

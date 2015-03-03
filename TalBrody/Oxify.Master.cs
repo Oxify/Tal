@@ -20,6 +20,8 @@ namespace TalBrody
 
     public partial class Oxify : System.Web.UI.MasterPage
     {
+    //    private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public bool LogInFlag = false;
         public string OxifyId = null;
         public string FcbkId = "";
@@ -60,13 +62,13 @@ namespace TalBrody
                 UserSession us = SessionUtil.GetUserSession();
                 if (us != null)
                 {
-                    
+
                     result = true;
                     OxifyId = Users.GetUserContext(us.UserId);
                     LblUserName.Text = "Hello: " + us.UserName;
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
 
                 throw;
@@ -76,7 +78,7 @@ namespace TalBrody
 
         public void btnClic(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CheckPermissions()
@@ -87,7 +89,7 @@ namespace TalBrody
             string s = Request.PhysicalPath;
             if (usession != null)
             {
-               
+
                 if (usession.PermissionList.Exists(o => o.PermisstionId == (int)PermisstionEnum.Admin))
                 {
                     HypSiteAdmin.Visible = true;
@@ -95,10 +97,10 @@ namespace TalBrody
                 }
                 else
                 {
-                    int ProjectId = usession.CurrentProjectId;                   
+                    int ProjectId = usession.CurrentProjectId;
                     if (usession.PermissionList.Exists(o => o.ProjectId == ProjectId && (o.PermisstionId == (int)PermisstionEnum.ProjectAdmin || o.PermisstionId == (int)PermisstionEnum.ProjectOwner)))//  check if the user is projectadmin
                         HypEditProject.Visible = true;
-                    
+
                 }
             }
             else
@@ -107,7 +109,7 @@ namespace TalBrody
                 {
                     const string message = "You do not have authorization to this page !!";
                     // TODO - do something secure here
-                     Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "EPG Edit", "<script language=\"javaScript\">" + "alert('" + message + "');  history.back();</script>");
                 }
             }
         }
@@ -124,7 +126,7 @@ namespace TalBrody
                 dal.UpdateUser(user);
                 var code = Container.Resolve<Users>().GenerateUserRegistrationCode(user);
                 IOC.GetInstance<Email>().SendRegistrationEmail(user, code);
-               
+
             }
         }
 
@@ -140,9 +142,11 @@ namespace TalBrody
             var user = new UserDal().FindUserByEmail(emailStr);
             if (user != null)
             {
-                msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
-                log.Info(msg);
-               // registerResultLabel.Text = msg;
+      //          msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
+      //          log.Info(msg);
+                msg = String.Format("כתובת האימייל " + user.Email + " כבר רשומה במערכת");
+                LblRegistrationMessage.Text = msg;
+                LblRegistrationMessage.Visible = true;
                 return;
                 //TODO handel duplicate registration 
             }
@@ -152,9 +156,6 @@ namespace TalBrody
             if (Session["UserRefId"] != null)
                 UserRefId = (int)Session["UserRefId"];
             user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value, UserRefId);
-
-            // TODO Remove (this is properly logged elsewhere)
-          //  registerResultLabel.Text = string.Format("Created new user (email, name) = ({0}, {1})", emailStr, displayName);
 
             SessionUtil.AddUserToSession(user.Id);
             Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);

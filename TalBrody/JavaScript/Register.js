@@ -17,25 +17,26 @@ function updateStatusCallback(response) {
     if (response.status === 'connected') {
         FacebookToken = response.authResponse.accessToken;
         // Logged into your app and Facebook.
-              document.getElementById('status').innerHTML = 'Yay! logged in!';
+//              document.getElementById('status').innerHTML = 'Yay! logged in!';
 
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                  'into this app.';
+ //           document.getElementById('status').innerHTML = 'Please log ' +
+ //                 'into this app.';
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
-               document.getElementById('status').innerHTML = 'Please log ' +
-                 'into Facebook.';
+//               document.getElementById('status').innerHTML = 'Please log ' +
+ //                'into Facebook.';
     }
 }
 
 
 
 function FacebookLogin(e) {
+    
     if (FacebookStatus == 'connected') {
-        Register("FB", FacebookToken);
+        RegisterSocial("FB", FacebookToken);
     } else {
 
         FB.login(FacebookLoginResult, {
@@ -56,13 +57,13 @@ function FacebookLoginResult(response) {
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        document.getElementById('status').innerHTML = 'Yay! logged in!';
-        Register("FB", response.authResponse.accessToken);
+      
+        RegisterSocial("FB", response.authResponse.accessToken);
 
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
+        document.getElementById('clientsidelabel').innerHTML = "הרשמה כרוכה באישור האפליקציה של Oxify בפייסבוק";
+        document.getElementById('clientsidelabel').style.display = "block";
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
@@ -73,12 +74,13 @@ function FacebookLoginResult(response) {
     return false;
 }
 
-function Register(platform, token) {
+function RegisterSocial(platform, token) {
     var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
+    alert('register event');
 
     $.ajax({
         type: "POST",
-        url: "Ajax.aspx/SocialRegister",
+        url: "/Ajax.aspx/SocialRegister",
         async: false,
         data: params,
         contentType: "application/json; charset=utf-8",
@@ -91,8 +93,7 @@ function Register(platform, token) {
             }
             else if(response.d.NextStep == -1)// missing email 
             {
-                $("#AddEmailDiv").show();
-                $("#RegularResitrationDiv").hide();
+                ShowMissingEmail();
                 alert("Plase add Email !");
             }
 

@@ -19,7 +19,7 @@
 		    <div id="realleftcolumn">
 		        <label for="email">Enter your email to join</label>
 	            <input placeholder="you@email.com" id="email" runat="server" />
-                <button id="registerButton" runat="server" text="Register">Submit</button>
+                <button id="registerKafa" runat="server" text="Register">Submit</button>
 <%--                <uc1:RegisterControl runat="server" ID="LogInControle" />--%>
             </div>
 			<div style="width: 750px">

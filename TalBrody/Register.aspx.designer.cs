@@ -49,13 +49,13 @@ namespace TalBrody {
         protected global::System.Web.UI.HtmlControls.HtmlInputText displayName;
         
         /// <summary>
-        /// registerButton control.
+        /// registerKaftor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerButton;
+        protected global::System.Web.UI.WebControls.Button registerKaftor;
         
         /// <summary>
         /// registerResultLabel control.
