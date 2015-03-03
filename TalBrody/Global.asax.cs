@@ -20,7 +20,7 @@ namespace TalBrody
         private int CurrentDbVersion = 1;
 
         public static bool OnAppHarbor { get; private set; }
-
+        public static string FacebookId { get; private set; }
 
         public static void RegisterRoute(RouteCollection routers)
         {
@@ -67,8 +67,11 @@ namespace TalBrody
             string onAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
             OnAppHarbor = onAppHarbor.ToLower().Equals("true");
 
+            string facebookId = ConfigurationManager.AppSettings["Facebookid"];
+            FacebookId = facebookId;
+
             log.Info("--------------------------------------");
-            log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
+            log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor + ", FacebookId: " + FacebookId);
             log.Info("--------------------------------------");
             // cheking the db version and upgrade if needed
             int DbVersion = 0;

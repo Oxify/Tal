@@ -107,14 +107,15 @@ function Register(platform, token) {
 
 
 $('document').ready(function () {
-
+    debugger;
     //onclick="FaceboookLogin(this); return false; "
     $("#FacebookButton").click(function (e) {
         FacebookLogin(e);
     });
 
+    var Facebookid = $("#FacebookButton").attributes['data-target'].value;
     FB.init({
-        appId: '1423139441310101'
+        appId: Facebookid
     });
 
     FB.getLoginStatus(updateStatusCallback);

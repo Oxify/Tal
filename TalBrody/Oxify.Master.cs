@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.ClientServices;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using log4net;
 using TalBrody.Common;
 using TalBrody.Common.Enums;
 using TalBrody.DataLayer;
@@ -21,6 +22,8 @@ namespace TalBrody
     {
         public bool LogInFlag = false;
         public string OxifyId = null;
+        public string FcbkId = "";
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private WindsorContainer Container
         {
@@ -28,6 +31,7 @@ namespace TalBrody
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            FcbkId = Global.FacebookId;
             LogInFlag = CheckLogIn();
             if (!IsPostBack)
             {

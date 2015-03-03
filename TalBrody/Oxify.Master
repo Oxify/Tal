@@ -133,6 +133,7 @@
         }
 
         function Register() {
+            var FacebookId = '<%= FcbkId%>';
             $('#RegisterModal').modal();
         }
 
