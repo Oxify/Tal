@@ -100,6 +100,7 @@ namespace TalBrody
             {
 
                 firstpage.Visible = false;
+                afterlogin.Visible = true;
                 if (Request.QueryString["ProjectId"] != null)
                 {
                     int ProjectId = int.Parse(Request.QueryString["ProjectId"]);

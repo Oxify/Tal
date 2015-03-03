@@ -76,7 +76,7 @@ function FacebookLoginResult(response) {
 
 function RegisterSocial(platform, token) {
     var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
-    alert('register event');
+    debugger;
 
     $.ajax({
         type: "POST",
@@ -86,6 +86,7 @@ function RegisterSocial(platform, token) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
+            debugger;
             if (response.d.NextStep == 1) {
                 window.top.location.href = '/Share.aspx';
                 // i close it for not do endless loops
@@ -108,13 +109,14 @@ function RegisterSocial(platform, token) {
 
 
 $('document').ready(function () {
-    debugger;
+ 
     //onclick="FaceboookLogin(this); return false; "
     $("#FacebookButton").click(function (e) {
         FacebookLogin(e);
     });
 
-    var Facebookid = $("#FacebookButton").attributes['data-target'].value;
+    var elem = document.getElementById("FacebookButton");
+    var Facebookid = elem.attributes['data-facebook-id'].value;
     FB.init({
         appId: Facebookid
     });

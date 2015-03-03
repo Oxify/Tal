@@ -51,6 +51,19 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
+    <%--    Start of Pingdom RUM--%>
+    <script>
+        var _prum = [['id', '54f5a2a4abe53d9560e9963a'],
+                     ['mark', 'firstbyte', (new Date()).getTime()]];
+        (function () {
+            var s = document.getElementsByTagName('script')[0]
+              , p = document.createElement('script');
+            p.async = 'async';
+            p.src = '//rum-static.pingdom.net/prum.min.js';
+            s.parentNode.insertBefore(p, s);
+        })();
+    </script>
+    <%--    End of Pingdom RIM--%>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dialog").hide();
@@ -63,12 +76,15 @@
             var LogInFlag = '<%= LogInFlag%>';
             if (LogInFlag != "False") {
                 $('#BtnConect').hide();
+                $('#BtnRegister').hide();
                 $('#BtnLogOff').show();
+               
                 // $('#BtnForgetPass').show();
                 $('#BtnChanghPassword').hide();
             }
             else {
                 $('#BtnConect').show();
+                $('#BtnRegister').show();
                 $('#BtnLogOff').hide();
                 //  $('#BtnForgetPass').hide();
                 $('#BtnChanghPassword').hide();
@@ -76,7 +92,7 @@
         }
 
         function CheckCookie() {
-    
+
             var cooke = getCookie("OxifyId");
             var LogInFlag = '<%= LogInFlag%>';
             var oxifyId = '<% = OxifyId%>';
@@ -133,11 +149,11 @@
         }
 
         function Register() {
-<<<<<<< HEAD
+
             var FacebookId = '<%= FcbkId%>';
-=======
+
             InitilizeRegistration();
->>>>>>> origin/master
+
             $('#RegisterModal').modal();
         }
 
@@ -199,18 +215,13 @@
             </div>
             <!-- /.container-fluid -->
         </div>
-        <div class="master-container">
+        <div class="Amaster-container">
+            <div class="master-row">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-
-            <div id="dialog" title="Dialog Title" style="display: none">
-                <uc1:LogInControle runat="server" ID="LogInControle" />
-                <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
-            </div>
-
-
-            <footer class="footer">
-                <div class="container custom-footer">
+                </div>
+            <div class="Afooter">
+                <div class="">
                     <%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
                     <%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
 
@@ -223,8 +234,14 @@
                         כל הזכויות שמורות ל-Oxify <i class="fa fa-copyright"></i> 2015
                     </span>--%>
                 </div>
-            </footer>
+            </div>
         </div>
+        <%--        LoginControl--%>
+        <div id="dialog" title="Dialog Title" style="display: none">
+            <uc1:LogInControle runat="server" ID="LogInControle" />
+            <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
+        </div>
+
         <!-- Modal -->
         <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -238,7 +255,7 @@
                         <div id="RegisterStart">
 
                             <div>
-                                <button class="register-button flat-button blue" id="FacebookButton">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+                                <button class="register-button flat-button blue" id="FacebookButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
 
                                 <br />
                             </div>

@@ -126,18 +126,8 @@
                     <div class="container">
                         <div class="row ">
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                                <div class="row main-row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <h2><strong>"עודני ילד" </strong></h2>
-                                        <h3>הספר על "בית ההבראה לצעצועים"</h3>
-                                        <h5 style="text-align: justify">"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
-                                                <br />
-                                            הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
-                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
-                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h5>
-
-                                    </div>
-                                    <div class="col-sm-6 col-xs-12">
+                                <div class="row main-row" id="afterlogin" runat="server" Visible="False">
+                                    <div class="col-xs-12 col-sm-6 pull-right">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2xgVbFniiVU?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                         </div>
@@ -148,67 +138,122 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-6">
-                                                <div class="flat-box grey">
-                                                    <div class="flat-box-right">
-                                                        <div class="circle-grey ">
-                                                            <div>
-                                                                <i class="fa fa-male"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flat-box-left">
-                                                        <div class="flat-box-title">
-                                                            <asp:Label ID="LblFollowerCount" runat="server" Text="0"></asp:Label>
-                                                        </div>
-                                                        <div class="flat-box-description">
-                                                            עוקבים אחר הפרוייקט
-                                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3">
+                                        <div class="flat-box grey">
+                                            <div class="flat-box-right">
+                                                <div class="circle-grey ">
+                                                    <div>
+                                                        <i class="fa fa-male"></i>
                                                     </div>
                                                 </div>
-                                                <div class="flat-box blue ">
-                                                    <div class="flat-box-right">
-                                                        <div class="circle-blue ">
-                                                            <div>
-                                                                <i class="fa fa-ils"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flat-box-left" runat="server" id="DiscountDiv">
-                                                        <div class="flat-box-title">
-                                                            <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
-                                                            ש"ח
-                                                        </div>
-                                                        <div class="flat-box-description">
-                                                            הנחה צברת
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
-                                            <div class="col-sm-6 col-xs-12">
-                                                <div>
-                                                    <div class="flat-box">
-                                                        <div class="share-title">
-                                                            <h3>שתפו עם חברים</h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="share-buttons">
-                                                        <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= TwitterShareUrl %>"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
-                                                        <div class="whatsapp-box">
-                                                            <a href="<%= WhatsappUrl %>" data-action="share/whatsapp/share"><span class="share-box whatsapp-color"><i class="fa fa-whatsapp"></i></span></a>
-                                                        </div>
-                                                        <a href="mailto:?subject=Look at this cool project&body=Check out this new campaign!%0A<%= ShareUrl %>"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
-                                                        </a>
-                                                        <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= FacebookShareUrl %> "><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
-
+                                            <div class="flat-box-left">
+                                                <div class="flat-box-title">
+                                                    <asp:Label ID="LblFollowerCount" runat="server" Text="0"></asp:Label>
+                                                </div>
+                                                <div class="flat-box-description">
+                                                    עוקבים אחר הפרוייקט
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flat-box blue ">
+                                            <div class="flat-box-right">
+                                                <div class="circle-blue ">
+                                                    <div>
+                                                        <i class="fa fa-ils"></i>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="flat-box-left" runat="server" id="DiscountDiv">
+                                                <div class="flat-box-title">
+                                                    <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
+                                                    ש"ח
+                                                </div>
+                                                <div class="flat-box-description">
+                                                    הנחה צברת
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 ">
+                                        <div>
+                                            <div class="flat-box">
+                                                <div class="share-title">
+                                                    <h3>שתפו עם חברים</h3>
+                                                </div>
+                                            </div>
+                                            <div class="share-buttons">
+                                                <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= TwitterShareUrl %>"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
+                                                <div class="whatsapp-box">
+                                                    <a href="<%= WhatsappUrl %>" data-action="share/whatsapp/share"><span class="share-box whatsapp-color"><i class="fa fa-whatsapp"></i></span></a>
+                                                </div>
+                                                <a href="mailto:?subject=Look at this cool project&body=Check out this new campaign!%0A<%= ShareUrl %>"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
+                                                </a>
+                                                <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= FacebookShareUrl %> "><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
+
                                             </div>
                                         </div>
                                     </div>
 
+                                </div>
+
+                                <div class="row main-row">
+                                    <div class="col-sm-6 col-xs-12 pull-right">
+                                        <br />
+                                        <h2><strong>"עודני ילד" </strong></h2>
+                                        <h3>הספר על "בית ההבראה לצעצועים"</h3>
+                                        <h5 style="text-align: justify">"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
+                                                <br />
+                                            הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
+                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
+                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h5>
+
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+
+
+                                        <div class="row">
+                                            <div class="col-xs-5 pull-left">
+                                                <div>
+                                                    צרו איתנו קשר
+                                                </div>
+                                                <div class="info-buttons" style="margin-right: -1px;">
+                                                    <a href="mailto:hagi@hagimarom.com"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
+                                                    </a>
+                                                </div>
+                                                <div class="info-buttons">
+                                                    <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-7 ">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <img src="/Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <h3 style="text-align: center">הפרוייקט של בני ירוחם וחגי מרום</h3>
+                                        </div>
+                                        <div class="row ">
+
+                                            <h5 style="text-align: justify">
+                                                <strong>בני ירוחם</strong>
+                                                - אספן צעצועים ומשחקים ישנים, הקים בשנת 2011 ביחד עם ג'ניס אישתו, את "בית
+הבראה לצעצועים", מוזיאון צעצועים ללא כוונת רווח, הפועל בנמל יפו. שיתוף הפעולה בין חגי ובני
+נוצר מתוך כבוד ואהבה משותפים לנוסטלגיה הישראלית ומתוך כוונה לשמר ולתעד אותה.
+                                       
+                                        <br />
+                                                <strong>חגי מרום</strong> - אספן תרבות ישראלית, מעצב גרפי וצלם, הקים בשנת 2011 את הוצאת הספרים "מרום
+תרבות ישראלית". ההוצאה מפיקה ומוציאה לאור ספרים העוסקים בתרבות, אמנות ונוסטלגיה
+ישראלית.
+                                            </h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +262,7 @@
             </div>
 
         </div>
-        <div class="main-row">
+        <div class="main-row center-block">
             <div class="gallary-box">
 
                 <div class="slick-box">
@@ -242,57 +287,7 @@
                 </div>
             </div>
         </div>
-        <div class="jumbotron" id="thirdpage">
-            <div class="jumbotron-header">
-                <div class="main-container">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
-                                <div class="row main-row">
-                                    <div class="col-xs-5 col-sm-2">
-                                        צרו איתנו קשר
-                                                <div class="info-buttons" style="margin-right: -1px;">
-                                                    <a href="mailto:hagi@hagimarom.com"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
-                                                    </a>
-                                                </div>
-                                        <div class="info-buttons">
-                                            <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7 col-sm-2 col-sm-push-8">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <img src="/Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-8 col-sm-pull-2">
-                                        <h3 style="text-align: center">הפרוייקט של בני ירוחם וחגי מרום</h3>
-                                    </div>
-                                </div>
-                                <div class="row main-row">
-                                    <h4 style="text-align: justify">
-                                        <strong>בני ירוחם</strong>
-                                        - אספן צעצועים ומשחקים ישנים, הקים בשנת 2011 ביחד עם ג'ניס אישתו, את "בית
-הבראה לצעצועים", מוזיאון צעצועים ללא כוונת רווח, הפועל בנמל יפו. שיתוף הפעולה בין חגי ובני
-נוצר מתוך כבוד ואהבה משותפים לנוסטלגיה הישראלית ומתוך כוונה לשמר ולתעד אותה.
-                                       
-                                        <br />
-                                        <strong>חגי מרום</strong> - אספן תרבות ישראלית, מעצב גרפי וצלם, הקים בשנת 2011 את הוצאת הספרים "מרום
-תרבות ישראלית". ההוצאה מפיקה ומוציאה לאור ספרים העוסקים בתרבות, אמנות ונוסטלגיה
-ישראלית.
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <br />
-
-        </div>
     </div>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 

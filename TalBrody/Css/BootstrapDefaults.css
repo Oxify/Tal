@@ -26,15 +26,6 @@ h6,
     font-family: 'Simple CLM', Helvetica, Arial, sans-serif !important;
 }
 
-.footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 30px;
-    background-color: #dddddd;
-}
-
 /* navbar */
 
 .navbar-sm .navbar-primary .navbar {

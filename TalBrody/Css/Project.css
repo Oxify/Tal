@@ -11,6 +11,7 @@ html, body {
 
 .project {
     width: 100%;
+    height: 100%;
     min-height: 100%;
 }
 
@@ -21,6 +22,7 @@ html, body {
     padding: 0;
     margin-top: 0;
     margin-bottom: 5px;
+}
 
 #firstpage {
     height: 100%;
@@ -46,7 +48,7 @@ html, body {
 
 .main-row {
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .buffer {
@@ -75,6 +77,7 @@ html, body {
 
 #cover-page {
     /*background-color: lightblue;*/
+    padding-top: 30px;
 }
 
 #title-div {
@@ -115,6 +118,7 @@ html, body {
 .scroll-icon-wrapper {
     text-align: center;
     padding-top: 25px;
+    display: none;
 }
 
 .scroll-icon {
@@ -373,6 +377,10 @@ html, body {
 
     .main-row {
         width: 768px;
+    }
+
+    .scroll-icon-wrapper {
+        display: block;
     }
 
     .sm-bottom-responsive {
