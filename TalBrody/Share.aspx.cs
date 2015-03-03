@@ -49,6 +49,10 @@ namespace TalBrody
 				TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
                 WhatsappUrl = "whatsapp://send?text=" + ProjectName + ShareUrlEncoded;
 			}
+            else
+            {
+                Response.Redirect("p/m1fj");
+            }
 		}
 
 		public string ShareUrl;

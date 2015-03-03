@@ -31,7 +31,7 @@ namespace TalBrody.Logic
         public static int Insert_Follwer(int ProjectId, int UserId,int RefUserId)
         {
             Follower foll = new Follower();
-            foll.FollowerGuid = UUIDCreator.Create(-1);
+            foll.FollowerGuid = UUIDCreator.Create(8);
             foll.DateCreated = DateTime.Now;
             foll.ProjectId = ProjectId;
             foll.UserId = UserId;
