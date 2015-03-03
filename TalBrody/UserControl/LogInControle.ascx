@@ -62,26 +62,6 @@
 <div>
     <div>
 
-        <asp:Label ID="Label1" runat="server" Text="OpenID Login" />
-        <asp:TextBox ID="openIdBox" runat="server" />
-        <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" />
-        <asp:CustomValidator runat="server" ID="openidValidator" ErrorMessage="Invalid OpenID Identifier"
-            ControlToValidate="openIdBox" EnableViewState="false" OnServerValidate="openidValidator_ServerValidate" />
-        <br />
-        <asp:Label ID="loginFailedLabel" runat="server" EnableViewState="False" Text="Login failed"
-            Visible="False" />
-        <asp:Label ID="loginCanceledLabel" runat="server" EnableViewState="False" Text="Login canceled"
-            Visible="False" />
-
-
-        <h1>Login with</h1>
-        <ul>
-            <li>Google</li>
-            <li>Facebook</li>
-        </ul>
-
-        <rp:OpenIdLogin ID="OpenIdLogin1" runat="server" />
-
         <br />
         <br />
         <table id="LogInControle_Login1" style="border: 1px solid rgb(181, 199, 222); border-collapse: collapse; background-color: rgb(239, 243, 251);" cellspacing="0" cellpadding="4">

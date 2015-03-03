@@ -126,7 +126,7 @@
                     <div class="container">
                         <div class="row ">
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                                <div class="row main-row" id="afterlogin" runat="server" Visible="False">
+                                <div class="row main-row" id="afterlogin" runat="server" visible="False">
                                     <div class="col-xs-12 col-sm-6 pull-right">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2xgVbFniiVU?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -216,7 +216,7 @@
 
 
                                         <div class="row">
-                                            <div class="col-xs-5 pull-left">
+                                            <div class="col-xs-4 pull-left">
                                                 <div>
                                                     צרו איתנו קשר
                                                 </div>
@@ -228,7 +228,7 @@
                                                     <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-7 ">
+                                            <div class="col-xs-8 ">
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <img src="/Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
@@ -267,27 +267,47 @@
 
                 <div class="slick-box">
                     <a class="gallary-image" rel="gallary" href="/Images/Toys/1.jpg">
-                        <img src="/Images/Toys/1A.jpg" />
+                        <img src="/Images/Toys/1A.jpg" class="thumbnail-image" />
                     </a>
                     <a class="gallary-image" rel="gallary" href="/Images/Toys/2.jpg">
-                        <img src="/Images/Toys/2A.jpg" />
+                        <img src="/Images/Toys/2A.jpg" class="thumbnail-image" />
                     </a>
                     <a class="gallary-image" rel="gallary" href="/Images/Toys/3.jpg">
-                        <img src="/Images/Toys/3A.jpg" />
+                        <img src="/Images/Toys/3A.jpg" class="thumbnail-image" />
                     </a>
                     <a class="gallary-image" rel="gallary" href="/Images/Toys/4.jpg">
-                        <img src="/Images/Toys/4A.jpg" />
+                        <img src="/Images/Toys/4A.jpg" class="thumbnail-image" />
                     </a>
                     <a class="gallary-image" rel="gallary" href="/Images/Toys/5.jpg">
-                        <img src="/Images/Toys/5A.jpg" />
+                        <img src="/Images/Toys/5A.jpg" class="thumbnail-image" />
                     </a>
                     <a class="gallary-image" rel="gallary" href="/Images/Toys/6.jpg">
-                        <img src="/Images/Toys/6A.jpg" />
+                        <img src="/Images/Toys/6A.jpg" class="thumbnail-image" />
                     </a>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <div id="disqus-div" class="main-row center-block" >
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'oxify';
+            var disqus_identifier = '<%=ProjectId %>';
+            var disqus_title = 'עודני ילד';
+            var disqus_config = function () {
+                this.language = "he";
+            };
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     </div>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 

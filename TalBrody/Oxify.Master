@@ -78,7 +78,7 @@
                 $('#BtnConect').hide();
                 $('#BtnRegister').hide();
                 $('#BtnLogOff').show();
-               
+
                 // $('#BtnForgetPass').show();
                 $('#BtnChanghPassword').hide();
             }
@@ -201,7 +201,7 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <button type="button" class="navbar-btn footer-link" id="BtnConect" onclick="ShowLogin();">התחברות</button>
+                        <button type="button" class="navbar-btn footer-link" id="BtnConect" onclick="ShowLogin();">כניסה</button>
                         <button type="button" class="navbar-btn footer-link" id="BtnLogOff" onclick="LogOut();">התנתק</button>
                         <button type="button" class="navbar-btn footer-link" id="BtnRegister" onclick="Register();">הרשמה</button>
 
@@ -217,13 +217,11 @@
         </div>
         <div class="Amaster-container">
             <div class="master-row">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
             <div class="Afooter">
                 <div class="">
-                    <%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
-                    <%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
 
                     <%--                    <a href="/About.aspx" class="footer-link">עלינו</a>--%>
                     <%--                    <a href="/FAQ.aspx" class="footer-link">שאלות ותשובות</a>--%>
@@ -242,48 +240,80 @@
             <button type="button" class="btn btn-default navbar-btn" id="BtnForgetPass" runat="server" visible="false" onclick="ForgetPassword();">Forget Password</button>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
+        <!-- Login Modal -->
+
+        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <div>
-                            <h3>הרשמה:</h3>
+                            <h3>כניסה</h3>
                         </div>
 
-                        <div id="RegisterStart">
+                        <div id="LoginStart">
 
                             <div>
-                                <button class="register-button flat-button blue" id="FacebookButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+                                <button class="login-button flat-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
 
                                 <br />
+                                <div>
+                                    <h2>כניסה באמצעות דואר אלקטרוני וססמא:</h2>
+                                    <input placeholder="הכנס כתובת אימייל" id="EmailLogin" runat="server" />
+                                    <input placeholder="הכנס ססמא" id="PasswordLogin" type="password" runat="server" />
+                                    <asp:Button ID="Button1" runat="server" Text="Register" OnClick="registerButton_Click" />
+                                </div>
                             </div>
-                            <a class="flat-button" id="EmailButton" onclick="ShowRegisterByEMail();">הרשמה באמצעות דואר אלקטרוני</a>
                         </div>
-                        <div id="RegisterByEMail" style="display: none;">
-                            <input placeholder="you@email.com" id="email" runat="server" />
-                            <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
-                            <input placeholder="Your Name" id="displayName" runat="server" />
-                            <a class="flat-button" onclick="EmailReturnToSelection();">חזור</a>
-                            <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
-
-                        </div>
-
-                        <div id="ResgisterMissingEMail" style="display: none;">
-                            <input placeholder="you@email.com" id="txtEmail" runat="server" />
-                            <asp:Button ID="BtnAddEmail" runat="server" Text="Add Email" OnClick="BtnAddEmail_Click" />
-
-                        </div>
-                        <div>
-                            <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
-                            <label id="clientsidelabel" style="display: none;"></label>
-                        </div>
-                        <div>הרשמה משמעותה קבלה של תנאי השימוש שלנו אותם ניתן לקרוא כאן </div>
                     </div>
                 </div>
             </div>
         </div>
+    </form>
+
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div>
+                        <h3>הרשמה:</h3>
+                    </div>
+
+                    <div id="RegisterStart">
+
+                        <div>
+                            <button class="register-button flat-button blue" id="FacebookButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+
+                            <br />
+                        </div>
+                        <a class="flat-button" id="EmailButton" onclick="ShowRegisterByEMail();">הרשמה באמצעות דואר אלקטרוני</a>
+                    </div>
+                    <div id="RegisterByEMail" style="display: none;">
+                        <input placeholder="you@email.com" id="email" runat="server" />
+                        <input placeholder="Your Password" id="TxtPassword" type="password" runat="server" />
+                        <input placeholder="Your Name" id="displayName" runat="server" />
+                        <a class="flat-button" onclick="EmailReturnToSelection();">חזור</a>
+                        <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="registerButton_Click" />
+
+                    </div>
+
+                    <div id="ResgisterMissingEMail" style="display: none;">
+                        <input placeholder="you@email.com" id="txtEmail" runat="server" />
+                        <asp:Button ID="BtnAddEmail" runat="server" Text="Add Email" OnClick="BtnAddEmail_Click" />
+
+                    </div>
+                    <div>
+                        <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
+                        <label id="clientsidelabel" style="display: none;"></label>
+                    </div>
+                    <div>הרשמה משמעותה קבלה של תנאי השימוש שלנו אותם ניתן לקרוא כאן </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </form>
 
 
