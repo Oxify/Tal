@@ -149,12 +149,6 @@
     text-decoration: none;
 }
 
-.flat-box {
-    text-align: center;
-    height: 32px;
-    width: 100%;
-    margin: 15px auto 0 auto;
-}
 
 .share-title {
     text-align: center;
@@ -165,7 +159,7 @@
 .share-buttons {
     text-align: center;
     vertical-align: central;
-    font-size: 32px;
+    font-size: 30px;
     color: black;
 }
 
@@ -295,12 +289,7 @@
 /* Small devices (tablets, 768px and up) */
 /* For col-sm-x */
 @media (min-width: 768px) {
-    .flat-box {
-        text-align: center;
-        height: 60px;
-        width: 190px;
-        margin: 15px auto 0 auto;
-    }
+
         .flat-button {
         /*font-family: 'Simple CLM', serif;*/
         font-size: 23px;
