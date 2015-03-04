@@ -13,14 +13,13 @@ function ShowMessage(message) {
 
 }
 
-function HideMessage()
-{
+function HideMessage() {
     document.getElementById('clientsidelabel').style.display = "none";
 }
 function updateStatusCallback(response) {
 
-   // console.log('statusChangeCallback');
-  //  console.log(response);
+    // console.log('statusChangeCallback');
+    //  console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -30,23 +29,23 @@ function updateStatusCallback(response) {
     if (response.status === 'connected') {
         FacebookToken = response.authResponse.accessToken;
         // Logged into your app and Facebook.
-//              document.getElementById('status').innerHTML = 'Yay! logged in!';
+        //              document.getElementById('status').innerHTML = 'Yay! logged in!';
 
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
- //           document.getElementById('status').innerHTML = 'Please log ' +
- //                 'into this app.';
+        //           document.getElementById('status').innerHTML = 'Please log ' +
+        //                 'into this app.';
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
-//               document.getElementById('status').innerHTML = 'Please log ' +
- //                'into Facebook.';
+        //               document.getElementById('status').innerHTML = 'Please log ' +
+        //                'into Facebook.';
     }
 }
 
 
 
-function FacebookLogin(e) {
+function FacebookRegister(e) {
     HideMessage();
     Platform = "FB";
     Token = FacebookToken;
@@ -54,24 +53,51 @@ function FacebookLogin(e) {
         RegisterSocial(Platform, Token, "");
     } else {
 
-        FB.login(FacebookLoginResult, {
+        FB.login(FacebookRegisterResult, {
             scope: 'public_profile, email, user_friends', return_scopes: 'true'
         }); //, user_birthday, user_location TODO after we request permissions
-      
+
     }
     e.preventDefault();
     return false;
 }
 
+function LoginUsingFacebook(e) {
+    HideMessage();
+    Platform = "FB";
+    Token = FacebookToken;
+    if (FacebookStatus == 'connected') {
+        LoginSocial(Platform, Token);
+    } else {
 
+        FB.login(FacebookLoginResult, {
+            scope: 'public_profile, email, user_friends', return_scopes: 'true'
+        }); //, user_birthday, user_location TODO after we request permissions
+
+    }
+    e.preventDefault();
+    return false;
+}
 
 function FacebookLoginResult(response) {
-//    console.log('FacebookLoginResult');
-//    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        var elem = document.getElementById("txtEmail").value;
+
+        LoginSocial("FB", response.authResponse.accessToken);
+
+    } else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        ShowMessage("הרשמה כרוכה באישור האפליקציה של Oxify בפייסבוק");
+    } else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+    }
+
+    return false;
+}
+
+function FacebookRegisterResult(response) {
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
         var elem = document.getElementById("txtEmail").value;
@@ -84,8 +110,6 @@ function FacebookLoginResult(response) {
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
     }
 
     return false;
@@ -112,9 +136,39 @@ function RegisterSocial(platform, token, email) {
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }
-            else if(response.d.NextStep == -1)// missing email 
+            else if (response.d.NextStep == -1)// missing email 
             {
                 ShowMissingEmail();
+            }
+
+        },
+        failure: function (msg) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+
+}
+
+function LoginSocial(platform, token) {
+
+    var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
+
+    $.ajax({
+        type: "POST",
+        url: "/Ajax.aspx/SocialLogin",
+        async: false,
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            debugger;
+            if (response.d == 1) {
+                // i close it for not do endless loops
+                window.location.reload(); // refreashg
+            } else {
+                // TODO report error to user
+                ShowMessage("");
             }
 
         },
@@ -142,16 +196,20 @@ function SocialLoginWithEmail(e) {
 
 
 $('document').ready(function () {
- 
+
     //onclick="FaceboookLogin(this); return false; "
-    $("#FacebookButton").click(function (e) {
-        FacebookLogin(e);
+    $("#FacebookRegisterButton").click(function (e) {
+        FacebookRegister(e);
     });
     $("#AddEmailButton").click(function (e) {
         SocialLoginWithEmail(e);
     });
 
-    var elem = document.getElementById("FacebookButton");
+    $("#FacebookLoginButton").click(function (e) {
+        LoginUsingFacebook(e);
+    });
+
+    var elem = document.getElementById("FacebookRegisterButton");
     var Facebookid = elem.attributes['data-facebook-id'].value;
     FB.init({
         appId: Facebookid

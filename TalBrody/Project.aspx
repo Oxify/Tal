@@ -64,9 +64,7 @@
                         <div class="row" id="cover-page">
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
                                 <div class="row main-row">
-                                    <div class="col-sm-6 col-xs-12 margincall
-                                        "
-                                        id="title">
+                                    <div class="col-sm-6 col-xs-12 margincall" id="title">
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                             <div class="sm-bottom-responsive-item" id="title-content">
                                                 <h2><strong>"עודני ילד" </strong></h2>
@@ -129,6 +127,14 @@
                         <div class="row ">
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                                 <div class="row main-row" id="afterlogin" runat="server" visible="False">
+                                    <div class="col-xs-12" id="secondary-title">
+                                        <h2>
+                                            <strong>"עודני ילד" </strong>
+                                        </h2>
+
+                                        <h3>הספר על "בית ההבראה לצעצועים"</h3>
+
+                                    </div>
                                     <div class="col-xs-12 col-sm-6 pull-right">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2xgVbFniiVU?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -147,7 +153,7 @@
                                                 <div class="flat-box-left" runat="server" id="DiscountDiv">
                                                     <div class="flat-box-title">
                                                         <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
-                                                        
+
                                                     </div>
                                                     <div class="flat-box-description">
                                                         ש"ח הנחה צברת
@@ -234,74 +240,88 @@
                 </div>
             </div>
         </div>
-        <div class="jumbotron" id="thirdpage">
+
+        <div class="jumbotron">
             <div class="jumbotron-header">
                 <div class="main-container">
                     <div class="container">
-                        <div class="row main-row">
-                            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                                <div class="row ">
-                                    <div class="col-sm-6 col-xs-12 pull-right margincall">
-                                        <div id="main-description">
-                                            <div id="AdditionalTitle">
-                                                <h2>
-                                                    <strong>"עודני ילד" </strong>
-                                                </h2>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="row">
 
-                                                <h3>הספר על "בית ההבראה לצעצועים"</h3>
-                                            </div>
-                                            <h6 style="text-align: justify">"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
+                                    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
+                                        <div class="row">
+
+                                            <div class="col-sm-6 col-xs-12 pull-right margincall">
+                                                <div id="main-description">
+                                                    <div >
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <img src="/Images/Toys/Train.jpg" width="150px" height="90px" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" >
+                                                            <div class="col-xs-12">
+
+                                                                <h4><span class="people-name">עוד על הפרוייקט</span></h4>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <h6 style="text-align: justify; margin-top: 0">"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
                                                 <br />
-                                                הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
+                                                        הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
                                             הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
                                             בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h6>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 pull-left margincall">
-
-
-                                        <div class="row">
-                                            <div class="col-xs-5 pull-left">
-                                                <div>
-                                                    צרו איתנו קשר
-                                                </div>
-                                                <div class="info-buttons" style="margin-right: -1px;">
-                                                    <a href="mailto:hagi@hagimarom.com"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
-                                                    </a>
-                                                </div>
-                                                <div class="info-buttons">
-                                                    <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-7 ">
+                                            <div class="col-xs-12 col-sm-6 pull-left margincall">
+
+
                                                 <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <img src="/Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
+                                                    <div class="col-xs-5 pull-left">
+                                                        <div>
+                                                            צרו איתנו קשר
+                                                        </div>
+                                                        <div class="info-buttons" style="margin-right: -1px;">
+                                                            <a href="mailto:hagi@hagimarom.com"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="info-buttons">
+                                                            <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-7 ">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <img src="/Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row " id="people-name">
-                                            <div class="col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
 
-                                                <h4 style="text-align: center">הפרוייקט של בני ירוחם וחגי מרום</h4>
-                                            </div>
-                                        </div>
-                                        <div class="row ">
-                                            <div class="col-xs-12">
+                                                        <h4><span class="people-name">הפרוייקט של בני ירוחם וחגי מרום</span></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row ">
+                                                    <div class="col-xs-12">
 
-                                                <h6 style="text-align: justify">
-                                                    <strong>בני ירוחם</strong>
-                                                    - אספן צעצועים ומשחקים ישנים, הקים בשנת 2011 ביחד עם ג'ניס אישתו, את "בית
+                                                        <h6 style="text-align: justify; margin-top: 0">
+                                                            <strong>בני ירוחם</strong>
+                                                            - אספן צעצועים ומשחקים ישנים, הקים בשנת 2011 ביחד עם ג'ניס אישתו, את "בית
 הבראה לצעצועים", מוזיאון צעצועים ללא כוונת רווח, הפועל בנמל יפו. שיתוף הפעולה בין חגי ובני
 נוצר מתוך כבוד ואהבה משותפים לנוסטלגיה הישראלית ומתוך כוונה לשמר ולתעד אותה.
                                        
                                         <br />
-                                                    <strong>חגי מרום</strong> - אספן תרבות ישראלית, מעצב גרפי וצלם, הקים בשנת 2011 את הוצאת הספרים "מרום
+                                                            <strong>חגי מרום</strong> - אספן תרבות ישראלית, מעצב גרפי וצלם, הקים בשנת 2011 את הוצאת הספרים "מרום
 תרבות ישראלית". ההוצאה מפיקה ומוציאה לאור ספרים העוסקים בתרבות, אמנות ונוסטלגיה
 ישראלית.
-                                                </h6>
+                                                        </h6>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -311,10 +331,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
 
         <div class="main-row center-block">
             <div id="disqus-div">

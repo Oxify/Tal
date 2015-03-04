@@ -149,5 +149,33 @@ namespace TalBrody
             return result;
         }
 
+        [WebMethod(EnableSession = true)]
+        public static int SocialLogin(string platform, string token)
+        {
+            int result = 0;
+            try
+            {
+                User user = null;
+                if (platform.ToUpper() == "FB")
+                {
+                    var facebookAccess = Container.Resolve<FacebookAccess>();
+                    user = facebookAccess.LoginUser(token);
+
+                    if (user != null)
+                    {
+                        SessionUtil.AddUserToSession(user.Id);
+                        return 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return result;
+        }
+
+
     }
 }

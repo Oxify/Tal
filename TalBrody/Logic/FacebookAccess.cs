@@ -39,6 +39,30 @@ namespace TalBrody.Logic
 
         }
 
+        public User LoginUser(string AccessToken)
+        {
+
+            var data = GetUserData(AccessToken);
+            User user = null;
+            if (data.Graph != null)
+            {
+                Users users = new Users();
+                user = users.FinduserByFaceBookId(data.Graph.Id);
+            }
+            
+            if (user == null)
+            {
+                return null;
+            }
+
+            // user logged in, let's update the DB
+            PopulateUser(data, ref user);
+            UserDal dal = new UserDal();
+            dal.UpdateUser(user);
+            
+            return user;
+        }
+
         public User RegisterUser(string AccessToken, string email)
         {
 
@@ -105,6 +129,7 @@ namespace TalBrody.Logic
 
             return user;
         }
+
 
         private static void PopulateUser(FacebookDetails details, ref Entity.User user)
         {

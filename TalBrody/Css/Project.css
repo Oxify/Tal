@@ -35,6 +35,7 @@ html, body {
     margin: 0;
     padding: 60px 0 0 0;
 }
+
 #middlebuffer1 {
     margin: 0;
     height: 0;
@@ -274,18 +275,23 @@ html, body {
 }
 
 #main-description {
-    padding-top: 7px;
-    padding-bottom: 7px;
+    /*padding-top: 7px;
+    padding-bottom: 7px;*/
 }
 
+#secondary-title {
+    text-align: center;
+    padding-bottom: 10px;
+}
 #AdditionalTitle {
     display: none;
     padding: 0;
     margin: 0;
 }
 
-#people-name {
+.people-name {
     padding-top: 5px;
+    text-align: center;
 }
 
 .circle-blue,
@@ -431,6 +437,7 @@ html, body {
     #middlebuffer1 {
         padding-top: 15px;
     }
+
     .main-row {
         width: 768px;
     }
@@ -549,8 +556,14 @@ html, body {
     .gallary-box {
         padding-bottom: 20px;
     }
+
     .last-row {
         height: 100px;
+    }
+
+    .people-name {
+        padding-top: 5px;
+        text-align: right;
     }
 
     #AdditionalTitle {

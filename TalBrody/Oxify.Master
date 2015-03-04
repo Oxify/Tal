@@ -230,7 +230,8 @@
         <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
             <div class="navbar-header pull-left">
                 <a class="navbar-brand" href="/">
-                    <img alt="Oxify" src="/Images/VerySmallLogo.png" style="margin-top: -5px;" />
+                    <div id="navbar-logo"></div>
+<%--                    <img alt="Oxify" src="/Images/VerySmallLogoGrey.png"   />--%>
                 </a>
             </div>
             <div class="navbar-header pull-right" id="navbar-rightside">
@@ -280,11 +281,11 @@
                         <div id="LoginStart">
 
                             <div>
-                                <button class="login-button flat-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+                                <button class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
 
                                 <br />
                                 <div>
-                                    <h2>כניסה באמצעות דואר אלקטרוני וססמא:</h2>
+                                    <h4>כניסה באמצעות דואר אלקטרוני וססמא:</h4>
                                     <input placeholder="הכנס כתובת אימייל" id="EmailLogin" runat="server" />
                                     <input placeholder="הכנס ססמא" id="PasswordLogin" type="password" runat="server" />
                                 </div>
@@ -346,7 +347,7 @@
                         <div id="RegisterStart">
 
                             <div>
-                                <button class="blue" id="FacebookButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+                                <button class="blue" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
 
                                 <br />
                             </div>
