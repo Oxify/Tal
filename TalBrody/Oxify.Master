@@ -228,35 +228,25 @@
 <body id="myBody">
     <form id="form1" runat="server">
         <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">
-                        <img alt="Oxify" src="/Images/VerySmallLogo.png" style="margin-top: -5px;" />
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <button type="button" class="navbar-btn footer-link" id="BtnConect" onclick="ShowLogin();">כניסה</button>
-                        <button type="button" class="navbar-btn footer-link" id="BtnLogOff" onclick="LogOut();">התנתק</button>
-                        <button type="button" class="navbar-btn footer-link" id="BtnRegister" onclick="Register();">הרשמה</button>
-
-                        <button type="button" class="navbar-btn footer-link" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
-                        <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project" CssClass="navbar-btn footer-link"></asp:HyperLink>
-                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin" CssClass="navbar-btn footer-link"></asp:HyperLink>
-                        <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+            <div class="navbar-header pull-left">
+                <a class="navbar-brand" href="/">
+                    <img alt="Oxify" src="/Images/VerySmallLogo.png" style="margin-top: -5px;" />
+                </a>
             </div>
-            <!-- /.container-fluid -->
+            <div class="navbar-header pull-right" id="navbar-rightside">
+                <button type="button" class="navbar-btn header-link" id="BtnConect" onclick="ShowLogin();">כניסה</button>
+                <button type="button" class="navbar-btn header-link" id="BtnLogOff" onclick="LogOut();">התנתק</button>
+                <button type="button" class="navbar-btn header-link" id="BtnRegister" onclick="Register();">הרשמה</button>
+
+                <button type="button" class="navbar-btn footer-link" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
+                <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project" CssClass="navbar-btn footer-link"></asp:HyperLink>
+                <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin" CssClass="navbar-btn footer-link"></asp:HyperLink>
+                <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
+
+            </div>
+  
         </div>
+
         <div class="Amaster-container">
             <div class="master-row">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -372,7 +362,7 @@
                         </div>
 
                         <div id="ResgisterMissingEMail" style="display: none;">
-                            <input placeholder="you@email.com" id="txtEmail"/>
+                            <input placeholder="you@email.com" id="txtEmail" />
                             <button class="blue" id="AddEmailButton">המשך</button>
 
                         </div>

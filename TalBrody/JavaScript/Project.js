@@ -1,16 +1,11 @@
 ﻿
 $(document).ready(function () {
 
-    var elements = document.getElementsByClassName('ScrollButton');
+   
+    var elements = document.getElementsByClassName('scroll-icon');
     for (var i = 0; i < elements.length; i++) {
         elements[i].onclick = ScrollToTarget;
     }
-    elements = document.getElementsByClassName('scroll-icon');
-    for (i = 0; i < elements.length; i++) {
-        elements[i].onclick = ScrollToTarget;
-    }
-
-
 
     $("a.gallary-image").fancybox({
         'transitionIn': 'elastic',
@@ -25,7 +20,7 @@ $(document).ready(function () {
         dots: true,
         infinite: false,
         rtl: true,
-        speed: 300,
+        speed: 1000,
         slidesToShow: 3,
         slidesToScroll: 3,
         responsive: [

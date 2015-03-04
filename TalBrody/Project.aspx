@@ -55,9 +55,10 @@
     <link rel="stylesheet" href="/Css/Project.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="headerbuffer"></div>
     <div class="project" id="projectpage" runat="server">
         <div class="jumbotron" id="firstpage" runat="server">
-            <div class="jumbotron-header">
+            <div class="jumbotron-header full-height-div">
                 <div class="main-container">
                     <div class="container">
                         <div class="row" id="cover-page">
@@ -84,12 +85,11 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="visible-xs">
-
-                                            <h4 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
+                                            <h5 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
 					
                                             <b>הירשמו ותוכלו לזכות בהטבות מיוחדות.</b>
                                                 ביחד, נוציא את הספר לאור.
-                                            </h4>
+                                            </h5>
                                         </div>
                                         <div class="hidden-xs">
                                             <hr class="small_divider" />
@@ -104,7 +104,9 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="register-button-div">
-                                            <a class="flat-button BtnRegister fancybox.iframe" id="BtnRegister" onclick="ShowRegister()">הירשמו עכשיו</a><br />
+<%--                                                            <button type="button" class="flat-button" id="BtnRegister" onclick="Register();">הרשמה</button>--%>
+
+                                            <a class="flat-button BtnRegister fancybox.iframe" id="BtnRegister" onclick="Register()">הירשמו עכשיו</a><br />
                                         </div>
                                         <div class="scroll-icon-wrapper">
                                             <a href="#" class='scroll-icon' data-goto="secondpage"><i class="fa fa-arrow-circle-down"></i></a>
@@ -134,7 +136,7 @@
                                         <div>
                                             <div class="coming-soon">
                                                 <div class="coming-soon-text">
-                                                    <h4>הקמפיין יתחיל בשבועות הקרובים</h4>
+                                                    <h5>הקמפיין יתחיל בשבועות הקרובים</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -200,23 +202,28 @@
                                 </div>
 
                                 <div class="row main-row">
-                                    <div class="col-sm-6 col-xs-12 pull-right">
-                                        <br />
-                                        <h2><strong>"עודני ילד" </strong></h2>
-                                        <h3>הספר על "בית ההבראה לצעצועים"</h3>
-                                        <h5 style="text-align: justify">"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
+                                    <div class="col-sm-6 col-xs-12 pull-right margincall">
+                                        <div id="main-description">
+                                            <div id="AdditionalTitle">
+                                                <h2>
+                                                    <strong>"עודני ילד" </strong>
+                                                </h2>
+
+                                                <h3>הספר על "בית ההבראה לצעצועים"</h3>
+                                            </div>
+                                            <h6 style="text-align: justify">"עודני ילד" הוא ספר חדש בתהליך עבודה על "בית הבראה לצעצועים".
                                                 <br />
-                                            הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
+                                                הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים. אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את "בית הבראה לצעצועים" - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
                                             הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
-                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h5>
+                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.</h6>
 
-
+                                        </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
 
 
                                         <div class="row">
-                                            <div class="col-xs-4 pull-left">
+                                            <div class="col-xs-5 pull-left">
                                                 <div>
                                                     צרו איתנו קשר
                                                 </div>
@@ -228,7 +235,7 @@
                                                     <a href="https://www.facebook.com/ChildhoodMuseum"><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-8 ">
+                                            <div class="col-xs-7 ">
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <img src="/Images/Toys/BennyAndHagi.jpg" width="150px" height="90px" />
@@ -236,12 +243,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row ">
-                                            <h3 style="text-align: center">הפרוייקט של בני ירוחם וחגי מרום</h3>
+                                        <div class="row " id="people-name">
+                                            <h4 style="text-align: center">הפרוייקט של בני ירוחם וחגי מרום</h4>
                                         </div>
                                         <div class="row ">
 
-                                            <h5 style="text-align: justify">
+                                            <h6 style="text-align: justify">
                                                 <strong>בני ירוחם</strong>
                                                 - אספן צעצועים ומשחקים ישנים, הקים בשנת 2011 ביחד עם ג'ניס אישתו, את "בית
 הבראה לצעצועים", מוזיאון צעצועים ללא כוונת רווח, הפועל בנמל יפו. שיתוף הפעולה בין חגי ובני
@@ -251,7 +258,7 @@
                                                 <strong>חגי מרום</strong> - אספן תרבות ישראלית, מעצב גרפי וצלם, הקים בשנת 2011 את הוצאת הספרים "מרום
 תרבות ישראלית". ההוצאה מפיקה ומוציאה לאור ספרים העוסקים בתרבות, אמנות ונוסטלגיה
 ישראלית.
-                                            </h5>
+                                            </h6>
                                         </div>
                                     </div>
                                 </div>
@@ -288,26 +295,27 @@
             </div>
         </div>
 
-    </div>
 
-    <div id="disqus-div" class="main-row center-block">
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES * * */
-            var disqus_shortname = 'oxify';
-            var disqus_identifier = '<%=ProjectId %>';
-            var disqus_title = 'עודני ילד';
-            var disqus_config = function () {
-                this.language = "he";
-            };
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        <div class="main-row center-block">
+            <div id="disqus-div">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'oxify';
+                    var disqus_identifier = '<%=ProjectId %>';
+                var disqus_title = 'עודני ילד';
+                var disqus_config = function () {
+                    this.language = "he";
+                };
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+                </script>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 

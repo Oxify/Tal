@@ -11,22 +11,22 @@
             <div class="row">
                 <div class="col-xs-12">
                     <br/>
-                    <h2>תודה שנרשמתם!</h2>
-                    <h3>אנא אשרו את הרשמתכם דרך המייל שנשלח אליכם.
+                    <h3>תודה שנרשמתם!</h3>
+                    <h4>אנא אשרו את הרשמתכם דרך המייל שנשלח אליכם.
                         <br />
                         נשמח לעדכן אתכם על הספר ותחילת קמפיין הגיוס.
                 <br />
 
-                    </h3>
-                    <h2>איך זה עובד?</h2>
-                    <h3>הפיצו את הקישור הייחודי שלכם או לחצו על כפתורי השיתוף השונים.<br />
+                    </h4>
+                    <h3>איך זה עובד?</h3>
+                    <h4>הפיצו את הקישור הייחודי שלכם או לחצו על כפתורי השיתוף השונים.<br />
                         על כל חבר שנרשם בזכותכם לפרויקט, תצברו הנחה של 2 ש"ח שאותם תוכלו לממש בקמפיין.
-                    </h3>
-                    <h3>
+                    </h4>
+                    <h4>
                         <asp:label id="shareUrlInput" runat="server"></asp:label> 
-                    </h3>
+                    </h4>
                     <div class="">
-                        <div class="share-title h2">שתפו עם חברים</div>
+                        <div class="share-title h3">שתפו עם חברים</div>
                         <div class="share-buttons">
                             <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= TwitterShareUrl %>"><span class="share-box twitter-color"><i class="fa fa-twitter "></i></span></a>
                             <div class="whatsapp-box">

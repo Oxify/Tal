@@ -109,6 +109,22 @@
     background-color: #dddddd;
 }
 
+.header-link {
+    font-family: 'Simple CLM', serif;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+    background: #3498db;
+    padding: 3px 5px 3px 5px;
+    text-decoration: none;
+    border: 0;
+    margin: 0 3px 0 3px;
+    vertical-align: middle;    
+}
+.header-link a {
+    text-decoration: none;
+}
+
 .footer-link {
     font-family: 'Simple CLM', serif;
     font-weight: bold;
@@ -126,6 +142,8 @@
     .footer-link a {
         text-decoration: none;
     }
+
+
 
 .container a {
     text-decoration: none;

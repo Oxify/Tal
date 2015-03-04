@@ -27,6 +27,9 @@ h6,
 }
 
 /* navbar */
+#navbar-rightside {
+  padding-top: 7px;
+}
 
 .navbar-sm .navbar-primary .navbar {
     min-height: 40px;
@@ -98,7 +101,7 @@ h6,
 }
 
 .h1, h1 {
-    font-size: 18px;
+    font-size: 38px;
 }
 
 .h2, h2 {
@@ -110,15 +113,15 @@ h6,
 }
 
 .h4, h4 {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .h5, h5 {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .h6, h6 {
-    font-size: 6px;
+    font-size: 14px;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -153,15 +156,15 @@ h6,
     }
 
     .h4, h4 {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     .h5, h5 {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .h6, h6 {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
@@ -181,15 +184,15 @@ h6,
     }
 
     .h4, h4 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .h5, h5 {
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .h6, h6 {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     h1,
