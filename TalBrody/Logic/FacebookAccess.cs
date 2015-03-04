@@ -78,7 +78,6 @@ namespace TalBrody.Logic
 
             if (data.Graph.EMail != null)
             {
-
                 Users users = new Users();
                 user = users.FindUserByEmail(data.Graph.EMail);
             }
@@ -124,8 +123,6 @@ namespace TalBrody.Logic
                 UserDal dal = new UserDal();
                 dal.UpdateUser(user);
             }
-
-
 
             return user;
         }
