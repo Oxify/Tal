@@ -66,7 +66,7 @@ namespace TalBrody.Logic
 
         public User FinduserByFaceBookId(long FaceBookId)
         {
-           return  _userDal.FindUserByFacebookId((int)FaceBookId);
+           return  _userDal.FindUserByFacebookId(FaceBookId);
         }
 
         public User FinduserByFaceBookId(int FaceBookId)

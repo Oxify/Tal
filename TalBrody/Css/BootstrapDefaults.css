@@ -28,7 +28,8 @@ h6,
 
 /* navbar */
 #navbar-rightside {
-  padding-top: 7px;
+    padding-top: 7px;
+    padding-right: 30px;
 }
 
 .navbar-sm .navbar-primary .navbar {

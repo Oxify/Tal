@@ -28,10 +28,12 @@ namespace TalBrody.Util
         {
             var mandril = GetMandrill();
             string template = _resourceResolver.Resolve("Emails/RegistrationEmail.email");
+            string referUrl = Followers.GetReferLink(user.Id, 1);
 
             var viewBag = new DynamicViewBag();
             viewBag.AddValue("BaseUrl", ConfigurationManager.AppSettings.Get("Global.BaseUrl"));
             viewBag.AddValue("Code", code);
+            viewBag.AddValue("Referal", referUrl);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
  
             var emailMessage = new EmailMessage
@@ -44,6 +46,17 @@ namespace TalBrody.Util
             };
 
             sendEmail(mandril, emailMessage);
+
+            var tellus = new EmailMessage
+            {
+                to = new List<EmailAddress> {new EmailAddress("NewUser@oxify.co", "New User Notification")},
+                from_email = "team@oxify.co",
+                from_name = "Oxify",
+                subject = "We have a new user: " + user.DisplayName + " ! ("+user.Email+")",
+                html = html
+            };
+
+            sendEmail(mandril, tellus);
         }
 
         

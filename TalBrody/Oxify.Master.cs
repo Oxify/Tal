@@ -114,21 +114,7 @@ namespace TalBrody
             }
         }
 
-        protected void BtnAddEmail_Click(object sender, EventArgs e)
-        {
-            UserSession useastion = SessionUtil.GetUserSession();
-            if (useastion != null)
-            {
-
-                UserDal dal = Container.Resolve<UserDal>();
-                User user = dal.FindUserByid(useastion.UserId);
-                dal.UpdateUser(user);
-                var code = Container.Resolve<Users>().GenerateUserRegistrationCode(user);
-                IOC.GetInstance<Email>().SendRegistrationEmail(user, code);
-
-            }
-        }
-
+ 
         protected void registerButton_Click(object sender, EventArgs e)
         {
             var emailStr = email.Value;
