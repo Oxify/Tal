@@ -48,7 +48,13 @@ namespace TalBrody
 				FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
 				TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
                 WhatsappUrl = "whatsapp://send?text=" + ProjectName + ShareUrlEncoded;
+
+			    shareUrlInput.Text = ShareUrl;
 			}
+            else
+            {
+                Response.Redirect("/p/m1fj/toys", false);
+            }
 		}
 
 		public string ShareUrl;

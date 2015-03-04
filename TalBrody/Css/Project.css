@@ -11,6 +11,7 @@ html, body {
 
 .project {
     width: 100%;
+    height: 100%;
     min-height: 100%;
 }
 
@@ -21,6 +22,7 @@ html, body {
     padding: 0;
     margin-top: 0;
     margin-bottom: 5px;
+}
 
 #firstpage {
     height: 100%;
@@ -28,12 +30,24 @@ html, body {
 }
 
 
+#headerbuffer {
+    height: 0;
+    margin: 0;
+    padding: 60px 0 0 0;
+}
+
+#middlebuffer1 {
+    margin: 0;
+    height: 0;
+    padding: 0;
+}
+
 .jumbotron-header {
     /*background-color: pink;*/
     height: 100%;
     width: 100%;
     display: table;
-    padding: 60px 5px 0 5px;
+    padding: 0px 5px 0 5px;
 }
 
 .main-container {
@@ -46,7 +60,7 @@ html, body {
 
 .main-row {
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .buffer {
@@ -75,6 +89,7 @@ html, body {
 
 #cover-page {
     /*background-color: lightblue;*/
+    padding-top: 0px;
 }
 
 #title-div {
@@ -109,12 +124,14 @@ html, body {
 .Description {
     display: block;
     text-align: center;
+    padding-top: 10px;
 }
 
 
 .scroll-icon-wrapper {
     text-align: center;
     padding-top: 25px;
+    display: none;
 }
 
 .scroll-icon {
@@ -139,24 +156,6 @@ html, body {
     /*margin-bottom: -50px;*/
 }
 
-.flat-button {
-    /*font-family: 'Simple CLM', serif;*/
-    font-weight: bold;
-    color: #ffffff;
-    background: #3498db;
-    text-decoration: none;
-    border: 0;
-    margin: 0 auto;
-    font-size: 15px;
-    padding: 5px 20px 5px 20px;
-    width: 63px;
-    height: 50px;
-}
-
-    .flat-button:hover {
-        background: #3cb0fd;
-        text-decoration: none;
-    }
 
 
 .register-button-div {
@@ -212,7 +211,7 @@ html, body {
     text-align: center;
     margin-top: auto;
     margin-bottom: auto;
-    padding-top: 4px;
+    padding-top: 0px;
     padding-bottom: 0px;
     line-height: 26px;
     height: 100%;
@@ -220,10 +219,37 @@ html, body {
     display: inline-block;
 }
 
+.inlineblock {
+    display: inline-block;
+}
+
+#share-and-data {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.share-title {
+    text-align: center;
+    font-weight: bold;
+    color: #3498db;
+    padding-top: 7px;
+}
+
+.flat-box {
+    text-align: center;
+    height: 32px;
+    width: 100%;
+    margin: 0px auto 0px auto;
+}
+
 .flat-box-title {
     font-weight: bold;
     display: inline-block;
     font-size: 26px;
+}
+
+.flat-data {
+    margin-bottom: 10px;
 }
 
 .flat-box-description {
@@ -243,7 +269,29 @@ html, body {
     display: inline-block;
     width: 190px;
     margin-top: -15px;
+    margin-right: 5px;
     vertical-align: middle;
+    text-align: right;
+}
+
+#main-description {
+    /*padding-top: 7px;
+    padding-bottom: 7px;*/
+}
+
+#secondary-title {
+    text-align: center;
+    padding-bottom: 10px;
+}
+#AdditionalTitle {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.people-name {
+    padding-top: 5px;
+    text-align: center;
 }
 
 .circle-blue,
@@ -327,17 +375,25 @@ html, body {
 .gallary-box {
     width: 100%;
     height: 100%;
-    padding: 10px 35px 10px 35px;
+    padding: 0px 9px 10px 9px;
 }
 
 .slick-box {
-    padding: 15px;
+    padding: 5px 15px 0px 15px;
     width: 100%;
 }
 
 .gallary-image {
-    width: 240px;
-    height: 180px;
+    /*width: 121px;
+    height: 119px;*/
+    /*padding: 5px;
+}*/
+}
+
+.thumbnail-image {
+    /*width: 141px;
+    height: 99px;*/
+    border: 4px solid white;
 }
 
 .info-box {
@@ -351,7 +407,9 @@ html, body {
     text-align: center;
 }
 
-
+#disqus-div {
+    padding: 15px;
+}
 /* Conditional attributes */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
@@ -363,16 +421,29 @@ html, body {
         padding: 0;
     }
 }
+
 /* Small devices (tablets, 768px and up) */
 /* For col-sm-x */
 @media (min-width: 768px) {
 
     .jumbotron-header {
-        padding: 90px 15px 0 15px;
+        padding: 0px 15px 0 15px;
+    }
+
+    #headerbuffer {
+        padding-top: 90px;
+    }
+
+    #middlebuffer1 {
+        padding-top: 15px;
     }
 
     .main-row {
         width: 768px;
+    }
+
+    .scroll-icon-wrapper {
+        display: block;
     }
 
     .sm-bottom-responsive {
@@ -421,8 +492,24 @@ html, body {
         cursor: pointer;
     }
 
+    #share-and-data {
+        width: 300px;
+        margin-top: 0;
+    }
 
-    .flat-box-right {
+    .share-title {
+        padding-top: 3px;
+    }
+
+
+    /*.
+            .flat-box {
+        text-align: center;
+        height: 60px;
+        width: 190px;
+        margin: 15px auto 0 auto;
+    }
+        flat-box-right {
         width: 35px;
         display: inline-block;
         height: 100%;
@@ -442,10 +529,10 @@ html, body {
 
     .flat-box-description {
         font-size: 14px;
-    }
+    }*/
 
 
-    .circle-grey {
+    /*.circle-grey {
         width: 30px;
         display: inline-block;
         font-size: 20px;
@@ -455,20 +542,33 @@ html, body {
         width: 30px;
         display: inline-block;
         font-size: 20px;
-    }
+    }*/
 
     .register-button-div {
         margin-top: 20px;
     }
 
-    .coming-soon {
-        height: 45px;
+    /*.coming-soon {
+        height: 32px;
         width: 100%;
-        margin-top: 10px;
+        margin-bottom: 10px;
+    }*/
+    .gallary-box {
+        padding-bottom: 20px;
+        
     }
 
     .last-row {
         height: 100px;
+    }
+
+    .people-name {
+        padding-top: 5px;
+        text-align: right;
+    }
+
+    #AdditionalTitle {
+        display: block;
     }
 }
 

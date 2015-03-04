@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using Castle.Windsor;
 using log4net;
 using TalBrody.Common;
+using TalBrody.DataLayer;
 using TalBrody.Logic;
 using TalBrody.Entity;
 
@@ -38,7 +39,7 @@ namespace TalBrody
         public class RegisterResult
         {
             public int NextStep { get; set; } // 0 - login failure, 1 - registrating complete, 2 - email needed.
-
+            public string Message { get; set; }
 
         }
 
@@ -61,7 +62,7 @@ namespace TalBrody
 
             return result;
 
-        } 
+        }
 
         [ScriptMethod(UseHttpGet = true)]
         [WebMethod(EnableSession = false)]
@@ -80,24 +81,29 @@ namespace TalBrody
 
 
         [WebMethod(EnableSession = true)]
-        public static RegisterResult SocialRegister(string platform, string token)
+        public static RegisterResult SocialRegister(string platform, string token, string email)
         {
             RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
-                
-                User user = null; 
+
+                User user = null;
                 if (platform.ToUpper() == "FB")
-                {                   
-                    var facebookAccess = Container.Resolve<FacebookAccess>();                  
-                    user = facebookAccess.RegisterUser(token);                  
-                    SessionUtil.AddUserToSession(user.Id);
-                   
+                {
+                    var facebookAccess = Container.Resolve<FacebookAccess>();
+                    user = facebookAccess.RegisterUser(token, email);
+
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
+                    {
+                        SessionUtil.AddUserToSession(user.Id);
                         result.NextStep = 1;
+
+                    }
                     else
+                    {
                         result.NextStep = -1;
-                    
+                        return result;
+                    }
                 }
                 if (user != null)
                 {
@@ -122,6 +128,80 @@ namespace TalBrody
             return result;
         }
 
+        /// <summary>
+        /// /
+        /// 
+        [WebMethod(EnableSession = true)]
+        public static RegisterResult EMailRegister(string name, string password, string email)
+        {
+            RegisterResult result = new RegisterResult { NextStep = 0, Message = "" };
+            try
+            {
+                var emailStr = email;
+                if (string.IsNullOrEmpty(emailStr))
+                {
+                    result.Message = "אנא מלא כתובת אימייל";
+                    return result;
+                }
+
+                if (string.IsNullOrEmpty(name))
+                {
+                    result.Message = "אנא מלא שם";
+                    return result;
+                }
+
+                if (string.IsNullOrEmpty(password))
+                {
+                    result.Message = "אנא הכנס סיסמא ";
+                    return result;
+                }
+
+                if (password.Length < 8)
+                {
+                    result.Message = "אנא הכנס סיסמא באורך של 8 תווים לכל הפחות";
+                    return result;
+
+                }
+                var user = new UserDal().FindUserByEmail(emailStr);
+                if (user != null)
+                {
+                    //          msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
+                    //          log.Info(msg);
+                    string msg = String.Format("כתובת האימייל " + user.Email + " כבר רשומה במערכת");
+
+                    result.Message = msg;
+                    return result;
+                    //TODO handel duplicate registration 
+                }
+
+                var users = Container.Resolve<Users>();
+                int UserRefId = 0;
+                if (HttpContext.Current.Session["UserRefId"] != null)
+                    UserRefId = (int)HttpContext.Current.Session["UserRefId"];
+                user = users.AddUser(email, password, name, UserRefId);
+
+                SessionUtil.AddUserToSession(user.Id);
+                Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+                if (fol == null)
+                {
+                    Followers.Insert_Follwer(1, user.Id, UserRefId);
+                }
+                result.NextStep = 1;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return result;
+        }
+
+
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         [WebMethod(EnableSession = true)]
         public static int AutoLogin(string id)
         {
@@ -143,6 +223,34 @@ namespace TalBrody
             }
             return result;
         }
+
+        [WebMethod(EnableSession = true)]
+        public static int SocialLogin(string platform, string token)
+        {
+            int result = 0;
+            try
+            {
+                User user = null;
+                if (platform.ToUpper() == "FB")
+                {
+                    var facebookAccess = Container.Resolve<FacebookAccess>();
+                    user = facebookAccess.LoginUser(token);
+
+                    if (user != null)
+                    {
+                        SessionUtil.AddUserToSession(user.Id);
+                        return 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return result;
+        }
+
 
     }
 }

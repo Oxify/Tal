@@ -16,10 +16,13 @@
     position: absolute;
     bottom: 0px;
     top: -30px;
-    /*width: 100%;*/
+    width: 100%;
+    /*padding-top: 30px;*/
+    /*display: table;*/
 }
 
 .master-wrapper {
+    width: 100%;
     height: 100%;
 }
 
@@ -31,6 +34,11 @@
     left: 0;
     width: 100%;
     z-index: 10000;
+}
+
+.master-row {
+    display: table-row;
+    width: 100%;
 }
 
 .form {
@@ -48,6 +56,7 @@
 .full-page {
     height: 100%;
 }
+
 .main-content {
     padding-top: 100px;
 
@@ -63,6 +72,21 @@
     text-align: center;
 }
 
+.Amaster-container {
+    position: relative;
+    padding-top: 50px;
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+}
+
+.Afooter {
+    display: table-row;
+    height: 30px;
+    background-color: #dddddd;
+}
+
 .header_button {
     font-family: 'Simple CLM', serif;
     font-weight: bold;
@@ -76,6 +100,46 @@
 .custom-footer {
     padding-top: 6px;
 }
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 30px;
+    background-color: #dddddd;
+}
+
+#navbar-logo {
+    margin-top: -5px;
+    margin-left: 20px;
+    padding: 0;
+    width: 52px;
+    height: 31px;
+    display: block;
+    background: transparent url('/Images/VerySmallLogoGrey.png') center top no-repeat;
+}
+
+    #navbar-logo:hover {
+        background: transparent url('/Images/VerySmallLogoColor.png') center top no-repeat;
+    }
+
+.header-link {
+    font-family: 'Simple CLM', serif;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+    background: #3498db;
+    padding: 3px 5px 3px 5px;
+    text-decoration: none;
+    border: 0;
+    margin: 0 3px 0 3px;
+    vertical-align: middle;
+}
+
+    .header-link a {
+        text-decoration: none;
+    }
 
 .footer-link {
     font-family: 'Simple CLM', serif;
@@ -95,28 +159,17 @@
         text-decoration: none;
     }
 
+
+
 .container a {
     text-decoration: none;
 }
 
-.flat-box {
-    text-align: center;
-    height: 60px;
-    width: 190px;
-    margin: 15px auto 0 auto;
-}
-
-.share-title {
-    text-align: center;
-    font-weight: bold;
-    color: #3498db;
-    
-}
 
 .share-buttons {
     text-align: center;
     vertical-align: central;
-    font-size: 32px;
+    font-size: 30px;
     color: black;
 }
 
@@ -146,8 +199,60 @@
     display: inline-block;
 }
 
-.Popup-Link: {
+.Popup-Link {
     cursor: pointer;
+}
+
+.login-button {
+    font-weight: bold;
+    color: #ffffff;
+    background: #3498db;
+    text-decoration: none;
+    border: 0;
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 5px 20px 5px 20px;
+    width: 300px;
+    height: 45px;
+}
+
+    .login-button:hover {
+        background: #3cb0fd;
+        text-decoratregister-field ion: none;
+    }
+
+.login-button-small {
+    font-weight: bold;
+    color: #ffffff;
+    background: #3498db;
+    text-decoration: none;
+    border: 0;
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 3px 20px 5px 20px;
+    width: auto;
+    height: 30px;
+}
+
+    .login-button-small:hover {
+        background: #3cb0fd;
+        text-decoration: none;
+    }
+
+.register-name {
+    width: 60px;
+    text-align: right;
+    display: inline-block;
+}
+
+.register-entry {
+    width: 200px;
+}
+.register-field {
+    width: 300px;
+    height: 35px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .blue {
@@ -214,7 +319,31 @@
     }
 
 
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.flat-button {
+    /*font-family: 'Simple CLM', serif;*/
+    font-weight: bold;
+    color: #ffffff;
+    background: #3498db;
+    text-decoration: none;
+    border: 0;
+    margin: 0 auto;
+    font-size: 15px;
+    padding: 5px 20px 5px 20px;
+    width: 63px;
+    height: 50px;
+    cursor: pointer;
+}
+
+    .flat-button:hover {
+        background: #3cb0fd;
+        text-decoration: none;
+    }
 
 /* Conditional attributes */
 /* Extra small devices (phones, less than 768px) */
@@ -223,6 +352,15 @@
 /* Small devices (tablets, 768px and up) */
 /* For col-sm-x */
 @media (min-width: 768px) {
+
+    .flat-button {
+        /*font-family: 'Simple CLM', serif;*/
+        font-size: 23px;
+        padding: 10px 40px 10px 40px;
+        width: 63px;
+        height: 50px;
+        cursor: pointer;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -244,36 +382,44 @@
     .navbar-header {
         float: none;
     }
+
     .navbar-toggle {
         display: block;
     }
+
     .navbar-collapse {
         border-top: 1px solid transparent;
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
     }
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
+
+        .navbar-collapse.collapse {
+            display: none !important;
+        }
+
     .navbar-nav {
-        float: none!important;
+        float: none !important;
         margin: 7.5px -15px;
     }
-    .navbar-nav>li {
-        float: none;
-    }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+
+        .navbar-nav > li {
+            float: none;
+        }
+
+            .navbar-nav > li > a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
     .navbar-text {
         float: none;
         margin: 15px 0;
     }
     /* since 3.1.0 */
-    .navbar-collapse.collapse.in { 
-        display: block!important;
+    .navbar-collapse.collapse.in {
+        display: block !important;
     }
+
     .collapsing {
-        overflow: hidden!important;
+        overflow: hidden !important;
     }
 }

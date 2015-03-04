@@ -1,16 +1,11 @@
 ﻿
 $(document).ready(function () {
 
-    var elements = document.getElementsByClassName('ScrollButton');
+   
+    var elements = document.getElementsByClassName('scroll-icon');
     for (var i = 0; i < elements.length; i++) {
         elements[i].onclick = ScrollToTarget;
     }
-    elements = document.getElementsByClassName('scroll-icon');
-    for (i = 0; i < elements.length; i++) {
-        elements[i].onclick = ScrollToTarget;
-    }
-
-
 
     $("a.gallary-image").fancybox({
         'transitionIn': 'elastic',
@@ -24,7 +19,8 @@ $(document).ready(function () {
         arrows: true,
         dots: true,
         infinite: false,
-        speed: 300,
+        rtl: true,
+        speed: 1000,
         slidesToShow: 3,
         slidesToScroll: 3,
         responsive: [
@@ -38,7 +34,7 @@ $(document).ready(function () {
               }
           },
           {
-              breakpoint: 600,
+              breakpoint: 768,
               settings: {
                   slidesToShow: 2,
                   slidesToScroll: 2

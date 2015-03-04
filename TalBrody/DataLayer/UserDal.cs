@@ -100,7 +100,7 @@ namespace TalBrody.DataLayer
 
         }
 
-        public User FindUserByFacebookd(int FacebookId)
+        public User FindUserByFacebookId(long FacebookId)
         {
             User user = null;
             using (var conn = PortalConection)

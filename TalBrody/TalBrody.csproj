@@ -223,7 +223,6 @@
     <Content Include="Css\Project.css" />
     <Content Include="Css\SimpleCLM.css" />
     <Content Include="Css\slick-theme-oxify.css" />
-    <Content Include="Css\Temp.css" />
     <Content Include="EditProject.aspx" />
     <Content Include="ErrorPage.html" />
     <Content Include="fancybox\blank.gif" />
@@ -257,6 +256,7 @@
     <Content Include="Images\Toys\6.jpg" />
     <Content Include="Images\Toys\6A.jpg" />
     <Content Include="Images\Toys\BennyAndHagi.jpg" />
+    <Content Include="Images\Toys\Train.jpg" />
     <Content Include="Images\VerySmallLogo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -273,6 +273,7 @@
     <Content Include="JavaScript\LightBoxLargePack.js" />
     <Content Include="JavaScript\LightBoxPack.js" />
     <Content Include="JavaScript\login.js" />
+    <Content Include="JavaScript\Master.js" />
     <Content Include="JavaScript\Project.js" />
     <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />

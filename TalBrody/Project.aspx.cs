@@ -13,10 +13,14 @@ namespace TalBrody
 {
     public partial class Project : System.Web.UI.Page
     {
+        public string ProjectId;
+
         public string ShareUrl;
         public string FacebookShareUrl;
         public string TwitterShareUrl;
         public string WhatsappUrl;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string p = Page.RouteData.Values["ppp"] as string;
@@ -32,6 +36,7 @@ namespace TalBrody
 
         private void InitParam()
         {
+            ProjectId = "1";
             UserSession Usession = SessionUtil.GetUserSession();
             if (Usession != null)
             {
@@ -100,6 +105,7 @@ namespace TalBrody
             {
 
                 firstpage.Visible = false;
+                afterlogin.Visible = true;
                 if (Request.QueryString["ProjectId"] != null)
                 {
                     int ProjectId = int.Parse(Request.QueryString["ProjectId"]);

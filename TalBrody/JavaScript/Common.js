@@ -91,12 +91,32 @@ function PopupWindow() {
     window.open(url, "myWindow", "status = 1, height = 360, width = 500, resizable = 0");
 }
 
+var applyMapContainerHeight = function () {
+   // debugger;
+    var height = $(window).height();
+    //        $("#map-container").height(height);
+    //$(".full-height-div").each(function () {
+    //    this.height = height;
+    //});
 
-$(document).ready(function() {
+    var elements = $(".full-height-div");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].height = height;
+    }
+};
+$(document).ready(function () {
 
     var elements = document.getElementsByClassName('Popup-Link');
     for (var i = 0; i < elements.length; i++) {
         elements[i].onclick = PopupWindow;
     }
+
+    applyMapContainerHeight();
+
+
 });
 
+$(window).resize(function () {
+
+    applyMapContainerHeight();
+});

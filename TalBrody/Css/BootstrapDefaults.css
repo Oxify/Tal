@@ -26,16 +26,11 @@ h6,
     font-family: 'Simple CLM', Helvetica, Arial, sans-serif !important;
 }
 
-.footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 30px;
-    background-color: #dddddd;
-}
-
 /* navbar */
+#navbar-rightside {
+    padding-top: 7px;
+    padding-right: 30px;
+}
 
 .navbar-sm .navbar-primary .navbar {
     min-height: 40px;
@@ -107,7 +102,7 @@ h6,
 }
 
 .h1, h1 {
-    font-size: 18px;
+    font-size: 38px;
 }
 
 .h2, h2 {
@@ -119,15 +114,15 @@ h6,
 }
 
 .h4, h4 {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .h5, h5 {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .h6, h6 {
-    font-size: 6px;
+    font-size: 14px;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -162,15 +157,15 @@ h6,
     }
 
     .h4, h4 {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     .h5, h5 {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .h6, h6 {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
@@ -190,15 +185,15 @@ h6,
     }
 
     .h4, h4 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .h5, h5 {
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .h6, h6 {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     h1,
@@ -213,8 +208,8 @@ h6,
     .h4,
     .h5,
     .h6 {
-        margin-top: 20px;
-        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 5px;
     }
 }
 

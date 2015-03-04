@@ -20,11 +20,14 @@ namespace TalBrody
         private int CurrentDbVersion = 1;
 
         public static bool OnAppHarbor { get; private set; }
-
+        public static string FacebookId { get; private set; }
 
         public static void RegisterRoute(RouteCollection routers)
         {
-            
+            //routers.Ignore("{*alljs}", new { alljs = @".*\.js(/.*)?" });
+            //routers.Ignore("{*allpng}", new { allpng = @".*\.png(/.*)?" });
+            //routers.Ignore("{*allcss}", new { allcss = @".*\.css(/.*)?" });
+            routers.Ignore("Css/{*pathInfo}");
             routers.Ignore("{resource}.axd/{*pathInfo}");
            // routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
             routers.MapPageRoute("", "p", "~/Project.aspx");
@@ -64,8 +67,11 @@ namespace TalBrody
             string onAppHarbor = ConfigurationManager.AppSettings["OnAppHarbor"];
             OnAppHarbor = onAppHarbor.ToLower().Equals("true");
 
+            string facebookId = ConfigurationManager.AppSettings["Facebookid"];
+            FacebookId = facebookId;
+
             log.Info("--------------------------------------");
-            log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor);
+            log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor + ", FacebookId: " + FacebookId);
             log.Info("--------------------------------------");
             // cheking the db version and upgrade if needed
             int DbVersion = 0;
@@ -145,7 +151,7 @@ namespace TalBrody
             if (ex is HttpUnhandledException)
             {
                 // Pass the error on to the error page.
-                Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
+                Server.Transfer("ErrorPage.html?handler=Application_Error%20-%20Global.asax", true);
             }
         }
 

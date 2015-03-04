@@ -31,7 +31,7 @@ namespace TalBrody.Logic
         public static int Insert_Follwer(int ProjectId, int UserId,int RefUserId)
         {
             Follower foll = new Follower();
-            foll.FollowerGuid = UUIDCreator.Create(-1);
+            foll.FollowerGuid = UUIDCreator.Create(8);
             foll.DateCreated = DateTime.Now;
             foll.ProjectId = ProjectId;
             foll.UserId = UserId;
@@ -56,5 +56,14 @@ namespace TalBrody.Logic
             FollowerDal dal = new FollowerDal();
             return dal.GET_Follower_BY_UserId_and_project(userId, projectid);
         }
+
+	    public static string GetReferLink(int userId, int projectId)
+	    {
+            Follower fol = GET_Follower_BY_UserId_and_project(userId, projectId);
+ 
+            string ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), fol.FollowerGuid);
+	        return ShareUrl;
+
+	    }
 	}
 }
