@@ -273,6 +273,7 @@
     <Content Include="JavaScript\LightBoxLargePack.js" />
     <Content Include="JavaScript\LightBoxPack.js" />
     <Content Include="JavaScript\login.js" />
+    <Content Include="JavaScript\Master.js" />
     <Content Include="JavaScript\Project.js" />
     <Content Include="JavaScript\Register.js" />
     <Content Include="JavaScript\SmoothScroll.js" />

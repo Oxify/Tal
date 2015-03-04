@@ -11,6 +11,8 @@ function InitilizeRegistration() {
     $('#RegisterStart').show();
     $('#RegisterByEMail').hide();
     $('#ResgisterMissingEMail').hide();
+    $('#LblRegistrationMessage').hide();
+    $('#clientsidelabel').hide();
 }
 
 function ShowMissingEmail() {

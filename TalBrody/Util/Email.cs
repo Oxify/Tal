@@ -28,12 +28,12 @@ namespace TalBrody.Util
         {
             var mandril = GetMandrill();
             string template = _resourceResolver.Resolve("Emails/RegistrationEmail.email");
-            string referUrl = Followers.GetReferLink(user.Id, 1);
+            //string referUrl = Followers.GetReferLink(user.Id, 1);
 
             var viewBag = new DynamicViewBag();
             viewBag.AddValue("BaseUrl", ConfigurationManager.AppSettings.Get("Global.BaseUrl"));
             viewBag.AddValue("Code", code);
-            viewBag.AddValue("Referal", referUrl);
+            //viewBag.AddValue("Referal", referUrl);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
  
             var emailMessage = new EmailMessage

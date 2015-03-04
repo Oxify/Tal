@@ -114,40 +114,19 @@ namespace TalBrody
             }
         }
 
- 
+        protected void SetMessage(string msg)
+        {
+            LblRegistrationMessage.Text = msg;
+            LblRegistrationMessage.Visible = true;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openRegModal();", true);
+        }
+
+        protected void HideMessage()
+        {
+            LblRegistrationMessage.Visible = false;
+        }
         protected void registerButton_Click(object sender, EventArgs e)
         {
-            var emailStr = email.Value;
-            if (string.IsNullOrEmpty(emailStr))
-            {
-                throw new Exception("Missing email on registration form");
-            }
-
-            string msg;
-            var user = new UserDal().FindUserByEmail(emailStr);
-            if (user != null)
-            {
-      //          msg = String.Format("Existing user {0}/{1} tried to register", user.Id, user.Email);
-      //          log.Info(msg);
-                msg = String.Format("כתובת האימייל " + user.Email + " כבר רשומה במערכת");
-                LblRegistrationMessage.Text = msg;
-                LblRegistrationMessage.Visible = true;
-                return;
-                //TODO handel duplicate registration 
-            }
-
-            var users = Container.Resolve<Users>();
-            int UserRefId = 0;
-            if (Session["UserRefId"] != null)
-                UserRefId = (int)Session["UserRefId"];
-            user = users.AddUser(emailStr, TxtPassword.Value, displayName.Value, UserRefId);
-
-            SessionUtil.AddUserToSession(user.Id);
-            Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
-            if (fol == null)
-            {
-                Followers.Insert_Follwer(1, user.Id, UserRefId);
-            }
         }
     }
 }

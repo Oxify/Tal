@@ -194,7 +194,7 @@ namespace TalBrody.Logic
 
             string Query = " CREATE TABLE [Users]([Id] [int] IDENTITY(1,1) NOT NULL,[DisplayName] [nvarchar](100) NULL,";
             Query = Query + "[Email] [nvarchar](100) NULL,[FacebookId] [nvarchar](100) NULL, [FacebookAccessToken] [nvarchar](1000) NULL, ";
-            Query = Query + "[TwitterId] [nvarchar](100) NULL,[TwitterToken] [nvarchar](1000) NULL,";
+            Query = Query + "[TwitterId] [nvarchar](100) NULL,[TwitterToken] [nvarchar](1000) NULL, [LastLogin] [DateTime] default GETDATE(),";
             Query = Query + "[TwitterSecret] [nvarchar](1000) NULL, [TwitterAccessToken] [nvarchar](1000) NULL, [ReferredBy] [int] NULL,";
             Query = Query + "[PasswordSalt] [binary](16) NULL,[PasswordHash] [binary](20) NULL,[EmailConfirmed] [bit] NULL," +
                     "[Birthday] [DateTime], [ValidPassword] [bit], [DateCreated] [DateTime] default GETDATE()," +

@@ -1,18 +1,16 @@
 ﻿<html>
-<body>
+<body style="direction: rtl;">
     <p>
         <b>שלום @Model.DisplayName!</b>
     </p>
     @{
     var url = ViewBag.BaseUrl + "ConfirmEmail.aspx?email=" + System.Web.HttpUtility.UrlEncode(Model.Email) + @Raw("&code=") + ViewBag.Code;
     }
-	<p>תודה על התענינותך בפרוייקט "עודני ילד" - ספר נוסטלגי על "בית הבראה לצעצועים</p>
+	<p>תודה על התענינותך בפרוייקט "עודני ילד" - ספר נוסטלגי על "בית הבראה לצעצועים".</p>
 	<p>על מנת להשלים את ההרשמה, אנא  לחץ על <a href='@url'>הלינק הזה</a>.</p>
 	<br/>
-	<p>אנחנו מזמינים אותך לשתף את הפרוייקט עם חברך לקבל הנחה עבור חברים שנרשמים</p>
-	<p>על מנת להנות מההנחה, אנא שתף את הלינק היחודי לך:</p>
-	<p><a href=@ViewBag.Referal>@ViewBag.Referal</a></p>
-	
-	<p>תודה! צוות Oxify</p>
+
+	<p>תודה!</p>
+	<p> צוות Oxify</p>
 </body>
 </html>

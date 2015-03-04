@@ -11,10 +11,14 @@ function ShowMessage(message) {
     document.getElementById('clientsidelabel').innerHTML = message;
     document.getElementById('clientsidelabel').style.display = "block";
 
+    document.getElementById('clientsidelabel2').innerHTML = message;
+    document.getElementById('clientsidelabel2').style.display = "block";
+
 }
 
 function HideMessage() {
     document.getElementById('clientsidelabel').style.display = "none";
+    document.getElementById('clientsidelabel2').style.display = "none";
 }
 function updateStatusCallback(response) {
 
@@ -64,6 +68,7 @@ function FacebookRegister(e) {
 
 function LoginUsingFacebook(e) {
     HideMessage();
+    debugger;
     Platform = "FB";
     Token = FacebookToken;
     if (FacebookStatus == 'connected') {
@@ -150,6 +155,52 @@ function RegisterSocial(platform, token, email) {
 
 }
 
+
+
+function RegisterEmail(name, password, email) {
+    if (email == null) {
+        email = "";
+    }
+    if (password == null) {
+        password = "";
+
+    }
+    if (name == null) {
+        name = "";
+    }
+    var params = "{'name':'" + name + "', 'password':'" + password + "' ,'email':'" + email + "'}";
+
+
+    $.ajax({
+        type: "POST",
+        url: "/Ajax.aspx/EMailRegister",
+        async: false,
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+
+            if (response.d.NextStep == 1) {
+                window.top.location.href = '/Share.aspx';
+                // i close it for not do endless loops
+                //window.location.reload(); // refreashg
+            }
+            else if (response.d.NextStep == 0)// msg 
+            {
+                ShowMessage(response.d.Message);
+            }
+
+        },
+        failure: function (msg) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+
+}
+
+
+
 function LoginSocial(platform, token) {
  
     var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
@@ -162,13 +213,12 @@ function LoginSocial(platform, token) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            debugger;
             if (response.d == 1) {
                 // i close it for not do endless loops
                 window.location.reload(); // refreashg
             } else {
                 // TODO report error to user
-                ShowMessage("");
+                ShowMessage("משתמש לא מוכר");
             }
 
         },
@@ -183,29 +233,113 @@ function LoginSocial(platform, token) {
 
 function SocialLoginWithEmail(e) {
     HideMessage();
+    e.preventDefault();
 
     var elem = document.getElementById("txtEmail").value;
     if (elem.indexOf('@') > 0) {
-        RegisterSocial(platform, Token, elem);
+        RegisterSocial(Platform, Token, elem);
     } else {
         ShowMessage("אנא הכנס כתובת אימייל תקינה על מנת להמשיך");
     }
-    e.preventDefault();
     return false;
 }
+
+function LoginWithEmail(e) {
+    HideMessage();
+    e.preventDefault();
+    var email = document.getElementById("EmailLogin").value;
+    var password = document.getElementById("PasswordLogin").value;
+    CheckLogiN(email, password);
+
+}
+
+function CheckLogiN(email, password) {
+    if (email == "") //)|| pas == "")
+    {
+        ShowMessage("אנא הכנס אימייל");
+        return;
+    }
+    if (password == "") {
+        ShowMessage("אנא הכנס סיסמא");
+        return;
+    }
+    var params = "{'UserName':'" + usernam + "','Password':'" + pas + "'}";
+
+    $.ajax({
+        type: "POST",
+        url: "/Ajax.aspx/LogInCheck",
+        async: false,
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+
+            if (response.d == "1") {
+                // i close it for not do endless loops
+                window.location.reload(); // refreashg
+            }
+            if (response.d == "0") {
+                ShowMessage("שם משתמש או סיסמא שגויים");
+            }
+        },
+        failure: function (msg) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}
+function StartEmailRegistration(e) {
+    e.preventDefault();
+    HideMessage();
+    var name = document.getElementById("displayName").value;
+    var password = document.getElementById("RegPassword").value;
+    var email = document.getElementById("emailreg").value;
+    if (email.indexOf('@') > 0) {
+        RegisterEmail(name, password, email);
+    } else {
+        ShowMessage("אנא הכנס כתובת אימייל תקינה");
+    }
+    return false;
+
+
+}
+
 
 
 $('document').ready(function () {
     //onclick="FaceboookLogin(this); return false; "
-    $("#FacebookRegisterButton").click(function (e) {
-        FacebookRegister(e);
+
+    //var elem = $("#AddEmailButton");
+    //elem.click(function(e) {
+    //    debugger;
+    //    SocialLoginWithEmail(e);
+    //});
+
+    $("#EmailRegistration").click(function (e) {
+        StartEmailRegistration(e);
     });
+
+    $("#EmailRegBack").click(function(e) {
+        InitilizeRegistration();
+        e.preventDefault();
+        return false;
+    });
+
     $("#AddEmailButton").click(function (e) {
         SocialLoginWithEmail(e);
     });
 
+    $("#FacebookRegisterButton").click(function (e) {
+        FacebookRegister(e);
+    });
+
+
     $("#FacebookLoginButton").click(function (e) {
         LoginUsingFacebook(e);
+    });
+
+    $("#EMailLoginButton").click(function(e) {
+        LoginWithEmail(e);
     });
 
     var elem = document.getElementById("FacebookRegisterButton");
