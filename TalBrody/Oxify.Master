@@ -10,10 +10,30 @@
     <title>Oxify - עודני ילד</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+
+
+    <!--- start of twitter meta tags --->
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@oxifyapp">
+    <meta name="twitter:title" content="עודני ילד">
+    <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים, אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את 'בית הבראה לצעצועים' - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
+                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
+                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.">
+    <meta name="twitter:creator" content="@oxifyapp">
+    <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg">
+    <meta name="twitter:player" content="https://www.youtube.com/v/2xgVbFniiVU">
+    <meta name="twitter:player:width" content="1920">
+    <meta name="twitter:player:height" content="1080">
+    <!--- end of twitter meta tags --->
+
+
     <!--- start of FB meta tags --->
-    <meta property="og:url" content="http://oxify.co" />
+    <meta property="og:url" content="http://oxify.co/p/m1fj/toys" />
     <meta property="og:title" content="עודני ילד" />
-    <meta property="og:description" content="'ספר חדש על 'בית הבראה לצעצועים" />
+    <meta property="og:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים, אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את 'בית הבראה לצעצועים' - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
+                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
+                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.">
     <meta property="og:image" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg" />
     <meta property="og:video" content="https://www.youtube.com/v/2xgVbFniiVU" />
     <meta proeprty="og:type" content="video" />
@@ -291,7 +311,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
 
-                        <div id="LoginStart" style="text-align:center;">
+                        <div id="LoginStart" style="text-align: center;">
 
                             <div>
                                 <button class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
@@ -349,22 +369,22 @@
                         <div id="RegisterByEMail" style="display: none;">
                             <div class="register-field">
                                 <span class="register-name">שם:</span>
-                                
-                            <input class="register-entry" placeholder="Your Name" id="displayName" />
+
+                                <input class="register-entry" placeholder="Your Name" id="displayName" />
 
                             </div>
                             <div class="register-field">
                                 <span class="register-name">אימייל:</span>
-                            <input class="register-entry"placeholder="you@email.com" id="emailreg" />
+                                <input class="register-entry" placeholder="you@email.com" id="emailreg" />
 
                             </div>
                             <div class="register-field">
                                 <span class="register-name">סיסמא:</span>
-                                
-                            <input class="register-entry" placeholder="Your Password" id="RegPassword" type="password" />
+
+                                <input class="register-entry" placeholder="Your Password" id="RegPassword" type="password" />
 
                             </div>
-                            <br/>
+                            <br />
                             <button class="login-button-small" id="EmailRegBack">חזור</button>
                             <button class="login-button-small" id="EmailRegistration">הרשם</button>
 

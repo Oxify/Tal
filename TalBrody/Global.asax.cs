@@ -21,6 +21,7 @@ namespace TalBrody
 
         public static bool OnAppHarbor { get; private set; }
         public static string FacebookId { get; private set; }
+        public static string BaseUrl { get; private set; }
 
         public static void RegisterRoute(RouteCollection routers)
         {
@@ -42,6 +43,7 @@ namespace TalBrody
             //routers.MapPageRoute("", "Blog", "blog.oxify.co");
             routers.MapPageRoute("", "Edit", "~/EditProject.aspx");
             routers.MapPageRoute("", "a", "~/AdminDashBord.aspx");
+            routers.MapPageRoute("", "confirm", "~/ConfirmEmail.aspx");
         }
 
 
@@ -70,9 +72,16 @@ namespace TalBrody
             string facebookId = ConfigurationManager.AppSettings["Facebookid"];
             FacebookId = facebookId;
 
+            string baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+            BaseUrl = baseUrl;
+
             log.Info("--------------------------------------");
-            log.Info("------- STARTED APP, OnAppHarbor = " + OnAppHarbor + ", FacebookId: " + FacebookId);
+            log.Info("------------ STARTED APP! ------------"); 
+            log.Info("OnAppHarbor = " + OnAppHarbor); 
+            log.Info("BaseUrl = " + BaseUrl); 
+            log.Info("FacebookId = " + FacebookId); 
             log.Info("--------------------------------------");
+
             // cheking the db version and upgrade if needed
             int DbVersion = 0;
             if (Params.CheckParamExists())

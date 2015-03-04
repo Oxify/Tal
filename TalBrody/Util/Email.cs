@@ -31,7 +31,7 @@ namespace TalBrody.Util
             //string referUrl = Followers.GetReferLink(user.Id, 1);
 
             var viewBag = new DynamicViewBag();
-            viewBag.AddValue("BaseUrl", ConfigurationManager.AppSettings.Get("Global.BaseUrl"));
+            viewBag.AddValue("BaseUrl", Global.BaseUrl);
             viewBag.AddValue("Code", code);
             //viewBag.AddValue("Referal", referUrl);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
