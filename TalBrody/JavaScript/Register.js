@@ -3,7 +3,20 @@
 
 var FacebookStatus;
 var FacebookToken;
+var Platform;
+var Token;
 
+
+function ShowMessage(message) {
+    document.getElementById('clientsidelabel').innerHTML = message;
+    document.getElementById('clientsidelabel').style.display = "block";
+
+}
+
+function HideMessage()
+{
+    document.getElementById('clientsidelabel').style.display = "none";
+}
 function updateStatusCallback(response) {
 
    // console.log('statusChangeCallback');
@@ -34,10 +47,11 @@ function updateStatusCallback(response) {
 
 
 function FacebookLogin(e) {
-    debugger;
-    var elem = document.getElementById("txtEmail").value;
+    HideMessage();
+    Platform = "FB";
+    Token = FacebookToken;
     if (FacebookStatus == 'connected') {
-        RegisterSocial("FB", FacebookToken, elem);
+        RegisterSocial(Platform, Token, "");
     } else {
 
         FB.login(FacebookLoginResult, {
@@ -49,6 +63,8 @@ function FacebookLogin(e) {
     return false;
 }
 
+
+
 function FacebookLoginResult(response) {
 //    console.log('FacebookLoginResult');
 //    console.log(response);
@@ -57,7 +73,6 @@ function FacebookLoginResult(response) {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-        debugger;
         // Logged into your app and Facebook.
         var elem = document.getElementById("txtEmail").value;
 
@@ -65,8 +80,7 @@ function FacebookLoginResult(response) {
 
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
-        document.getElementById('clientsidelabel').innerHTML = "הרשמה כרוכה באישור האפליקציה של Oxify בפייסבוק";
-        document.getElementById('clientsidelabel').style.display = "block";
+        ShowMessage("הרשמה כרוכה באישור האפליקציה של Oxify בפייסבוק");
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
@@ -82,7 +96,7 @@ function RegisterSocial(platform, token, email) {
         email = "";
     }
     var params = "{'platform':'" + platform + "', 'token':'" + token + "' ,'email':'" + email + "'}";
-    debugger;
+
 
     $.ajax({
         type: "POST",
@@ -92,7 +106,6 @@ function RegisterSocial(platform, token, email) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            debugger;
             if (response.d.NextStep == 1) {
                 window.top.location.href = '/Share.aspx';
                 // i close it for not do endless loops
@@ -101,7 +114,6 @@ function RegisterSocial(platform, token, email) {
             else if(response.d.NextStep == -1)// missing email 
             {
                 ShowMissingEmail();
-                alert("Plase add Email !");
             }
 
         },
@@ -114,6 +126,19 @@ function RegisterSocial(platform, token, email) {
 }
 
 
+function SocialLoginWithEmail(e) {
+    HideMessage();
+
+    var elem = document.getElementById("txtEmail").value;
+    if (elem.indexOf('@') > 0) {
+        RegisterSocial(platform, Token, elem);
+    } else {
+        ShowMessage("אנא הכנס כתובת אימייל תקינה על מנת להמשיך");
+    }
+    e.preventDefault();
+    return false;
+}
+
 
 $('document').ready(function () {
  
@@ -121,8 +146,8 @@ $('document').ready(function () {
     $("#FacebookButton").click(function (e) {
         FacebookLogin(e);
     });
-    $("#EAddEmailButton").click(function (e) {
-        FacebookLogin(e);
+    $("#AddEmailButton").click(function (e) {
+        SocialLoginWithEmail(e);
     });
 
     var elem = document.getElementById("FacebookButton");
