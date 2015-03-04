@@ -33,7 +33,7 @@
 
         $.ajax({
             type: "POST",
-            url: "Ajax.aspx/LogInCheck",
+            url: "/Ajax.aspx/LogInCheck",
             async: false,
             data: params,
             contentType: "application/json; charset=utf-8",

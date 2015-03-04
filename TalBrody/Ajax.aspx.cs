@@ -61,7 +61,7 @@ namespace TalBrody
 
             return result;
 
-        } 
+        }
 
         [ScriptMethod(UseHttpGet = true)]
         [WebMethod(EnableSession = false)]
@@ -80,24 +80,29 @@ namespace TalBrody
 
 
         [WebMethod(EnableSession = true)]
-        public static RegisterResult SocialRegister(string platform, string token)
+        public static RegisterResult SocialRegister(string platform, string token, string email)
         {
             RegisterResult result = new RegisterResult { NextStep = 0 };
             try
             {
-                
-                User user = null; 
+
+                User user = null;
                 if (platform.ToUpper() == "FB")
-                {                   
-                    var facebookAccess = Container.Resolve<FacebookAccess>();                  
-                    user = facebookAccess.RegisterUser(token);                  
-                    SessionUtil.AddUserToSession(user.Id);
-                   
+                {
+                    var facebookAccess = Container.Resolve<FacebookAccess>();
+                    user = facebookAccess.RegisterUser(token, email);
+
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
+                    {
+                        SessionUtil.AddUserToSession(user.Id);
                         result.NextStep = 1;
+
+                    }
                     else
+                    {
                         result.NextStep = -1;
-                    
+                        return result;
+                    }
                 }
                 if (user != null)
                 {

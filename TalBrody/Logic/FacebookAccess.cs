@@ -39,43 +39,62 @@ namespace TalBrody.Logic
 
         }
 
-        public User RegisterUser(string AccessToken)
+        public User RegisterUser(string AccessToken, string email)
         {
-          
+
             var data = GetUserData(AccessToken);
             User user = null;
+            if (data.Graph.EMail == null)
+            {
+                if ((email != null) && (email.IndexOf('@') != -1))
+                {
+                    data.Graph.EMail = email;
+                }
+            }
+
             if (data.Graph.EMail != null)
             {
-               
+
                 Users users = new Users();
                 user = users.FindUserByEmail(data.Graph.EMail);
-            }                 
+            }
             else if (data.Graph != null)
             {
-               
                 Users users = new Users();
                 user = users.FinduserByFaceBookId(data.Graph.Id);
             }
-           
+
+            if (user != null)
+            {
+                if (user.Email == null)
+                {
+                    return user;
+                }
+            }
+
             if (user == null)
             {
-               
+
                 // no id, new user!
                 user = new User();
                 PopulateUser(data, ref user);
-               
+                if (user.Email == null)
+                {
+                    return user;
+                }
+
                 user.Id = _users.CreateUserWithoutPassword(user);
-               
+
                 if (user.Email != null)
                 {
-                   
+
                     var code = _users.GenerateUserRegistrationCode(user);
                     _email.SendRegistrationEmail(user, code);
                 }
             }
             else
             {
-               
+
                 // user already registered somehow, let's update the DB
                 PopulateUser(data, ref user);
                 UserDal dal = new UserDal();
@@ -102,13 +121,13 @@ namespace TalBrody.Logic
         }
         public static FacebookDetails GetUserData(string AccessToken)
         {
-            
+
             FacebookDetails Result = new FacebookDetails();
             Result.AccessToken = AccessToken;
             Result.Graph = ReadGraph(AccessToken);
             //GetLongLivedToken(AccessToken);
             Result.Friends = ReadFriends(AccessToken);
-          
+
             return Result;
 
         }

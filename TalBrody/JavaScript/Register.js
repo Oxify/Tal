@@ -34,14 +34,15 @@ function updateStatusCallback(response) {
 
 
 function FacebookLogin(e) {
-    
+    debugger;
+    var elem = document.getElementById("txtEmail").value;
     if (FacebookStatus == 'connected') {
-        RegisterSocial("FB", FacebookToken);
+        RegisterSocial("FB", FacebookToken, elem);
     } else {
 
         FB.login(FacebookLoginResult, {
-            scope: 'public_profile, email, user_friends, user_birthday, user_location', return_scopes: 'true'
-    }); //
+            scope: 'public_profile, email, user_friends', return_scopes: 'true'
+        }); //, user_birthday, user_location TODO after we request permissions
       
     }
     e.preventDefault();
@@ -56,9 +57,11 @@ function FacebookLoginResult(response) {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
+        debugger;
         // Logged into your app and Facebook.
-      
-        RegisterSocial("FB", response.authResponse.accessToken);
+        var elem = document.getElementById("txtEmail").value;
+
+        RegisterSocial("FB", response.authResponse.accessToken, elem);
 
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
@@ -74,8 +77,11 @@ function FacebookLoginResult(response) {
     return false;
 }
 
-function RegisterSocial(platform, token) {
-    var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
+function RegisterSocial(platform, token, email) {
+    if (email == null) {
+        email = "";
+    }
+    var params = "{'platform':'" + platform + "', 'token':'" + token + "' ,'email':'" + email + "'}";
     debugger;
 
     $.ajax({
@@ -108,10 +114,14 @@ function RegisterSocial(platform, token) {
 }
 
 
+
 $('document').ready(function () {
  
     //onclick="FaceboookLogin(this); return false; "
     $("#FacebookButton").click(function (e) {
+        FacebookLogin(e);
+    });
+    $("#EAddEmailButton").click(function (e) {
         FacebookLogin(e);
     });
 

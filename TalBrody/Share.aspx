@@ -23,7 +23,7 @@
                         על כל חבר שנרשם בזכותכם לפרויקט, תצברו הנחה של 2 ש"ח שאותם תוכלו לממש בקמפיין.
                     </h3>
                     <h3>
-                        <input id="shareUrlInput" value="<%= ShareUrl %>" />
+                        <asp:label id="shareUrlInput" runat="server"></asp:label> 
                     </h3>
                     <div class="">
                         <div class="share-title h2">שתפו עם חברים</div>

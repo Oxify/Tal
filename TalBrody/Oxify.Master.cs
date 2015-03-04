@@ -122,7 +122,6 @@ namespace TalBrody
 
                 UserDal dal = Container.Resolve<UserDal>();
                 User user = dal.FindUserByid(useastion.UserId);
-                user.Email = txtEmail.Value;
                 dal.UpdateUser(user);
                 var code = Container.Resolve<Users>().GenerateUserRegistrationCode(user);
                 IOC.GetInstance<Email>().SendRegistrationEmail(user, code);

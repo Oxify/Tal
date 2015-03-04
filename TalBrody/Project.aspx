@@ -290,7 +290,7 @@
 
     </div>
 
-    <div id="disqus-div" class="main-row center-block" >
+    <div id="disqus-div" class="main-row center-block">
         <div id="disqus_thread"></div>
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES * * */
