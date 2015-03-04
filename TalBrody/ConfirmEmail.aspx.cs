@@ -17,7 +17,7 @@ namespace TalBrody
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(code))
             {
-                ActionResultLabel.Text = "חלה שגיאה באישור המייל. מייד תועברו לעמוד הפרוייקט.";
+                ActionResultLabel.Text = "Missing email or code";
                 return;
             }
 
@@ -25,7 +25,7 @@ namespace TalBrody
             var confirmCode = emailConfirmDal.FindConfirmCode(code, email);
             if (confirmCode == null)
             {
-                ActionResultLabel.Text = "חלה שגיאה באישור המייל. מייד תועברו לעמוד הפרוייקט.";
+                ActionResultLabel.Text = "Invalid email or code";
                 return;
             }
 
@@ -33,14 +33,15 @@ namespace TalBrody
             var user = userDal.FindUserByEmail(email);
             if (user == null)
             {
-                ActionResultLabel.Text = "חלה שגיאה באישור המייל. מייד תועברו לעמוד הפרוייקט.";
+                ActionResultLabel.Text = "Invalid email or code";
                 return;
             }
 
             user.EmailConfirmed = true;
             userDal.UpdateUser(user);
-            ActionResultLabel.Text = string.Format("שלום {0}, האימייל ({1}) מאושר. מייד תועברו לעמוד הפרוייקט", user.DisplayName, user.Email);
+            ActionResultLabel.Text = string.Format("Hi {0}, your email ({1}) is now confirmed", user.DisplayName, user.Email);
 
+            // TODO redirect to share page on succesfull auth. remove code from DB. style the error page.
         }
     }
 }
