@@ -47,6 +47,8 @@
     <meta property="og:video:type" content="application/x-shockwave-flash" />
     <meta property="article:publisher" content="https://www.facebook.com/oxify.co" />
     <meta property="article:author" content="https://www.facebook.com/ChildhoodMuseum" />
+    <meta property="og:video:width" content="560" />
+    <meta property="og:video:height" content="340" />
     <!--- end of FB meta tags  --->
 
     <link rel="icon" type="image/ico" href="/Images/Icon.ico" />
