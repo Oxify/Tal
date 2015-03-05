@@ -11,18 +11,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
+    <meta name="description" content="Oxify - your starting point for crowd funding campagins" />
+    <meta name="keywords" content="crowdfunding campaign homepage referral מימון המון המונים קמפיין landing page דף נחיתה" />
+
+    <link rel="canonical" href="http://oxify.co/p/m1fj/toys" />
 
     <!--- start of twitter meta tags --->
-    <!-- Twitter Card data --> 
+    <!-- Twitter Card data -->
     <meta name="twitter:card" content="player">
     <meta name="twitter:site" content="@oxifyapp">
     <meta name="twitter:title" content="עודני ילד">
-    <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים, אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את 'בית הבראה לצעצועים' - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
-                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
-                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.">
+    <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'.
+היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
+בזכותכם, נוציא את הספר לאור.">
     <meta name="twitter:creator" content="@oxifyapp">
     <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg">
-    <meta name="twitter:player" content="https://www.youtube.com/v/2xgVbFniiVU">
+    <meta name="twitter:player" content="https://www.youtube.com/embed/2xgVbFniiVU">
+    <meta name="twitter:player:stream" content="https://www.youtube.com/embed/2xgVbFniiVU">
+    <meta name="twitter:player:stream:content_type" content="video/mp4; codecs=&quot;avc1.42E01E1, mp4a.40.2&quot;">
     <meta name="twitter:player:width" content="1920">
     <meta name="twitter:player:height" content="1080">
     <!--- end of twitter meta tags --->
@@ -30,14 +36,17 @@
 
     <!--- start of FB meta tags --->
     <meta property="og:url" content="http://oxify.co/p/m1fj/toys" />
+    <meta property="og:locale" content="he_IL" />
     <meta property="og:title" content="עודני ילד" />
-    <meta property="og:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים, אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את 'בית הבראה לצעצועים' - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
-                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
-                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.">
-    <meta property="og:image" content="http://oxify.co/Images/Toys/Cover.jpg" />
-    <meta property="og:video" content="https://www.youtube.com/v/2xgVbFniiVU" /> 
+    <meta property="og:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'.
+היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
+בזכותכם, נוציא את הספר לאור.">
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FacebookCover.jpg" />
+    <meta property="og:video" content="https://www.youtube.com/v/2xgVbFniiVU" />
     <meta proeprty="og:type" content="video" />
     <meta property="og:video:type" content="application/x-shockwave-flash" />
+    <meta property="article:publisher" content="https://www.facebook.com/oxify.co" />
+    <meta property="article:author" content="https://www.facebook.com/ChildhoodMuseum" />
     <!--- end of FB meta tags  --->
 
     <link rel="icon" type="image/ico" href="/Images/Icon.ico" />
