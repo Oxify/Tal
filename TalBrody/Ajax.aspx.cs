@@ -45,14 +45,14 @@ namespace TalBrody
 
 
         [WebMethod(EnableSession = true)]
-        public static string LogInCheck(string UserName, string Password)
+        public static int LogInCheck(string UserName, string Password)
         {
-            string result = "0";
+            int result = 0;
             Users u = new Users();
             if (u.CheckUserPassword(UserName, Password))
             {
                 SessionUtil.AddUserToSession(u.FindUserByEmail(UserName).Id);
-                result = "1";
+                result = 1;
             }
             else
             {

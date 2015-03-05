@@ -272,7 +272,7 @@
     </script>
 </head>
 <body id="myBody">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" onsubmit="return false;">
         <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -326,17 +326,22 @@
         </div>
 
 
-        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Login Dialog" aria-hidden="true">
+
+
+
+    </form>
+
+            <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Login Dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
 
 
                         <div id="LoginStart" style="text-align: center;">
 
                             <div>
-                                <button class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+                                <a class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
 
                                 <br />
                                 <div>
@@ -354,7 +359,7 @@
 
                                     </div>
 
-                                    <button class="login-button-small" id="EMailLoginButton">כניסה</button>
+                                    <a class="login-button-small" id="EMailLoginButton">כניסה</a>
 
                                 </div>
 
@@ -370,18 +375,16 @@
             </div>
         </div>
 
-
-
         <!-- Registration Modal -->
         <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body" style="text-align: center;">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                         <div id="RegisterStart">
 
                             <div>
-                                <button class="blue login-button" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
+                                <a class="blue login-button" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
 
                                 <br />
                                 <br />
@@ -407,8 +410,8 @@
 
                             </div>
                             <br />
-                            <button class="login-button-small" id="EmailRegBack">חזור</button>
-                            <button class="login-button-small" id="EmailRegistration">הרשם</button>
+                            <a class="login-button-small" id="EmailRegBack">חזור</a>
+                            <a class="login-button-small" id="EmailRegistration">הרשם</a>
 
                         </div>
 
@@ -417,7 +420,7 @@
                                 <h4>על מנת להשלים את ההרשמה, אנא הכנס כתובת אימייל:</h4>
                             </div>
                             <input placeholder="you@email.com" id="txtEmail" style="width: 200px;" />
-                            <button class="login-button-small" id="AddEmailButton">המשך</button>
+                            <a class="login-button-small" id="AddEmailButton">המשך</a>
 
                         </div>
                         <div>
@@ -437,8 +440,6 @@
                 </div>
             </div>
         </div>
-    </form>
-
 
 </body>
 </html>
