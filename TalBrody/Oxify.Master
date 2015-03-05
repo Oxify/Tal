@@ -45,6 +45,7 @@
     <meta property="article:author" content="https://www.facebook.com/ChildhoodMuseum" />
 
     <meta property="og:type" content="video">
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FacebookCover.jpg">
     <meta property="og:video:url" content="https://www.youtube.com/embed/2xgVbFniiVU">
     <meta property="og:video:secure_url" content="https://www.youtube.com/embed/2xgVbFniiVU">
     <meta property="og:video:type" content="text/html">
