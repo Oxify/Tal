@@ -249,11 +249,11 @@ function LoginWithEmail(e) {
     e.preventDefault();
     var email = document.getElementById("EmailLogin").value;
     var password = document.getElementById("PasswordLogin").value;
-    CheckLogiN(email, password);
+    CheckLogInLocal(email, password);
 
 }
 
-function CheckLogiN(email, password) {
+function CheckLogInLocal(email, password) {
     if (email == "") //)|| pas == "")
     {
         ShowMessage("אנא הכנס אימייל");
