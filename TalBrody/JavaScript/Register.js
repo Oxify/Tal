@@ -137,7 +137,7 @@ function RegisterSocial(platform, token, email) {
         success: function (response) {
           
             if (response.d.NextStep == 1) {
-                window.top.location.href = '/p/m1fj/toys/share';
+                window.location.href = '/p/m1fj/toys/share';
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }
@@ -181,7 +181,7 @@ function RegisterEmail(name, password, email) {
         success: function (response) {
 
             if (response.d.NextStep == 1) {
-                window.top.location.href = '/p/m1fj/toys/share';
+                window.location.href = '/p/m1fj/toys/share';
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }
