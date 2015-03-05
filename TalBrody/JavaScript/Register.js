@@ -135,9 +135,10 @@ function RegisterSocial(platform, token, email) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-          
+
             if (response.d.NextStep == 1) {
-                window.location.href = '/p/m1fj/toys/share';
+                CreateCookieWithId(response.d.UserId);
+                window.location.href = "/p/m1fj/toys/share";
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }
@@ -179,15 +180,13 @@ function RegisterEmail(name, password, email) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-
-            if (response.d.NextStep == 1) {
-                window.location.href = '/p/m1fj/toys/share';
-                // i close it for not do endless loops
-                //window.location.reload(); // refreashg
-            }
-            else if (response.d.NextStep == 0)// msg 
+            if (response.d.NextStep == 0)// msg 
             {
                 ShowMessage(response.d.Message);
+            } else if (response.d.NextStep == 1)
+            {
+                CreateCookieWithId(response.d.UserId);
+                window.location.href = "/p/m1fj/toys/share";
             }
 
         },
@@ -202,7 +201,7 @@ function RegisterEmail(name, password, email) {
 
 
 function LoginSocial(platform, token) {
- 
+
     var params = "{'platform':'" + platform + "', 'token':'" + token + "'}";
 
     $.ajax({
@@ -213,12 +212,15 @@ function LoginSocial(platform, token) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            if (response.d == 1) {
-                // i close it for not do endless loops
-                window.location.reload(); // refreashg
-            } else {
+            if (response.d == 0) {
+
                 // TODO report error to user
                 ShowMessage("משתמש לא מוכר");
+
+            } else {
+                CreateCookieWithId(response.d);
+                // i close it for not do endless loops
+                window.location.reload(); // refreashg
             }
 
         },
@@ -274,13 +276,16 @@ function CheckLogInLocal(email, password) {
         dataType: "json",
         success: function (response) {
 
-            if (response.d == "1") {
+            if (response.d == 0) {
+                ShowMessage("שם משתמש או סיסמא שגויים");
+
+            } else {
+                CreateCookieWithId(response.d);
                 // i close it for not do endless loops
                 window.location.reload(); // refreashg
+
             }
-            if (response.d == "0") {
-                ShowMessage("שם משתמש או סיסמא שגויים");
-            }
+            
         },
         failure: function (msg) {
         },
@@ -303,6 +308,29 @@ function StartEmailRegistration(e) {
 
 
 }
+function LogOutSession() {
+
+    $.ajax({
+        type: "POST",
+        url: "/Ajax.aspx/SessionLogout",
+        async: false,
+        data: "",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if (response.d == 1) {
+                deleteCookie("OxifyId"); // delete cooke
+                window.location.reload(); // refrash page
+            }
+
+        },
+        failure: function (msg) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+
+}
 
 
 
@@ -319,7 +347,7 @@ $('document').ready(function () {
         StartEmailRegistration(e);
     });
 
-    $("#EmailRegBack").click(function(e) {
+    $("#EmailRegBack").click(function (e) {
         InitilizeRegistration();
         e.preventDefault();
         return false;
@@ -338,7 +366,7 @@ $('document').ready(function () {
         LoginUsingFacebook(e);
     });
 
-    $("#EMailLoginButton").click(function(e) {
+    $("#EMailLoginButton").click(function (e) {
         LoginWithEmail(e);
     });
 

@@ -157,14 +157,14 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
-                        if (response.d == 1) {
+                        if (response.d == 0) {
+                            deleteCookie("OxifyId"); // delete cooke
+                        } else {
+                            CreateCookieWithId(response.d);
                             // i close it for not do endless loops
                             window.location.reload(); // refreashg
-                        }
-                        else if (response.d == 0) {
-                            deleteCookie("OxifyId"); // delete cooke
-                        }
 
+                        }
                     },
                     failure: function (msg) {
                     },
@@ -184,9 +184,9 @@
         }
 
         function LogOut() {
-            deleteCookie("OxifyId"); // delete cooke
-            <%DoLOgOut();%> // delete session
-            window.location.reload(); // refrash page
+<%--            deleteCookie("OxifyId"); // delete cooke
+            <% DoLOgOut();%> // delete session--%>
+            LogOutSession();
 
         }
 
@@ -213,47 +213,6 @@
         }
 
 
-        function CheckLogiN() {
-            var usernam = $('#TxtUserName').val();
-            var pas = $('#TxtPassword').val();
-            $('#UserReq').hide();
-            $('#PassReq').hide();
-            $('#LblMessage').hide();
-            if (usernam == "") //)|| pas == "")
-            {
-                $('#UserReq').show();
-                return;
-            }
-            if (pas == "") {
-                $('#PassReq').show();
-                return;
-            }
-            var params = "{'UserName':'" + usernam + "','Password':'" + pas + "'}";
-
-            $.ajax({
-                type: "POST",
-                url: "/Ajax.aspx/LogInCheck",
-                async: false,
-                data: params,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-
-                    if (response.d == "1") {
-                        // i close it for not do endless loops
-                        window.location.reload(); // refreashg
-                    }
-                    if (response.d == "0") {
-                        $('#LblMessage').show();
-
-                    }
-                },
-                failure: function (msg) {
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                }
-            });
-        }
 
     </script>
 
@@ -331,115 +290,115 @@
 
     </form>
 
-            <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Login Dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Login Dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
 
 
-                        <div id="LoginStart" style="text-align: center;">
+                    <div id="LoginStart" style="text-align: center;">
 
+                        <div>
+                            <a class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
+
+                            <br />
                             <div>
-                                <a class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
 
-                                <br />
-                                <div>
+                                <h5>כניסה באמצעות דואר אלקטרוני וסיסמא:</h5>
 
-                                    <h5>כניסה באמצעות דואר אלקטרוני וסיסמא:</h5>
-
-                                    <div class="register-field">
-                                        אימייל:
+                                <div class="register-field">
+                                    אימייל:
                                     <input placeholder="הכנס כתובת אימייל" id="EmailLogin" runat="server" />
 
-                                    </div>
-                                    <div class="register-field">
-                                        סיסמא:
+                                </div>
+                                <div class="register-field">
+                                    סיסמא:
                                         <input placeholder="הכנס סיסמא" id="PasswordLogin" type="password" runat="server" />
 
-                                    </div>
-
-                                    <a class="login-button-small" id="EMailLoginButton">כניסה</a>
-
                                 </div>
 
-                                <div>
-                                    <label id="clientsidelabel2" style="display: none;"></label>
-                                </div>
-                                <br />
+                                <a class="login-button-small" id="EMailLoginButton">כניסה</a>
 
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Registration Modal -->
-        <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body" style="text-align: center;">
-                        <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-                        <div id="RegisterStart">
 
                             <div>
-                                <a class="blue login-button" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
-
-                                <br />
-                                <br />
-                            </div>
-                            <a class="" id="EmailButton" onclick="ShowRegisterByEMail();" style="font-size: 12px;">הרשמה באמצעות דואר אלקטרוני</a>
-                        </div>
-                        <div id="RegisterByEMail" style="display: none;">
-                            <div class="register-field">
-                                <span class="register-name">שם:</span>
-
-                                <input class="register-entry" placeholder="Your Name" id="displayName" />
-
-                            </div>
-                            <div class="register-field">
-                                <span class="register-name">אימייל:</span>
-                                <input class="register-entry" placeholder="you@email.com" id="emailreg" />
-
-                            </div>
-                            <div class="register-field">
-                                <span class="register-name">סיסמא:</span>
-
-                                <input class="register-entry" placeholder="Your Password" id="RegPassword" type="password" />
-
+                                <label id="clientsidelabel2" style="display: none;"></label>
                             </div>
                             <br />
-                            <a class="login-button-small" id="EmailRegBack">חזור</a>
-                            <a class="login-button-small" id="EmailRegistration">הרשם</a>
 
                         </div>
-
-                        <div id="ResgisterMissingEMail" style="display: none;">
-                            <div>
-                                <h4>על מנת להשלים את ההרשמה, אנא הכנס כתובת אימייל:</h4>
-                            </div>
-                            <input placeholder="you@email.com" id="txtEmail" style="width: 200px;" />
-                            <a class="login-button-small" id="AddEmailButton">המשך</a>
-
-                        </div>
-                        <div>
-                            <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
-                            <label id="clientsidelabel" style="display: none;"></label>
-                        </div>
-                        <br />
-                        <div>
-                            הרשמה משמעותה קבלה של
-                                                    <a class="Popup-Link" onclick="PopupWindow();" data-target="/tos">תנאי השימוש</a>
-                            ו<a class="Popup-Link" onclick="PopupWindow();" data-target="/privacy">מדיניות הפרטיות</a>
-                            של האתר.
-                        </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    <div id="RegisterStart">
+
+                        <div>
+                            <a class="blue login-button" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
+
+                            <br />
+                            <br />
+                        </div>
+                        <a class="" id="EmailButton" onclick="ShowRegisterByEMail();" style="font-size: 12px;">הרשמה באמצעות דואר אלקטרוני</a>
+                    </div>
+                    <div id="RegisterByEMail" style="display: none;">
+                        <div class="register-field">
+                            <span class="register-name">שם:</span>
+
+                            <input class="register-entry" placeholder="Your Name" id="displayName" />
+
+                        </div>
+                        <div class="register-field">
+                            <span class="register-name">אימייל:</span>
+                            <input class="register-entry" placeholder="you@email.com" id="emailreg" />
+
+                        </div>
+                        <div class="register-field">
+                            <span class="register-name">סיסמא:</span>
+
+                            <input class="register-entry" placeholder="Your Password" id="RegPassword" type="password" />
+
+                        </div>
+                        <br />
+                        <a class="login-button-small" id="EmailRegBack">חזור</a>
+                        <a class="login-button-small" id="EmailRegistration">הרשם</a>
+
+                    </div>
+
+                    <div id="ResgisterMissingEMail" style="display: none;">
+                        <div>
+                            <h4>על מנת להשלים את ההרשמה, אנא הכנס כתובת אימייל:</h4>
+                        </div>
+                        <input placeholder="you@email.com" id="txtEmail" style="width: 200px;" />
+                        <a class="login-button-small" id="AddEmailButton">המשך</a>
+
+                    </div>
+                    <div>
+                        <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
+                        <label id="clientsidelabel" style="display: none;"></label>
+                    </div>
+                    <br />
+                    <div>
+                        הרשמה משמעותה קבלה של
+                                                    <a class="Popup-Link" onclick="PopupWindow();" data-target="/tos">תנאי השימוש</a>
+                        ו<a class="Popup-Link" onclick="PopupWindow();" data-target="/privacy">מדיניות הפרטיות</a>
+                        של האתר.
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
