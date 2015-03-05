@@ -60,7 +60,7 @@ namespace TalBrody
                 folloList = folloList.FindAll(o => o.ReferByUserId == usess.UserId);
                 if (folloList.Count > 0)
                 {
-                    LblDiscaount.Text = (folloList.Count * 2).ToString();
+                    LblDiscaount.Text = (folloList.Count * 5).ToString();
                     string tool = "בזכותך נרשמו: "+ Environment.NewLine;
                     int count = 0;
                     count = folloList.Count - 5;
