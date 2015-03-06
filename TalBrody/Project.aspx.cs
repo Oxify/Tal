@@ -60,8 +60,8 @@ namespace TalBrody
                 folloList = folloList.FindAll(o => o.ReferByUserId == usess.UserId);
                 if (folloList.Count > 0)
                 {
-                    LblDiscaount.Text = (folloList.Count * 2).ToString();
-                    string tool = "נרשמו כ - " + folloList.Count + " להלן:   " + Environment.NewLine;
+                    LblDiscaount.Text = (folloList.Count * 5).ToString();
+                    string tool = "בזכותך נרשמו: "+ Environment.NewLine;
                     int count = 0;
                     count = folloList.Count - 5;
 
@@ -73,7 +73,7 @@ namespace TalBrody
                         tool = tool + " " + u.DisplayName + "  " + Environment.NewLine;
                     }
                     if (count > 0)
-                        tool = tool + Environment.NewLine + "ועוד " + count;
+                        tool = tool + Environment.NewLine + "ועוד " + count + " אנשים ";
                     DiscountDiv.Attributes.Add("title", tool);
                 }
             }

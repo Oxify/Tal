@@ -40,19 +40,20 @@ namespace TalBrody
         {
             public int NextStep { get; set; } // 0 - login failure, 1 - registrating complete, 2 - email needed.
             public string Message { get; set; }
-
+            public int UserId { get; set; }
         }
 
 
         [WebMethod(EnableSession = true)]
-        public static string LogInCheck(string UserName, string Password)
+        public static int LogInCheck(string UserName, string Password)
         {
-            string result = "0";
+            int result = 0;
             Users u = new Users();
             if (u.CheckUserPassword(UserName, Password))
             {
-                SessionUtil.AddUserToSession(u.FindUserByEmail(UserName).Id);
-                result = "1";
+                var userid = u.FindUserByEmail(UserName).Id;
+                SessionUtil.AddUserToSession(userid);
+                result = userid;
             }
             else
             {
@@ -96,6 +97,7 @@ namespace TalBrody
                     if (user.Email != null && user.Email.IndexOf('@') != -1)
                     {
                         SessionUtil.AddUserToSession(user.Id);
+                        result.UserId = user.Id;
                         result.NextStep = 1;
 
                     }
@@ -134,7 +136,7 @@ namespace TalBrody
         [WebMethod(EnableSession = true)]
         public static RegisterResult EMailRegister(string name, string password, string email)
         {
-            RegisterResult result = new RegisterResult { NextStep = 0, Message = "" };
+            RegisterResult result = new RegisterResult { NextStep = 0, Message = "", UserId = 0 };
             try
             {
                 var emailStr = email;
@@ -181,6 +183,8 @@ namespace TalBrody
                 user = users.AddUser(email, password, name, UserRefId);
 
                 SessionUtil.AddUserToSession(user.Id);
+                result.UserId = user.Id;
+
                 Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
                 if (fol == null)
                 {
@@ -211,7 +215,7 @@ namespace TalBrody
                 int UserId = Users.SetUserContext(id);
                 if (SessionUtil.AddUserToSession(UserId))
                 {
-                    result = 1;
+                    result = UserId;
 
                 }
             }
@@ -239,7 +243,7 @@ namespace TalBrody
                     if (user != null)
                     {
                         SessionUtil.AddUserToSession(user.Id);
-                        return 1;
+                        return user.Id;
                     }
                 }
             }
@@ -250,6 +254,24 @@ namespace TalBrody
             }
             return result;
         }
+
+        [WebMethod(EnableSession = true)]
+        public static int SessionLogout()
+        {
+            int result = 0;
+            try
+            {
+                HttpContext.Current.Session.Remove("Usession");
+                result = 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return result;
+        }
+
 
 
     }

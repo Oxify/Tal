@@ -86,6 +86,11 @@ function deleteCookie(name, path, domain) {
         createCookie(name, "", -1, path, domain);
 }
 
+function CreateCookieWithId(id) {
+    createCookie("OxifyId", id, 30);
+
+}
+
 function PopupWindow() {
     var url = this.attributes['data-target'].value;
     window.open(url, "myWindow", "status = 1, height = 360, width = 500, resizable = 0");

@@ -11,18 +11,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
+    <meta name="description" content="Oxify - your starting point for crowd funding campagins" />
+    <meta name="keywords" content="crowdfunding campaign homepage referral מימון המון המונים קמפיין landing page דף נחיתה" />
+
+    <link rel="canonical" href="http://oxify.co/p/m1fj/toys" />
 
     <!--- start of twitter meta tags --->
-    <!-- Twitter Card data --> 
+    <!-- Twitter Card data -->
     <meta name="twitter:card" content="player">
     <meta name="twitter:site" content="@oxifyapp">
     <meta name="twitter:title" content="עודני ילד">
-    <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים, אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את 'בית הבראה לצעצועים' - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
-                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
-                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.">
+    <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
+היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
+בזכותכם, נוציא את הספר לאור. הספר מכיל כ-250 צילומים של משחקים וצעצועים ישנים מתוך האוסף הפרטי של ג'ניס ובני ירוחם.
+">
     <meta name="twitter:creator" content="@oxifyapp">
     <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg">
-    <meta name="twitter:player" content="https://www.youtube.com/v/2xgVbFniiVU">
+    <meta name="twitter:player" content="https://www.youtube.com/embed/2xgVbFniiVU">
+    <meta name="twitter:player:stream" content="https://www.youtube.com/embed/2xgVbFniiVU">
+    <meta name="twitter:player:stream:content_type" content="video/mp4; codecs=&quot;avc1.42E01E1, mp4a.40.2&quot;">
     <meta name="twitter:player:width" content="1920">
     <meta name="twitter:player:height" content="1080">
     <!--- end of twitter meta tags --->
@@ -30,14 +37,31 @@
 
     <!--- start of FB meta tags --->
     <meta property="og:url" content="http://oxify.co/p/m1fj/toys" />
+    <meta property="og:locale" content="he_IL" />
     <meta property="og:title" content="עודני ילד" />
-    <meta property="og:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. הספר מכיל כ-250 צילומי צעצועים ומשחקים ישנים, אשר נבחרו בקפידה מתוך האוסף הפרטי של בני וג'ניס ירוחם, שהקימו לפני כשנתיים את 'בית הבראה לצעצועים' - מוזיאון צעצועים ללא כוונות רווח, הממוקם בנמל יפו.
-                                            הספר נותן פרספקטיבה רחבה ומגוונת על צעצועי ומשחקי הילדות בארץ, החל משנות ה-50 ועד שנות ה-80.
-                                            בספר 20 פרקים, ובתחילת כל פרק שיר ילדים עם ברקוד לסריקה שיוביל לקישור ביוטיוב ובו קליפ עם השיר שצולם במיוחד לספר.">
-    <meta property="og:image" content="http://oxify.co/Images/Toys/Cover.jpg" />
-    <meta property="og:video" content="https://www.youtube.com/v/2xgVbFniiVU" /> 
-    <meta proeprty="og:type" content="video" />
-    <meta property="og:video:type" content="application/x-shockwave-flash" />
+    <meta property="og:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
+היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
+בזכותכם, נוציא את הספר לאור. הספר מכיל כ-250 צילומים של משחקים וצעצועים ישנים מתוך האוסף הפרטי של ג'ניס ובני ירוחם.
+">
+    <meta property="article:publisher" content="https://www.facebook.com/oxify.co" />
+    <meta property="article:author" content="https://www.facebook.com/ChildhoodMuseum" />
+
+    <meta property="og:type" content="video">
+    <meta property="og:image" content="http://oxify.co/Images/Toys/BennyAndHagi.jpg" />
+
+    <meta property="og:video:url" content="https://www.youtube.com/embed/2xgVbFniiVU">
+    <meta property="og:video:secure_url" content="https://www.youtube.com/embed/2xgVbFniiVU">
+    <meta property="og:video:type" content="text/html">
+    <meta property="og:video:width" content="400">
+    <meta property="og:video:height" content="400">
+    <meta property="og:video:url" content="http://www.youtube.com/v/2xgVbFniiVU?version=3&amp;autohide=1">
+    <meta property="og:video:secure_url" content="https://www.youtube.com/v/2xgVbFniiVU?version=3&amp;autohide=1">
+    <meta property="og:video:type" content="application/x-shockwave-flash">
+    <meta property="og:video:width" content="400">
+    <meta property="og:video:height" content="400">
+
+    <meta property="og:video:tag" content="tedx">
+
     <!--- end of FB meta tags  --->
 
     <link rel="icon" type="image/ico" href="/Images/Icon.ico" />
@@ -135,14 +159,14 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
-                        if (response.d == 1) {
+                        if (response.d == 0) {
+                            deleteCookie("OxifyId"); // delete cooke
+                        } else {
+                            CreateCookieWithId(response.d);
                             // i close it for not do endless loops
                             window.location.reload(); // refreashg
-                        }
-                        else if (response.d == 0) {
-                            deleteCookie("OxifyId"); // delete cooke
-                        }
 
+                        }
                     },
                     failure: function (msg) {
                     },
@@ -162,9 +186,9 @@
         }
 
         function LogOut() {
-            deleteCookie("OxifyId"); // delete cooke
-            <%DoLOgOut();%> // delete session
-            window.location.reload(); // refrash page
+<%--            deleteCookie("OxifyId"); // delete cooke
+            <% DoLOgOut();%> // delete session--%>
+            LogOutSession();
 
         }
 
@@ -191,66 +215,25 @@
         }
 
 
-        function CheckLogiN() {
-            var usernam = $('#TxtUserName').val();
-            var pas = $('#TxtPassword').val();
-            $('#UserReq').hide();
-            $('#PassReq').hide();
-            $('#LblMessage').hide();
-            if (usernam == "") //)|| pas == "")
-            {
-                $('#UserReq').show();
-                return;
-            }
-            if (pas == "") {
-                $('#PassReq').show();
-                return;
-            }
-            var params = "{'UserName':'" + usernam + "','Password':'" + pas + "'}";
-
-            $.ajax({
-                type: "POST",
-                url: "/Ajax.aspx/LogInCheck",
-                async: false,
-                data: params,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-
-                    if (response.d == "1") {
-                        // i close it for not do endless loops
-                        window.location.reload(); // refreashg
-                    }
-                    if (response.d == "0") {
-                        $('#LblMessage').show();
-
-                    }
-                },
-                failure: function (msg) {
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                }
-            });
-        }
 
     </script>
-
 
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date(); a = s.createElement(o),
-			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-55414092-3', 'auto');
+        ga('create', 'UA-60417326-1', 'auto');
         ga('send', 'pageview');
 
-    </script>
+</script>
+
 </head>
 <body id="myBody">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" onsubmit="return false;">
         <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -304,119 +287,121 @@
         </div>
 
 
-        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Login Dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-
-                        <div id="LoginStart" style="text-align: center;">
-
-                            <div>
-                                <button class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
-
-                                <br />
-                                <div>
-
-                                    <h5>כניסה באמצעות דואר אלקטרוני וסיסמא:</h5>
-
-                                    <div class="register-field">
-                                        אימייל:
-                                    <input placeholder="הכנס כתובת אימייל" id="EmailLogin" runat="server" />
-
-                                    </div>
-                                    <div class="register-field">
-                                        סיסמא:
-                                        <input placeholder="הכנס סיסמא" id="PasswordLogin" type="password" runat="server" />
-
-                                    </div>
-
-                                    <button class="login-button-small" id="EMailLoginButton">כניסה</button>
-
-                                </div>
-
-                                <div>
-                                    <label id="clientsidelabel2" style="display: none;"></label>
-                                </div>
-                                <br />
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
 
-        <!-- Registration Modal -->
-        <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body" style="text-align: center;">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <div id="RegisterStart">
-
-                            <div>
-                                <button class="blue login-button" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></button>
-
-                                <br />
-                                <br />
-                            </div>
-                            <a class="" id="EmailButton" onclick="ShowRegisterByEMail();" style="font-size: 12px;">הרשמה באמצעות דואר אלקטרוני</a>
-                        </div>
-                        <div id="RegisterByEMail" style="display: none;">
-                            <div class="register-field">
-                                <span class="register-name">שם:</span>
-
-                                <input class="register-entry" placeholder="Your Name" id="displayName" />
-
-                            </div>
-                            <div class="register-field">
-                                <span class="register-name">אימייל:</span>
-                                <input class="register-entry" placeholder="you@email.com" id="emailreg" />
-
-                            </div>
-                            <div class="register-field">
-                                <span class="register-name">סיסמא:</span>
-
-                                <input class="register-entry" placeholder="Your Password" id="RegPassword" type="password" />
-
-                            </div>
-                            <br />
-                            <button class="login-button-small" id="EmailRegBack">חזור</button>
-                            <button class="login-button-small" id="EmailRegistration">הרשם</button>
-
-                        </div>
-
-                        <div id="ResgisterMissingEMail" style="display: none;">
-                            <div>
-                                <h4>על מנת להשלים את ההרשמה, אנא הכנס כתובת אימייל:</h4>
-                            </div>
-                            <input placeholder="you@email.com" id="txtEmail" style="width: 200px;" />
-                            <button class="login-button-small" id="AddEmailButton">המשך</button>
-
-                        </div>
-                        <div>
-                            <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
-                            <label id="clientsidelabel" style="display: none;"></label>
-                        </div>
-                        <br />
-                        <div>
-                            הרשמה משמעותה קבלה של
-                                                    <a class="Popup-Link" onclick="PopupWindow();" data-target="/tos">תנאי השימוש</a>
-                            ו<a class="Popup-Link" onclick="PopupWindow();" data-target="/privacy">מדיניות הפרטיות</a>
-                            של האתר.
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </form>
 
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Login Dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+
+
+                    <div id="LoginStart" style="text-align: center;">
+
+                        <div>
+                            <a class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
+
+                            <br />
+                            <div>
+
+                                <h5>כניסה באמצעות דואר אלקטרוני וסיסמא:</h5>
+
+                                <div class="register-field">
+                                    אימייל:
+                                    <input placeholder="הכנס כתובת אימייל" id="EmailLogin" runat="server" />
+
+                                </div>
+                                <div class="register-field">
+                                    סיסמא:
+                                        <input placeholder="הכנס סיסמא" id="PasswordLogin" type="password" runat="server" />
+
+                                </div>
+
+                                <a class="login-button-small" id="EMailLoginButton">כניסה</a>
+
+                            </div>
+
+                            <div>
+                                <label id="clientsidelabel2" style="display: none;"></label>
+                            </div>
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="Register Dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    <div id="RegisterStart">
+                        <br/>
+                        <br/>
+                        <div>
+                            <a class="blue login-button" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
+
+                            <br />
+                            <br />
+                        </div>
+                        <a class="" id="EmailButton" onclick="ShowRegisterByEMail();" style="font-size: 12px;">הרשמה באמצעות דואר אלקטרוני</a>
+                    </div>
+                    <div id="RegisterByEMail" style="display: none;">
+                        <div class="register-field">
+                            <span class="register-name">שם:</span>
+
+                            <input class="register-entry" placeholder="Your Name" id="displayName" />
+
+                        </div>
+                        <div class="register-field">
+                            <span class="register-name">אימייל:</span>
+                            <input class="register-entry" placeholder="you@email.com" id="emailreg" />
+
+                        </div>
+                        <div class="register-field">
+                            <span class="register-name">סיסמא:</span>
+
+                            <input class="register-entry" placeholder="Your Password" id="RegPassword" type="password" />
+
+                        </div>
+                        <br />
+                        <a class="login-button-small" id="EmailRegBack">חזור</a>
+                        <a class="login-button-small" id="EmailRegistration">הרשם</a>
+
+                    </div>
+
+                    <div id="ResgisterMissingEMail" style="display: none;">
+                        <div>
+                            <h4>על מנת להשלים את ההרשמה, אנא הכנס כתובת אימייל:</h4>
+                        </div>
+                        <input placeholder="you@email.com" id="txtEmail" style="width: 200px;" />
+                        <a class="login-button-small" id="AddEmailButton">המשך</a>
+
+                    </div>
+                    <div>
+                        <asp:Label ID="LblRegistrationMessage" runat="server" Text="" Visible="false"></asp:Label>
+                        <label id="clientsidelabel" style="display: none;"></label>
+                    </div>
+                    <br />
+                    <div>
+                        הרשמה משמעותה קבלה של
+                                                    <a class="Popup-Link" onclick="PopupWindow();" data-target="/tos">תנאי השימוש</a>
+                        ו<a class="Popup-Link" onclick="PopupWindow();" data-target="/privacy">מדיניות הפרטיות</a>
+                        של האתר.
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

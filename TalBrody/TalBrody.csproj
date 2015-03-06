@@ -232,6 +232,7 @@
     <Content Include="fancybox\jquery.fancybox.js" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
     <Content Include="FAQ.aspx" />
+    <Content Include="Images\404.jpg" />
     <Content Include="Images\blank.gif" />
     <Content Include="Images\DownButton.hover.png" />
     <Content Include="Images\DownButton.png" />
@@ -257,10 +258,13 @@
     <Content Include="Images\Toys\6A.jpg" />
     <Content Include="Images\Toys\BennyAndHagi.jpg" />
     <Content Include="Images\Toys\Cover.jpg" />
+    <Content Include="Images\Toys\FacebookCover.jpg" />
     <Content Include="Images\Toys\Train.jpg" />
     <Content Include="Images\VerySmallLogo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\VerySmallLogoColor.png" />
+    <Content Include="Images\VerySmallLogoGrey.png" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JavaScript\brody.js" />
