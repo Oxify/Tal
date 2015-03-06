@@ -13,9 +13,9 @@ namespace TalBrody.DataLayer
 {
 	public class ProjectDal : BaseDal
 	{
-		public Project GetProjectByProjectId(int ProjectId)
+        public ProjectEntity GetProjectByProjectId(int ProjectId)
 		{
-			Project Pro = null;
+            ProjectEntity Pro = null;
 			try
 			{
                 var myConnection = PortalConection;
@@ -48,9 +48,9 @@ namespace TalBrody.DataLayer
 			return Pro;
 		}
 
-		public List<Project> GetAllProject()
+        public List<ProjectEntity> GetAllProject()
 		{
-			List<Project> ProList = new List<Project>();
+            List<ProjectEntity> ProList = new List<ProjectEntity>();
 			try
 			{
                 var myConnection = PortalConection;

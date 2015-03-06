@@ -17,7 +17,8 @@ namespace TalBrody
         public int ProjectId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProjectId = int.Parse(Request["ProjectId"]);
+            string sProjectId = Page.RouteData.Values["ProjectId"] as string;
+            int.TryParse(sProjectId, out ProjectId);
             if(!IsPostBack)
             {
                 InitParam();

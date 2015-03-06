@@ -42,6 +42,7 @@ namespace TalBrody
             routers.MapPageRoute("", "fAQ", "~/FAQ.aspx");
             //routers.MapPageRoute("", "Blog", "blog.oxify.co");
             routers.MapPageRoute("", "Edit", "~/EditProject.aspx");
+            routers.MapPageRoute("Edit", "Edit{ProjectId}", "~/EditProject.aspx");
             routers.MapPageRoute("", "a", "~/AdminDashBord.aspx");
             routers.MapPageRoute("", "confirm", "~/ConfirmEmail.aspx");
         }

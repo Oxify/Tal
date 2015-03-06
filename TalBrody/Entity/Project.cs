@@ -13,5 +13,6 @@ namespace TalBrody.Entity
 		public int id { get; set; }
 		public string LinkUrl { get; set; }
 		public string MovieUrl { get; set; }
+        public int ProjectCount { get; set; }
 	}
 }

@@ -28,7 +28,7 @@ namespace TalBrody
 
         private void InitParam()
         {
-            List<Project> ProjectList = Projects.GetAllProject();
+            List<ProjectEntity> ProjectList = Projects.GetAllProject();
             //rpt_Project.DataSource = ProjectList;
             //rpt_Project.DataBind();
         }
