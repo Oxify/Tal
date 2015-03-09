@@ -18,15 +18,15 @@
 
     <!--- start of twitter meta tags --->
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@oxifyapp"/>
-    <meta name="twitter:title" content="עודני ילד"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@oxifyapp" />
+    <meta name="twitter:title" content="עודני ילד" />
     <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
 היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
 בזכותכם, נוציא את הספר לאור. הספר מכיל כ-250 צילומים של משחקים וצעצועים ישנים מתוך האוסף הפרטי של ג'ניס ובני ירוחם.
-">
-    <meta name="twitter:creator" content="@oxifyapp"/>
-    <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg"/>
+" />
+    <meta name="twitter:creator" content="@oxifyapp" />
+    <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg" />
 
     <!--- end of twitter meta tags --->
 
@@ -38,25 +38,25 @@
     <meta property="og:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
 היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
 בזכותכם, נוציא את הספר לאור. הספר מכיל כ-250 צילומים של משחקים וצעצועים ישנים מתוך האוסף הפרטי של ג'ניס ובני ירוחם.
-">
+" />
     <meta property="article:publisher" content="https://www.facebook.com/oxify.co" />
     <meta property="article:author" content="https://www.facebook.com/ChildhoodMuseum" />
 
-    <meta property="og:type" content="product">
+    <meta property="og:type" content="product" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_6.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_1.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_2.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_3.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_4.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_5.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_6.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_7.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_8.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_9.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_10.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/BennyAndHagi.jpg" />
-   
+
     <meta property="fb:app_id" content="1423139441310101" />
-    <meta property="og:site_name" content="Oxify"/>
+    <meta property="og:site_name" content="Oxify" />
     <!--- end of FB meta tags  --->
 
     <link rel="icon" type="image/ico" href="/Images/Icon.ico" />
@@ -224,7 +224,7 @@
         ga('create', 'UA-60417326-1', 'auto');
         ga('send', 'pageview');
 
-</script>
+    </script>
 
 </head>
 <body id="myBody">
@@ -338,8 +338,8 @@
                 <div class="modal-body" style="text-align: center;">
                     <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                     <div id="RegisterStart">
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         <div>
                             <a class="blue login-button" id="FacebookRegisterButton" data-facebook-id="<%= FcbkId%>">הרשמה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
 
