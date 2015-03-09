@@ -18,7 +18,7 @@
 
     <!--- start of twitter meta tags --->
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="player">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@oxifyapp">
     <meta name="twitter:title" content="עודני ילד">
     <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
@@ -27,11 +27,7 @@
 ">
     <meta name="twitter:creator" content="@oxifyapp">
     <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg">
-    <meta name="twitter:player" content="https://www.youtube.com/embed/2xgVbFniiVU">
-    <meta name="twitter:player:stream" content="https://www.youtube.com/embed/2xgVbFniiVU">
-    <meta name="twitter:player:stream:content_type" content="video/mp4; codecs=&quot;avc1.42E01E1, mp4a.40.2&quot;">
-    <meta name="twitter:player:width" content="1920">
-    <meta name="twitter:player:height" content="1080">
+
     <!--- end of twitter meta tags --->
 
 
@@ -46,22 +42,21 @@
     <meta property="article:publisher" content="https://www.facebook.com/oxify.co" />
     <meta property="article:author" content="https://www.facebook.com/ChildhoodMuseum" />
 
-    <meta property="og:type" content="video">
+    <meta property="og:type" content="product">
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_1.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_2.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_3.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_4.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_5.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_6.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_7.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_8.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_9.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_10.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/BennyAndHagi.jpg" />
-
-    <meta property="og:video:url" content="https://www.youtube.com/embed/2xgVbFniiVU">
-    <meta property="og:video:secure_url" content="https://www.youtube.com/embed/2xgVbFniiVU">
-    <meta property="og:video:type" content="text/html">
-    <meta property="og:video:width" content="400">
-    <meta property="og:video:height" content="400">
-    <meta property="og:video:url" content="http://www.youtube.com/v/2xgVbFniiVU?version=3&amp;autohide=1">
-    <meta property="og:video:secure_url" content="https://www.youtube.com/v/2xgVbFniiVU?version=3&amp;autohide=1">
-    <meta property="og:video:type" content="application/x-shockwave-flash">
-    <meta property="og:video:width" content="400">
-    <meta property="og:video:height" content="400">
-
-    <meta property="og:video:tag" content="tedx">
-
+   
+    <meta property="fb:app_id" content="1423139441310101" />
+    <meta property="og:site_name" content="Oxify"/>
     <!--- end of FB meta tags  --->
 
     <link rel="icon" type="image/ico" href="/Images/Icon.ico" />
@@ -95,7 +90,19 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-
+    <%--    Start of Pingdom RUM--%>
+    <script>
+        var _prum = [['id', '54f5a2a4abe53d9560e9963a'],
+                     ['mark', 'firstbyte', (new Date()).getTime()]];
+        (function () {
+            var s = document.getElementsByTagName('script')[0]
+              , p = document.createElement('script');
+            p.async = 'async';
+            p.src = '//rum-static.pingdom.net/prum.min.js';
+            s.parentNode.insertBefore(p, s);
+        })();
+    </script>
+    <%--    End of Pingdom RIM--%>
     <script type="text/javascript">
         $(document).ready(function () {
 
