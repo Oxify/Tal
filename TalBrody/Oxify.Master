@@ -18,15 +18,15 @@
 
     <!--- start of twitter meta tags --->
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@oxifyapp">
-    <meta name="twitter:title" content="עודני ילד">
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@oxifyapp"/>
+    <meta name="twitter:title" content="עודני ילד"/>
     <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
 היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
 בזכותכם, נוציא את הספר לאור. הספר מכיל כ-250 צילומים של משחקים וצעצועים ישנים מתוך האוסף הפרטי של ג'ניס ובני ירוחם.
 ">
-    <meta name="twitter:creator" content="@oxifyapp">
-    <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg">
+    <meta name="twitter:creator" content="@oxifyapp"/>
+    <meta name="twitter:image:src" content="https://img.youtube.com/vi/2xgVbFniiVU/default.jpg"/>
 
     <!--- end of twitter meta tags --->
 
