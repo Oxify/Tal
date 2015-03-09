@@ -121,6 +121,15 @@ html, body {
     margin-top: 5px;
 }
 
+#title-subdescription {
+    margin-top: 0px;
+}
+
+#title-text {
+    margin-bottom: 0px;
+    line-height: 42px;
+}
+
 .Description {
     display: block;
     text-align: center;
@@ -279,10 +288,19 @@ html, body {
     padding-bottom: 7px;*/
 }
 
+#star-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+}
+
 #secondary-title {
     text-align: center;
     padding-bottom: 10px;
 }
+
 #AdditionalTitle {
     display: none;
     padding: 0;
@@ -545,7 +563,7 @@ html, body {
     }*/
 
     .register-button-div {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     /*.coming-soon {
@@ -555,7 +573,6 @@ html, body {
     }*/
     .gallary-box {
         padding-bottom: 20px;
-        
     }
 
     .last-row {
@@ -581,6 +598,11 @@ html, body {
 
     .whatsapp-box {
         display: none;
+    }
+
+    #star-image {
+        width: 125px;
+        height: 125px;
     }
 }
 

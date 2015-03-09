@@ -173,7 +173,10 @@ h6,
 /* For col-md-x */
 @media (min-width: 992px) {
     .h1, h1 {
-        font-size: 36px;
+        font-size: 46px;
+    }
+    .jumbotron h1 {
+        font-size: 46px;
     }
 
     .h2, h2 {

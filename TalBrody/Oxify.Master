@@ -95,19 +95,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <%--    Start of Pingdom RUM--%>
-    <script>
-        var _prum = [['id', '54f5a2a4abe53d9560e9963a'],
-                     ['mark', 'firstbyte', (new Date()).getTime()]];
-        (function () {
-            var s = document.getElementsByTagName('script')[0]
-              , p = document.createElement('script');
-            p.async = 'async';
-            p.src = '//rum-static.pingdom.net/prum.min.js';
-            s.parentNode.insertBefore(p, s);
-        })();
-    </script>
-    <%--    End of Pingdom RIM--%>
+
     <script type="text/javascript">
         $(document).ready(function () {
 

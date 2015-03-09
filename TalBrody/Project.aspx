@@ -65,11 +65,15 @@
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
                                 <div class="row main-row">
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
+                                        <div style="position: relative;" class="hidden-xs">
+                                            <img id="star-image" src="/Images/Toys/Star.png" alt="הפיצו את הקישור" />
+                                        </div>
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                             <div class="sm-bottom-responsive-item" id="title-content">
-                                                <h2><strong>"עודני ילד" </strong></h2>
-                                                <h3>ספר נוסטלגי<br />
-                                                    על "בית הבראה לצעצועים"</h3>
+
+                                                <h1 id="title-text"><strong>"עודני ילד" </strong></h1>
+                                                <h2 id="title-subdescription">ספר חדש<br />
+                                                    על "בית הבראה לצעצועים"</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -83,18 +87,14 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="visible-xs">
-                                            <h5 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
-					
-                                            <b>הירשמו ותוכלו לזכות בהטבות מיוחדות.</b>
-                                                ביחד, נוציא את הספר לאור.
-                                            </h5>
+                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים<br />
+                                             
+                                            </h3>
                                         </div>
                                         <div class="hidden-xs">
                                             <hr class="small_divider" />
-                                            <h3 class="Description">בקרוב נתחיל לגייס את התקציב הנחוץ להפקת הספר.
-					<br />
-                                                <b>הירשמו ותוכלו לזכות בהטבות מיוחדות.</b><br />
-                                                ביחד, נוציא את הספר לאור.
+                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים<br />
+                                              
                                             </h3>
                                         </div>
                                     </div>
@@ -106,10 +106,9 @@
 
                                             <a class="flat-button BtnRegister fancybox.iframe" id="BtnRegister" onclick="Register()">הירשמו עכשיו</a><br />
                                         </div>
-                                        <div class="scroll-icon-wrapper">
-                                            <a href="#" class='scroll-icon' data-goto="secondpage"><i class="fa fa-arrow-circle-down"></i></a>
-                                        </div>
-
+                                        <h3 class="Description">
+                                            בזכותכם נוציא את הספר לאור.
+                                        </h3>
                                     </div>
                                 </div>
                             </div>

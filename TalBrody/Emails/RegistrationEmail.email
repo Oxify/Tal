@@ -6,7 +6,7 @@
     @{
     var url = ViewBag.BaseUrl + "/confirm?email=" + System.Web.HttpUtility.UrlEncode(Model.Email) + @Raw("&code=") + ViewBag.Code;
     }
-	<p>תודה על התענינותך בפרוייקט "עודני ילד" - ספר נוסטלגי על "בית הבראה לצעצועים".</p>
+	<p>תודה על התענינותך בפרוייקט "עודני ילד" - ספר חדש על "בית הבראה לצעצועים".</p>
 	<p>על מנת להשלים את ההרשמה, אנא  לחץ על <a href='@url'>הלינק הזה</a>.</p>
 	<br/>
 
