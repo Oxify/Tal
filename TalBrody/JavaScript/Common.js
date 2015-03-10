@@ -80,13 +80,31 @@ function getCookie(cName) {
     return null;
 }
 
-function deleteCookie(name, path, domain) {
+function deleteCookie2(name, path, domain) {
     // If the cookie exists
     if (getCookie(name))
         createCookie(name, "", -1, path, domain);
 }
 
+function deleteCookie(name, path, domain) {
+    if (getCookie(name)) {
+        document.cookie = name + "=" +
+          ((path) ? ";path=" + path : "") +
+          ((domain) ? ";domain=" + domain : "") +
+          ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    }
+}
+
+
 function CreateCookieWithId(id) {
+    var existing = getCookie("OxifyId");
+    if (existing == id) {
+        return;
+    }
+    if (existing != id) {
+        deleteCookie("OxifyId");
+    }
+
     createCookie("OxifyId", id, 30);
 
 }

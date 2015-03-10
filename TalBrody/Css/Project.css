@@ -294,6 +294,14 @@ html, body {
     top: 0;
     width: 100px;
     height: 100px;
+    background-image: url('/Images/Toys/Star.png');
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    cursor: pointer;
+
+}
+#star-image:hover {
+    background-image: url('/Images/Toys/StarHover.png');
 }
 
 #secondary-title {
@@ -601,6 +609,8 @@ html, body {
     }
 
     #star-image {
+        background-size: 125px 125px;
+
         width: 125px;
         height: 125px;
     }

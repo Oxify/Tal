@@ -66,7 +66,8 @@
                                 <div class="row main-row">
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
                                         <div style="position: relative;" class="hidden-xs">
-                                            <img id="star-image" src="/Images/Toys/Star.png" alt="הפיצו את הקישור" />
+                                            <a id="star-image" onclick="Register();"></a>
+
                                         </div>
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                             <div class="sm-bottom-responsive-item" id="title-content">
@@ -79,7 +80,7 @@
                                     </div>
                                     <div class="col-sm-6 col-xs-12" id="title-video">
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2xgVbFniiVU?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MZckMxgx6Ts?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                         </div>
                                     </div>
 
@@ -87,13 +88,13 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="visible-xs">
-                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים<br />
+                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים.<br />
                                              
                                             </h3>
                                         </div>
                                         <div class="hidden-xs">
                                             <hr class="small_divider" />
-                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים<br />
+                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים.<br />
                                               
                                             </h3>
                                         </div>
@@ -136,7 +137,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 pull-right">
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2xgVbFniiVU?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MZckMxgx6Ts?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">

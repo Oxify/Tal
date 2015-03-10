@@ -320,6 +320,8 @@ function LogOutSession() {
         success: function (response) {
             if (response.d == 1) {
                 deleteCookie("OxifyId"); // delete cooke
+                deleteCookie2("OxifyId"); // delete cooke
+                var test = getCookie("OxifyId");
                 window.location.reload(); // refrash page
             }
 
