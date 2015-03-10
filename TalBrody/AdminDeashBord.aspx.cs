@@ -50,7 +50,7 @@ namespace TalBrody
 
                     HyperLink HypEditPojectLink = e.Item.FindControl("HypEditPojectLink") as HyperLink;
                     if (HypEditPojectLink != null)
-                        HypEditPojectLink.NavigateUrl = Page.GetRouteUrl("Edit", new { ProjectId = pro.id.ToString() });
+                        HypEditPojectLink.NavigateUrl = "EditProject.aspx?ProjectId=1"; Response.ApplyAppPathModifier(Page.GetRouteUrl("Edit", new { ProjectId = pro.id.ToString() }));
                 }
             }
             catch (Exception)
