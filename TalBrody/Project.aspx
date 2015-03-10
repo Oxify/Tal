@@ -11,7 +11,7 @@
             var txtSaveClickedHidden = '';
             var a = $(".BtnRegister").val;
             $(".BtnRegister").fancybox(
-            {
+            { 
                 maxWidth: 516,
                 maxHeight: 520,
                 fitToView: false,
