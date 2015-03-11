@@ -15,16 +15,17 @@
                 </tr>
             </HeaderTemplate>
             <ItemTemplate>
-                <tr>
+                <tr style="text-align:center">
                     <td>
                         <asp:Label ID="LblCounterId" runat="server" Text="Label"></asp:Label></td>
+                   <td>
+                        <asp:Label ID="LblProjectName" runat="server" Text="Label"></asp:Label></td>
                     <td>
                         <asp:Label ID="LblFollowers" runat="server" Text="Label"></asp:Label></td>
-                    <td>>
-                        <asp:HyperLink ID="HypProjectLink" runat="server">HyperLink</asp:HyperLink></td>
                     <td>
-                        <asp:HyperLink ID="HypEditPojectLink" Text="Go To" runat="server"></asp:HyperLink>
-                    </td>
+                        <asp:HyperLink ID="HypProjectLink" runat="server"></asp:HyperLink></td>
+                    <td>
+                        <asp:HyperLink ID="HypEditPojectLink" Text="Go To" runat="server"></asp:HyperLink></td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>

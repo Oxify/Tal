@@ -20,7 +20,7 @@ namespace TalBrody
 
     public partial class Oxify : System.Web.UI.MasterPage
     {
-    //    private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        //    private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public bool LogInFlag = false;
         public string OxifyId = null;
@@ -37,7 +37,29 @@ namespace TalBrody
             LogInFlag = CheckLogIn();
             if (!IsPostBack)
             {
+
                 CheckPermissions();
+
+            }
+        }
+
+        private void CheckLandingcount()
+        {
+            if (Session["oxifyEntry"] == null)
+            {
+                Session.Add("oxifyEntry", "1");
+
+                Param p = Params.GetParam("oxifyEntry");
+                if (p != null)
+                {
+                    p.ValueInt = p.ValueInt + 1;
+                    p.Value = p.ValueInt.ToString();
+                    Params.UpdateParam("oxifyEntry", p.Value,p.ValueInt);
+                }
+                else
+                {                   
+                    Params.InsertParam("oxifyEntry","1",1);
+                }
             }
         }
 

@@ -50,7 +50,12 @@ namespace TalBrody
 
                     HyperLink HypEditPojectLink = e.Item.FindControl("HypEditPojectLink") as HyperLink;
                     if (HypEditPojectLink != null)
-                        HypEditPojectLink.NavigateUrl = "EditProject.aspx?ProjectId=1"; Response.ApplyAppPathModifier(Page.GetRouteUrl("Edit", new { ProjectId = pro.id.ToString() }));
+                        HypEditPojectLink.NavigateUrl =  Response.ApplyAppPathModifier(Page.GetRouteUrl("Edit", new { ProjectId = pro.id.ToString() }));
+                    //"EditProject.aspx?ProjectId=1";
+
+                    Label LblProjectName = e.Item.FindControl("LblProjectName") as Label;
+                    if (LblProjectName != null)
+                        LblProjectName.Text = pro.DisplayName;
                 }
             }
             catch (Exception)
