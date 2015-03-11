@@ -20,8 +20,8 @@
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
 
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
-                                             <div class="star-image hidden-xs" onclick="Register();"></div>
-                                           <div class="sm-bottom-responsive-item" id="title-content">
+                                            <div class="star-image hidden-xs" onclick="Register();"></div>
+                                            <div class="sm-bottom-responsive-item" id="title-content">
 
                                                 <h1 id="title-text"><strong>"עודני ילד" </strong></h1>
                                                 <h2 id="title-subdescription">ספר חדש<br />
@@ -40,13 +40,13 @@
                                     <div class="col-xs-12">
                                         <div class="visible-xs">
                                             <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים.<br />
-                                             
+
                                             </h3>
                                         </div>
                                         <div class="hidden-xs">
                                             <hr class="small_divider" />
                                             <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים.<br />
-                                              
+
                                             </h3>
                                         </div>
                                     </div>
@@ -54,11 +54,10 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="register-button-div">
-   
+
                                             <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו</a><br />
                                         </div>
-                                        <h3 class="Description">
-                                            בזכותכם נוציא את הספר לאור.
+                                        <h3 class="Description">בזכותכם נוציא את הספר לאור.
                                         </h3>
                                     </div>
                                 </div>
