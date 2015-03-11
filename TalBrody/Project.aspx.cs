@@ -23,12 +23,24 @@ namespace TalBrody
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             string p = Page.RouteData.Values["ppp"] as string;
             if (!IsPostBack)
             {
                 InitParam();
                 AddFollowerCount();
                 PopulateFollowerCountLable();
+
+                //if (Request.QueryString["v"] != null)
+                //{
+                //    if (Request.QueryString["v"].ToLower() == "live")
+                //    {
+                //        Response.Redirect(""/* REPLACE WITH CROWDFUNDING LINK WHEN LIVE*/, true);
+                //        Context.ApplicationInstance.CompleteRequest();
+                //        return;
+                //    }
+                //}
             }
 
             ChecktoHideDiv();
@@ -61,7 +73,7 @@ namespace TalBrody
                 if (folloList.Count > 0)
                 {
                     LblDiscaount.Text = (folloList.Count * 5).ToString();
-                    string tool = "בזכותך נרשמו: "+ Environment.NewLine;
+                    string tool = "בזכותך נרשמו: " + Environment.NewLine;
                     int count = 0;
                     count = folloList.Count - 5;
 
@@ -116,6 +128,6 @@ namespace TalBrody
 
 
 
-       
+
     }
 }

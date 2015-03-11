@@ -1,54 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Oxify.Master" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="TalBrody.Project" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function ShowRegister() {
 
-            var ProjectId = 1;
-
-            var href = "/Register.aspx?ProjectId=" + ProjectId;
-
-            var txtSaveClickedHidden = '';
-            var a = $(".BtnRegister").val;
-            $(".BtnRegister").fancybox(
-            { 
-                maxWidth: 516,
-                maxHeight: 520,
-                fitToView: false,
-                width: '80%',
-                height: '95%',
-                autoSize: false,
-                closeClick: false,
-                openEffect: 'none',
-                closeEffect: 'none',
-                nextEffect: 'fade',
-                prevEffect: 'fade',
-                'href': href,
-                'type': 'iframe',
-
-                //Change title position and overlay color
-                helpers:
-                {
-                    title:
-                    {
-                        type: 'inside',
-                        position: 'top',
-                        background: '#032f4a',
-                        color: '#FFF'
-                    }
-                },
-                beforeClose: function () {
-                    //txtSaveClickedHidden = $('.fancybox-iframe').contents().find("#txtSaveClickedHidden").val();
-                },
-                afterClose: function () {
-                    //if (true) {
-                    //parent.location.reload(true);
-                    //}
-                }
-            });
-
-        }
-    </script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/Css/slick-theme-oxify.css" />
@@ -65,12 +18,10 @@
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
                                 <div class="row main-row">
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
-                                        <div style="position: relative;" class="hidden-xs">
-                                            <a id="star-image" onclick="Register();"></a>
 
-                                        </div>
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
-                                            <div class="sm-bottom-responsive-item" id="title-content">
+                                             <div class="star-image hidden-xs" onclick="Register();"></div>
+                                           <div class="sm-bottom-responsive-item" id="title-content">
 
                                                 <h1 id="title-text"><strong>"עודני ילד" </strong></h1>
                                                 <h2 id="title-subdescription">ספר חדש<br />
@@ -103,9 +54,8 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="register-button-div">
-                                            <%--                                                            <button type="button" class="flat-button" id="BtnRegister" onclick="Register();">הרשמה</button>--%>
-
-                                            <a class="flat-button BtnRegister fancybox.iframe" id="BtnRegister" onclick="Register()">הירשמו עכשיו</a><br />
+   
+                                            <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו</a><br />
                                         </div>
                                         <h3 class="Description">
                                             בזכותכם נוציא את הספר לאור.
