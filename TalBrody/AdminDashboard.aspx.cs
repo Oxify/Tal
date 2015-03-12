@@ -9,7 +9,7 @@ using TalBrody.Logic;
 
 namespace TalBrody
 {
-    public partial class AdminDeashBord : System.Web.UI.Page
+    public partial class AdminDashboard : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
