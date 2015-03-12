@@ -79,7 +79,7 @@ namespace TalBrody
             BaseUrl = baseUrl;
 
             string EnvironmentType = ConfigurationManager.AppSettings["EnvironmentType"].ToLower();
-            if (EnvironmentType == "prodcution")
+            if (EnvironmentType == "production")
             {
                 OnProduction = true;
             }
@@ -100,6 +100,8 @@ namespace TalBrody
             log.Info("OnAppHarbor = " + OnAppHarbor);
             log.Info("BaseUrl = " + BaseUrl);
             log.Info("FacebookId = " + FacebookId);
+            log.Info("OnProduction = " + OnProduction);
+            log.Info("OnTest = " + OnTest);
             log.Info("--------------------------------------");
 
             // cheking the db version and upgrade if needed

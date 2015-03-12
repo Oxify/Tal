@@ -389,7 +389,7 @@
     <!--MouseFlow start-->
     <% if (Global.OnProduction)
        {
-    %>>
+    %>
     <script type="text/javascript">
         var _mfq = _mfq || [];
         (function () {
