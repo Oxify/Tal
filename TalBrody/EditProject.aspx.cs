@@ -29,45 +29,45 @@ namespace TalBrody
         private void InitParam()
         {           
             PopulateFollwers(ProjectId);
-            pupolateJoinChart(1);
+        //    pupolateJoinChart(1);
         }
 
-        private void pupolateJoinChart(int Period)
-        {
-            try
-            {
-                DateTime dtfrom = new DateTime( DateTime.Now.AddDays(-30).Year, DateTime.Now.AddDays(-30).Month, DateTime.Now.AddDays(-30).Day);
-                int sum = 0;
-                DateTime dtTO = DateTime.Now;
+        //private void pupolateJoinChart(int Period)
+        //{
+        //    try
+        //    {
+        //        DateTime dtfrom = new DateTime( DateTime.Now.AddDays(-30).Year, DateTime.Now.AddDays(-30).Month, DateTime.Now.AddDays(-30).Day);
+        //        int sum = 0;
+        //        DateTime dtTO = DateTime.Now;
 
 
-                List<Report_Join> repot = Reports.Get_Report_Join(dtfrom, dtTO, 1);
-                foreach (var item in repot)
-                {
-                    sum = sum + item.Count;
-                }
-                ChJoin.DataSource = repot;
-                ChJoin.Series["Series1"].XValueMember = "Date";
-                ChJoin.Series["Series1"].YValueMembers = "Count";
-                ChJoin.ChartAreas["ChartArea1"].Axes[0].MajorGrid.LineColor = System.Drawing.Color.LightGray;
-                ChJoin.ChartAreas["ChartArea1"].Axes[1].MajorGrid.LineColor = System.Drawing.Color.LightGray;
-                ChJoin.ChartAreas["ChartArea1"].Axes[0].LabelStyle.Angle = 90;
-                ChJoin.ChartAreas["ChartArea1"].Axes[0].Title = "Days";
-                ChJoin.ChartAreas["ChartArea1"].Axes[0].MajorGrid.Interval = 1;
-                ChJoin.ChartAreas["ChartArea1"].Axes[0].Interval = 1;
-                //ChJoin.Titles.Add("Total Join from: " + dtfrom.ToShortDateString() + " to " + dtTO.ToShortDateString() + " ");
-                ChJoin.Titles.Add(new System.Web.UI.DataVisualization.Charting.Title("Total " + sum.ToString() + " Join from: " + dtfrom.ToString("dd'-'MM'-'yyyy") + " to " + dtTO.ToString("dd'-'MM'-'yyyy") + " "
-                    , Docking.Top, new System.Drawing.Font("Verdana", 8f, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black));
-                //ChJoin.Titles[0].Font.si
-                //ChJoin.Titles.
-                ChJoin.DataBind();
+        //        List<Report_Join> repot = Reports.Get_Report_Join(dtfrom, dtTO, 1);
+        //        foreach (var item in repot)
+        //        {
+        //            sum = sum + item.Count;
+        //        }
+        //        ChJoin.DataSource = repot;
+        //        ChJoin.Series["Series1"].XValueMember = "Date";
+        //        ChJoin.Series["Series1"].YValueMembers = "Count";
+        //        ChJoin.ChartAreas["ChartArea1"].Axes[0].MajorGrid.LineColor = System.Drawing.Color.LightGray;
+        //        ChJoin.ChartAreas["ChartArea1"].Axes[1].MajorGrid.LineColor = System.Drawing.Color.LightGray;
+        //        ChJoin.ChartAreas["ChartArea1"].Axes[0].LabelStyle.Angle = 90;
+        //        ChJoin.ChartAreas["ChartArea1"].Axes[0].Title = "Days";
+        //        ChJoin.ChartAreas["ChartArea1"].Axes[0].MajorGrid.Interval = 1;
+        //        ChJoin.ChartAreas["ChartArea1"].Axes[0].Interval = 1;
+        //        //ChJoin.Titles.Add("Total Join from: " + dtfrom.ToShortDateString() + " to " + dtTO.ToShortDateString() + " ");
+        //        ChJoin.Titles.Add(new System.Web.UI.DataVisualization.Charting.Title("Total " + sum.ToString() + " Join from: " + dtfrom.ToString("dd'-'MM'-'yyyy") + " to " + dtTO.ToString("dd'-'MM'-'yyyy") + " "
+        //            , Docking.Top, new System.Drawing.Font("Verdana", 8f, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black));
+        //        //ChJoin.Titles[0].Font.si
+        //        //ChJoin.Titles.
+        //        ChJoin.DataBind();
 
-            }
-            catch (Exception )
-            {
-                throw;
-            }
-        }
+        //    }
+        //    catch (Exception )
+        //    {
+        //        throw;
+        //    }
+        //}
 
         private void PopulateFollwers(int ProjectId)
         {

@@ -8,22 +8,7 @@
     <div>
         <asp:Label ID="Label1" runat="server" Text="Followers"></asp:Label>
         <div>
-            <asp:Chart ID="ChJoin" runat="server" Height="300px" Width="500px">
-                <Series>
-                    <asp:Series XValueMember="Days" IsValueShownAsLabel="true" YValueMembers="Hits"
-                        Name="Series1" ChartType="Line" Color="#0033cc" IsVisibleInLegend="true" BorderWidth="1">
-                    </asp:Series>
-
-                </Series>
-                <BorderSkin BackColor="Olive" BorderColor="Olive" SkinStyle="Emboss" />
-                <ChartAreas>
-                    <asp:ChartArea Name="ChartArea1" BorderWidth="0">
-                        <AxisY Title="Join" Interval="Auto"></AxisY>
-                        <AxisX Title="Days"></AxisX>
-                        <Area3DStyle IsClustered="True" Enable3D="false"></Area3DStyle>
-                    </asp:ChartArea>
-                </ChartAreas>
-            </asp:Chart>
+          
         </div>
        
         <br />

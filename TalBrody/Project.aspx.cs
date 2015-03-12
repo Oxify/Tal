@@ -54,7 +54,15 @@ namespace TalBrody
             {
                 Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 1);
                 string ProjectName = " עודני כאן - ספר חדש על בית הבראה לצעצועים ";
-                ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), fol.FollowerGuid);
+                if (fol != null)
+                {
+                    ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(),
+                        fol.FollowerGuid);
+                }
+                else
+                {
+                    ShareUrl = IOC.GetInstance<UrlBuilder>().GetProjectUrl();
+                }
                 var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
                 FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
                 TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
