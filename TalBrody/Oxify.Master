@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Oxify.master.cs" Inherits="TalBrody.Oxify" %>
 
+<%@ Import Namespace="TalBrody" %>
+
 <%@ Register Src="/UserControl/LogInControle.ascx" TagPrefix="uc1" TagName="LogInControle" %>
 
 
@@ -45,12 +47,12 @@
 
 
     <meta property="og:type" content="product" />
+    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_5.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_6.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_1.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_2.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_3.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_4.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_5.jpg" />
     <meta property="og:image" content="http://oxify.co/Images/Toys/FB_7.jpg" />
 
     <meta property="og:image" content="http://oxify.co/Images/Toys/BennyAndHagi.jpg" />
@@ -90,19 +92,19 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <%--    Start of Pingdom RUM--%>
-    <script>
-        var _prum = [['id', '54f5a2a4abe53d9560e9963a'],
-                     ['mark', 'firstbyte', (new Date()).getTime()]];
+    <% if (Global.OnProduction)
+       {
+    %>>
+    <script type="text/javascript">
+        var _mfq = _mfq || [];
         (function () {
-            var s = document.getElementsByTagName('script')[0]
-              , p = document.createElement('script');
-            p.async = 'async';
-            p.src = '//rum-static.pingdom.net/prum.min.js';
-            s.parentNode.insertBefore(p, s);
+            var mf = document.createElement("script"); mf.type = "text/javascript"; mf.async = true;
+            mf.src = "//cdn.mouseflow.com/projects/9a36fce4-4a08-4d63-9f11-74e3d02ec65e.js";
+            document.getElementsByTagName("head")[0].appendChild(mf);
         })();
     </script>
-    <%--    End of Pingdom RIM--%>
+    <% } %>>
+
     <script type="text/javascript">
         $(document).ready(function () {
 

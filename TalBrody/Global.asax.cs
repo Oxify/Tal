@@ -22,6 +22,8 @@ namespace TalBrody
         public static bool OnAppHarbor { get; private set; }
         public static string FacebookId { get; private set; }
         public static string BaseUrl { get; private set; }
+        public static bool OnProduction { get; private set; }
+        public static bool OnTest { get; private set; }
 
         public static void RegisterRoute(RouteCollection routers)
         {
@@ -30,9 +32,9 @@ namespace TalBrody
             //routers.Ignore("{*allcss}", new { allcss = @".*\.css(/.*)?" });
             routers.Ignore("Css/{*pathInfo}");
             routers.Ignore("{resource}.axd/{*pathInfo}");
-           // routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
+            // routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
             routers.MapPageRoute("", "p", "~/Project.aspx");
-            routers.MapPageRoute("", "p/m1fj","~/Project.aspx");
+            routers.MapPageRoute("", "p/m1fj", "~/Project.aspx");
             routers.MapPageRoute("", "p/m1fj/toys", "~/Project.aspx");
             routers.MapPageRoute("", "p/m1fj/toys/share", "~/Share.aspx");
             routers.MapPageRoute("", "tos", "~/TermsOfService.aspx");
@@ -76,11 +78,28 @@ namespace TalBrody
             string baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
             BaseUrl = baseUrl;
 
+            string EnvironmentType = ConfigurationManager.AppSettings["EnvironmentType"].ToLower();
+            if (EnvironmentType == "prodcution")
+            {
+                OnProduction = true;
+            }
+            else
+            {
+                OnProduction = false;
+            }
+            if (EnvironmentType == "Test")
+            {
+                OnTest = true;
+            }
+            else
+            {
+                OnTest = false;
+            }
             log.Info("--------------------------------------");
-            log.Info("------------ STARTED APP! ------------"); 
-            log.Info("OnAppHarbor = " + OnAppHarbor); 
-            log.Info("BaseUrl = " + BaseUrl); 
-            log.Info("FacebookId = " + FacebookId); 
+            log.Info("------------ STARTED APP! ------------");
+            log.Info("OnAppHarbor = " + OnAppHarbor);
+            log.Info("BaseUrl = " + BaseUrl);
+            log.Info("FacebookId = " + FacebookId);
             log.Info("--------------------------------------");
 
             // cheking the db version and upgrade if needed

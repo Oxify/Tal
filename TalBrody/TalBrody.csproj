@@ -206,7 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="AdminDeashBord.aspx" />
+    <Content Include="AdminDashboard.aspx" />
     <Content Include="Ajax.aspx" />
     <Content Include="App_Data\Oxify.sdf" />
     <Content Include="Brody.aspx" />
@@ -321,12 +321,12 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminDeashBord.aspx.cs">
-      <DependentUpon>AdminDeashBord.aspx</DependentUpon>
+    <Compile Include="AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminDeashBord.aspx.designer.cs">
-      <DependentUpon>AdminDeashBord.aspx</DependentUpon>
+    <Compile Include="AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax.aspx.cs">
       <DependentUpon>Ajax.aspx</DependentUpon>

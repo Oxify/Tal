@@ -10,7 +10,7 @@
 namespace TalBrody {
     
     
-    public partial class AdminDeashBord {
+    public partial class AdminDashboard {
         
         /// <summary>
         /// Rpt_Project control.
