@@ -68,7 +68,7 @@ function FacebookRegister(e) {
 
 function LoginUsingFacebook(e) {
     HideMessage();
-    debugger;
+    //debugger;
     Platform = "FB";
     Token = FacebookToken;
     if (FacebookStatus == 'connected') {
