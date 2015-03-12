@@ -35,31 +35,22 @@ namespace TalBrody.Util
             viewBag.AddValue("Code", code);
             //viewBag.AddValue("Referal", referUrl);
             string html = Engine.Razor.RunCompile(template, "registrationEmail", null, user, viewBag);
- 
+
             var emailMessage = new EmailMessage
             {
-                to = new List<EmailAddress> { new EmailAddress(user.Email, user.DisplayName) },
+                to = new List<EmailAddress> { new EmailAddress(user.Email, user.DisplayName),
+                new EmailAddress("NewUser@oxify.co", "New User Notification", "bcc")},
                 from_email = "team@oxify.co",
                 from_name = "Oxify",
+
                 subject = "Welcome to Oxify",
                 html = html
             };
 
             sendEmail(mandril, emailMessage);
-
-            var tellus = new EmailMessage
-            {
-                to = new List<EmailAddress> {new EmailAddress("NewUser@oxify.co", "New User Notification")},
-                from_email = "team@oxify.co",
-                from_name = "Oxify",
-                subject = "We have a new user: " + user.DisplayName + " ! ("+user.Email+")",
-                html = html
-            };
-
-            sendEmail(mandril, tellus);
         }
 
-        
+
         private static void sendEmail(MandrillApi mandril, EmailMessage emailMessage)
         {
             log.Info("Sending email to " + emailMessage.to);

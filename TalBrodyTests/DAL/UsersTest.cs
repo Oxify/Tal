@@ -12,9 +12,9 @@ namespace TalBrodyTests.DAL
         [Test]
         public void FindUserByEmailTest()
         {
-            var email = RandomString(10) + "@mail.com";
+            var email = RandomString(10) + "@fake.org";
             var password = "12344321";
-            var displayName = "John Doe";
+            var displayName = "Ron Gross Automatic Test";
             var UserRefId = 1; 
             var users = IOC.GetInstance<Users>();
 

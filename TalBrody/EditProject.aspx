@@ -1,10 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Oxify.Master" CodeBehind="EditProject.aspx.cs" Inherits="TalBrody.EditProject" %>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  
+
 
     <div>
         <asp:Label ID="Label1" runat="server" Text="Followers"></asp:Label>
+        <div>
+          
+        </div>
+       
         <br />
         <table>
             <caption>Follower Table</caption>

@@ -240,7 +240,7 @@
 
                         <button type="button" class="navbar-btn footer-link" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
                         <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project" CssClass="navbar-btn footer-link"></asp:HyperLink>
-                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin" NavigateUrl="~/AdminDeashBord.aspx" CssClass="navbar-btn footer-link"></asp:HyperLink>
+                        <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin" NavigateUrl="~/AdminDashboard.aspx" CssClass="navbar-btn footer-link"></asp:HyperLink>
                         <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
                     </ul>
                 </div>

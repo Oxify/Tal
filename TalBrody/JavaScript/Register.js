@@ -68,7 +68,7 @@ function FacebookRegister(e) {
 
 function LoginUsingFacebook(e) {
     HideMessage();
-    debugger;
+    //debugger;
     Platform = "FB";
     Token = FacebookToken;
     if (FacebookStatus == 'connected') {
@@ -265,7 +265,7 @@ function CheckLogInLocal(email, password) {
         ShowMessage("אנא הכנס סיסמא");
         return;
     }
-    var params = "{'UserName':'" + usernam + "','Password':'" + pas + "'}";
+    var params = "{'UserName':'" + email + "','Password':'" + password + "'}";
 
     $.ajax({
         type: "POST",
