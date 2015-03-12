@@ -229,5 +229,25 @@ namespace TalBrody.DataLayer
                 UserId = dr.GetValue<int>("UserId")
             };
         }
+
+        internal static Report_Join Populate_Report_Join(SqlCeDataReader dr)
+        {
+            return new Report_Join
+            {
+                Count = dr.GetValue<int>("Count"),
+                Date = dr.GetValue<DateTime>("Date").ToString("dd/MM/yyyy")
+               
+            };
+        }
+
+        internal static Report_Join Populate_Report_Join(SqlDataReader dr)
+        {
+            return new Report_Join
+            {
+                Count = dr.GetValue<int>("Count"),
+                Date = dr.GetValue<DateTime>("Date").ToString("dd/MM/yyyy")
+
+            };
+        }
 	}
 }
