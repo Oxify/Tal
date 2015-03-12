@@ -209,10 +209,8 @@
     <Content Include="AdminDashboard.aspx" />
     <Content Include="Ajax.aspx" />
     <Content Include="App_Data\Oxify.sdf" />
-    <Content Include="Brody.aspx" />
     <Content Include="ConfirmEmail.aspx" />
     <Content Include="ContactUs.aspx" />
-    <Content Include="Cover.aspx" />
     <Content Include="Css\BootstrapDefaults.css" />
     <Content Include="Css\Brody.css" />
     <Content Include="Css\Cover.css" />
@@ -294,7 +292,6 @@
     <Content Include="JavaScript\SmoothScroll.js" />
     <Content Include="PrivacyPolicy.aspx" />
     <Content Include="Project.aspx" />
-    <Content Include="ProjectData.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Share.aspx" />
     <Content Include="sqlceme40.dll">
@@ -335,13 +332,6 @@
     <Compile Include="Ajax.aspx.designer.cs">
       <DependentUpon>Ajax.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Brody.aspx.cs">
-      <DependentUpon>Brody.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Brody.aspx.designer.cs">
-      <DependentUpon>Brody.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Common\SessionUtil.cs" />
     <Compile Include="Common\Enums\language.cs" />
     <Compile Include="Common\Enums\PermisstionEnum.cs" />
@@ -359,13 +349,6 @@
     </Compile>
     <Compile Include="ContactUs.aspx.designer.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cover.aspx.cs">
-      <DependentUpon>Cover.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cover.aspx.designer.cs">
-      <DependentUpon>Cover.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\BdHandlingDal.cs" />
     <Compile Include="DataLayer\EmailConfirmDal.cs" />
@@ -440,13 +423,6 @@
     </Compile>
     <Compile Include="Project.aspx.designer.cs">
       <DependentUpon>Project.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectData.aspx.cs">
-      <DependentUpon>ProjectData.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProjectData.aspx.designer.cs">
-      <DependentUpon>ProjectData.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\BaseDal.cs" />
     <Compile Include="DataLayer\FollowerDal.cs" />
