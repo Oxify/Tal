@@ -294,15 +294,26 @@ html, body {
     top: 0;
     width: 125px;
     height: 125px;
-    background-image: url('/Images/Toys/Star.png');
+    /*background-image: url('/Images/Toys/Star.png');
     background-repeat: no-repeat;
-    background-size: 125px 125px;
+    background-size: 125px 125px;*/
     cursor: pointer;
+}
 
+    .star-image:hover {
+        /*background-image: url('/Images/Toys/StarHover.png');*/
+    }
+
+#cycler img {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
-.star-image:hover {
-    background-image: url('/Images/Toys/StarHover.png');
-}
+
+    #cycler img.active {
+        z-index: 3;
+    }
 
 #secondary-title {
     text-align: center;

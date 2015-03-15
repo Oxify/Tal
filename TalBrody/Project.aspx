@@ -20,7 +20,10 @@
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
 
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
-                                            <div class="star-image hidden-xs" onclick="Register();"></div>
+                                            <div class="star-image hidden-xs " id="cycler" onclick="Register();">
+                                                <img src="/Images/Toys/Star.png" class="star-active" onclick="Register();" />
+                                                <img src="/Images/Toys/StarHover.png" onclick="Register();" />
+                                            </div>
                                             <div class="sm-bottom-responsive-item" id="title-content">
 
                                                 <h1 id="title-text"><strong>"עודני ילד" </strong></h1>
@@ -31,7 +34,7 @@
                                     </div>
                                     <div class="col-sm-6 col-xs-12" id="title-video">
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HKF-tJMjKB0?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HKF-tJMjKB0?wmode=transparent&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                         </div>
                                     </div>
 
@@ -39,13 +42,13 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="visible-xs">
-                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים.<br />
+                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל ביום שישי, 20 במרץ 2015.<br />
 
                                             </h3>
                                         </div>
                                         <div class="hidden-xs">
                                             <hr class="small_divider" />
-                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל בימים הקרובים.<br />
+                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל ביום שישי, 20 במרץ 2015.<br />
 
                                             </h3>
                                         </div>
@@ -55,7 +58,7 @@
                                     <div class="col-xs-12">
                                         <div class="register-button-div">
 
-                                            <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו</a><br />
+                                            <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו ותקבלו 5 ש"ח הנחה</a><br />
                                         </div>
                                         <h3 class="Description">בזכותכם נוציא את הספר לאור.
                                         </h3>
@@ -86,7 +89,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 pull-right">
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HKF-tJMjKB0?wmode=transparent&showinfo=0&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HKF-tJMjKB0?wmode=transparent&fs=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
@@ -130,7 +133,7 @@
                                             <div>
                                                 <div class="coming-soon">
                                                     <div class="coming-soon-text">
-                                                        <h5>הקמפיין יתחיל בשבועות הקרובים</h5>
+                                                        <h5>הקמפיין יתחיל ביום שישי, 20 במרץ</h5>
                                                     </div>
                                                 </div>
                                             </div>

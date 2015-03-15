@@ -235,7 +235,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <button type="button" class="navbar-btn header-link" id="BtnConect" onclick="ShowLogin();">כניסה</button>
-                        <button type="button" class="navbar-btn header-link" id="BtnLogOff" onclick="LogOut();">התנתק</button>
+                        <button type="button" class="navbar-btn header-link" id="BtnLogOff" onclick="LogOut();" style="display: none;">התנתק</button>
                         <button type="button" class="navbar-btn header-link" id="BtnRegister" onclick="Register();">הרשמה</button>
 
                         <button type="button" class="navbar-btn footer-link" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
@@ -283,10 +283,12 @@
 
 
                     <div id="LoginStart" style="text-align: center;">
-
+                                                <br />
+                        <br />
                         <div>
                             <a class="login-button blue" id="FacebookLoginButton" data-facebook-id="<%= FcbkId%>">כניסה באמצעות פייסבוק <i class="fa fa-facebook"></i></a>
 
+                            <br />
                             <br />
                             <div>
 
@@ -398,7 +400,7 @@
             document.getElementsByTagName("head")[0].appendChild(mf);
         })();
     </script>
-    <% } %>>
+    <% } %>
     <!--MouseFlow end-->
 </body>
 </html>

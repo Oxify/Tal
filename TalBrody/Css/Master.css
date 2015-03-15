@@ -39,6 +39,7 @@
 .master-row {
     display: table-row;
     width: 100%;
+    height: 100%;
 }
 
 .form {
@@ -79,6 +80,7 @@
     width: 100%;
     height: 100%;
     table-layout: fixed;
+    display: table;
 }
 
 .Afooter {
