@@ -155,7 +155,7 @@ $(document).ready(function () {
 
     client.on("ready", function (e) {
 
-
+  
         client.on("aftercopy", function (e) {
             alert((e.success["text/plain"] ? "הקישור שלך הועתק ללוח" : "העתקה ללוח נכשלה") + ": " + e.data["text/plain"]);
         });
