@@ -114,6 +114,8 @@ function PopupWindow() {
     window.open(url, "myWindow", "status = 1, height = 360, width = 500, resizable = 0");
 }
 
+
+
 //var applyMapContainerHeight = function () {
 //   // debugger;
 //    var height = $(window).height();
@@ -134,12 +136,26 @@ $(document).ready(function () {
         elements[i].onclick = PopupWindow;
     }
 
-    //applyMapContainerHeight();
-
-
 });
 
-//$(window).resize(function () {
+//
+// Begin ZeroClipboard stuff
+//
+ZeroClipboard.config({
+     swfPath: "/Scripts/ZeroClipboard.swf",
+    forceHandCursor: true
+});
 
-//    applyMapContainerHeight();
+var client = new ZeroClipboard($(".Copy-Link"));
+
+//client.on("error", function (e) {
+//    log("ERROR! [" + e.name + "] " + e.message);
 //});
+
+client.on("ready", function (e) {
+
+
+    client.on("aftercopy", function (e) {
+        alert((e.success["text/plain"] ? "הקישור שלך הועתק ללוח" : "העתקה ללוח נכשלה") + ": " + e.data["text/plain"]);
+    });
+});

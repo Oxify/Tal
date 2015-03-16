@@ -293,6 +293,15 @@
     <Content Include="PrivacyPolicy.aspx" />
     <Content Include="Project.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\ZeroClipboard.min.js" />
+    <Content Include="Scripts\ZeroClipboard.swf" />
     <Content Include="Share.aspx" />
     <Content Include="sqlceme40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -492,6 +501,8 @@
     <Content Include="Fonts\SimpleCLM700.woff" />
     <Content Include="Emails\RegistrationEmail.email" />
     <Content Include="Css\Share.css" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\ZeroClipboard.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

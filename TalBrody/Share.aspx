@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Oxify.Master" AutoEventWireup="true" CodeBehind=" .cs" Inherits="TalBrody.Share" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Oxify.Master" AutoEventWireup="true" CodeBehind="Share.aspx.cs" Inherits="TalBrody.Share" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
@@ -20,7 +20,7 @@
                     </h4>
                     <h3><strong>רוצים עוד הנחה?</strong></h3>
                     <h4>הפיצו את הקישור הייחודי שלכם או לחצו על כפתורי השיתוף השונים.<br />
-                        <strong>עד לתחילת קמפיין הגיוס, על כל חבר שנרשם בזכותכם לפרויקט, תצברו הנחה של 5 ש"ח נוספים.</strong>
+                        <strong>על כל חבר שיירשם בזכותכם עד תחילת הקמפיין, תזכו ב-5 ש"ח הנחה נוספים.</strong>
                     </h4>
                     <h5>שימו לב, ההנחה שצברתם תמומש בהתאם למדרגת התמיכה שתבחרו, ומותנת בתמיכה מינימלית.</h5>
                     <h4>
@@ -37,7 +37,7 @@
                             <a href="mailto:?subject=Look at this cool project&body=Check out this new campaign!%0A<%= ShareUrl %>"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
                             </a>
                             <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= FacebookShareUrl %> "><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
-
+                            <a class="Copy-Link" data-clipboard-text="<%=ShareUrl %>"><span class="share-box link-color"><i class="fa fa-link"></i></span></a>
                         </div>
                     </div>
                     <br />

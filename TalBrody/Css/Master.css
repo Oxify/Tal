@@ -184,6 +184,7 @@
     text-align: center;
     height: 40px;
     width: 40px;
+    padding-top: 3px;
     /*border-width: 2px;*/
     /*border-color: black;
     border-style: solid;*/
@@ -202,6 +203,9 @@
 }
 
 .Popup-Link {
+    cursor: pointer;
+}
+.Copy-Link {
     cursor: pointer;
 }
 
@@ -309,8 +313,6 @@
         color: white;
     }
 
-
-
 .email-color {
     color: #D64A38;
     background-color: white;
@@ -320,6 +322,15 @@
         background-color: #D64A38;
         color: white;
     }
+.link-color {
+    color: slategrey;
+    background-color: white;
+}
+
+.link-color:hover {
+    background-color: slategrey;
+    color: white;
+}
 
 
 .center-block {
