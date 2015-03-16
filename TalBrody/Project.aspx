@@ -153,6 +153,7 @@
                                                     <a href="mailto:?subject=Look at this cool project&body=Check out this new campaign!%0A<%= ShareUrl %>"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
                                                     </a>
                                                     <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= FacebookShareUrl %> "><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
+                                                    <a class="Copy-Link" id="CopyButton" data-clipboard-text="<%=ShareUrl %>" data-toggle="tooltip" title="העתק את הקישור היחודי ללוח" data-placement="top"><span class="share-box link-color"><i class="fa fa-clipboard"></i></span></a>
 
                                                 </div>
                                             </div>

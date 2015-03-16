@@ -136,26 +136,35 @@ $(document).ready(function () {
         elements[i].onclick = PopupWindow;
     }
 
-});
 
-//
-// Begin ZeroClipboard stuff
-//
-ZeroClipboard.config({
-     swfPath: "/Scripts/ZeroClipboard.swf",
-    forceHandCursor: true
-});
-
-var client = new ZeroClipboard($(".Copy-Link"));
-
-//client.on("error", function (e) {
-//    log("ERROR! [" + e.name + "] " + e.message);
-//});
-
-client.on("ready", function (e) {
-
-
-    client.on("aftercopy", function (e) {
-        alert((e.success["text/plain"] ? "הקישור שלך הועתק ללוח" : "העתקה ללוח נכשלה") + ": " + e.data["text/plain"]);
+    //
+    // Begin ZeroClipboard stuff
+    //
+    ZeroClipboard.config({
+        forceHandCursor: true
     });
+    ZeroClipboard.config({
+        swfPath: "/Scripts/ZeroClipboard.swf"
+    });
+
+    var client = new ZeroClipboard(document.getElementById("CopyButton"));
+
+    //client.on("error", function (e) {
+    //    log("ERROR! [" + e.name + "] " + e.message);
+    //});
+
+    client.on("ready", function (e) {
+
+
+        client.on("aftercopy", function (e) {
+            alert((e.success["text/plain"] ? "הקישור שלך הועתק ללוח" : "העתקה ללוח נכשלה") + ": " + e.data["text/plain"]);
+        });
+    });
+    //$("#global-zeroclipboard-html-bridge").hover(function () {
+    //    $("#CopyButton").css('background', 'black');
+    //}, function () {
+    //    $("#btn-copy").css('background', 'white');
+    //});
+    $('[data-toggle="tooltip"]').tooltip();
 });
+
