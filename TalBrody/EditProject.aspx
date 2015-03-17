@@ -8,7 +8,7 @@
     <div>
         <asp:Label ID="Label1" runat="server" Text="Followers"></asp:Label>
         <div>
-          
+            <asp:HyperLink ID="HypEmailCenter" NavigateUrl="~/EmailCenter.aspx" runat="server">Send Email To Followers</asp:HyperLink>
         </div>
        
         <br />
