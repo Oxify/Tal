@@ -103,13 +103,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="flat-box-left" runat="server" id="DiscountDiv">
+                                                    <div class="flat-box-description">
+                                                        צברת הנחה של
+                                                    </div>
                                                     <div class="flat-box-title">
                                                         <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
 
                                                     </div>
                                                     <div class="flat-box-description">
-                                                        ש"ח הנחה צברת
-                                                    </div>
+                                                        ש"ח </div>
                                                 </div>
                                             </div>
                                             <div class="flat-box flat-data grey">
@@ -133,7 +135,7 @@
                                             <div>
                                                 <div class="coming-soon">
                                                     <div class="coming-soon-text">
-                                                        <h5>הקמפיין יתחיל ביום שישי, 20 במרץ</h5>
+                                                        <h5 style="margin-top:7px;">הקמפיין יתחיל ביום שישי, 20 במרץ</h5>
                                                     </div>
                                                 </div>
                                             </div>
