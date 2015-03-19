@@ -24,6 +24,24 @@ namespace TalBrody.Util
             _resourceResolver = resourceResolver;
         }
 
+        public void SendPromoEmail(string userEamil,string DisplayName, string HtmlText,string FromEmail,string Subject,string FromName)
+        {
+            var mandril = GetMandrill();
+           
+            var emailMessage = new EmailMessage
+            {
+                to = new List<EmailAddress> { new EmailAddress(userEamil, DisplayName) },
+                //new EmailAddress("NewUser@oxify.co", "New User Notification", "bcc")},
+                from_email = FromEmail,
+                from_name = FromName,
+
+                subject = Subject,
+                html = HtmlText
+            };
+
+            sendEmail(mandril, emailMessage);
+        }
+
         public void SendRegistrationEmail(User user, string code)
         {
             var mandril = GetMandrill();

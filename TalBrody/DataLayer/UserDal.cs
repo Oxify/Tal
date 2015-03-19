@@ -35,6 +35,29 @@ namespace TalBrody.DataLayer
             }
         }
 
+         public List<User> GetUserByProjectId(int ProjectId)
+        {
+            List<User> user = new List<User>();
+            using (var conn = PortalConection)
+            {
+                var cmd = GetCommand("select Users.[Id],[DisplayName],Users.[Email],[FacebookId],[FacebookAccessToken],[TwitterId]"+
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]"+
+            " ,[Birthday],[ValidPassword],[DateCreated],[ReferralCode] "+
+            "from Users join Followers on Users.Id = Followers.UserId  where ProjectId = @ProjectId", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@ProjectId", ProjectId);
+
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    user.Add( Populators.Populate_User(reader));
+                }
+                return user;
+            }
+
+        }
+
         public User FindUserByEmail(string email)
         {
             User user = null;

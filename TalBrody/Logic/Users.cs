@@ -6,6 +6,7 @@ using TalBrody.DataLayer;
 using TalBrody.Entity;
 using TalBrody.Common;
 using TalBrody.Util;
+using System.Collections.Generic;
 
 namespace TalBrody.Logic
 {
@@ -57,6 +58,11 @@ namespace TalBrody.Logic
                 Followers.Insert_Follwer(1, user.Id, RefUserId);
 
             return user;
+        }
+
+        public List<User> GetUserByProjectId(int ProjectId)
+        {
+            return _userDal.GetUserByProjectId(ProjectId);
         }
 
         public User FindUserByEmail(string email)

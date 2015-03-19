@@ -32,15 +32,15 @@ namespace TalBrody
                 AddFollowerCount();
                 PopulateFollowerCountLable();
 
-                //if (Request.QueryString["v"] != null)
-                //{
-                //    if (Request.QueryString["v"].ToLower() == "live")
-                //    {
-                //        Response.Redirect(""/* REPLACE WITH CROWDFUNDING LINK WHEN LIVE*/, true);
-                //        Context.ApplicationInstance.CompleteRequest();
-                //        return;
-                //    }
-                //}
+                if (Request.QueryString["v"] != null)
+                {
+                    if (Request.QueryString["v"].ToLower() == "live")
+                    {
+                        Response.Redirect("http://www.headstart.co.il/project.aspx?id=14052", true);
+                        Context.ApplicationInstance.CompleteRequest();
+                        return;
+                    }
+                }
             }
 
             ChecktoHideDiv();
@@ -79,6 +79,7 @@ namespace TalBrody
             {
                 folloList = folloList.FindAll(o => o.ReferByUserId == usess.UserId);
                 LblDiscaount.Text = ((folloList.Count + 1) * 5).ToString();
+                LblDiscaount.Text = "10";
                 if (folloList.Count > 0)
                 {
                     string tool = "בזכותך נרשמו: " + Environment.NewLine;
