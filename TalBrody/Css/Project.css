@@ -228,6 +228,12 @@ html, body {
     display: inline-block;
 }
 
+.active-campaign-text {
+    color: white;
+}
+    .active-campaign-text:hover {
+        color: lightskyblue;
+    }
 .inlineblock {
     display: inline-block;
 }

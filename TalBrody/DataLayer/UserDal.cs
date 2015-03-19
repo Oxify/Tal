@@ -41,9 +41,9 @@ namespace TalBrody.DataLayer
             using (var conn = PortalConection)
             {
                 var cmd = GetCommand("select Users.[Id],[DisplayName],Users.[Email],[FacebookId],[FacebookAccessToken],[TwitterId]"+
-            "[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]"+
-            "[Birthday],[ValidPassword],[DateCreated],[ReferralCode] "+
-            "from Users join Followers on Users.Id = Followers.UserId  where ProjectId = 1--@ProjectId", conn);
+            ",[TwitterToken],[TwitterSecret],[TwitterAccessToken],[ReferredBy],[PasswordSalt],[PasswordHash],[EmailConfirmed]"+
+            " ,[Birthday],[ValidPassword],[DateCreated],[ReferralCode] "+
+            "from Users join Followers on Users.Id = Followers.UserId  where ProjectId = @ProjectId", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@ProjectId", ProjectId);
 

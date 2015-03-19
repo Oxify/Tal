@@ -138,13 +138,13 @@
                                                 <div class="coming-soon">
                                                     <div class="coming-soon-text">
                                                         <a href="https://www.headstart.co.il/project.aspx?id=14052">
-                                                            <h5 style="margin-top: 7px; color:white;">קמפיין הגיוס החל! לחצו כאן למעבר!</h5>
+                                                            <h5 class="active-campaign-text" style="margin-top: 7px; ">קמפיין הגיוס החל! לחצו כאן למעבר!</h5>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <%--                                    <div class="col-xs-12 col-sm-3 ">--%>
+                                            <%-- <div class="col-xs-12 col-sm-3 ">--%>
                                             <div>
                                                 <div class="flat-box">
                                                     <div class="share-title">

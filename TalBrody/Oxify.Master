@@ -239,11 +239,16 @@
                         <button type="button" class="navbar-btn header-link" id="BtnConect" onclick="ShowLogin();">כניסה</button>
                         <button type="button" class="navbar-btn header-link" id="BtnLogOff" onclick="LogOut();" style="display: none;">התנתק</button>
                         <button type="button" class="navbar-btn header-link" id="BtnRegister" onclick="Register();">הרשמה</button>
-
+    <% if (false)
+       {
+    %>
                         <button type="button" class="navbar-btn footer-link" id="BtnChanghPassword" visible="false" runat="server" onclick="ChangePassword();">Change Password</button>
                         <asp:HyperLink ID="HypEditProject" runat="server" Visible="false" Text="Edit Project" CssClass="navbar-btn footer-link"></asp:HyperLink>
                         <asp:HyperLink ID="HypSiteAdmin" runat="server" Visible="false" Text="Site Admin" NavigateUrl="~/AdminDashboard.aspx" CssClass="navbar-btn footer-link"></asp:HyperLink>
                         <asp:Label ID="LblUserName" CssClass="navbar-text" runat="server" Visible="false" Text="Hello: "></asp:Label>
+    <%
+       }
+    %>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
