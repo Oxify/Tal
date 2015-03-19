@@ -49,7 +49,7 @@ namespace TalBrody.DataLayer
 
                 conn.Open();
                 var reader = cmd.ExecuteReader();
-                if (reader.Read())
+                while (reader.Read())
                 {
                     user.Add( Populators.Populate_User(reader));
                 }
