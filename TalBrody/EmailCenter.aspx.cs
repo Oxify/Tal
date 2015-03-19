@@ -39,7 +39,8 @@ namespace TalBrody
 
         private void PopulateFollwers(int ProjectId)
         {
-            List<Follower> FollowerList = Followers.Get_Follower_by_Project(ProjectId);
+            Users user = new Users();
+            List<User> FollowerList = user.GetUserByProjectId(ProjectId);
             Rpt_Followers.DataSource = FollowerList;
             Rpt_Followers.DataBind();
         }
@@ -57,13 +58,12 @@ namespace TalBrody
                 CheckBox CBSendEmail = item.FindControl("CBSendEmail") as CheckBox;
                 if (CBSendEmail != null && CBSendEmail.Checked)
                 {
-                    string TempHtml = EmailContent;
-                    
-                    int UserId = int.Parse(CBSendEmail.Attributes["UserId"]);
-                    User user = users.FindUserByUserId(UserId);
-                    TempHtml = TempHtml.Replace("#EmailUser#", user.Email);
-                    TempHtml = TempHtml.Replace("#UserName#", user.DisplayName);
-                    _email.SendPromoEmail(user, TempHtml, FromEamil, Subject, FromName);
+                    Label LblUserName = item.FindControl("LblUserName") as Label;
+                    string TempHtml = EmailContent;                    
+                    string Email = CBSendEmail.Attributes["UserId"];
+                    TempHtml = TempHtml.Replace("#EmailUser#", Email);
+                    TempHtml = TempHtml.Replace("#UserName#", LblUserName.Text);
+                    _email.SendPromoEmail(Email, LblUserName.Text, TempHtml, FromEamil, Subject, FromName);
                     EmailCountSend++;
                 }
             }
@@ -74,7 +74,7 @@ namespace TalBrody
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
                 RepeaterItem item = e.Item;
-                Follower folll = item.DataItem as Follower;
+                User folll = item.DataItem as User;
 
                 Label LblId = e.Item.FindControl("LblId") as Label;
                 if (LblId != null)
@@ -82,11 +82,11 @@ namespace TalBrody
 
                 Label LblProjectId = e.Item.FindControl("LblProjectId") as Label;
                 if (LblProjectId != null)
-                    LblProjectId.Text = folll.ProjectId.ToString();
+                    LblProjectId.Text = "1";
 
                 Label LblUserId = e.Item.FindControl("LblUserId") as Label;
                 if (LblUserId != null)
-                    LblUserId.Text = folll.UserId.ToString();
+                    LblUserId.Text = folll.Id.ToString();
 
                 Label LblCreateDate = e.Item.FindControl("LblCreateDate") as Label;
                 if (LblCreateDate != null)
@@ -95,8 +95,12 @@ namespace TalBrody
                 CheckBox CBSendEmail = e.Item.FindControl("CBSendEmail") as CheckBox;
                 if (CBSendEmail != null)
                 {
-                    CBSendEmail.Attributes.Add("UserId", folll.UserId.ToString());
+                    CBSendEmail.Attributes.Add("UserId", folll.Email.ToString());
                 }
+
+                Label LblUserName = e.Item.FindControl("LblUserName") as Label;
+                if (LblUserName != null)
+                    LblUserName.Text = folll.DisplayName;
             }
         }
 

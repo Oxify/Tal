@@ -24,13 +24,13 @@ namespace TalBrody.Util
             _resourceResolver = resourceResolver;
         }
 
-        public void SendPromoEmail(User user, string HtmlText,string FromEmail,string Subject,string FromName)
+        public void SendPromoEmail(string userEamil,string DisplayName, string HtmlText,string FromEmail,string Subject,string FromName)
         {
             var mandril = GetMandrill();
            
             var emailMessage = new EmailMessage
             {
-                to = new List<EmailAddress> { new EmailAddress(user.Email, user.DisplayName)},
+                to = new List<EmailAddress> { new EmailAddress(userEamil, DisplayName) },
                 //new EmailAddress("NewUser@oxify.co", "New User Notification", "bcc")},
                 from_email = FromEmail,
                 from_name = FromName,

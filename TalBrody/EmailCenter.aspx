@@ -29,6 +29,7 @@
                         <th class="CubeTitle_Colors rounded-corners">Id</th>
                         <th class="CubeTitle_Colors rounded-corners">Project ID</th>
                         <th class="CubeTitle_Colors rounded-corners">User ID</th>
+                        <th class="CubeTitle_Colors rounded-corners">User Name</th>
                         <th class="CubeTitle_Colors rounded-corners">Create Date</th>
                         <th class="CubeTitle_Colors rounded-corners">Send Mail</th>
                     </tr>
@@ -41,6 +42,8 @@
                             <asp:Label ID="LblProjectId" runat="server" Text="Label"></asp:Label></td>
                         <td>
                             <asp:Label ID="LblUserId" runat="server" Text="Label"></asp:Label></td>
+                          <td>
+                            <asp:Label ID="LblUserName" runat="server" Text="Label"></asp:Label></td>
                         <td>
                             <asp:Label ID="LblCreateDate" runat="server" Text="Label"></asp:Label></td>
                         <td>
