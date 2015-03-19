@@ -32,15 +32,15 @@ namespace TalBrody
                 AddFollowerCount();
                 PopulateFollowerCountLable();
 
-                //if (Request.QueryString["v"] != null)
-                //{
-                //    if (Request.QueryString["v"].ToLower() == "live")
-                //    {
-                //        Response.Redirect(""/* REPLACE WITH CROWDFUNDING LINK WHEN LIVE*/, true);
-                //        Context.ApplicationInstance.CompleteRequest();
-                //        return;
-                //    }
-                //}
+                if (Request.QueryString["v"] != null)
+                {
+                    if (Request.QueryString["v"].ToLower() == "live")
+                    {
+                        Response.Redirect("http://www.headstart.co.il/project.aspx?id=14052", true);
+                        Context.ApplicationInstance.CompleteRequest();
+                        return;
+                    }
+                }
             }
 
             ChecktoHideDiv();
