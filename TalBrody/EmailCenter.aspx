@@ -2,13 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script src="Scripts/tinymce/tinymce.js"></script>
-    <script src="Scripts/tinymce/TinymceInit.js"></script>
+
 
 
     <div>
         <asp:Label ID="LblFollo" runat="server" Text="Followers To send email"></asp:Label>
         <div>
+            <script src="Scripts/tinymce/tinymce.js"></script>
+            <script src="Scripts/tinymce/TinymceInit.js"></script>
             <textarea rows="20" cols="20" id="txtSystemEmailInfoFooter" class="tinymce" name="content" style="width: 800px; height: 400px" runat="server"></textarea>
         </div>
         <br />
@@ -19,7 +20,8 @@
             <br />
             <asp:Label ID="Label3" runat="server" Text="From Name"></asp:Label><asp:TextBox placeholder="Sample Name" ID="TxtFromName" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="BtnSendEmailsssss" runat="server" Text="Send Email" OnClick="BtnSendEmail_Click" />
+            <asp:Button ID="BtnSendEmails" runat="server" Text="Send Email" OnClick="BtnSendEmail_Click" />
+            <input type="submit" id="BtnSubmit" value="send email" runat="server" onclick="BtnSendEmail_Click" />
         </div>
         <br />
         <table>

@@ -85,13 +85,22 @@ namespace TalBrody {
         protected global::System.Web.UI.WebControls.TextBox TxtFromName;
         
         /// <summary>
-        /// BtnSendEmailsssss control.
+        /// BtnSendEmails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSendEmailsssss;
+        protected global::System.Web.UI.WebControls.Button BtnSendEmails;
+        
+        /// <summary>
+        /// BtnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit BtnSubmit;
         
         /// <summary>
         /// Rpt_Followers control.

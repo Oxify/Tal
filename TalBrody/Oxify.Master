@@ -217,7 +217,7 @@
 
 </head>
 <body id="myBody">
-    <form id="form1" runat="server" onsubmit="return false;">
+    <form id="form1" runat="server" >
         <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
