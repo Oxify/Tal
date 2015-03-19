@@ -2,9 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-
-
     <div>
         <asp:Label ID="LblFollo" runat="server" Text="Followers To send email"></asp:Label>
         <div>
@@ -20,8 +17,8 @@
             <br />
             <asp:Label ID="Label3" runat="server" Text="From Name"></asp:Label><asp:TextBox placeholder="Sample Name" ID="TxtFromName" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="BtnSendEmails" runat="server" Text="Send Email" OnClick="BtnSendEmail_Click" />
-            <input type="submit" id="BtnSubmit" value="send email" runat="server" onclick="BtnSendEmail_Click" />
+            <asp:Button ID="BtnSendEmails" runat="server" OnClientClick="return true;" Text="Send Email" OnClick="BtnSendEmail_Click" />
+           
         </div>
         <br />
         <table>
