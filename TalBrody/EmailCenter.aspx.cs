@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TalBrody.Common;
 using TalBrody.Entity;
 using TalBrody.Logic;
 using TalBrody.Util;
@@ -12,6 +13,7 @@ namespace TalBrody
 {
     public partial class EmailCenter : System.Web.UI.Page
     {
+        int EmailCountSend = 0;
         int ProjectId = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,6 +60,7 @@ namespace TalBrody
                     int UserId = int.Parse(CBSendEmail.Attributes["UserId"]);
                     User user = users.FindUserByUserId(UserId);
                     _email.SendPromoEmail(user, EmailContent, FromEamil, Subject, FromName);
+                    EmailCountSend++;
                 }
             }
         }
@@ -96,6 +99,7 @@ namespace TalBrody
         protected void BtnSendEmail_Click(object sender, EventArgs e)
         {
             SendPromoMail();
+            CommonFunction.ShowAlertMessage(this,EmailCountSend +  " email sended ");
         }
     }
 }
