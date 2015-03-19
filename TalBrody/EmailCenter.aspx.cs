@@ -61,8 +61,8 @@ namespace TalBrody
                     
                     int UserId = int.Parse(CBSendEmail.Attributes["UserId"]);
                     User user = users.FindUserByUserId(UserId);
-                    TempHtml.Replace("#EmailUser#", user.Email);
-                    TempHtml.Replace("#UserName#", user.DisplayName);
+                    TempHtml = TempHtml.Replace("#EmailUser#", user.Email);
+                    TempHtml = TempHtml.Replace("#UserName#", user.DisplayName);
                     _email.SendPromoEmail(user, TempHtml, FromEamil, Subject, FromName);
                     EmailCountSend++;
                 }
