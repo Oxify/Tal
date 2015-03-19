@@ -57,9 +57,13 @@ namespace TalBrody
                 CheckBox CBSendEmail = item.FindControl("CBSendEmail") as CheckBox;
                 if (CBSendEmail != null && CBSendEmail.Checked)
                 {
+                    string TempHtml = EmailContent;
+                    
                     int UserId = int.Parse(CBSendEmail.Attributes["UserId"]);
                     User user = users.FindUserByUserId(UserId);
-                    _email.SendPromoEmail(user, EmailContent, FromEamil, Subject, FromName);
+                    TempHtml.Replace("#EmailUser#", user.Email);
+                    TempHtml.Replace("#UserName#", user.DisplayName);
+                    _email.SendPromoEmail(user, TempHtml, FromEamil, Subject, FromName);
                     EmailCountSend++;
                 }
             }
