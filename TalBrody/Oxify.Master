@@ -179,7 +179,8 @@
         function Register() {
 
             InitilizeRegistration();
-            openRegModal();
+            //            openRegModal();
+            $('#LaunchedModal').modal();
         }
 
         function openRegModal() {
@@ -217,7 +218,7 @@
 
 </head>
 <body id="myBody">
-    <form id="form1" runat="server" >
+    <form id="form1" runat="server">
         <div class="navbar navbar-default navbar-md navbar-custom navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -382,6 +383,38 @@
                         ו<a class="Popup-Link" onclick="PopupWindow();" data-target="/privacy">מדיניות הפרטיות</a>
                         של האתר.
                     </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project launched Modal -->
+    <div class="modal fade" id="LaunchedModal" tabindex="-1" role="dialog" aria-labelledby="We've Launched Dialog!" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    <div>
+                        <br />
+                        <br />
+                        <div>
+                            <h3>קמפיין הגיוס עבור הספר פעיל, ולא ניתן יותר להירשם.
+                            </h3>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+
+                    <br />
+                    <div>
+
+                        <a class="flat-button Popup-Link" href="https://www.headstart.co.il/project.aspx?id=14052">למעבר לאתר הדסטארט</a>
+
+                    </div>
+                    <br />
+                    <br />
 
 
                 </div>

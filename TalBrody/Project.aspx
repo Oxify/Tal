@@ -20,10 +20,10 @@
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
 
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
-                                            <div class="star-image hidden-xs " id="cycler" onclick="Register();">
+                                            <%--                                            <div class="star-image hidden-xs " id="cycler" onclick="Register();">
                                                 <img src="/Images/Toys/Star.png" class="star-active" onclick="Register();" />
                                                 <img src="/Images/Toys/StarHover.png" onclick="Register();" />
-                                            </div>
+                                            </div>--%>
                                             <div class="sm-bottom-responsive-item" id="title-content">
 
                                                 <h1 id="title-text"><strong>"עודני ילד" </strong></h1>
@@ -42,13 +42,13 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="visible-xs">
-                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל ביום שישי, 20 במרץ 2015.<br />
+                                            <h3 class="Description">גיוס התקציב להפקת הספר החל!<br />
 
                                             </h3>
                                         </div>
                                         <div class="hidden-xs">
                                             <hr class="small_divider" />
-                                            <h3 class="Description">גיוס התקציב להפקת הספר יתחיל ביום שישי, 20 במרץ 2015.<br />
+                                            <h3 class="Description">גיוס התקציב להפקת הספר החל!<br />
 
                                             </h3>
                                         </div>
@@ -58,7 +58,8 @@
                                     <div class="col-xs-12">
                                         <div class="register-button-div">
 
-                                            <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו ותקבלו 5 ש"ח הנחה</a><br />
+                                            <%--                                            <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו ותקבלו 5 ש"ח הנחה</a><br />--%>
+                                            <a class="flat-button" href="https://www.headstart.co.il/project.aspx?id=14052">למעבר לדף הפרוייקט באתר הדסטארט</a><br />
                                         </div>
                                         <h3 class="Description">בזכותכם נוציא את הספר לאור.
                                         </h3>
@@ -111,7 +112,8 @@
 
                                                     </div>
                                                     <div class="flat-box-description">
-                                                        ש"ח </div>
+                                                        ש"ח
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="flat-box flat-data grey">
@@ -135,7 +137,9 @@
                                             <div>
                                                 <div class="coming-soon">
                                                     <div class="coming-soon-text">
-                                                        <h5 style="margin-top:7px;">הקמפיין יתחיל ביום שישי, 20 במרץ</h5>
+                                                        <a href="https://www.headstart.co.il/project.aspx?id=14052">
+                                                            <h5 style="margin-top: 7px; color:white;">קמפיין הגיוס החל! לחצו כאן למעבר!</h5>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
