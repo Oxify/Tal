@@ -18,7 +18,7 @@
                             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
                                 <div class="row main-row">
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
-
+ 
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
                                             <%--                                            <div class="star-image hidden-xs " id="cycler" onclick="Register();">
                                                 <img src="/Images/Toys/Star.png" class="star-active" onclick="Register();" />
