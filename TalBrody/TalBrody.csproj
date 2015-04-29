@@ -295,6 +295,7 @@
     <Content Include="Project.aspx" />
     <Content Include="Project2.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="RockAroundTheClock.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -621,6 +622,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RockAroundTheClock.aspx.cs">
+      <DependentUpon>RockAroundTheClock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RockAroundTheClock.aspx.designer.cs">
+      <DependentUpon>RockAroundTheClock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Share.aspx.cs">
       <DependentUpon>Share.aspx</DependentUpon>
