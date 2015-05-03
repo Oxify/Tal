@@ -34,12 +34,12 @@ namespace TalBrody
                 string ProjectName = " פרוייקט מספר שתיים שאני לא יודע מה שמו ";
                 if (fol != null)
                 {
-                    ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(),
+                    ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(2),
                         fol.FollowerGuid);
                 }
                 else
                 {
-                    ShareUrl = IOC.GetInstance<UrlBuilder>().GetProjectUrl();
+                    ShareUrl = IOC.GetInstance<UrlBuilder>().GetProjectUrl(2);
                 }
                 var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
                 FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";

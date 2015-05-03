@@ -60,8 +60,8 @@ namespace TalBrody.Logic
 	    public static string GetReferLink(int userId, int projectId)
 	    {
             Follower fol = GET_Follower_BY_UserId_and_project(userId, projectId);
- 
-            string ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), fol.FollowerGuid);
+
+            string ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(projectId), fol.FollowerGuid);
 	        return ShareUrl;
 
 	    }

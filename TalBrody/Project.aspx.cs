@@ -56,12 +56,12 @@ namespace TalBrody
                 string ProjectName = " עודני כאן - ספר חדש על בית הבראה לצעצועים ";
                 if (fol != null)
                 {
-                    ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(),
+                    ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(1),
                         fol.FollowerGuid);
                 }
                 else
                 {
-                    ShareUrl = IOC.GetInstance<UrlBuilder>().GetProjectUrl();
+                    ShareUrl = IOC.GetInstance<UrlBuilder>().GetProjectUrl(1);
                 }
                 var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
                 FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";

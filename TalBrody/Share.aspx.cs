@@ -26,10 +26,22 @@ namespace TalBrody
 
 		}
 
-		public string GetProjectUrl()
+		public string GetProjectUrl(int projectId)
 		{
-            string projectId = "m1fj"; // TODO
-            return GetBaseUrl() + "p/m1fj/toys";
+            string result = "";
+            switch (projectId)
+            {
+                case 1:
+                    result = "m1fj";
+                    break;
+                case 2:
+                    result = "ratc";
+                    break;
+                default:
+                    break;
+            }
+            //string projectId = "m1fj"; // TODO
+            return GetBaseUrl() + "p/" + result;// + "p/m1fj/toys"
 		}
 	}
 
@@ -43,7 +55,7 @@ namespace TalBrody
 			{
                 Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 1);
 			    string ProjectName = " עודני כאן - ספר חדש על בית הבראה לצעצועים ";
-				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(), fol.FollowerGuid);
+				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(2), fol.FollowerGuid);
 			    var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
 				FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
 				TwitterShareUrl = "https://twitter.com/share?url=" + HttpUtility.UrlEncode(ShareUrl);
