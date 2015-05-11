@@ -35,7 +35,7 @@ namespace TalBrody
                     result = "m1fj";
                     break;
                 case 2:
-                    result = "ratc";
+                    result = "Rock";
                     break;
                 default:
                     break;
@@ -65,7 +65,7 @@ namespace TalBrody
 			}
             else
             {
-                Response.Redirect("/p/m1fj/toys", false);
+                Response.Redirect("/p/Rock", false);
             }
 		}
 

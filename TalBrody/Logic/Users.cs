@@ -55,7 +55,7 @@ namespace TalBrody.Logic
 
             // add folower to th project 
             if (RefUserId > 0)
-                Followers.Insert_Follwer(1, user.Id, RefUserId);
+                Followers.Insert_Follwer(2, user.Id, RefUserId);
 
             return user;
         }

@@ -299,7 +299,6 @@
     <Content Include="JavaScript\SmoothScroll.js" />
     <Content Include="PrivacyPolicy.aspx" />
     <Content Include="Project.aspx" />
-    <Content Include="Project2.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RockAroundTheClock.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -613,13 +612,6 @@
     </Compile>
     <Compile Include="Oxify.Master.designer.cs">
       <DependentUpon>Oxify.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Project2.aspx.cs">
-      <DependentUpon>Project2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project2.aspx.designer.cs">
-      <DependentUpon>Project2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

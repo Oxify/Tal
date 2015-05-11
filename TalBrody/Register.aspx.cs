@@ -62,7 +62,7 @@ namespace TalBrody
             Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
             if (fol == null)
             {
-                Followers.Insert_Follwer(1, user.Id, UserRefId);
+                Followers.Insert_Follwer(2, user.Id, UserRefId);
             }
             // TODO What does this do? Document please
             ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '../Share.aspx'; </script>");
