@@ -32,10 +32,10 @@ namespace TalBrody
             switch (projectId)
             {
                 case 1:
-                    result = "m1fj";
+                    result = "m1fj/toys";
                     break;
                 case 2:
-                    result = "Rock";
+                    result = "g8bk/Rock";
                     break;
                 default:
                     break;
@@ -53,8 +53,8 @@ namespace TalBrody
             UserSession Usession = SessionUtil.GetUserSession();
 			if (Usession != null)
 			{
-                Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 1);
-			    string ProjectName = " עודני כאן - ספר חדש על בית הבראה לצעצועים ";
+                Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 2);
+			    string ProjectName = "רוק מסביב לשעון - ספר חדש של נועם רפפורט על תולדות הרוק";
 				ShareUrl = string.Format("{0}?r={1}", IOC.GetInstance<UrlBuilder>().GetProjectUrl(2), fol.FollowerGuid);
 			    var ShareUrlEncoded = HttpUtility.UrlEncode(ShareUrl);
 				FacebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + HttpUtility.UrlEncode(ShareUrl) + "&display=popup&ref=plugin";
@@ -65,7 +65,7 @@ namespace TalBrody
 			}
             else
             {
-                Response.Redirect("/p/Rock", false);
+                Response.Redirect("/p/g8bk/Rock", false);
             }
 		}
 

@@ -138,7 +138,7 @@ function RegisterSocial(platform, token, email) {
 
             if (response.d.NextStep == 1) {
                 CreateCookieWithId(response.d.UserId);
-                window.location.href = "/p/m1fj/toys/share";
+                window.location.href = "/p/g8bk/Rock/share";
                 // i close it for not do endless loops
                 //window.location.reload(); // refreashg
             }
@@ -186,7 +186,7 @@ function RegisterEmail(name, password, email) {
             } else if (response.d.NextStep == 1)
             {
                 CreateCookieWithId(response.d.UserId);
-                window.location.href = "/p/m1fj/toys/share";
+                window.location.href = "/p/g8bk/Rock/share";
             }
 
         },

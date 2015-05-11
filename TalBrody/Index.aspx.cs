@@ -18,7 +18,7 @@ namespace TalBrody
             {
                 return;
             }
-            Response.Redirect("/p/m1fj/toys", true);
+            Response.Redirect("/p/g8bk/Rock", true);
             Context.ApplicationInstance.CompleteRequest();
             //if (!IsPostBack)
             //{

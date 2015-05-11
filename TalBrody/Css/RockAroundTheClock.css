@@ -1,0 +1,639 @@
+﻿body {
+    height: 100%;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.project {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+.jumbotron {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+#firstpage {
+    height: 100%;
+    min-height: 560px;
+}
+
+
+#headerbuffer {
+    height: 0;
+    margin: 0;
+    padding: 60px 0 0 0;
+}
+
+#middlebuffer1 {
+    margin: 0;
+    height: 0;
+    padding: 0;
+}
+
+.jumbotron-header {
+    /*background-color: pink;*/
+    height: 100%;
+    width: 100%;
+    display: table;
+    padding: 0px 5px 0 5px;
+}
+
+.main-container {
+    /*background-color: darkorange;*/
+    display: table-row;
+    height: 0;
+    width: 768px;
+}
+
+
+.main-row {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.buffer {
+    display: table-row;
+    height: 100%;
+}
+
+.the-rest {
+    display: table-row;
+    /*height: 54px;*/
+    padding-top: 60px;
+}
+
+.last-row {
+    display: table-row;
+    height: 40px;
+}
+
+
+#title {
+    height: 100%;
+    overflow: hidden;
+    /*background-color: lightgoldenrodyellow;*/
+}
+
+
+#cover-page {
+    /*background-color: lightblue;*/
+    padding-top: 0px;
+}
+
+#title-div {
+    height: 100%;
+}
+
+.small_divider {
+    width: 100%;
+    padding: 0;
+    margin: 10px 0 10px 0;
+    border-color: gray;
+}
+
+#title-video {
+    /*background-color: yellow;*/
+    /*padding-left: 0; moved to sm size only*/
+}
+
+#title-content {
+    padding-bottom: 0;
+    text-align: center;
+}
+
+    #title-content h3 {
+        margin-top: 0px;
+    }
+
+#title-video {
+    margin-top: 5px;
+}
+
+#title-subdescription {
+    margin-top: 0px;
+}
+
+#title-text {
+    margin-bottom: 0px;
+    line-height: 42px;
+}
+
+.Description {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+.scroll-icon-wrapper {
+    text-align: center;
+    padding-top: 25px;
+    display: none;
+}
+
+.scroll-icon {
+    font-size: 40px;
+    color: #3498db;
+    background-color: white;
+}
+
+    .scroll-icon:hover {
+        color: #3b5998;
+    }
+
+.scroll-button-div {
+    /*background-color: orange;*/
+    width: 54px;
+    height: 54px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 50%;
+    margin-top: 30px;
+    /*margin-bottom: -50px;*/
+}
+
+
+
+.register-button-div {
+    /*background-color: purple;*/
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+.bottom-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.bottom-responsive-item {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 0;
+}
+
+.bottom-responsive-16by9 {
+    padding-top: 56.25%;
+    padding-bottom: 7%;
+}
+
+.bottom-responsive-4by3 {
+    padding-top: 75%;
+}
+
+
+#thirdpage {
+    height: 100%;
+}
+
+
+
+.coming-soon {
+    height: 32px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.coming-soon-text {
+    background-color: #3498db;
+    color: white;
+    font-size: 24px;
+    vertical-align: middle;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    line-height: 34px;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+
+.active-campaign-text {
+    color: white;
+}
+    .active-campaign-text:hover {
+        color: lightskyblue;
+    }
+.inlineblock {
+    display: inline-block;
+}
+
+#share-and-data {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.share-title {
+    text-align: center;
+    font-weight: bold;
+    color: #3498db;
+    padding-top: 7px;
+}
+
+.flat-box {
+    text-align: center;
+    height: 32px;
+    width: 100%;
+    margin: 0px auto 0px auto;
+}
+
+.flat-box-title {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 26px;
+}
+
+.flat-data {
+    margin-bottom: 10px;
+}
+
+.flat-box-description {
+    font-size: 14px;
+    display: inline-block;
+}
+
+.flat-box-right {
+    width: 35px;
+    display: inline-block;
+    height: 100%;
+    padding-top: 1px;
+    right: 0;
+}
+
+.flat-box-left {
+    display: inline-block;
+    width: 190px;
+    margin-top: -15px;
+    margin-right: 5px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+#main-description {
+    /*padding-top: 7px;
+    padding-bottom: 7px;*/
+}
+
+.star-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    /*background-image: url('/Images/Toys/Star.png');
+    background-repeat: no-repeat;
+    background-size: 125px 125px;*/
+    cursor: pointer;
+}
+
+    .star-image:hover {
+        /*background-image: url('/Images/Toys/StarHover.png');*/
+    }
+
+#cycler img {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+    #cycler img.active {
+        z-index: 3;
+    }
+
+#secondary-title {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#AdditionalTitle {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.people-name {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.circle-blue,
+.circle-grey {
+    width: 25px;
+    display: inline-block;
+    margin-top: 3px;
+    font-size: 18px;
+}
+
+    .circle-grey:after,
+    .circle-blue:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    .circle-grey div, .circle-grey span,
+    .circle-blue div, .circle-blue span {
+        float: left;
+        width: 100%;
+        padding-top: 50%;
+        line-height: 1em;
+        margin-top: -0.5em;
+        text-align: center;
+    }
+
+
+
+.circle-blue {
+    background-color: #3498db;
+}
+
+    .circle-blue:after {
+        background: white;
+        =;
+    }
+
+    .circle-blue div, .circle-blue span {
+        color: #3498db;
+    }
+
+
+.circle-grey {
+    background-color: #dadada;
+}
+
+    .circle-grey:after {
+        background: #312783;
+    }
+
+    .circle-grey div, .circle-grey span {
+        color: #dadada;
+    }
+
+
+
+
+.info-buttons {
+    display: inline-block;
+    text-align: center;
+    vertical-align: central;
+    font-size: 32px;
+    color: black;
+    margin: auto;
+}
+
+    .info-buttons a {
+        text-decoration: none;
+    }
+
+.image-slide {
+    padding: 10px;
+}
+
+.gallary-box {
+    width: 100%;
+    height: 100%;
+    padding: 0px 9px 10px 9px;
+}
+
+.slick-box {
+    padding: 5px 15px 0px 15px;
+    width: 100%;
+}
+
+.gallary-image {
+    /*width: 121px;
+    height: 119px;*/
+    /*padding: 5px;
+}*/
+}
+
+.thumbnail-image {
+    /*width: 141px;
+    height: 99px;*/
+    border: 4px solid white;
+}
+
+.info-box {
+    width: 86px;
+    height: 42px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid #000000;
+    text-decoration: none;
+    text-align: center;
+}
+
+#disqus-div {
+    padding: 15px;
+}
+/* Conditional attributes */
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* for things input xs sizes */
+@media (max-width: 768px) {
+    .margincall {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+/* For col-sm-x */
+@media (min-width: 768px) {
+
+    .jumbotron-header {
+        padding: 0px 15px 0 15px;
+    }
+
+    #headerbuffer {
+        padding-top: 90px;
+    }
+
+    #middlebuffer1 {
+        padding-top: 15px;
+    }
+
+    .main-row {
+        width: 768px;
+    }
+
+    .scroll-icon-wrapper {
+        display: block;
+    }
+
+    .sm-bottom-responsive {
+        position: relative;
+        display: block;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .sm-bottom-responsive-item {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border: 0;
+    }
+
+    .sm-bottom-responsive-16by9 {
+        padding-top: 56.25%;
+        padding-bottom: 6%;
+    }
+
+    .sm-bottom-responsive-4by3 {
+        padding-top: 75%;
+    }
+
+    #title-video {
+        /*background-color: yellow;*/
+        padding-left: 0;
+    }
+
+    #title-content {
+        text-align: right;
+    }
+
+    .Description {
+        line-height: 30px;
+    }
+
+    .flat-button {
+        /*font-family: 'Simple CLM', serif;*/
+        font-size: 23px;
+        padding: 10px 40px 10px 40px;
+        width: 63px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    #share-and-data {
+        width: 300px;
+        margin-top: 0;
+    }
+
+    .share-title {
+        padding-top: 3px;
+    }
+
+
+    /*.
+            .flat-box {
+        text-align: center;
+        height: 60px;
+        width: 190px;
+        margin: 15px auto 0 auto;
+    }
+        flat-box-right {
+        width: 35px;
+        display: inline-block;
+        height: 100%;
+        padding-top: 15px;
+    }
+
+    .flat-box-left {
+        display: inline-block;
+        width: 130px;
+    }
+
+    .flat-box-title {
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 26px;
+    }
+
+    .flat-box-description {
+        font-size: 14px;
+    }*/
+
+
+    /*.circle-grey {
+        width: 30px;
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    .circle-blue {
+        width: 30px;
+        display: inline-block;
+        font-size: 20px;
+    }*/
+
+    .register-button-div {
+        margin-top: 15px;
+    }
+
+    /*.coming-soon {
+        height: 32px;
+        width: 100%;
+        margin-bottom: 10px;
+    }*/
+    .gallary-box {
+        padding-bottom: 20px;
+    }
+
+    .last-row {
+        height: 100px;
+    }
+
+    .people-name {
+        padding-top: 5px;
+        text-align: right;
+    }
+
+    #AdditionalTitle {
+        display: block;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+/* For col-md-x */
+@media (min-width: 992px) {
+    .sm-bottom-responsive-16by9 {
+        padding-bottom: 7%;
+    }
+
+    .whatsapp-box {
+        display: none;
+    }
+
+    /*.star-image {
+        background-size: 125px 125px;
+
+        width: 125px;
+        height: 125px;
+    }*/
+}
+
+/* Large devices (large desktops, 1200px and up) */
+/* For col-lg-x */
+@media (min-width: 1200px) {
+}

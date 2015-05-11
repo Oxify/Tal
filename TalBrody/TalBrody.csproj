@@ -220,6 +220,7 @@
     <Content Include="Css\LightBoxVeryBig.css" />
     <Content Include="Css\Master.css" />
     <Content Include="Css\Project.css" />
+    <Content Include="Css\RockAroundTheClock.css" />
     <Content Include="Css\SimpleCLM.css" />
     <Content Include="Css\slick-theme-oxify.css" />
     <Content Include="EditProject.aspx" />
@@ -244,11 +245,19 @@
     <Content Include="Images\Icon.ico" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Rock\1.jpg" />
+    <Content Include="Images\Rock\1A.jpg" />
     <Content Include="Images\Rock\2.jpg" />
+    <Content Include="Images\Rock\2A.jpg" />
     <Content Include="Images\Rock\3.jpg" />
+    <Content Include="Images\Rock\3A.jpg" />
     <Content Include="Images\Rock\4.jpg" />
+    <Content Include="Images\Rock\4A.jpg" />
     <Content Include="Images\Rock\5.jpg" />
+    <Content Include="Images\Rock\5A.jpg" />
     <Content Include="Images\Rock\6.jpg" />
+    <Content Include="Images\Rock\6A.jpg" />
+    <Content Include="Images\Rock\Star.png" />
+    <Content Include="Images\Rock\StarHover.png" />
     <Content Include="Images\Social.png" />
     <Content Include="Images\Toys\1.jpg" />
     <Content Include="Images\Toys\1A.jpg" />

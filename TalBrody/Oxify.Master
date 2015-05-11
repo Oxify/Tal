@@ -15,46 +15,42 @@
     <meta name="description" content="Oxify - crowdfunding starts here" />
     <meta name="keywords" content="crowdfunding precampaign pre-campaign campaign homepage referral מימון המון המונים קמפיין landing page דף נחיתה" />
 
-    <link rel="canonical" href="http://oxify.co/p/m1fj/toys" />
+    <link rel="canonical" href="http://oxify.co/p/g8bk/Rock" />
 
     <!--- start of twitter meta tags --->
     <!-- Twitter Card data -->
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@oxifyapp" />
-    <meta name="twitter:title" content="עודני ילד" />
-    <meta name="twitter:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
-היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
-בזכותכם, נוציא את הספר לאור. הספר מכיל כ-250 צילומים של משחקים וצעצועים ישנים מתוך האוסף הפרטי של ג'ניס ובני ירוחם.
+    <meta name="twitter:title" content="רוק מסביב לשעון" />
+    <meta name="twitter:description" content="נועם רפפורט - קלידן, מפיק מוזיקלי ומומחה ואספן מוזיקה משהות השישים והשבעים. 
+ניגן קלידים ועיבד  לאמנים כמו : חמי רודנר (גאולה, מלנכוליה אהובתי ועוד), להקת רוקפור (תפקידי קלידים באלבומי הלהקה באנגלית), אושיק לוי, דני סנדרסון ועוד.
+יוצר מזה שנים מוסיקה מקורית עבור תיאטרון פלייבק 'משחק מהחיים'.
+הוציא שני אלבומים מקוריים תחת הרכב שלו בשם LEMMUS LEMMUS.
+ייסד לפני שנתים את מגזין הרוק הקלאסי מס' 1 בארץ - 'קרוב לקצה'.
 " />
     <meta name="twitter:creator" content="@oxifyapp" />
-    <meta name="twitter:image:src" content="http://oxify.co/Images/Toys/FB_6.jpg" />
+    <meta name="twitter:image:src" content="http://oxify.co/Images/Rock/1.jpg" />
 
     <!--- end of twitter meta tags --->
 
 
     <!--- start of FB meta tags --->
-    <meta property="og:url" content="http://oxify.co/p/m1fj/toys" />
+    <meta property="og:url" content="http://oxify.co/p/g8bk/Rock" />
     <meta property="og:locale" content="he_IL" />
-    <meta property="og:title" content="עודני ילד" />
-    <meta property="og:description" content="'עודני ילד' הוא ספר חדש בתהליך עבודה על 'בית הבראה לצעצועים'. 
-היכנסו לקישור, הירשמו ותוכלו לזכות בהטבות מיוחדות.
-בזכותכם, נוציא את הספר לאור. הספר מכיל כ-250 צילומים של משחקים וצעצועים ישנים מתוך האוסף הפרטי של ג'ניס ובני ירוחם.
+    <meta property="og:title" content="רוק מסביב לשעון" />
+    <meta property="og:description" content="נועם רפפורט - קלידן, מפיק מוזיקלי ומומחה ואספן מוזיקה משהות השישים והשבעים. 
+ניגן קלידים ועיבד  לאמנים כמו : חמי רודנר (גאולה, מלנכוליה אהובתי ועוד), להקת רוקפור (תפקידי קלידים באלבומי הלהקה באנגלית), אושיק לוי, דני סנדרסון ועוד.
+יוצר מזה שנים מוסיקה מקורית עבור תיאטרון פלייבק 'משחק מהחיים'.
+הוציא שני אלבומים מקוריים תחת הרכב שלו בשם LEMMUS LEMMUS.
+ייסד לפני שנתים את מגזין הרוק הקלאסי מס' 1 בארץ - 'קרוב לקצה'.
 " />
     <meta property="article:publisher" content="https://www.facebook.com/oxify.co" />
-    <meta property="article:author" content="https://www.facebook.com/ChildhoodMuseum" />
+    <meta property="article:author" content="https://www.facebook.com/groups/1398268357070987/" />
 
 
     <meta property="og:type" content="product" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_5.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_6.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_1.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_2.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_3.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_4.jpg" />
-    <meta property="og:image" content="http://oxify.co/Images/Toys/FB_7.jpg" />
-
-    <meta property="og:image" content="http://oxify.co/Images/Toys/BennyAndHagi.jpg" />
+    <meta property="og:image" content="http://oxify.co/Images/Rock/1.jpg" />
 
     <meta property="fb:app_id" content="1423139441310101" />
     <meta property="og:site_name" content="Oxify" />
@@ -179,8 +175,8 @@
         function Register() {
 
             InitilizeRegistration();
-            //            openRegModal();
-            $('#LaunchedModal').modal();
+            openRegModal();
+            //$('#LaunchedModal').modal();
         }
 
         function openRegModal() {

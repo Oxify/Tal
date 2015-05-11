@@ -35,7 +35,9 @@ namespace TalBrody
             // routers.Add("Images", new Route("Images/{filename}.{ext}", new ImageRouteHandler()));
             routers.MapPageRoute("", "p", "~/Project.aspx");
             routers.MapPageRoute("", "p/m1fj", "~/Project.aspx");
-            routers.MapPageRoute("", "p/Rock", "~/RockAroundTheClock.aspx");
+            routers.MapPageRoute("", "p/g8bk", "~/RockAroundTheClock.aspx");
+            routers.MapPageRoute("", "p/g8bk/Rock", "~/RockAroundTheClock.aspx");
+            routers.MapPageRoute("", "p/g8bk/Rock/share", "~/Share.aspx");
             routers.MapPageRoute("", "p/m1fj/toys", "~/Project.aspx");
             routers.MapPageRoute("", "p/m1fj/toys/share", "~/Share.aspx");
             routers.MapPageRoute("", "tos", "~/TermsOfService.aspx");
