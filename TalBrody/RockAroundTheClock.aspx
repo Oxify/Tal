@@ -20,12 +20,11 @@
                                     <div class="col-sm-6 col-xs-12 margincall" id="title">
 
                                         <div class="sm-bottom-responsive sm-bottom-responsive-16by9" id="title-div">
-                                            <%--                                            <div class="star-image hidden-xs " id="cycler" onclick="Register();">
+                                            <div class="star-image hidden-xs " id="cycler" onclick="Register();">
                                                 <img src="/Images/Toys/Star.png" class="star-active" onclick="Register();" />
                                                 <img src="/Images/Toys/StarHover.png" onclick="Register();" />
-                                            </div>--%>
+                                            </div>
                                             <div class="sm-bottom-responsive-item" id="title-content">
-
                                                 <h1 id="title-text"><strong>"רוק מסביב לשעון" </strong></h1>
                                                 <h2 id="title-subdescription">ספר חדש מאת נעם רפפורט<br />
                                                     על תולדות הרוק העולמי</h2>
@@ -72,7 +71,6 @@
             </div>
 
         </div>
-        <div id="secondpage"></div>
         <div class="jumbotron">
             <div class="jumbotron-header">
                 <div class="main-container">
@@ -180,23 +178,23 @@
             <div class="gallary-box">
 
                 <div class="slick-box">
-                    <a class="gallary-image" rel="gallary" href="/Images/Toys/1.jpg">
-                        <img src="/Images/Toys/1A.jpg" class="thumbnail-image" />
+                    <a class="gallary-image" rel="gallary" href="/Images/Rock/1.jpg">
+                        <img src="/Images/Rock/1A.jpg" class="thumbnail-image" />
                     </a>
-                    <a class="gallary-image" rel="gallary" href="/Images/Toys/2.jpg">
-                        <img src="/Images/Toys/2A.jpg" class="thumbnail-image" />
+                    <a class="gallary-image" rel="gallary" href="/Images/Rock/2.jpg">
+                        <img src="/Images/Rock/2A.jpg" class="thumbnail-image" />
                     </a>
-                    <a class="gallary-image" rel="gallary" href="/Images/Toys/3.jpg">
-                        <img src="/Images/Toys/3A.jpg" class="thumbnail-image" />
+                    <a class="gallary-image" rel="gallary" href="/Images/Rock/3.jpg">
+                        <img src="/Images/Rock/3A.jpg" class="thumbnail-image" />
                     </a>
-                    <a class="gallary-image" rel="gallary" href="/Images/Toys/4.jpg">
-                        <img src="/Images/Toys/4A.jpg" class="thumbnail-image" />
+                    <a class="gallary-image" rel="gallary" href="/Images/Rock/4.jpg">
+                        <img src="/Images/Rock/4A.jpg" class="thumbnail-image" />
                     </a>
-                    <a class="gallary-image" rel="gallary" href="/Images/Toys/5.jpg">
-                        <img src="/Images/Toys/5A.jpg" class="thumbnail-image" />
+                    <a class="gallary-image" rel="gallary" href="/Images/Rock/5.jpg">
+                        <img src="/Images/Rock/5A.jpg" class="thumbnail-image" />
                     </a>
-                    <a class="gallary-image" rel="gallary" href="/Images/Toys/6.jpg">
-                        <img src="/Images/Toys/6A.jpg" class="thumbnail-image" />
+                    <a class="gallary-image" rel="gallary" href="/Images/Rock/6.jpg">
+                        <img src="/Images/Rock/6A.jpg" class="thumbnail-image" />
                     </a>
                 </div>
             </div>
