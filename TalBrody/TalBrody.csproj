@@ -684,7 +684,7 @@
     <Content Include="Fonts\SimpleCLM-MediumOblique.ttf" />
     <Content Include="Fonts\SimpleCLM400.woff" />
     <Content Include="Fonts\SimpleCLM700.woff" />
-    <Content Include="fancybox\Emails\RegistrationEmail.email" />
+    <Content Include="Emails\RegistrationEmail.email" />
     <Content Include="Css\Share.css" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Scripts\ZeroClipboard.min.map" />
