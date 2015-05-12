@@ -109,7 +109,7 @@ namespace TalBrody
                 }
                 if (user != null)
                 {
-                    Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+                    Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 2);
                     if (fol == null)
                     {
                         int UserRefId = 0;
@@ -118,7 +118,7 @@ namespace TalBrody
                             UserRefId = (int)HttpContext.Current.Session["UserRefId"];
 
                         }
-                        Followers.Insert_Follwer(1, user.Id, UserRefId);
+                        Followers.Insert_Follwer(2, user.Id, UserRefId);
                     }
                 }
             }
@@ -185,10 +185,10 @@ namespace TalBrody
                 SessionUtil.AddUserToSession(user.Id);
                 result.UserId = user.Id;
 
-                Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+                Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 2);
                 if (fol == null)
                 {
-                    Followers.Insert_Follwer(1, user.Id, UserRefId);
+                    Followers.Insert_Follwer(2, user.Id, UserRefId);
                 }
                 result.NextStep = 1;
 

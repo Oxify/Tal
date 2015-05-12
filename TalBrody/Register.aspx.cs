@@ -59,7 +59,7 @@ namespace TalBrody
             registerResultLabel.Text = string.Format("Created new user (email, name) = ({0}, {1})", emailStr, displayName);
 
             SessionUtil.AddUserToSession(user.Id);
-            Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 1);
+            Follower fol = Followers.GET_Follower_BY_UserId_and_project(user.Id, 2);
             if (fol == null)
             {
                 Followers.Insert_Follwer(2, user.Id, UserRefId);
