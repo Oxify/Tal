@@ -52,7 +52,7 @@ namespace TalBrody
             UserSession Usession = SessionUtil.GetUserSession();
             if (Usession != null)
             {
-                Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 1);
+                Follower fol = Followers.GET_Follower_BY_UserId_and_project(Usession.UserId, 2);
                 string ProjectName = " רוק מבסיב לשעון  ";
                 if (fol != null)
                 {
