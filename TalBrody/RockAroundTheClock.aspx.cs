@@ -73,13 +73,17 @@ namespace TalBrody
         private void PopulateFollowerCountLable()
         {
             List<Follower> folloList = Followers.Get_Follower_by_Project(1);
-            LblFollowerCount.Text = folloList.Count.ToString();
+//            LblFollowerCount.Text = folloList.Count.ToString();
+            LblFollowerCount.Text = "0";
             UserSession usess = SessionUtil.GetUserSession();
             if (usess != null)
             {
                 folloList = folloList.FindAll(o => o.ReferByUserId == usess.UserId);
                 LblDiscaount.Text = ((folloList.Count + 1) * 5).ToString();
                 LblDiscaount.Text = "10";
+                LblFollowerCount.Text = folloList.Count.ToString();
+                int followers = folloList.Count;
+                LblDiscaount.Text = ((followers) / 10).ToString(); 
                 if (folloList.Count > 0)
                 {
                     string tool = "בזכותך נרשמו: " + Environment.NewLine;
@@ -127,6 +131,7 @@ namespace TalBrody
 
                 firstpage.Visible = false;
                 afterlogin.Visible = true;
+                afterlogin2.Visible = true;
                 if (Request.QueryString["ProjectId"] != null)
                 {
                     int ProjectId = int.Parse(Request.QueryString["ProjectId"]);

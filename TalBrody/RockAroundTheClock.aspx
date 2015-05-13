@@ -57,7 +57,7 @@
                                     <div class="col-xs-12">
                                         <div class="register-button-div">
 
-                                            <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו!</a><br />
+                                            <a class="flat-button" id="BtnRegister" onclick="Register()">הירשמו עכשיו</a><br />
                                             <%--                                            <a class="flat-button" href="https://www.headstart.co.il/project.aspx?id=14052">למעבר לדף הפרוייקט באתר הדסטארט</a><br />--%>
                                         </div>
                                         <h3 class="Description">על כל 10 נרשמים שתגייסו תקבלו עותק מתנה!
@@ -97,20 +97,20 @@
                                                 <div class="flat-box-right">
                                                     <div class="circle-blue ">
                                                         <div>
-                                                            <i class="fa fa-ils"></i>
+                                                            <i class="fa fa-leanpub"></i>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="flat-box-left" runat="server" id="DiscountDiv">
                                                     <div class="flat-box-description">
-                                                        צברת הנחה של
+                                                        הינך זכאי ל-
                                                     </div>
                                                     <div class="flat-box-title">
                                                         <asp:Label ID="LblDiscaount" runat="server" Text="0"></asp:Label>
 
                                                     </div>
                                                     <div class="flat-box-description">
-                                                        ש"ח
+                                                        ספרים
                                                     </div>
                                                 </div>
                                             </div>
@@ -127,14 +127,15 @@
                                                         <asp:Label ID="LblFollowerCount" runat="server" Text="0"></asp:Label>
                                                     </div>
                                                     <div class="flat-box-description">
-                                                        עוקבים אחר הפרוייקט
+                                                        עוקבים אחר הפרוייקט בזכותך
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="coming-soon">
-                                                    <div class="coming-soon-text">קמפיין הגיוס יתחיל בקרוב!
+                                                    <div class="coming-soon-text">
+                                                        קמפיין הגיוס יתחיל בקרוב!
                                                     </div>
                                                 </div>
                                             </div>
@@ -171,6 +172,79 @@
             </div>
         </div>
         <div id="middlebuffer1"></div>
+
+
+
+        <div class="jumbotron" id="afterlogin2" runat="server" visible="False">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 margincall">
+                        <div class="row">
+                            <div class="main-row">
+
+
+                                <div class="col-sm-6 col-xs-12 pull-right ">
+                                    <div id="main-description">
+                                        <div>
+                                            <h4><span class="people-name">עוד על הפרוייקט</span></h4>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 pull-left margincall">
+                                    <div class="row ">
+                                        <div class="col-xs-12">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="main-row">
+                                <div class="col-sm-6 col-xs-12 pull-right ">
+                                    <div id="main-description">
+                                        <div>
+                                        </div>
+                                        <h6 style="text-align: justify; margin-top: 0">הי, אני נועם.<br />
+                                            רובכם מכירים אותי כמוזיקאי ואני גם מייסד ומנהל את מגזין הרוק "קרוב לקצה".
+                                            <br />
+                                            מאז ומעולם, אהבתי מוזיקה ולנגן על כלי נגינה שונים והגשמתי הרבה חלומות מוזיקליים, על הבמה ובאולפני הקלטות.<br />
+                                            תמיד עניין אותי לדעת, מה מסתתר מאחורי הצלילים בשירים ובתקליטים האהובים עלי.<br />
+                                            יש לי חלום להוציא לאור ספר על תולדות הרוק העולמי, יום אחר יום.<br />
+                                            רוצים דוגמה?<br />
+                                            בבקשה.<br />
+                                            ב-<strong>18 ביוני 1967</strong>, שרף ג'ימי הנדריקס בפעם השנייה בחייו גיטרה על במה.<br />
+                                            אכן בחור מדליק :)<br />
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 pull-left margincall">
+                                    <div class="row ">
+                                        <div class="col-xs-12">
+
+                                            <h6 style="text-align: justify; margin-top: 0">ב<strong>שישה ביולי 1957</strong>, נפגשו לראשונה ג'ון לנון ופול מקרטני.<br />
+                                                הפגישה המבטיחה הזאת, היתה אירוע מכונן בתולדות הפופ העולמי.<br />
+                                                ב<strong>רביעי באוקטובר 1970</strong>, נמצאה ג'ניס ג'ופלין ללא רוח חיים.<br />
+                                                בזמן ששתתה את עצמה למוות, המתינו לה חברי להקתה באולפן ההקלטות, אך ג'ניס לא הגיעה.<br />
+                                                <br />
+                                                יש לכם הזדמנות נדירה, להיות שותפים בהפקת ספר יחיד ומיוחד, שעדיין לא נעשה כדוגמתו בארץ.<br />
+                                                ריכשו עכשיו את הספר במחיר מיוחד ותעזרו לי להגשים את החלום.<br />
+                                                <br />
+                                                הספר ייצא לאור בהוצאת הספרים "מרום תרבות ישראלית" ויופץ לכל חנויות הספרים בארץ.            
+                                                <br />
+
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="main-row center-block">
             <div class="gallary-box">
 
@@ -205,7 +279,7 @@
                     /* * * CONFIGURATION VARIABLES * * */
                     var disqus_shortname = 'oxify';
                     var disqus_identifier = '<%=ProjectId %>';
-                    var disqus_title = 'עודני ילד';
+                    var disqus_title = 'רוק מסביב לשעון';
                     var disqus_config = function () {
                         this.language = "he";
                     };
