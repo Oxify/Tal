@@ -14,16 +14,17 @@
                     <h3><strong>תודה שנרשמתם!</strong></h3>
                     <h4>אנא אשרו את הרשמתכם דרך המייל שנשלח אליכם על מנת להצטרף אלי.
                         <br />
-              
-       
+
+
 
                     </h4>
-                    <h3><strong>רוצים לקבל עותק מהספר במתנה?</strong></h3>
+                    <div class="flat-box flat-data grey" style="width: 400px; margin:0 auto;">
+                        <h3><strong>רוצים לקבל עותק מהספר במתנה?</strong></h3>
+                    </div>
                     <h4>הפיצו את הקישור הייחודי שלכם או לחצו על כפתורי השיתוף השונים.<br />
                         <strong>על כל 10 אנשים שיירשמו בזכותכם עד לתחילת הקמפיין, תקבלו עותק מספרי החדש!!!</strong>
                     </h4>
-                    <h4>
-                        הקישור הייחודי שלכם:<br/>
+                    <h4>הקישור הייחודי שלכם:<br />
                         <asp:Label ID="shareUrlInput" runat="server"></asp:Label>
                     </h4>
                     <div class="">
@@ -36,7 +37,7 @@
                             <a href="mailto:?subject=Look at this cool project&body=Check out this new campaign!%0A<%= ShareUrl %>"><span class="share-box email-color"><i class="fa fa-envelope-o "></i></span>
                             </a>
                             <a class="Popup-Link" onclick="PopupWindow();" data-target="<%= FacebookShareUrl %> "><span class="share-box facebook-color"><i class="fa fa-facebook"></i></span></a>
-                            <a class="Copy-Link" id="CopyButton" data-clipboard-text="<%=ShareUrl %>" data-toggle="tooltip" title="העתק את הקישור היחודי ללוח" data-placement="top" ><span class="share-box link-color"><i class="fa fa-clipboard"></i></span></a>
+                            <a class="Copy-Link" id="CopyButton" data-clipboard-text="<%=ShareUrl %>" data-toggle="tooltip" title="העתק את הקישור היחודי ללוח" data-placement="top"><span class="share-box link-color"><i class="fa fa-clipboard"></i></span></a>
                         </div>
                     </div>
                     <br />
