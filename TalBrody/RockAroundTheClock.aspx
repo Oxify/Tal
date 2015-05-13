@@ -25,7 +25,7 @@
                                                 <img src="/Images/Rock/StarHover.png" onclick="Register();" />
                                             </div>
                                             <div class="sm-bottom-responsive-item" id="title-content">
-                                                <h1 id="title-text"><strong>"רוק מסביב לשעון" </strong></h1>
+                                                <h1 id="title-text">"רוק מסביב לשעון" </h1>
                                                 <h2 id="title-subdescription">ספר חדש מאת נעם רפפורט<br />
                                                     על תולדות הרוק העולמי</h2>
                                             </div>
