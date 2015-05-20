@@ -14,7 +14,7 @@ namespace TalBrody
     public partial class EmailCenter : System.Web.UI.Page
     {
         int EmailCountSend = 0;
-        int ProjectId = 1;
+        int ProjectId = 2;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
