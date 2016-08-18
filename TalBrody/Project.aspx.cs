@@ -36,7 +36,8 @@ namespace TalBrody
                 {
                     if (Request.QueryString["v"].ToLower() == "live")
                     {
-                        Response.Redirect("http://www.headstart.co.il/project.aspx?id=14052", true);
+                        //Response.Redirect("http://www.headstart.co.il/project.aspx?id=14052", true);
+                        Response.Redirect("https://www.youtube.com/watch?v=TmWljN9aE5s", true);
                         Context.ApplicationInstance.CompleteRequest();
                         return;
                     }
